@@ -288,16 +288,26 @@ export const ChatAPIWeb = async (props: PromptGPTProps) => {
     return streamingResponse;
   }
 
-  // Assistantの回答がない場合は、エラーメッセージを返す
-  console.log('No Assistant response available, returning error');
-  console.log('Debug info:', {
-    assistantResponse: assistantResponse,
-    assistantResponseLength: assistantResponse?.length || 0,
-    searchResult: searchResult,
-    searchResultKeys: Object.keys(searchResult || {})
-  });
-  return new Response("検索結果を取得できませんでした。しばらく時間をおいて再度お試しください。", {
-    status: 500,
-    statusText: "No Assistant Response",
-  });
+  // Assistantの回答がない場合でも、検索結果があれば処理を続行
+  if (!assistantResponse && searchResult?.webPages?.value?.length > 0) {
+    console.log('No Assistant response but search results available, proceeding with OpenAI generation...');
+    console.log('Search results count:', searchResult.webPages.value.length);
+    
+    // 検索結果があるので、OpenAIで回答を生成
+    // この場合、下記のOpenAI処理に進む
+  } else if (!assistantResponse) {
+    // 検索結果もAssistant回答もない場合のみエラーを返す
+    console.log('No Assistant response and no search results available, returning error');
+    console.log('Debug info:', {
+      assistantResponse: assistantResponse,
+      assistantResponseLength: assistantResponse?.length || 0,
+      searchResult: searchResult,
+      searchResultKeys: Object.keys(searchResult || {}),
+      webPagesCount: searchResult?.webPages?.value?.length || 0
+    });
+    return new Response("検索結果を取得できませんでした。しばらく時間をおいて再度お試しください。", {
+      status: 500,
+      statusText: "No Assistant Response",
+    });
+  }
 };
