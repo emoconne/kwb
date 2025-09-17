@@ -192,7 +192,7 @@ export class BingSearchResult {
   private async executeAzureAISearch(projectEndpoint: string, agentId: string, searchText: string, threadId?: string) {
     // Azure AI Projects SDKの動的インポート
     const { AIProjectClient } = await import("@azure/ai-projects");
-    const { DefaultAzureCredential } = await import("@azure/identity");
+    const { DefaultAzureCredential, AzureKeyCredential } = await import("@azure/identity");
 
     console.log('Attempting to authenticate with Azure AI Foundry...');
     console.log('Environment check:', {
@@ -201,29 +201,51 @@ export class BingSearchResult {
       hasClientId: !!process.env.AZURE_CLIENT_ID
     });
     
-    // 常にDefaultAzureCredentialを使用（Entra認証）
-    console.log('Using DefaultAzureCredential with Entra authentication...');
+    let project;
     
-    // App Service環境でのManaged Identity設定
-    const credentialOptions = {
-      managedIdentityClientId: process.env.AZURE_CLIENT_ID || undefined,
-      loggingOptions: {
-        enableLogging: true,
-        logLevel: 'info'
-      },
-      retryOptions: {
-        maxRetries: 5,
-        retryDelayInMs: 800
-      },
-      allowInsecureConnection: true
-    };
-    
-    const credential = new DefaultAzureCredential(credentialOptions);
-    const project = new AIProjectClient(projectEndpoint, credential);
+    // APIキーが利用可能な場合はAPIキー認証を優先
+    if (process.env.AZURE_AI_FOUNDRY_API_KEY) {
+      console.log('Using API Key authentication...');
+      console.log('API Key (first 10 chars):', process.env.AZURE_AI_FOUNDRY_API_KEY.substring(0, 10) + '...');
+      
+      try {
+        const keyCredential = new AzureKeyCredential(process.env.AZURE_AI_FOUNDRY_API_KEY);
+        project = new AIProjectClient(projectEndpoint, keyCredential);
+        console.log('AIProjectClient created successfully with API key');
+      } catch (clientError) {
+        console.error('Failed to create AIProjectClient with API key:', clientError);
+        throw new Error(`AIProjectClient作成に失敗: ${clientError instanceof Error ? clientError.message : '不明なエラー'}`);
+      }
+    } else {
+      // フォールバックとしてManaged Identity認証
+      console.log('Using DefaultAzureCredential with Entra authentication...');
+      
+      // App Service環境でのManaged Identity設定
+      const credentialOptions = {
+        managedIdentityClientId: process.env.AZURE_CLIENT_ID || undefined,
+        loggingOptions: {
+          enableLogging: true,
+          logLevel: 'info'
+        },
+        retryOptions: {
+          maxRetries: 5,
+          retryDelayInMs: 800
+        },
+        allowInsecureConnection: true
+      };
+      
+      const credential = new DefaultAzureCredential(credentialOptions);
+      project = new AIProjectClient(projectEndpoint, credential);
+    }
     
     // エージェントを取得
-    const agent = await project.agents.getAgent(agentId);
-    console.log(`Retrieved agent: ${agent.name}`);
+    try {
+      const agent = await project.agents.getAgent(agentId);
+      console.log(`Retrieved agent: ${agent.name}`);
+    } catch (agentError) {
+      console.error('Failed to retrieve agent:', agentError);
+      throw new Error(`エージェントの取得に失敗しました: ${agentError instanceof Error ? agentError.message : '不明なエラー'}`);
+    }
 
     // スレッドを取得または作成
     let thread;
