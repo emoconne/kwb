@@ -20,6 +20,7 @@
     <div style="margin: 10px 0;">
         <button onclick="testIframeAPI()">iframe診断APIテスト</button>
         <button onclick="testIframeStatus()">iframe状況確認</button>
+        <button onclick="testHeaders()">ヘッダー設定確認</button>
         <button onclick="switchToEmbedPage()">iframe専用ページに切り替え</button>
         <button onclick="switchToMainPage()">メインページに切り替え</button>
         <button onclick="clearLogs()">ログクリア</button>
@@ -121,6 +122,32 @@
         function switchToMainPage() {
             log('メインページに切り替え中...');
             document.getElementById('testIframe').src = 'https://kashiwabaragpt.azurewebsites.net';
+        }
+        
+        // ヘッダー設定確認
+        async function testHeaders() {
+            log('ヘッダー設定確認APIを呼び出し中...');
+            try {
+                const response = await fetch('https://kashiwabaragpt.azurewebsites.net/api/headers-test');
+                const data = await response.json();
+                
+                if (data.success) {
+                    log('ヘッダー設定確認API結果:');
+                    log(`- allowIframeEmbedding: ${data.config.allowIframeEmbedding}`);
+                    log(`- allowedFrameAncestors: ${data.config.allowedFrameAncestors}`);
+                    log(`- X-Frame-Options: ${data.headers['X-Frame-Options'] || 'なし'}`);
+                    log(`- Content-Security-Policy: ${data.headers['Content-Security-Policy'] || 'なし'}`);
+                    log(`- Access-Control-Allow-Origin: ${data.headers['Access-Control-Allow-Origin'] || 'なし'}`);
+                    log(`- message: ${data.message}`);
+                    updateStatus(`ヘッダー確認完了: ${data.message}`, 'success');
+                } else {
+                    log(`ヘッダー設定確認APIエラー: ${data.error}`);
+                    updateStatus('ヘッダー確認失敗', 'error');
+                }
+            } catch (error) {
+                log(`ヘッダー設定確認APIエラー: ${error.message}`);
+                updateStatus('ヘッダー確認失敗', 'error');
+            }
         }
         
         // iframe内からのメッセージを受信
