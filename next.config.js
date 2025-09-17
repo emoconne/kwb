@@ -32,19 +32,34 @@ const nextConfig = {
     return config;
   },
   async headers() {
+    // iframe埋め込み許可の設定（環境変数で制御可能）
+    const allowIframeEmbedding = process.env.ALLOW_IFRAME_EMBEDDING === 'true';
+    const allowedFrameAncestors = process.env.ALLOWED_FRAME_ANCESTORS || '*';
+    
+    const headers = [];
+    
+    if (allowIframeEmbedding) {
+      // iframe埋め込みを許可する場合
+      headers.push({
+        key: 'Content-Security-Policy',
+        value: `frame-ancestors ${allowedFrameAncestors}`
+      });
+    } else {
+      // iframe埋め込みを制限する場合（デフォルト）
+      headers.push({
+        key: 'X-Frame-Options',
+        value: 'SAMEORIGIN'
+      });
+      headers.push({
+        key: 'Content-Security-Policy',
+        value: "frame-ancestors 'self' https://view.officeapps.live.com https://docs.google.com"
+      });
+    }
+    
     return [
       {
         source: '/(.*)',
-        headers: [
-          {
-            key: 'X-Frame-Options',
-            value: 'SAMEORIGIN'
-          },
-          {
-            key: 'Content-Security-Policy',
-            value: "frame-ancestors 'self' https://view.officeapps.live.com https://docs.google.com"
-          }
-        ]
+        headers: headers
       }
     ];
   }
