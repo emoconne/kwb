@@ -42,7 +42,16 @@ const nextConfig = {
       // iframe埋め込みを許可する場合
       headers.push({
         key: 'Content-Security-Policy',
-        value: `frame-ancestors ${allowedFrameAncestors}`
+        value: `frame-ancestors ${allowedFrameAncestors}; default-src 'self' 'unsafe-inline' 'unsafe-eval' data: blob: https:; script-src 'self' 'unsafe-inline' 'unsafe-eval' https:; style-src 'self' 'unsafe-inline' https:; img-src 'self' data: blob: https:; connect-src 'self' https:; font-src 'self' data: https:;`
+      });
+      // iframe内での動作を改善するため、追加のヘッダーを設定
+      headers.push({
+        key: 'X-Content-Type-Options',
+        value: 'nosniff'
+      });
+      headers.push({
+        key: 'Referrer-Policy',
+        value: 'strict-origin-when-cross-origin'
       });
     } else {
       // iframe埋め込みを制限する場合（デフォルト）

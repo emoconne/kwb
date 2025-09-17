@@ -125,7 +125,7 @@ export const options: NextAuthOptions = {
       options: {
         path: '/',
         httpOnly: true,
-        sameSite: 'none',
+        sameSite: process.env.ALLOW_IFRAME_EMBEDDING === 'true' ? 'none' : 'lax',
         secure: true,
       },
     },
@@ -133,7 +133,7 @@ export const options: NextAuthOptions = {
       name: `__Secure-next-auth.callback-url`,
       options: {
         path: '/',
-        sameSite: 'none',
+        sameSite: process.env.ALLOW_IFRAME_EMBEDDING === 'true' ? 'none' : 'lax',
         secure: true,
       },
     },
@@ -142,7 +142,7 @@ export const options: NextAuthOptions = {
       options: {
         path: '/',
         httpOnly: true,
-        sameSite: 'none',
+        sameSite: process.env.ALLOW_IFRAME_EMBEDDING === 'true' ? 'none' : 'lax',
         secure: true,
       },
     },
