@@ -48,6 +48,7 @@ import { DepartmentTable } from "./department-table";
 import { DropboxTokenDisplay } from "./dropbox-token-display";
 import { UserSettingsTable } from "./user-settings-table";
 import { DropboxAppConfig } from "./dropbox-app-config";
+import { GaroonSettingsList } from "./garoon-settings-list";
 
 
 interface DepartmentFormData {
@@ -112,6 +113,7 @@ export const SettingsManagement = () => {
   const [autoSync, setAutoSync] = useState<boolean>(false);
   const [syncInterval, setSyncInterval] = useState<string>('15分');
   const [showDropboxToken, setShowDropboxToken] = useState<boolean>(false);
+
 
 
 
@@ -773,6 +775,7 @@ export const SettingsManagement = () => {
     }
   };
 
+
   useEffect(() => {
     fetchDepartments();
     fetchContainers();
@@ -841,7 +844,7 @@ export const SettingsManagement = () => {
       </div>
 
       <Tabs defaultValue="logs" className="space-y-6 h-[calc(100vh-200px)] overflow-y-auto">
-        <TabsList className="grid w-full grid-cols-7">
+        <TabsList className="grid w-full grid-cols-8">
           <TabsTrigger value="logs" className="flex items-center gap-1 text-xs px-2">
             <Activity className="w-3 h-3" />
             利用ログ
@@ -857,6 +860,10 @@ export const SettingsManagement = () => {
           <TabsTrigger value="external-storage" className="flex items-center gap-1 text-xs px-2">
             <Database className="w-3 h-3" />
             外部ストレージ
+          </TabsTrigger>
+          <TabsTrigger value="garoon" className="flex items-center gap-1 text-xs px-2">
+            <Folder className="w-3 h-3" />
+            Garoon連携
           </TabsTrigger>
           <TabsTrigger value="menus" className="flex items-center gap-1 text-xs px-2">
             <Menu className="w-3 h-3" />
@@ -1402,19 +1409,21 @@ export const SettingsManagement = () => {
                           type="checkbox" 
                           className="mr-2" 
                           id="auto-sync"
-                          checked={autoSync}
-                          onChange={(e) => setAutoSync(e.target.checked)}
+                          checked={false}
+                          disabled={true}
+                          onChange={() => {}} // 無効化
                         />
-                        <label htmlFor="auto-sync" className="text-sm">ファイルの変更を自動同期する</label>
+                        <label htmlFor="auto-sync" className="text-sm text-gray-500">ファイルの変更を自動同期する（無効化済み）</label>
                       </div>
                     </div>
                     <div>
                       <label className="text-sm font-medium">同期間隔</label>
                       <select 
-                        className="mt-1 w-full p-2 border rounded" 
+                        className="mt-1 w-full p-2 border rounded bg-gray-100 text-gray-500" 
                         aria-label="同期間隔を選択"
-                        value={syncInterval}
-                        onChange={(e) => setSyncInterval(e.target.value)}
+                        value="15分"
+                        disabled={true}
+                        onChange={() => {}} // 無効化
                       >
                         <option>5分</option>
                         <option>15分</option>
@@ -1427,6 +1436,15 @@ export const SettingsManagement = () => {
               </div>
             </CardContent>
           </Card>
+        </TabsContent>
+
+        {/* Garoon連携タブ */}
+        <TabsContent value="garoon" className="space-y-6 pb-6 max-h-[calc(100vh-300px)] overflow-y-auto">
+          {/* Garoon設定一覧 */}
+          <GaroonSettingsList onConfigChange={(configs) => {
+            // 設定変更時の処理（必要に応じて追加）
+            console.log('Garoon設定が変更されました:', configs);
+          }} />
         </TabsContent>
 
         {/* 利用状況グラフタブ */}

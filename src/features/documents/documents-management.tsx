@@ -45,6 +45,7 @@ import { useGlobalMessageContext } from "@/features/global-message/global-messag
 import { DropboxExplorer } from "@/components/dropbox-explorer";
 import { DropboxFileInfo } from "@/features/documents/dropbox-file-service";
 import { DropboxTokenDisplay } from "@/features/settings/dropbox-token-display";
+import { GaroonExplorer } from "@/components/garoon-explorer";
 
 interface Document {
   id: string;
@@ -360,13 +361,14 @@ export const DocumentsManagement = () => {
   }, []);
 
   // 定期的にステータスのみを更新（処理中のドキュメントのステータス変更を反映）
-  useEffect(() => {
-    const interval = setInterval(() => {
-      updateDocumentStatuses();
-    }, 5000); // 5秒ごとに更新
+  // 定期実行を停止しました
+  // useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     updateDocumentStatuses();
+  //   }, 5000); // 5秒ごとに更新
 
-    return () => clearInterval(interval);
-  }, []);
+  //   return () => clearInterval(interval);
+  // }, []);
 
   // アップロード状態のデバッグ用
   useEffect(() => {
@@ -823,26 +825,16 @@ export const DocumentsManagement = () => {
 
         {/* Garoonタブ */}
         <TabsContent value="garoon">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <CalendarDays className="w-5 h-5" />
-                Garoon連携
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <div className="text-center py-12">
-                <CalendarDays className="w-16 h-16 mx-auto text-muted-foreground mb-4" />
-                <h3 className="text-lg font-semibold mb-2"></h3>
-                <p className="text-muted-foreground mb-4">
-                  Garoonとの連携機能は未設定です。
-                </p>
-                <p className="text-sm text-muted-foreground">
-                  
-                </p>
-              </div>
-            </CardContent>
-          </Card>
+          <GaroonExplorer
+            onFileSelect={(file) => {
+              console.log('Garoonファイル選択:', file);
+              // ファイル選択時の処理をここに追加
+            }}
+            onFolderSelect={(folder) => {
+              console.log('Garoonフォルダ選択:', folder);
+              // フォルダ選択時の処理をここに追加
+            }}
+          />
         </TabsContent>
       </Tabs>
     </div>

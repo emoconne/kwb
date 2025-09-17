@@ -66,7 +66,7 @@ export async function POST(request: NextRequest) {
       await updateDropboxSettings(existingSettings.id, {
         accessToken,
         folderPath: folderPath || existingSettings.folderPath,
-        autoSync: autoSync !== undefined ? autoSync : existingSettings.autoSync,
+        autoSync: false, // 自動同期を無効化
         syncInterval: syncInterval || existingSettings.syncInterval,
         isActive: true,
       });
@@ -81,7 +81,7 @@ export async function POST(request: NextRequest) {
       const settingsId = await saveDropboxSettings({
         accessToken,
         folderPath: folderPath || "/",
-        autoSync: autoSync !== undefined ? autoSync : false,
+        autoSync: false, // 自動同期を無効化
         syncInterval: syncInterval || "15分",
         isActive: true,
       });
