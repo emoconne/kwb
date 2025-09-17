@@ -5,13 +5,9 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Table, TableBody, TableCell, TableHead, TableHeader, TableRow } from "@/components/ui/table";
-import { Badge } from "@/components/ui/badge";
-import { Textarea } from "@/components/ui/textarea";
 import { Tabs, TabsContent, TabsList, TabsTrigger } from "@/components/ui/tabs";
 import { 
-  Settings, 
   Building2, 
-  Menu, 
   Activity,
   Plus,
   Edit,
@@ -19,35 +15,19 @@ import {
   Save,
   X,
   AlertCircle,
-  CheckCircle,
-  Clock,
-  FolderOpen,
   RefreshCw,
   BarChart3,
   Download,
-  Bot,
   ChevronLeft,
   ChevronRight,
-  Database,
-  Eye,
-  EyeOff,
-  File,
-  Folder,
-  FolderPlus,
-  Users
+  Folder
 } from "lucide-react";
-import { DropboxExplorer } from "@/components/dropbox-explorer";
-import { DropboxFileInfo } from "@/features/documents/dropbox-file-service";
 import Link from "next/link";
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
 import { useSession } from "next-auth/react";
 import { useGlobalMessageContext } from "@/features/global-message/global-message-context";
 import { Department } from "@/features/documents/cosmos-db-dept-service";
-import { GPTModelData } from "@/features/documents/cosmos-db-gpt-model-service";
 import { DepartmentTable } from "./department-table";
-import { DropboxTokenDisplay } from "./dropbox-token-display";
-import { UserSettingsTable } from "./user-settings-table";
-import { DropboxAppConfig } from "./dropbox-app-config";
 import { GaroonSettingsList } from "./garoon-settings-list";
 
 
@@ -91,28 +71,6 @@ export const SettingsManagement = () => {
   const [graphPeriod, setGraphPeriod] = useState<'daily' | 'monthly'>('daily');
   const [isGraphLoading, setIsGraphLoading] = useState(false);
 
-  // GPTモデル設定用の状態
-  const [gptModels, setGptModels] = useState<GPTModelData[]>([]);
-  const [currentModel, setCurrentModel] = useState<string>('');
-  const [isGptModelLoading, setIsGptModelLoading] = useState(false);
-  const [editingGptModel, setEditingGptModel] = useState<GPTModelData | null>(null);
-  const [isEditingGptModel, setIsEditingGptModel] = useState(false);
-  const [gptModelFormData, setGptModelFormData] = useState({
-    name: '',
-    deploymentName: '',
-    description: '',
-    isAvailable: true,
-    isDefault: false,
-  });
-
-  // Dropbox連携用の状態
-  const [dropboxToken, setDropboxToken] = useState<string>('');
-  const [dropboxFolderPath, setDropboxFolderPath] = useState<string>('');
-  const [dropboxFiles, setDropboxFiles] = useState<DropboxFileInfo[]>([]);
-  const [isDropboxLoading, setIsDropboxLoading] = useState(false);
-  const [autoSync, setAutoSync] = useState<boolean>(false);
-  const [syncInterval, setSyncInterval] = useState<string>('15分');
-  const [showDropboxToken, setShowDropboxToken] = useState<boolean>(false);
 
 
 
@@ -292,167 +250,9 @@ export const SettingsManagement = () => {
     }
   };
 
-  // GPTモデル一覧を取得
-  const fetchGptModels = async () => {
-    try {
-      setIsGptModelLoading(true);
-      const response = await fetch('/api/settings/gpt-models');
-      if (response.ok) {
-        const data = await response.json();
-        setGptModels(data.models || []);
-        setCurrentModel(data.currentModel || '');
-      } else {
-        const errorData = await response.json();
-                  showError(errorData.error || 'GPTモデル一覧の取得に失敗しました');
-        }
-      } catch (error) {
-        showError('GPTモデル一覧の取得に失敗しました');
-    } finally {
-      setIsGptModelLoading(false);
-    }
-  };
 
 
 
-  // GPTモデルを選択
-  const selectGptModel = async (modelId: string) => {
-    try {
-      setIsGptModelLoading(true);
-      const response = await fetch('/api/settings/gpt-models', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ selectedModel: modelId }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        setCurrentModel(data.selectedModel);
-                  showSuccess({
-            title: 'GPTモデル選択',
-            description: data.message || 'GPTモデルが選択されました'
-          });
-        fetchGptModels(); // 一覧を再取得
-      } else {
-        const errorData = await response.json();
-                  showError(errorData.error || 'GPTモデルの選択に失敗しました');
-        }
-      } catch (error) {
-        showError('GPTモデルの選択に失敗しました');
-    } finally {
-      setIsGptModelLoading(false);
-    }
-  };
-
-  // GPTモデルを保存
-  const handleSaveGptModel = async () => {
-    if (!gptModelFormData.name || !gptModelFormData.deploymentName) {
-              showError('モデル名とデプロイ名は必須です');
-      return;
-    }
-
-    try {
-      setIsGptModelLoading(true);
-      
-      const url = '/api/settings/gpt-models/manage';
-      const method = editingGptModel ? 'PUT' : 'POST';
-      
-      const response = await fetch(url, {
-        method,
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(editingGptModel 
-          ? { id: editingGptModel.id, ...gptModelFormData }
-          : gptModelFormData
-        ),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        showSuccess({
-          title: 'GPTモデル管理',
-          description: data.message || (editingGptModel ? 'GPTモデルが更新されました' : 'GPTモデルが作成されました')
-        });
-        
-        setGptModelFormData({
-          name: '',
-          deploymentName: '',
-          description: '',
-          isAvailable: true,
-          isDefault: false,
-        });
-        setEditingGptModel(null);
-        setIsEditingGptModel(false);
-        fetchGptModels();
-      } else {
-        const errorData = await response.json();
-                  showError(errorData.error || 'GPTモデルの保存に失敗しました');
-        }
-      } catch (error) {
-        showError('GPTモデルの保存に失敗しました');
-    } finally {
-      setIsGptModelLoading(false);
-    }
-  };
-
-  // GPTモデルを削除
-  const handleDeleteGptModel = async (modelId: string) => {
-    if (!confirm('このGPTモデルを削除しますか？')) {
-      return;
-    }
-
-    try {
-      setIsGptModelLoading(true);
-      const response = await fetch(`/api/settings/gpt-models/manage?id=${modelId}`, {
-        method: 'DELETE',
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        showSuccess({
-          title: 'GPTモデル削除',
-          description: data.message || 'GPTモデルが削除されました'
-        });
-        fetchGptModels();
-      } else {
-        const errorData = await response.json();
-                  showError(errorData.error || 'GPTモデルの削除に失敗しました');
-        }
-      } catch (error) {
-        console.error('Delete GPT model error:', error);
-        showError('GPTモデルの削除に失敗しました');
-    } finally {
-      setIsGptModelLoading(false);
-    }
-  };
-
-  // 編集モードを開始
-  const handleEditGptModel = (model: GPTModelData) => {
-    setEditingGptModel(model);
-    setGptModelFormData({
-      name: model.name,
-      deploymentName: model.deploymentName,
-      description: model.description,
-      isAvailable: model.isAvailable,
-      isDefault: model.isDefault,
-    });
-    setIsEditingGptModel(true);
-  };
-
-  // 編集をキャンセル
-  const handleCancelEditGptModel = () => {
-    setEditingGptModel(null);
-    setGptModelFormData({
-      name: '',
-      deploymentName: '',
-      description: '',
-      isAvailable: true,
-      isDefault: false,
-    });
-    setIsEditingGptModel(false);
-  };
 
   // CSVダウンロード
   const downloadCSV = async () => {
@@ -616,164 +416,6 @@ export const SettingsManagement = () => {
     }
   };
 
-  // Dropbox連携機能
-  const testDropboxConnection = async () => {
-    if (!dropboxToken.trim()) {
-      showError('アクセストークンを入力してください');
-      return;
-    }
-
-    // 基本的な形式チェック
-    if (!dropboxToken.startsWith('sl.')) {
-      showError('アクセストークンの形式が正しくありません。Dropboxアクセストークンは "sl." で始まる必要があります。');
-      return;
-    }
-
-    try {
-      setIsDropboxLoading(true);
-      console.log('接続テスト開始:', dropboxToken.substring(0, 10) + '...');
-      
-      const response = await fetch('/api/settings/dropbox/test', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({ accessToken: dropboxToken }),
-      });
-
-      const data = await response.json();
-      console.log('接続テストレスポンス:', response.status, data);
-
-      if (response.ok) {
-        showSuccess({
-          title: '接続テスト',
-          description: `Dropboxへの接続が成功しました。アカウント: ${data.accountInfo.name}`
-        });
-      } else {
-        showError(data.error || 'Dropboxへの接続に失敗しました');
-      }
-    } catch (error) {
-      console.error('接続テストエラー:', error);
-      showError('Dropboxへの接続に失敗しました');
-    } finally {
-      setIsDropboxLoading(false);
-    }
-  };
-
-  const saveDropboxSettings = async () => {
-    if (!dropboxToken.trim()) {
-      showError('アクセストークンを入力してください');
-      return;
-    }
-
-    try {
-      setIsDropboxLoading(true);
-      const response = await fetch('/api/settings/dropbox', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          accessToken: dropboxToken,
-          folderPath: dropboxFolderPath,
-          autoSync: autoSync,
-          syncInterval: syncInterval,
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        showSuccess({
-          title: '設定保存',
-          description: data.message || 'Dropbox設定が保存されました'
-        });
-      } else {
-        const errorData = await response.json();
-        showError(errorData.error || 'Dropbox設定の保存に失敗しました');
-      }
-    } catch (error) {
-      showError('Dropbox設定の保存に失敗しました');
-    } finally {
-      setIsDropboxLoading(false);
-    }
-  };
-
-  const fetchDropboxFiles = async () => {
-    try {
-      setIsDropboxLoading(true);
-      const response = await fetch('/api/settings/dropbox/files');
-
-      if (response.ok) {
-        const data = await response.json();
-        
-        if (data.success === false && data.warning) {
-          // 権限不足の場合
-          showError(data.error);
-          // Dropbox設定ページへのリンクを表示
-          alert('Dropboxアプリの設定で権限を有効にしてください: https://www.dropbox.com/developers/apps');
-          setDropboxFiles([]);
-        } else {
-          setDropboxFiles(data.files || []);
-          const folderCount = data.folderCount || 0;
-          const fileCount = data.fileCount || 0;
-          showSuccess({
-            title: 'ファイル一覧更新',
-            description: `フォルダ: ${folderCount}件、ファイル: ${fileCount}件を取得しました（再帰検索）`
-          });
-        }
-      } else {
-        const errorData = await response.json();
-        showError(errorData.error || 'Dropboxファイル一覧の取得に失敗しました');
-      }
-    } catch (error) {
-      showError('Dropboxファイル一覧の取得に失敗しました');
-    } finally {
-      setIsDropboxLoading(false);
-    }
-  };
-
-  // Dropbox OAuth2認証を開始
-  const startDropboxOAuth = async () => {
-    try {
-      setIsDropboxLoading(true);
-      const response = await fetch('/api/auth/dropbox');
-      if (response.ok) {
-        const data = await response.json();
-        // OAuth2認証URLにリダイレクト
-        window.location.href = data.authUrl;
-      } else {
-        const errorData = await response.json();
-        showError(errorData.error || 'Dropbox OAuth2認証の開始に失敗しました');
-      }
-    } catch (error) {
-      console.error('Start Dropbox OAuth error:', error);
-      showError('Dropbox OAuth2認証の開始に失敗しました');
-    } finally {
-      setIsDropboxLoading(false);
-    }
-  };
-
-  // 初期化時にDropbox設定を読み込み
-  const loadDropboxSettings = async () => {
-    try {
-      const response = await fetch('/api/settings/dropbox');
-      if (response.ok) {
-        const data = await response.json();
-        if (data.settings) {
-          setDropboxToken(data.settings.accessToken);
-          setDropboxFolderPath(data.settings.folderPath);
-          setAutoSync(data.settings.autoSync);
-          setSyncInterval(data.settings.syncInterval);
-          // 保存されたトークンがある場合は非表示状態にする
-          if (data.settings.accessToken) {
-            setShowDropboxToken(false);
-          }
-        }
-      }
-    } catch (error) {
-      console.error('Dropbox設定の読み込みに失敗しました:', error);
-    }
-  };
 
 
   useEffect(() => {
@@ -781,37 +423,6 @@ export const SettingsManagement = () => {
     fetchContainers();
     fetchChatThreads();
     fetchGraphData();
-    fetchGptModels();
-    loadDropboxSettings();
-    
-    // URLパラメータからDropbox認証結果を確認
-    const urlParams = new URLSearchParams(window.location.search);
-    const dropboxSuccess = urlParams.get('dropbox_success');
-    const dropboxError = urlParams.get('dropbox_error');
-    const accountName = urlParams.get('account_name');
-    
-    if (dropboxSuccess === 'true') {
-      showSuccess({
-        title: 'Dropbox認証成功',
-        description: `アカウント "${accountName}" で認証が完了しました`
-      });
-      // URLパラメータをクリア
-      window.history.replaceState({}, document.title, window.location.pathname);
-      // 設定を再読み込み
-      loadDropboxSettings();
-    } else if (dropboxError) {
-      const errorMessages: { [key: string]: string } = {
-        'no_code': '認証コードが取得できませんでした',
-        'missing_config': 'Dropbox設定が不足しています',
-        'token_exchange_failed': 'アクセストークンの取得に失敗しました',
-        'account_info_failed': 'アカウント情報の取得に失敗しました',
-        'token_exchange_exception': 'トークン交換でエラーが発生しました',
-        'callback_exception': 'コールバック処理でエラーが発生しました'
-      };
-      showError(errorMessages[dropboxError] || `認証エラー: ${dropboxError}`);
-      // URLパラメータをクリア
-      window.history.replaceState({}, document.title, window.location.pathname);
-    }
   }, []);
 
   useEffect(() => {
@@ -844,41 +455,23 @@ export const SettingsManagement = () => {
       </div>
 
       <Tabs defaultValue="logs" className="space-y-6 h-[calc(100vh-200px)] overflow-y-auto">
-        <TabsList className="grid w-full grid-cols-8">
-          <TabsTrigger value="logs" className="flex items-center gap-1 text-xs px-2">
-            <Activity className="w-3 h-3" />
+        <TabsList className="grid w-full grid-cols-4">
+          <TabsTrigger value="logs" className="flex items-center gap-2">
+            <Activity className="w-4 h-4" />
             利用ログ
           </TabsTrigger>
-          <TabsTrigger value="graph" className="flex items-center gap-1 text-xs px-2">
-            <BarChart3 className="w-3 h-3" />
+          <TabsTrigger value="graph" className="flex items-center gap-2">
+            <BarChart3 className="w-4 h-4" />
             利用状況グラフ
           </TabsTrigger>
-          <TabsTrigger value="departments" className="flex items-center gap-1 text-xs px-2">
-            <Building2 className="w-3 h-3" />
+          <TabsTrigger value="departments" className="flex items-center gap-2">
+            <Building2 className="w-4 h-4" />
             部門設定
           </TabsTrigger>
-          <TabsTrigger value="external-storage" className="flex items-center gap-1 text-xs px-2">
-            <Database className="w-3 h-3" />
-            外部ストレージ
-          </TabsTrigger>
-          <TabsTrigger value="garoon" className="flex items-center gap-1 text-xs px-2">
-            <Folder className="w-3 h-3" />
+          <TabsTrigger value="garoon" className="flex items-center gap-2">
+            <Folder className="w-4 h-4" />
             Garoon連携
           </TabsTrigger>
-          <TabsTrigger value="menus" className="flex items-center gap-1 text-xs px-2">
-            <Menu className="w-3 h-3" />
-            メニュー設定
-          </TabsTrigger>
-          <TabsTrigger value="gpt-models" className="flex items-center gap-1 text-xs px-2">
-            <Bot className="w-3 h-3" />
-            GPTモデル
-          </TabsTrigger>
-          <TabsTrigger value="users" className="flex items-center gap-1 text-xs px-2">
-            <Users className="w-3 h-3" />
-            ユーザー設定
-          </TabsTrigger>
-
-
         </TabsList>
 
         {/* 部門設定タブ */}
@@ -980,22 +573,6 @@ export const SettingsManagement = () => {
 
 
 
-        {/* メニュー設定タブ */}
-        <TabsContent value="menus" className="space-y-6 pb-6">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Menu className="w-5 h-5" />
-                メニュー設定
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              <p className="text-muted-foreground">
-                メニュー設定機能は現在開発中です。
-              </p>
-            </CardContent>
-          </Card>
-        </TabsContent>
 
         {/* 利用ログタブ */}
         <TabsContent value="logs" className="space-y-6 pb-6">
@@ -1080,363 +657,8 @@ export const SettingsManagement = () => {
           </Card>
         </TabsContent>
 
-        {/* GPTモデル設定タブ */}
-        <TabsContent value="gpt-models" className="space-y-6 pb-6">
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Bot className="w-5 h-5" />
-                GPTモデル設定
-              </CardTitle>
-            </CardHeader>
-            <CardContent>
-              {/* フォーム */}
-              {isEditingGptModel && (
-                <Card className="mb-6 border-2 border-dashed">
-                  <CardHeader>
-                    <CardTitle className="text-lg">
-                      {editingGptModel ? 'GPTモデルを編集' : 'GPTモデルを追加'}
-                    </CardTitle>
-                  </CardHeader>
-                  <CardContent className="space-y-4">
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div>
-                        <label className="text-sm font-medium">モデル名 *</label>
-                        <Input
-                          value={gptModelFormData.name}
-                          onChange={(e) => setGptModelFormData({ ...gptModelFormData, name: e.target.value })}
-                          placeholder="例: GPT-4o"
-                          className="mt-1"
-                        />
-                      </div>
-                      <div>
-                        <label className="text-sm font-medium">デプロイ名 *</label>
-                        <Input
-                          value={gptModelFormData.deploymentName}
-                          onChange={(e) => setGptModelFormData({ ...gptModelFormData, deploymentName: e.target.value })}
-                          placeholder="例: gpt-4o"
-                          className="mt-1"
-                        />
-                      </div>
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium">説明</label>
-                      <Textarea
-                        value={gptModelFormData.description}
-                        onChange={(e) => setGptModelFormData({ ...gptModelFormData, description: e.target.value })}
-                        placeholder="モデルの説明を入力"
-                        className="mt-1"
-                        rows={3}
-                      />
-                    </div>
-                    <div className="flex items-center space-x-4">
-                      <div className="flex items-center space-x-2">
-                        <input
-                          type="checkbox"
-                          id="isAvailable"
-                          checked={gptModelFormData.isAvailable}
-                          onChange={(e) => setGptModelFormData({ ...gptModelFormData, isAvailable: e.target.checked })}
-                          className="rounded"
-                        />
-                        <label htmlFor="isAvailable" className="text-sm font-medium">
-                          利用可能
-                        </label>
-                      </div>
-                      <div className="flex items-center space-x-2">
-                        <input
-                          type="checkbox"
-                          id="isDefault"
-                          checked={gptModelFormData.isDefault}
-                          onChange={(e) => setGptModelFormData({ ...gptModelFormData, isDefault: e.target.checked })}
-                          className="rounded"
-                        />
-                        <label htmlFor="isDefault" className="text-sm font-medium">
-                          デフォルト
-                        </label>
-                      </div>
-                    </div>
-                    <div className="flex gap-2">
-                      <Button 
-                        onClick={handleSaveGptModel}
-                        disabled={isGptModelLoading || (!gptModelFormData.name || !gptModelFormData.deploymentName)}
-                        className="flex-1"
-                      >
-                        {isGptModelLoading ? (
-                          <>
-                            <div className="animate-spin rounded-full h-4 w-4 border-b-2 border-white mr-2"></div>
-                            {editingGptModel ? '更新中...' : '保存中...'}
-                          </>
-                        ) : (
-                          <>
-                            <Save className="w-4 h-4 mr-2" />
-                            {editingGptModel ? '更新' : '保存'}
-                          </>
-                        )}
-                      </Button>
-                      <Button 
-                        onClick={handleCancelEditGptModel}
-                        variant="outline"
-                      >
-                        <X className="w-4 h-4 mr-2" />
-                        キャンセル
-                      </Button>
-                    </div>
-                  </CardContent>
-                </Card>
-              )}
 
-              {/* 追加ボタン */}
-              {!isEditingGptModel && (
-                <div className="mb-6">
-                  <Button 
-                    onClick={() => setIsEditingGptModel(true)}
-                    className="w-full"
-                    variant="outline"
-                    disabled={isGptModelLoading}
-                  >
-                    <Plus className="w-4 h-4 mr-2" />
-                    GPTモデルを追加
-                  </Button>
-                </div>
-              )}
 
-              {/* モデル一覧 */}
-              {isGptModelLoading ? (
-                <div className="text-center py-8">
-                  <div className="animate-spin rounded-full h-8 w-8 border-b-2 border-primary mx-auto"></div>
-                  <p className="mt-2 text-muted-foreground">読み込み中...</p>
-                </div>
-              ) : gptModels.length === 0 ? (
-                <div className="text-center py-8">
-                  <Bot className="w-12 h-12 text-muted-foreground mx-auto mb-4" />
-                  <p className="text-muted-foreground">GPTモデルが登録されていません</p>
-                  <p className="text-sm text-muted-foreground mt-1">「GPTモデルを追加」ボタンから新しいモデルを追加してください</p>
-                </div>
-              ) : (
-                <div className="space-y-4">
-                  <div className="flex justify-between items-center">
-                    <h3 className="text-lg font-semibold">登録済みモデル</h3>
-                  </div>
-                  <Table>
-                    <TableHeader>
-                      <TableRow>
-                        <TableHead className="w-32">モデル名</TableHead>
-                        <TableHead className="w-40">デプロイ名</TableHead>
-                        <TableHead className="w-48">説明</TableHead>
-                        <TableHead className="w-32">作成日</TableHead>
-                        <TableHead className="w-32">操作</TableHead>
-                      </TableRow>
-                    </TableHeader>
-                    <TableBody>
-                      {gptModels.map((model) => (
-                        <TableRow key={model.id}>
-                          <TableCell className="font-medium w-32">{model.name}</TableCell>
-                          <TableCell className="w-40">{model.deploymentName}</TableCell>
-                          <TableCell className="max-w-48 truncate w-48" title={model.description || '-'}>
-                            {model.description || '-'}
-                          </TableCell>
-                          <TableCell className="w-32">
-                            {new Date(model.createdAt).toLocaleDateString('ja-JP')}
-                          </TableCell>
-                          <TableCell className="w-32">
-                            <div className="flex gap-2">
-                              <Button
-                                size="sm"
-                                variant="outline"
-                                onClick={() => handleEditGptModel(model)}
-                                className="flex items-center gap-1"
-                              >
-                                <Edit className="w-3 h-3" />
-                                編集
-                              </Button>
-                              <Button
-                                size="sm"
-                                variant="destructive"
-                                onClick={() => handleDeleteGptModel(model.id)}
-                                disabled={model.isDefault}
-                                className="flex items-center gap-1"
-                              >
-                                <Trash2 className="w-3 h-3" />
-                                削除
-                              </Button>
-                            </div>
-                          </TableCell>
-                        </TableRow>
-                      ))}
-                    </TableBody>
-                  </Table>
-                </div>
-              )}
-            </CardContent>
-          </Card>
-        </TabsContent>
-
-        {/* ユーザー設定タブ */}
-        <TabsContent value="users" className="space-y-6 pb-6">
-          <UserSettingsTable />
-        </TabsContent>
-
-        {/* 外部ストレージタブ */}
-        <TabsContent value="external-storage" className="space-y-6 pb-6 max-h-[calc(100vh-300px)] overflow-y-auto">
-          {/* Dropbox App設定 */}
-          <DropboxAppConfig />
-          
-          <Card>
-            <CardHeader>
-              <CardTitle className="flex items-center gap-2">
-                <Database className="w-5 h-5" />
-                Dropbox連携設定
-              </CardTitle>
-            </CardHeader>
-            <CardContent className="space-y-6">
-              {/* Dropbox連携設定 */}
-              <div className="space-y-4">
-                <h3 className="text-lg font-semibold">Dropbox連携</h3>
-                <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                  <div>
-                    <label className="text-sm font-medium">アクセストークン</label>
-                    <div className="relative mt-1">
-                      <Input
-                        type={showDropboxToken ? "text" : "password"}
-                        placeholder="Dropboxアクセストークンを入力"
-                        className="pr-10"
-                        value={dropboxToken}
-                        onChange={(e) => setDropboxToken(e.target.value)}
-                      />
-                      <button
-                        type="button"
-                        className="absolute inset-y-0 right-0 pr-3 flex items-center"
-                        onClick={() => setShowDropboxToken(!showDropboxToken)}
-                        title={showDropboxToken ? "トークンを隠す" : "トークンを表示"}
-                      >
-                        {showDropboxToken ? (
-                          <EyeOff className="h-4 w-4 text-gray-400 hover:text-gray-600 transition-colors" />
-                        ) : (
-                          <Eye className="h-4 w-4 text-gray-400 hover:text-gray-600 transition-colors" />
-                        )}
-                      </button>
-                    </div>
-                  </div>
-                  <div>
-                    <label className="text-sm font-medium">フォルダパス</label>
-                    <Input
-                      placeholder="ルートフォルダの場合は空白、または /フォルダ名/サブフォルダ名"
-                      className="mt-1"
-                      value={dropboxFolderPath}
-                      onChange={(e) => setDropboxFolderPath(e.target.value)}
-                    />
-                    <p className="text-xs text-muted-foreground mt-1">
-                      ルートフォルダの場合は空白のままにしてください
-                    </p>
-                  </div>
-                </div>
-                <div className="flex gap-2">
-                  <Button 
-                    variant="outline" 
-                    size="sm"
-                    onClick={testDropboxConnection}
-                    disabled={isDropboxLoading}
-                  >
-                    <RefreshCw className="w-4 h-4 mr-2" />
-                    接続テスト
-                  </Button>
-                  <Button 
-                    size="sm"
-                    onClick={saveDropboxSettings}
-                    disabled={isDropboxLoading}
-                  >
-                    <Save className="w-4 h-4 mr-2" />
-                    保存
-                  </Button>
-                  <Button 
-                    variant="outline"
-                    size="sm"
-                    onClick={startDropboxOAuth}
-                    disabled={isDropboxLoading}
-                  >
-                    <RefreshCw className="w-4 h-4 mr-2" />
-                    OAuth2認証
-                  </Button>
-                </div>
-              </div>
-
-              {/* Dropboxファイル一覧 */}
-              {/* ファイルエクスプローラーと同期設定を横並びに配置 */}
-              <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
-                {/* ファイルエクスプローラー（左側2/3） */}
-                <div className="lg:col-span-2 space-y-4">
-                  <div className="flex items-center justify-between">
-                    <h3 className="text-lg font-semibold">Dropboxファイル一覧</h3>
-                    <div className="flex gap-2">
-                      <Button 
-                        variant="outline" 
-                        size="sm"
-                        onClick={fetchDropboxFiles}
-                        disabled={isDropboxLoading}
-                      >
-                        <RefreshCw className="w-4 h-4 mr-2" />
-                        ファイル一覧更新
-                      </Button>
-                      <Button variant="outline" size="sm">
-                        <Download className="w-4 h-4 mr-2" />
-                        ファイルダウンロード
-                      </Button>
-                    </div>
-                  </div>
-                  
-                  <DropboxExplorer
-                    files={dropboxFiles}
-                    loading={isDropboxLoading}
-                    onFileSelect={(file: DropboxFileInfo) => {
-                      console.log('ファイル選択:', file);
-                      // ファイル選択時の処理をここに追加
-                    }}
-                    onFolderSelect={(folder: DropboxFileInfo) => {
-                      console.log('フォルダ選択:', folder);
-                      // フォルダ選択時の処理をここに追加
-                    }}
-                  />
-                </div>
-
-                {/* 同期設定（右側1/3） */}
-                <div className="space-y-4">
-                  <h3 className="text-lg font-semibold">同期設定</h3>
-                  <div className="space-y-4">
-                    <div>
-                      <label className="text-sm font-medium">自動同期</label>
-                      <div className="mt-1">
-                        <input 
-                          type="checkbox" 
-                          className="mr-2" 
-                          id="auto-sync"
-                          checked={false}
-                          disabled={true}
-                          onChange={() => {}} // 無効化
-                        />
-                        <label htmlFor="auto-sync" className="text-sm text-gray-500">ファイルの変更を自動同期する（無効化済み）</label>
-                      </div>
-                    </div>
-                    <div>
-                      <label className="text-sm font-medium">同期間隔</label>
-                      <select 
-                        className="mt-1 w-full p-2 border rounded bg-gray-100 text-gray-500" 
-                        aria-label="同期間隔を選択"
-                        value="15分"
-                        disabled={true}
-                        onChange={() => {}} // 無効化
-                      >
-                        <option>5分</option>
-                        <option>15分</option>
-                        <option>30分</option>
-                        <option>1時間</option>
-                      </select>
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
-        </TabsContent>
 
         {/* Garoon連携タブ */}
         <TabsContent value="garoon" className="space-y-6 pb-6 max-h-[calc(100vh-300px)] overflow-y-auto">

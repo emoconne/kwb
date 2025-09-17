@@ -174,15 +174,15 @@ resource webApp 'Microsoft.Web/sites@2020-06-01' = {
         }
         {
           name: 'AZURE_AI_FOUNDRY_ENDPOINT'
-          value: 'https://bing-new-fujibo-resource.cognitiveservices.azure.com'
+          value: 'https://kashiwabara-foundry-resource.services.ai.azure.com/api/projects/kashiwabara-foundry'
         }
         {
           name: 'AZURE_AI_FOUNDRY_API_KEY'
-          value: 'your-azure-ai-foundry-api-key-here'
+          value: '@Microsoft.KeyVault(VaultName=${kv.name};SecretName=AZURE-AI-FOUNDRY-API-KEY)'
         }
         {
           name: 'AZURE_AI_FOUNDRY_AGENT_ID'
-          value: 'asst_VGKxyS6qe9b5UiIt5G3xc8nP'
+          value: 'asst_gjP1ym4Jg1K81tuWiFJ0gSjW'
         }
         // Bing Search APIは非推奨のため削除
       ]
@@ -218,6 +218,19 @@ resource kvFunctionAppPermissions 'Microsoft.Authorization/roleAssignments@2020-
     principalId: webApp.identity.principalId
     principalType: 'ServicePrincipal'
     roleDefinitionId: keyVaultSecretsUserRole
+  }
+}
+
+// Azure AI Foundry (Cognitive Services) contributor role for Managed Identity
+var cognitiveServicesContributorRole = subscriptionResourceId('Microsoft.Authorization/roleDefinitions', '25fbc0a9-bd7c-42a3-aa1a-3b75d497ee68')
+
+resource aiFoundryManagedIdentityPermissions 'Microsoft.Authorization/roleAssignments@2020-04-01-preview' = {
+  name: guid(subscription().id, webApp.name, cognitiveServicesContributorRole)
+  scope: resourceGroup()
+  properties: {
+    principalId: webApp.identity.principalId
+    principalType: 'ServicePrincipal'
+    roleDefinitionId: cognitiveServicesContributorRole
   }
 }
 
@@ -268,7 +281,13 @@ resource kv 'Microsoft.KeyVault/vaults@2021-06-01-preview' = {
     }
   }
 
-  // Azure AI Foundry secrets removed - using direct environment variables
+  resource AZURE_AI_FOUNDRY_API_KEY 'secrets' = {
+    name: 'AZURE-AI-FOUNDRY-API-KEY'
+    properties: {
+      contentType: 'text/plain'
+      value: 'your-azure-ai-foundry-api-key-here'
+    }
+  }
 
 
   resource AZURE_SEARCH_API_KEY 'secrets' = {

@@ -30,36 +30,43 @@ export class BingSearchResult {
       console.log('Search Text:', searchText);
       console.log('Using Azure CLI authentication');
 
-      // 認証の確認（App Service環境でのManaged Identity対応）
-      try {
-        const { DefaultAzureCredential } = await import("@azure/identity");
-        
-        // App Service環境でのManaged Identity設定
-        const credentialOptions = {
-          // App Service環境でのManaged Identityを優先
-          managedIdentityClientId: process.env.AZURE_CLIENT_ID || undefined,
-          // デバッグ情報を有効化
-          loggingOptions: {
-            enableLogging: true,
-            logLevel: 'info'
-          }
-        };
-        
-        const credential = new DefaultAzureCredential(credentialOptions);
-        console.log('DefaultAzureCredential created successfully with options:', credentialOptions);
-        
-        // 認証トークンの取得を試行
-        const token = await credential.getToken("https://cognitiveservices.azure.com/.default");
-        console.log('Authentication successful, token obtained, expires:', token?.expiresOnTimestamp);
-      } catch (authError) {
-        console.error('Authentication failed:', authError);
-        console.error('Auth error details:', {
-          name: authError instanceof Error ? authError.name : 'Unknown',
-          message: authError instanceof Error ? authError.message : String(authError),
-          stack: authError instanceof Error ? authError.stack : undefined
-        });
-        throw new Error(`認証に失敗しました: ${authError instanceof Error ? authError.message : '不明なエラー'}`);
+    // 認証の確認（App Service環境でのManaged Identity対応）
+    try {
+      const { DefaultAzureCredential } = await import("@azure/identity");
+      
+      // App Service環境でのManaged Identity設定
+      const credentialOptions = {
+        // App Service環境でのManaged Identityを優先
+        managedIdentityClientId: process.env.AZURE_CLIENT_ID || undefined,
+        // デバッグ情報を有効化
+        loggingOptions: {
+          enableLogging: true,
+          logLevel: 'info'
+        }
+      };
+      
+      const credential = new DefaultAzureCredential(credentialOptions);
+      console.log('DefaultAzureCredential created successfully with options:', credentialOptions);
+      
+      // 認証トークンの取得を試行
+      const token = await credential.getToken("https://cognitiveservices.azure.com/.default");
+      console.log('Authentication successful, token obtained, expires:', token?.expiresOnTimestamp);
+    } catch (authError) {
+      console.error('Authentication failed:', authError);
+      console.error('Auth error details:', {
+        name: authError instanceof Error ? authError.name : 'Unknown',
+        message: authError instanceof Error ? authError.message : String(authError),
+        stack: authError instanceof Error ? authError.stack : undefined
+      });
+      
+      // App Service環境でのエラーの場合、フォールバック検索を実行
+      if (process.env.WEBSITE_SITE_NAME) {
+        console.log('App Service環境での認証エラーを検出、フォールバック検索を実行します');
+        return this.fallbackSearch(searchText);
       }
+      
+      throw new Error(`認証に失敗しました: ${authError instanceof Error ? authError.message : '不明なエラー'}`);
+    }
 
       // タイムアウト付きでAzure AI Projects SDKを実行（120秒に延長）
       const result = await Promise.race([

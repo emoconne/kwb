@@ -14,22 +14,41 @@ export async function GET(request: NextRequest) {
     // Web検索を実行
     const result = await bingSearch.SearchWeb(searchText);
     
-    console.log('Search result:', {
-      success: !!result,
-      hasSearchResults: !!(result && result.searchResults),
-      hasAssistantResponse: !!(result && result.assistantResponse),
-      threadId: result?.threadId
-    });
+    console.log('Search result:', result);
+    
+    // 戻り値の構造を判定（Azure AI Foundry形式 vs フォールバック形式）
+    const isAzureAIResult = result && 'searchResults' in result && 'assistantResponse' in result;
+    const isFallbackResult = result && 'webPages' in result;
+    
+    let searchResultsCount = 0;
+    let assistantResponseLength = 0;
+    let hasSearchResults = false;
+    let hasAssistantResponse = false;
+    
+    if (isAzureAIResult) {
+      // Azure AI Foundry形式の結果
+      searchResultsCount = result.searchResults?.webPages?.value?.length || 0;
+      assistantResponseLength = result.assistantResponse?.length || 0;
+      hasSearchResults = !!result.searchResults;
+      hasAssistantResponse = !!result.assistantResponse;
+    } else if (isFallbackResult) {
+      // フォールバック形式の結果
+      searchResultsCount = result.webPages?.value?.length || 0;
+      assistantResponseLength = 0;
+      hasSearchResults = !!result.webPages;
+      hasAssistantResponse = false;
+    }
     
     return NextResponse.json({
       success: true,
       searchText,
       result: {
-        hasSearchResults: !!(result && result.searchResults),
-        hasAssistantResponse: !!(result && result.assistantResponse),
+        hasSearchResults,
+        hasAssistantResponse,
         threadId: result?.threadId,
-        searchResultsCount: result?.searchResults?.webPages?.value?.length || 0,
-        assistantResponseLength: result?.assistantResponse?.length || 0
+        searchResultsCount,
+        assistantResponseLength,
+        resultType: isAzureAIResult ? 'azure-ai-foundry' : isFallbackResult ? 'fallback' : 'unknown'
       },
       timestamp: new Date().toISOString()
     });

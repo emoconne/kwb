@@ -35,16 +35,12 @@ import {
   Calendar,
   Bug,
   TestTube,
-  Cloud,
   Share2,
   Database,
   CalendarDays
 } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useGlobalMessageContext } from "@/features/global-message/global-message-context";
-import { DropboxExplorer } from "@/components/dropbox-explorer";
-import { DropboxFileInfo } from "@/features/documents/dropbox-file-service";
-import { DropboxTokenDisplay } from "@/features/settings/dropbox-token-display";
 import { GaroonExplorer } from "@/components/garoon-explorer";
 
 interface Document {
@@ -91,8 +87,6 @@ export const DocumentsManagement = () => {
   const [selectedDepartment, setSelectedDepartment] = useState<string>('');
   const [errorDetails, setErrorDetails] = useState<{[key: string]: any}>({});
   const [showErrorDetails, setShowErrorDetails] = useState<string | null>(null);
-  const [dropboxFiles, setDropboxFiles] = useState<DropboxFileInfo[]>([]);
-  const [isDropboxLoading, setIsDropboxLoading] = useState(false);
 
   // ドキュメント一覧を取得
   const fetchDocuments = async () => {
@@ -303,24 +297,6 @@ export const DocumentsManagement = () => {
     }
   };
 
-  // Dropboxファイル一覧を取得
-  const fetchDropboxFiles = async () => {
-    try {
-      setIsDropboxLoading(true);
-      const response = await fetch('/api/settings/dropbox/files');
-      if (response.ok) {
-        const data = await response.json();
-        setDropboxFiles(data.files || []);
-      } else {
-        const errorData = await response.json();
-        showError(errorData.error || 'Dropboxファイル一覧の取得に失敗しました');
-      }
-    } catch (error) {
-      showError('Dropboxファイル一覧の取得に失敗しました');
-    } finally {
-      setIsDropboxLoading(false);
-    }
-  };
 
 
 
@@ -357,7 +333,6 @@ export const DocumentsManagement = () => {
   useEffect(() => {
     fetchDocuments();
     fetchDepartments();
-    fetchDropboxFiles();
   }, []);
 
   // 定期的にステータスのみを更新（処理中のドキュメントのステータス変更を反映）
@@ -557,14 +532,10 @@ export const DocumentsManagement = () => {
       </div>
 
       <Tabs defaultValue="upload" className="w-full">
-        <TabsList className="grid w-full grid-cols-5">
+        <TabsList className="grid w-full grid-cols-4">
           <TabsTrigger value="upload" className="flex items-center gap-2">
             <Upload className="w-4 h-4" />
             ファイルアップロード
-          </TabsTrigger>
-          <TabsTrigger value="dropbox" className="flex items-center gap-2">
-            <Cloud className="w-4 h-4" />
-            Dropbox
           </TabsTrigger>
           <TabsTrigger value="sharepoint" className="flex items-center gap-2">
             <Share2 className="w-4 h-4" />
@@ -726,54 +697,6 @@ export const DocumentsManagement = () => {
           </Card>
         </TabsContent>
 
-        {/* Dropboxタブ */}
-        <TabsContent value="dropbox">
-          <div className="space-y-6">
-            {/* トークン情報表示 */}
-            <DropboxTokenDisplay onRefresh={fetchDropboxFiles} />
-            
-            {/* ファイル一覧 */}
-            <Card>
-              <CardHeader>
-                <div className="flex items-center justify-between">
-                  <CardTitle className="flex items-center gap-2">
-                    <Cloud className="w-5 h-5" />
-                    Dropboxファイル一覧
-                  </CardTitle>
-                  <div className="flex gap-2">
-                    <Button 
-                      variant="outline" 
-                      size="sm"
-                      onClick={fetchDropboxFiles}
-                      disabled={isDropboxLoading}
-                    >
-                      <RefreshCw className="w-4 h-4 mr-2" />
-                      ファイル一覧更新
-                    </Button>
-                    <Button variant="outline" size="sm">
-                      <Download className="w-4 h-4 mr-2" />
-                      ファイルダウンロード
-                    </Button>
-                  </div>
-                </div>
-              </CardHeader>
-              <CardContent>
-                <DropboxExplorer
-                  files={dropboxFiles}
-                  loading={isDropboxLoading}
-                  onFileSelect={(file: DropboxFileInfo) => {
-                    console.log('ファイル選択:', file);
-                    // ファイル選択時の処理をここに追加
-                  }}
-                  onFolderSelect={(folder: DropboxFileInfo) => {
-                    console.log('フォルダ選択:', folder);
-                    // フォルダ選択時の処理をここに追加
-                  }}
-                />
-              </CardContent>
-            </Card>
-          </div>
-        </TabsContent>
 
         {/* SharePointタブ */}
         <TabsContent value="sharepoint">

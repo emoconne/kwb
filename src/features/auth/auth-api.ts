@@ -101,6 +101,8 @@ export const options: NextAuthOptions = {
       }
       
       // ユーザーIDが設定されている場合、CosmosDBからユーザー情報を取得
+      // 一時的にコメントアウト - 繰り返し処理を停止
+      /*
       if (token.sub) {
         try {
           // まずユーザーIDで検索
@@ -139,6 +141,10 @@ export const options: NextAuthOptions = {
           token.isAdmin = isAdminFromEmail || user?.isAdmin;
         }
       }
+      */
+      
+      // 一時的に基本的な管理者権限設定のみを使用
+      token.isAdmin = isAdminFromEmail || user?.isAdmin;
       
       return token;
     },
