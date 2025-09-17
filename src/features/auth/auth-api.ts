@@ -1,4 +1,3 @@
-
 import NextAuth, { NextAuthOptions } from "next-auth";
 import { Provider } from "next-auth/providers";
 import AzureADProvider from "next-auth/providers/azure-ad";
@@ -92,7 +91,7 @@ const configureIdentityProvider = () => {
 
   return providers;
 };
-/*
+
 export const options: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [...configureIdentityProvider()],
@@ -151,28 +150,4 @@ export const options: NextAuthOptions = {
 
   useSecureCookies: process.env.NODE_ENV === "production",
 };
-export const handlers = NextAuth(options);
-*/
-
-export const options: NextAuthOptions = {
-  secret: process.env.NEXTAUTH_SECRET,
-  providers: [...configureIdentityProvider()],
-  callbacks: {
-    async jwt({token, user, account, profile, isNewUser, session}) {
-      if (user?.isAdmin) {
-       token.isAdmin = user.isAdmin
-      }
-      return token
-    },
-    async session({ session, token, user }) {
-      // session.user.isAdmin の型が string であることを想定し、boolean を string に変換
-      session.user.isAdmin = String(token.isAdmin);
-      return session;
-    }
-  },
-  session: {
-    strategy: "jwt",
-  },
-};
-
 export const handlers = NextAuth(options);
