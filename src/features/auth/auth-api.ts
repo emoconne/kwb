@@ -165,7 +165,8 @@ export const options: NextAuthOptions = {
       return token
     },
     async session({ session, token, user }) {
-      session.user.isAdmin = Boolean(token.isAdmin);
+      // session.user.isAdmin の型が string であることを想定し、boolean を string に変換
+      session.user.isAdmin = String(token.isAdmin);
       return session;
     }
   },

@@ -1,30 +1,24 @@
 import NextAuth, { DefaultSession } from "next-auth"
 
-// https://next-auth.js.org/getting-started/typescript#module-augmentation
-
 declare module "next-auth" {
-
     interface Session {
         user: {
-            isAdmin: boolean;
-            userType?: string;
-            adminRole?: string;
-            displayName?: string;
-            department?: string;
-            jobTitle?: string;
+            isAdmin: string,
+            showFAQ?: boolean  // FAQの表示設定を追加
         } & DefaultSession["user"]
+        accessToken?: string  // ここで accessToken を任意のプロパティとして追加
     }
 
     interface User {
-        isAdmin: string;
+        isAdmin: string,
+        showFAQ?: boolean  // FAQの表示設定を追加
     }
+}
 
+// JWTにもshowFAQプロパティを追加
+declare module "next-auth/jwt" {
     interface JWT {
-        userType?: string;
-        adminRole?: string;
-        displayName?: string;
-        department?: string;
-        jobTitle?: string;
+        isAdmin?: string | boolean,
+        showFAQ?: boolean
     }
-
 }

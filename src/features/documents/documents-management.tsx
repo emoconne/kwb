@@ -36,12 +36,10 @@ import {
   Bug,
   TestTube,
   Share2,
-  Database,
-  CalendarDays
+  Database
 } from "lucide-react";
 import { useSession } from "next-auth/react";
 import { useGlobalMessageContext } from "@/features/global-message/global-message-context";
-import { GaroonExplorer } from "@/components/garoon-explorer";
 
 interface Document {
   id: string;
@@ -468,81 +466,6 @@ export const DocumentsManagement = () => {
       <TableCell>
         {new Date(document.uploadedAt).toLocaleDateString('ja-JP')}
       </TableCell>
-      <TableCell>
-        <div className="flex items-center gap-2">
-          {getStatusBadge(document.status)}
-          {document.status === 'error' && (
-            <Dialog>
-              <DialogTrigger asChild>
-                <Button
-                  size="sm"
-                  variant="outline"
-                  onClick={() => fetchErrorDetails(document.id)}
-                  className="h-6 px-2"
-                >
-                  <Bug className="w-3 h-3" />
-                </Button>
-              </DialogTrigger>
-              <DialogContent className="max-w-2xl">
-                <DialogHeader>
-                  <DialogTitle className="flex items-center gap-2">
-                    <Bug className="w-5 h-5" />
-                    エラー詳細 - {document.fileName}
-                  </DialogTitle>
-                </DialogHeader>
-                <div className="space-y-4">
-                  {errorDetails[document.id] ? (
-                    <div className="space-y-3">
-                      <div className="grid grid-cols-2 gap-4 text-sm">
-                        <div>
-                          <span className="font-medium">ファイル名:</span> {errorDetails[document.id].fileName}
-                        </div>
-                        <div>
-                          <span className="font-medium">ステータス:</span> {errorDetails[document.id].status}
-                        </div>
-                        <div>
-                          <span className="font-medium">アップロード日時:</span> {new Date(errorDetails[document.id].uploadedAt).toLocaleString('ja-JP')}
-                        </div>
-                        <div>
-                          <span className="font-medium">部門:</span> {errorDetails[document.id].departmentName || '不明'}
-                        </div>
-                        <div>
-                          <span className="font-medium">ファイルサイズ:</span> {formatFileSize(errorDetails[document.id].fileSize)}
-                        </div>
-                        <div>
-                          <span className="font-medium">ファイルタイプ:</span> {errorDetails[document.id].fileType}
-                        </div>
-                      </div>
-                      
-                      <Alert variant="destructive">
-                        <AlertCircle className="h-4 w-4" />
-                        <AlertDescription>
-                          このドキュメントの処理中にエラーが発生しました。詳細はサーバーログを確認してください。
-                        </AlertDescription>
-                      </Alert>
-                      
-                      <div className="flex gap-2">
-                        <Button
-                          onClick={() => retryDocumentProcessing(document.id)}
-                          className="flex items-center gap-2"
-                        >
-                          <TestTube className="w-4 h-4" />
-                          再処理を実行
-                        </Button>
-                      </div>
-                    </div>
-                  ) : (
-                    <div className="text-center py-4">
-                      <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-primary mx-auto"></div>
-                      <p className="mt-2 text-muted-foreground">エラー詳細を読み込み中...</p>
-                    </div>
-                  )}
-                </div>
-              </DialogContent>
-            </Dialog>
-          )}
-        </div>
-      </TableCell>
       <TableCell className="text-right">
         <div className="flex items-center justify-end gap-2">
           <Button
@@ -595,7 +518,7 @@ export const DocumentsManagement = () => {
       </div>
 
       <Tabs defaultValue="upload" className="w-full">
-        <TabsList className="grid w-full grid-cols-4">
+        <TabsList className="grid w-full grid-cols-3">
           <TabsTrigger value="upload" className="flex items-center gap-2">
             <Upload className="w-4 h-4" />
             ファイルアップロード
@@ -607,10 +530,6 @@ export const DocumentsManagement = () => {
           <TabsTrigger value="kintone" className="flex items-center gap-2">
             <Database className="w-4 h-4" />
             kintone
-          </TabsTrigger>
-          <TabsTrigger value="garoon" className="flex items-center gap-2">
-            <CalendarDays className="w-4 h-4" />
-            Garoon
           </TabsTrigger>
         </TabsList>
 
@@ -743,7 +662,6 @@ export const DocumentsManagement = () => {
                           <TableHead>部門</TableHead>
                           <TableHead>サイズ</TableHead>
                           <TableHead>アップロード日時</TableHead>
-                          <TableHead>ステータス</TableHead>
                           <TableHead className="text-right">操作</TableHead>
                         </TableRow>
                       </TableHeader>
@@ -829,19 +747,6 @@ export const DocumentsManagement = () => {
           </Card>
         </TabsContent>
 
-        {/* Garoonタブ */}
-        <TabsContent value="garoon">
-          <GaroonExplorer
-            onFileSelect={(file) => {
-              console.log('Garoonファイル選択:', file);
-              // ファイル選択時の処理をここに追加
-            }}
-            onFolderSelect={(folder) => {
-              console.log('Garoonフォルダ選択:', folder);
-              // フォルダ選択時の処理をここに追加
-            }}
-          />
-        </TabsContent>
       </Tabs>
     </div>
   );
