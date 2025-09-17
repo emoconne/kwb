@@ -1,18 +1,14 @@
 import { NextRequest, NextResponse } from "next/server";
 
-// iframe埋め込みテスト用のAPIエンドポイント
+// iframe内での動作状況を確認するAPIエンドポイント
 export async function GET(request: NextRequest) {
   try {
-    // iframe環境での動作確認情報を返す
     const headers = request.headers;
-    const userAgent = headers.get('user-agent') || '';
-    const referer = headers.get('referer') || '';
-    const xForwardedFor = headers.get('x-forwarded-for') || '';
-    const xForwardedProto = headers.get('x-forwarded-proto') || '';
     
-    // iframe内かどうかの判定
+    // iframe内からのアクセスかどうかを判定
     const isInIframe = headers.get('sec-fetch-dest') === 'iframe' || 
-                      headers.get('sec-fetch-mode') === 'navigate';
+                      headers.get('sec-fetch-mode') === 'navigate' ||
+                      headers.get('referer') !== null;
     
     const response = {
       success: true,
@@ -23,42 +19,37 @@ export async function GET(request: NextRequest) {
         allowedFrameAncestors: process.env.ALLOWED_FRAME_ANCESTORS || '*'
       },
       headers: {
-        userAgent: userAgent,
-        referer: referer,
-        xForwardedFor: xForwardedFor,
-        xForwardedProto: xForwardedProto,
+        referer: headers.get('referer'),
         secFetchDest: headers.get('sec-fetch-dest'),
         secFetchMode: headers.get('sec-fetch-mode'),
-        secFetchSite: headers.get('sec-fetch-site')
+        secFetchSite: headers.get('sec-fetch-site'),
+        userAgent: headers.get('user-agent'),
+        xForwardedProto: headers.get('x-forwarded-proto')
       },
-      environment: {
-        nodeEnv: process.env.NODE_ENV,
-        nextAuthUrl: process.env.NEXTAUTH_URL,
-        allowIframeEmbedding: process.env.ALLOW_IFRAME_EMBEDDING
-      }
+      message: isInIframe ? 'iframe内からのアクセスです' : '直接アクセスです'
     };
 
-    // iframe埋め込み許可時は適切なヘッダーを設定
     const responseHeaders = new Headers();
+    responseHeaders.set('Content-Type', 'application/json');
     
     // CORSヘッダーを追加
     responseHeaders.set('Access-Control-Allow-Origin', '*');
     responseHeaders.set('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
     responseHeaders.set('Access-Control-Allow-Headers', 'Content-Type, Authorization');
     
+    // iframe埋め込み許可時は適切なヘッダーを設定
     if (process.env.ALLOW_IFRAME_EMBEDDING === 'true') {
       responseHeaders.set('Content-Security-Policy', `frame-ancestors ${process.env.ALLOWED_FRAME_ANCESTORS || '*'}`);
       responseHeaders.set('X-Content-Type-Options', 'nosniff');
-      responseHeaders.set('Referrer-Policy', 'strict-origin-when-cross-origin');
     }
     
     return NextResponse.json(response, { headers: responseHeaders });
 
   } catch (error) {
-    console.error("iframe test error:", error);
+    console.error("iframe status check error:", error);
     return NextResponse.json(
       { 
-        error: "iframe test failed",
+        error: "iframe status check failed",
         details: error instanceof Error ? error.message : String(error)
       },
       { status: 500 }

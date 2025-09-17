@@ -2,6 +2,7 @@ import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 
 const requireAuth: string[] = ["/chat", "/api","/reporting", "/documents", "/prompt","/unauthorized"];
+const allowPublic: string[] = ["/iframe-embed", "/api/iframe-test", "/api/iframe-status"];
 const requireAdmin: string[] = ["/reporting", "/documents"];
 
 
@@ -9,6 +10,11 @@ export async function middleware(request: NextRequest) {
 
     const res = NextResponse.next();
     const pathname = request.nextUrl.pathname;
+
+    // パブリックアクセス許可パスをチェック
+    if (allowPublic.some((path) => pathname.startsWith(path))) {
+        return res;
+    }
 
     if (requireAuth.some((path) => pathname.startsWith(path))) {
 

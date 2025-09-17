@@ -53,6 +53,19 @@ const nextConfig = {
         key: 'Referrer-Policy',
         value: 'strict-origin-when-cross-origin'
       });
+      // CORSヘッダーを追加
+      headers.push({
+        key: 'Access-Control-Allow-Origin',
+        value: '*'
+      });
+      headers.push({
+        key: 'Access-Control-Allow-Methods',
+        value: 'GET, POST, OPTIONS'
+      });
+      headers.push({
+        key: 'Access-Control-Allow-Headers',
+        value: 'Content-Type, Authorization'
+      });
     } else {
       // iframe埋め込みを制限する場合（デフォルト）
       headers.push({
