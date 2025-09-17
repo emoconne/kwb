@@ -288,26 +288,76 @@ export const ChatAPIWeb = async (props: PromptGPTProps) => {
     return streamingResponse;
   }
 
-  // Assistantの回答がない場合でも、検索結果があれば処理を続行
-  if (!assistantResponse && searchResult?.webPages?.value?.length > 0) {
-    console.log('No Assistant response but search results available, proceeding with OpenAI generation...');
-    console.log('Search results count:', searchResult.webPages.value.length);
-    
-    // 検索結果があるので、OpenAIで回答を生成
-    // この場合、下記のOpenAI処理に進む
-  } else if (!assistantResponse) {
-    // 検索結果もAssistant回答もない場合のみエラーを返す
-    console.log('No Assistant response and no search results available, returning error');
-    console.log('Debug info:', {
-      assistantResponse: assistantResponse,
-      assistantResponseLength: assistantResponse?.length || 0,
-      searchResult: searchResult,
-      searchResultKeys: Object.keys(searchResult || {}),
-      webPagesCount: searchResult?.webPages?.value?.length || 0
-    });
-    return new Response("検索結果を取得できませんでした。しばらく時間をおいて再度お試しください。", {
-      status: 500,
-      statusText: "No Assistant Response",
-    });
+  // Assistantの回答がない場合でも、検索結果があればOpenAIで回答を生成
+  if (!assistantResponse || !assistantResponse.trim()) {
+    if (searchResult?.webPages?.value?.length > 0) {
+      console.log('No Assistant response but search results available, generating response with OpenAI...');
+      console.log('Search results count:', searchResult.webPages.value.length);
+      
+      // OpenAIを使って検索結果から回答を生成
+      try {
+        const completion = await openAI.chat.completions.create({
+          messages: [
+            {
+              role: "system",
+              content: `あなたは${AI_NAME}です。Web検索結果を基に、正確で有用な情報を提供してください。`,
+            },
+            {
+              role: "user", 
+              content: Prompt,
+            },
+          ],
+          model: chatAPIModel,
+          stream: true,
+        });
+
+        const stream = OpenAIStream(completion, {
+          onStart: async () => {
+            console.log('OpenAI stream started for fallback search results');
+          },
+          onCompletion: async (completion: string) => {
+            // 生成された回答をassistantResponseとして設定
+            const finalResponse = completion;
+            
+            // CosmosDBに保存
+            await chatHistory.addMessage({
+              content: finalResponse,
+              role: "assistant",
+              metadata: {
+                searchResults: searchResults,
+                citationItems: citationItems,
+                threadId: (global as any).webSearchThreads?.get(threadKey) || null,
+                fallbackUsed: true
+              }
+            } as any);
+            
+            console.log('Fallback response generated and saved');
+          },
+        });
+
+        return new StreamingTextResponse(stream);
+        
+      } catch (openaiError) {
+        console.error('OpenAI generation failed:', openaiError);
+        return new Response("検索結果の処理中にエラーが発生しました。しばらく時間をおいて再度お試しください。", {
+          status: 500,
+          statusText: "OpenAI Generation Failed",
+        });
+      }
+    } else {
+      // 検索結果もAssistant回答もない場合のみエラーを返す
+      console.log('No Assistant response and no search results available, returning error');
+      console.log('Debug info:', {
+        assistantResponse: assistantResponse,
+        assistantResponseLength: assistantResponse?.length || 0,
+        searchResult: searchResult,
+        searchResultKeys: Object.keys(searchResult || {}),
+        webPagesCount: searchResult?.webPages?.value?.length || 0
+      });
+      return new Response("検索結果を取得できませんでした。しばらく時間をおいて再度お試しください。", {
+        status: 500,
+        statusText: "No Assistant Response",
+      });
+    }
   }
 };
