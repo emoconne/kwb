@@ -1,0 +1,9 @@
+<step title="Incoming Request" date="2024-12-12T03:40:49.661" instance="8a1838" url="/api/deployments/latest?deployer=GITHUB_ZIP_DEPLOY&amp;time=2024-12-12_03-40-49Z" method="GET" type="request" pid="93,1,16" Host="kashiwabaragpt.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_9e0cbb54f05b7aae9545d9238362714469bea7624dedc6520f1f890ef7d4588e" Authorization="Bea..." Content-Type="application/json; charset=utf-8" Cookie="ARRAffinity=8a1838995f790a3ddb0d6c9a1c240936b4c4b52e18bfa748290afc2caac3c809;Path=/;HttpOnly;Secure;Domain=kashiwabaragpt.scm.azurewebsites.net; ARRAffinitySameSite=8a1838995f790a3ddb0d6c9a1c240936b4c4b52e18bfa748290afc2caac3c809;Path=/;HttpOnly;SameSite=None;Secure;Domain=kashiwabaragpt.scm.azurewebsites.net" Content-Length="0" X-ARR-LOG-ID="b860f4db-acdb-467c-9921-5e3f567b2a6b" CLIENT-IP="20.55.14.238:46208" X-SITE-DEPLOYMENT-ID="kashiwabaragpt" WAS-DEFAULT-HOSTNAME="kashiwabaragpt.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/deployments/latest?deployer=GITHUB_ZIP_DEPLOY&amp;time=2024-12-12_03-40-49Z" X-Client-IP="20.55.14.238" X-Client-Port="46208" >
+  <step title="DeploymentService.GetResult" date="2024-12-12T03:40:49.672" >
+    <step title="DeploymentService.GetLatestDeployment" date="2024-12-12T03:40:49.675" >
+      <step title="DeploymentManager.GetResults" date="2024-12-12T03:40:49.680" /><!-- duration: 352ms -->
+      <step title="Deployment temp-81c4f4ea is Pending" date="2024-12-12T03:40:50.036" /><!-- duration: 4ms -->
+    </step><!-- duration: 368ms -->
+  </step><!-- duration: 376ms -->
+  <step title="Outgoing response" date="2024-12-12T03:40:50.052" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 19ms -->
+</step><!-- duration: 414ms -->

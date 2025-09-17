@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<deployment>
+  <id>49555ad5-997e-44bc-b157-14561473497c</id>
+  <author>N/A</author>
+  <deployer>GITHUB_ZIP_DEPLOY</deployer>
+  <authorEmail>N/A</authorEmail>
+  <message>{"type":"deployment","sha":"428b4db50d78e72d85d6ffa4cbbe9b73d2eb6798","repoName":"chatgptkwb/privategpt","actor":"chatgptkwb","slotName":"production","commitMessage":"Session変更2"}</message>
+  <progress></progress>
+  <status>Success</status>
+  <statusText></statusText>
+  <lastSuccessEndTime>2025-04-01T23:43:18.0348219Z</lastSuccessEndTime>
+  <receivedTime>2025-04-01T23:42:07.5989465Z</receivedTime>
+  <startTime>2025-04-01T23:42:08.8582258Z</startTime>
+  <endTime>2025-04-01T23:43:18.0348219Z</endTime>
+  <complete>True</complete>
+  <is_temp>False</is_temp>
+  <is_readonly>True</is_readonly>
+  <buildSummary />
+</deployment>

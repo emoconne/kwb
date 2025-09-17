@@ -1,0 +1,38 @@
+<step title="BackgroundTrace" date="2024-12-12T05:41:49.609" instance="8a1838" url="/api/zipdeploy" method="POST" >
+  <step title="Creating temporary deployment - FetchDeploymentManager" date="2024-12-12T05:41:49.654" /><!-- duration: 4ms -->
+  <step title="Creating temporary deployment" date="2024-12-12T05:41:49.662" /><!-- duration: 55ms -->
+  <step title="Before sending BuildRequestReceived status to /api/updatedeploystatus" date="2024-12-12T05:41:49.721" /><!-- duration: 4ms -->
+  <step title="Performing fetch based deployment" date="2024-12-12T05:41:49.774" >
+    <step title="Cleaning up temp folders from previous zip deployments and extracting pushed zip file /tmp/zipdeploy/5a21152d-a1a7-4cf2-84a2-f6e970d27470.zip (7.46 MB) to /tmp/zipdeploy/extracted" date="2024-12-12T05:41:50.922" >
+      <step title="ChmodRecursive Process exited with total time taken in ms: 442" date="2024-12-12T05:41:53.518" /><!-- duration: 9ms -->
+    </step><!-- duration: 2609ms -->
+    <step title="Deployment timer started" date="2024-12-12T05:41:55.542" >
+      <step title="DeploymentManager.Deploy(id:e2835380-f401-4338-a103-b341f1e2e22b)" date="2024-12-12T05:41:55.550" >
+        <step title="Collecting changeset information" date="2024-12-12T05:41:55.566" /><!-- duration: 66ms -->
+        <step title="Updating submodules" date="2024-12-12T05:41:55.640" /><!-- duration: 1093ms -->
+        <step title="Determining deployment builder" date="2024-12-12T05:41:56.965" >
+          <step title="Builder is BasicBuilder" date="2024-12-12T05:41:56.982" /><!-- duration: 17ms -->
+        </step><!-- duration: 37ms -->
+        <step title="PreDeployment: context.CleanOutputPath False" date="2024-12-12T05:41:57.036" >
+          <step title="PreDeployment: context.OutputPath /home/site/wwwroot" date="2024-12-12T05:41:57.117" >
+            <step title="Building" date="2024-12-12T05:41:57.236" >
+              <step title="Generating deployment script" date="2024-12-12T05:41:57.314" >
+                <step title="Using cached version of the deployment script for command: -y --no-dot-deployment -r &quot;/tmp/zipdeploy/extracted&quot; -o &quot;/home/site/deployments/tools&quot; --basic --sitePath &quot;/tmp/zipdeploy/extracted&quot;" date="2024-12-12T05:41:57.361" /><!-- duration: 10ms -->
+              </step><!-- duration: 77ms -->
+              <step title="Executing external process" date="2024-12-12T05:41:57.532" type="process" path="starter.sh" arguments="&quot;/home/site/deployments/tools/deploy.sh&quot;" /><!-- duration: 44264ms -->
+              <step title="Triggering recycle (preview mode disabled)." date="2024-12-12T05:42:42.595" /><!-- duration: 5ms -->
+              <step title="Modified file to trigger a restart of the app container." date="2024-12-12T05:42:42.633" /><!-- duration: 8ms -->
+              <step title="Skip function trigger and logicapp sync because function is not enabled." date="2024-12-12T05:42:42.647" /><!-- duration: 5ms -->
+              <step title="Purge deployment items" date="2024-12-12T05:42:43.415" >
+                <step title="Remove 36b1a164-, Success, received at 12/04/2024 01:41:42" date="2024-12-12T05:42:43.586" /><!-- duration: 4ms -->
+              </step><!-- duration: 178ms -->
+            </step><!-- duration: 46462ms -->
+          </step><!-- duration: 46590ms -->
+          <step title="Cleaning up temp files" date="2024-12-12T05:42:43.711" /><!-- duration: 5ms -->
+          <step title="Cleaning up temp files" date="2024-12-12T05:42:43.719" /><!-- duration: 505ms -->
+          <step title="Reloading status file with latest updates" date="2024-12-12T05:42:44.258" >
+            <step title="WebHooksManager.PublishEventAsync: PostDeployment" date="2024-12-12T05:42:44.263" /><!-- duration: 30ms -->
+          </step><!-- duration: 38ms -->
+          <step title="Cleaning up temporary deployment - fetch deployment was successful" date="2024-12-12T05:42:44.303" /><!-- duration: 4ms -->
+        </step><!-- duration: 47345ms -->
+      </step><!-- duration: 48855ms -->

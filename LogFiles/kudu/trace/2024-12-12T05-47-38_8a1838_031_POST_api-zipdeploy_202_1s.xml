@@ -1,0 +1,14 @@
+<step title="Incoming Request" date="2024-12-12T05:47:38.704" instance="8a1838" url="/api/zipdeploy?isAsync=true&amp;deployer=GITHUB_ZIP_DEPLOY&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%222220596f4af7a46f2505f31e08d3a0a7515ac3e3%22%2C%22repoName%22%3A%22chatgptkwb%2Fprivategpt%22%2C%22actor%22%3A%22chatgptkwb%22%2C%22slotName%22%3A%22production%22%2C%22commitMessage%22%3A%22menu%20change4%22%7D" method="POST" type="request" pid="93,1,24" Host="kashiwabaragpt.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_9e0cbb54f05b7aae9545d9238362714469bea7624dedc6520f1f890ef7d4588e" Authorization="Bea..." Content-Type="application/octet-stream" Cookie="ARRAffinity=8a1838995f790a3ddb0d6c9a1c240936b4c4b52e18bfa748290afc2caac3c809;Path=/;HttpOnly;Secure;Domain=kashiwabaragpt.scm.azurewebsites.net; ARRAffinitySameSite=8a1838995f790a3ddb0d6c9a1c240936b4c4b52e18bfa748290afc2caac3c809;Path=/;HttpOnly;SameSite=None;Secure;Domain=kashiwabaragpt.scm.azurewebsites.net" Transfer-Encoding="chunked" X-ARR-LOG-ID="8c74fb9d-1c85-4a69-aebe-f696b1b80afa" CLIENT-IP="20.172.24.210:54288" X-SITE-DEPLOYMENT-ID="kashiwabaragpt" WAS-DEFAULT-HOSTNAME="kashiwabaragpt.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/zipdeploy?isAsync=true&amp;deployer=GITHUB_ZIP_DEPLOY&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%222220596f4af7a46f2505f31e08d3a0a7515ac3e3%22%2C%22repoName%22%3A%22chatgptkwb%2Fprivategpt%22%2C%22actor%22%3A%22chatgptkwb%22%2C%22slotName%22%3A%22production%22%2C%22commitMessage%22%3A%22menu%20change4%22%7D" X-Client-IP="20.172.24.210" X-Client-Port="54288" >
+  <step title="ZipPushDeploy" date="2024-12-12T05:47:38.717" >
+    <step title="ZipDeploy. Extract zip." date="2024-12-12T05:47:38.729" /><!-- duration: 4ms -->
+    <step title="Starting PushDeployAsync" date="2024-12-12T05:47:38.739" /><!-- duration: 4ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/7ec087bd-2876-4f83-a5bf-669a57d1fdcf.zip" date="2024-12-12T05:47:38.753" >
+      <step title="Writing request body to artifacts at /tmp/zipdeploy/7ec087bd-2876-4f83-a5bf-669a57d1fdcf.zip" date="2024-12-12T05:47:38.757" /><!-- duration: 4ms -->
+    </step><!-- duration: 819ms -->
+    <step title="Start deployment in the background" date="2024-12-12T05:47:39.587" >
+      <step title="Acquiring Deployment Lock" date="2024-12-12T05:47:39.600" /><!-- duration: 5ms -->
+      <step title="Acquired Deployment Lock" date="2024-12-12T05:47:39.638" /><!-- duration: 4ms -->
+    </step><!-- duration: 123ms -->
+  </step><!-- duration: 1000ms -->
+  <step title="Outgoing response" date="2024-12-12T05:47:39.730" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 4ms -->
+</step><!-- duration: 1036ms -->

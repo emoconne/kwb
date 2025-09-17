@@ -1,0 +1,19 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<deployment>
+  <id>1464075e-2ad4-4b86-8324-9cc3762286c6</id>
+  <author>N/A</author>
+  <deployer>GITHUB_ZIP_DEPLOY</deployer>
+  <authorEmail>N/A</authorEmail>
+  <message>{"type":"deployment","sha":"629a8e8e6ae40d28d73a11b973ea44cf23adc54a","repoName":"chatgptkwb/privategpt","actor":"chatgptkwb","slotName":"production","commitMessage":"パネル変更2"}</message>
+  <progress></progress>
+  <status>Success</status>
+  <statusText></statusText>
+  <lastSuccessEndTime>2025-04-01T23:10:43.4658916Z</lastSuccessEndTime>
+  <receivedTime>2025-04-01T23:09:37.7864538Z</receivedTime>
+  <startTime>2025-04-01T23:09:39.086512Z</startTime>
+  <endTime>2025-04-01T23:10:43.4658916Z</endTime>
+  <complete>True</complete>
+  <is_temp>False</is_temp>
+  <is_readonly>True</is_readonly>
+  <buildSummary />
+</deployment>

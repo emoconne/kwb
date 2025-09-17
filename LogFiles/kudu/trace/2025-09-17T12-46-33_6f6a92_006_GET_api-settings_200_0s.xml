@@ -1,0 +1,6 @@
+<step title="Incoming Request" date="2025-09-17T12:46:33.737" instance="6f6a92" url="/api/settings" method="GET" type="request" pid="768,1,31" Host="kashiwabaragpt.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_2b4c1350c522e4651a72f541ffbe84e3f679482e3948c5c5b6a047e27dbbc403" Authorization="Bea..." Content-Type="application/json; charset=utf-8" Content-Length="0" X-ARR-LOG-ID="2f76c871-19c2-4f01-a2dc-0c34627cc0b3" CLIENT-IP="132.196.82.131:59416" X-SITE-DEPLOYMENT-ID="kashiwabaragpt" WAS-DEFAULT-HOSTNAME="kashiwabaragpt.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/settings" X-Client-IP="132.196.82.131" X-Client-Port="59416" >
+  <step title="Cleanup Xml Logs" date="2025-09-17T12:46:33.739" >
+    <step title="Cleanup Infos" date="2025-09-17T12:46:33.752" totalFiles="760" totalCleanup="600" /><!-- duration: 3ms -->
+  </step><!-- duration: 19ms -->
+  <step title="Outgoing response" date="2025-09-17T12:46:33.863" type="response" statusCode="200" statusText="OK" /><!-- duration: 3ms -->
+</step><!-- duration: 131ms -->

@@ -1,0 +1,38 @@
+<step title="BackgroundTrace" date="2024-12-12T04:53:06.120" instance="8a1838" url="/api/zipdeploy" method="POST" >
+  <step title="Creating temporary deployment - FetchDeploymentManager" date="2024-12-12T04:53:06.182" /><!-- duration: 4ms -->
+  <step title="Creating temporary deployment" date="2024-12-12T04:53:06.190" /><!-- duration: 44ms -->
+  <step title="Before sending BuildRequestReceived status to /api/updatedeploystatus" date="2024-12-12T04:53:06.238" /><!-- duration: 4ms -->
+  <step title="Performing fetch based deployment" date="2024-12-12T04:53:06.308" >
+    <step title="Cleaning up temp folders from previous zip deployments and extracting pushed zip file /tmp/zipdeploy/03f01f08-d331-444c-bc70-fe52d01e9fc2.zip (7.46 MB) to /tmp/zipdeploy/extracted" date="2024-12-12T04:53:07.426" >
+      <step title="ChmodRecursive Process exited with total time taken in ms: 55" date="2024-12-12T04:53:09.571" /><!-- duration: 9ms -->
+    </step><!-- duration: 2159ms -->
+    <step title="Deployment timer started" date="2024-12-12T04:53:11.595" >
+      <step title="DeploymentManager.Deploy(id:24ce5c83-4e5f-4c3e-a5f8-c88a5786658f)" date="2024-12-12T04:53:11.604" >
+        <step title="Collecting changeset information" date="2024-12-12T04:53:11.621" /><!-- duration: 87ms -->
+        <step title="Updating submodules" date="2024-12-12T04:53:11.716" /><!-- duration: 1108ms -->
+        <step title="Determining deployment builder" date="2024-12-12T04:53:13.050" >
+          <step title="Builder is BasicBuilder" date="2024-12-12T04:53:13.063" /><!-- duration: 4ms -->
+        </step><!-- duration: 21ms -->
+        <step title="PreDeployment: context.CleanOutputPath False" date="2024-12-12T04:53:13.109" >
+          <step title="PreDeployment: context.OutputPath /home/site/wwwroot" date="2024-12-12T04:53:13.209" >
+            <step title="Building" date="2024-12-12T04:53:13.306" >
+              <step title="Generating deployment script" date="2024-12-12T04:53:13.390" >
+                <step title="Using cached version of the deployment script for command: -y --no-dot-deployment -r &quot;/tmp/zipdeploy/extracted&quot; -o &quot;/home/site/deployments/tools&quot; --basic --sitePath &quot;/tmp/zipdeploy/extracted&quot;" date="2024-12-12T04:53:13.427" /><!-- duration: 4ms -->
+              </step><!-- duration: 61ms -->
+              <step title="Executing external process" date="2024-12-12T04:53:13.652" type="process" path="starter.sh" arguments="&quot;/home/site/deployments/tools/deploy.sh&quot;" /><!-- duration: 42976ms -->
+              <step title="Triggering recycle (preview mode disabled)." date="2024-12-12T04:53:56.834" /><!-- duration: 4ms -->
+              <step title="Modified file to trigger a restart of the app container." date="2024-12-12T04:53:56.860" /><!-- duration: 4ms -->
+              <step title="Skip function trigger and logicapp sync because function is not enabled." date="2024-12-12T04:53:56.868" /><!-- duration: 4ms -->
+              <step title="Purge deployment items" date="2024-12-12T04:53:57.673" >
+                <step title="Remove 280bf546-, Success, received at 11/18/2024 22:51:55" date="2024-12-12T04:53:57.833" /><!-- duration: 4ms -->
+              </step><!-- duration: 169ms -->
+            </step><!-- duration: 44591ms -->
+          </step><!-- duration: 44697ms -->
+          <step title="Cleaning up temp files" date="2024-12-12T04:53:57.909" /><!-- duration: 5ms -->
+          <step title="Cleaning up temp files" date="2024-12-12T04:53:57.918" /><!-- duration: 519ms -->
+          <step title="Reloading status file with latest updates" date="2024-12-12T04:53:58.479" >
+            <step title="WebHooksManager.PublishEventAsync: PostDeployment" date="2024-12-12T04:53:58.484" /><!-- duration: 38ms -->
+          </step><!-- duration: 48ms -->
+          <step title="Cleaning up temporary deployment - fetch deployment was successful" date="2024-12-12T04:53:58.534" /><!-- duration: 4ms -->
+        </step><!-- duration: 45502ms -->
+      </step><!-- duration: 47031ms -->

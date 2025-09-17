@@ -1,0 +1,39 @@
+<step title="BackgroundTrace" date="2024-12-12T04:12:09.664" instance="8a1838" url="/api/zipdeploy" method="POST" >
+  <step title="Creating temporary deployment - FetchDeploymentManager" date="2024-12-12T04:12:09.741" /><!-- duration: 8ms -->
+  <step title="Creating temporary deployment" date="2024-12-12T04:12:09.758" /><!-- duration: 71ms -->
+  <step title="Before sending BuildRequestReceived status to /api/updatedeploystatus" date="2024-12-12T04:12:09.837" /><!-- duration: 11ms -->
+  <step title="Performing fetch based deployment" date="2024-12-12T04:12:09.919" >
+    <step title="Cleaning up temp folders from previous zip deployments and extracting pushed zip file /tmp/zipdeploy/63f4604a-4331-4349-a98b-a79d98252c5c.zip (7.46 MB) to /tmp/zipdeploy/extracted" date="2024-12-12T04:12:11.099" >
+      <step title="ChmodRecursive Process exited with total time taken in ms: 394" date="2024-12-12T04:12:13.581" /><!-- duration: 10ms -->
+    </step><!-- duration: 2497ms -->
+    <step title="Deployment timer started" date="2024-12-12T04:12:15.607" >
+      <step title="DeploymentManager.Deploy(id:61565025-af1b-4056-a3e0-092f4193fbd9)" date="2024-12-12T04:12:15.616" >
+        <step title="Collecting changeset information" date="2024-12-12T04:12:15.633" /><!-- duration: 92ms -->
+        <step title="Updating submodules" date="2024-12-12T04:12:15.734" /><!-- duration: 1095ms -->
+        <step title="Determining deployment builder" date="2024-12-12T04:12:17.004" >
+          <step title="Builder is BasicBuilder" date="2024-12-12T04:12:17.018" /><!-- duration: 4ms -->
+        </step><!-- duration: 23ms -->
+        <step title="PreDeployment: context.CleanOutputPath False" date="2024-12-12T04:12:17.066" >
+          <step title="PreDeployment: context.OutputPath /home/site/wwwroot" date="2024-12-12T04:12:17.165" >
+            <step title="Building" date="2024-12-12T04:12:17.269" >
+              <step title="Generating deployment script" date="2024-12-12T04:12:17.382" >
+                <step title="Using cached version of the deployment script for command: -y --no-dot-deployment -r &quot;/tmp/zipdeploy/extracted&quot; -o &quot;/home/site/deployments/tools&quot; --basic --sitePath &quot;/tmp/zipdeploy/extracted&quot;" date="2024-12-12T04:12:17.511" /><!-- duration: 5ms -->
+              </step><!-- duration: 167ms -->
+              <step title="Executing external process" date="2024-12-12T04:12:18.229" type="process" path="starter.sh" arguments="&quot;/home/site/deployments/tools/deploy.sh&quot;" /><!-- duration: 47603ms -->
+              <step title="Triggering recycle (preview mode disabled)." date="2024-12-12T04:13:06.041" /><!-- duration: 4ms -->
+              <step title="Modified file to trigger a restart of the app container." date="2024-12-12T04:13:06.089" /><!-- duration: 4ms -->
+              <step title="Skip function trigger and logicapp sync because function is not enabled." date="2024-12-12T04:13:06.099" /><!-- duration: 4ms -->
+              <step title="Purge deployment items" date="2024-12-12T04:13:07.038" >
+                <step title="Remove c13d0be6-, Failed, received at 12/12/2024 03:40:54" date="2024-12-12T04:13:07.097" /><!-- duration: 4ms -->
+                <step title="Remove temp-81c4, Failed, received at 12/12/2024 03:40:49" date="2024-12-12T04:13:07.169" /><!-- duration: 4ms -->
+              </step><!-- duration: 139ms -->
+            </step><!-- duration: 49958ms -->
+          </step><!-- duration: 50076ms -->
+          <step title="Cleaning up temp files" date="2024-12-12T04:13:07.246" /><!-- duration: 5ms -->
+          <step title="Cleaning up temp files" date="2024-12-12T04:13:07.254" /><!-- duration: 513ms -->
+          <step title="Reloading status file with latest updates" date="2024-12-12T04:13:07.809" >
+            <step title="WebHooksManager.PublishEventAsync: PostDeployment" date="2024-12-12T04:13:07.821" /><!-- duration: 40ms -->
+          </step><!-- duration: 57ms -->
+          <step title="Cleaning up temporary deployment - fetch deployment was successful" date="2024-12-12T04:13:07.874" /><!-- duration: 4ms -->
+        </step><!-- duration: 50891ms -->
+      </step><!-- duration: 52366ms -->

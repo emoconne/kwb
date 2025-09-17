@@ -1,0 +1,35 @@
+<step title="BackgroundTrace" date="2024-11-28T04:44:01.467" instance="8a1838" url="/api/zipdeploy" method="POST" >
+  <step title="Creating temporary deployment - FetchDeploymentManager" date="2024-11-28T04:44:01.700" /><!-- duration: 6ms -->
+  <step title="Creating temporary deployment" date="2024-11-28T04:44:01.872" /><!-- duration: 171ms -->
+  <step title="Before sending BuildRequestReceived status to /api/updatedeploystatus" date="2024-11-28T04:44:02.047" /><!-- duration: 5ms -->
+  <step title="Performing fetch based deployment" date="2024-11-28T04:44:02.174" >
+    <step title="Cleaning up temp folders from previous zip deployments and extracting pushed zip file /tmp/zipdeploy/f8803ebf-254c-4ce5-804c-9f5ea13d1e28.zip (7.45 MB) to /tmp/zipdeploy/extracted" date="2024-11-28T04:44:03.357" >
+      <step title="ChmodRecursive Process exited with total time taken in ms: 427" date="2024-11-28T04:44:05.974" /><!-- duration: 16ms -->
+    </step><!-- duration: 2637ms -->
+    <step title="Deployment timer started" date="2024-11-28T04:44:08.005" >
+      <step title="DeploymentManager.Deploy(id:3b676b6e-200f-4c4e-b7ef-5c207fb77a1c)" date="2024-11-28T04:44:08.014" >
+        <step title="Collecting changeset information" date="2024-11-28T04:44:08.032" /><!-- duration: 127ms -->
+        <step title="Updating submodules" date="2024-11-28T04:44:08.168" /><!-- duration: 1263ms -->
+        <step title="Determining deployment builder" date="2024-11-28T04:44:10.013" >
+          <step title="Builder is BasicBuilder" date="2024-11-28T04:44:10.025" /><!-- duration: 5ms -->
+        </step><!-- duration: 23ms -->
+        <step title="PreDeployment: context.CleanOutputPath False" date="2024-11-28T04:44:10.138" >
+          <step title="PreDeployment: context.OutputPath /home/site/wwwroot" date="2024-11-28T04:44:10.359" >
+            <step title="Building" date="2024-11-28T04:44:10.529" >
+              <step title="Generating deployment script" date="2024-11-28T04:44:10.659" >
+                <step title="Using cached version of the deployment script for command: -y --no-dot-deployment -r &quot;/tmp/zipdeploy/extracted&quot; -o &quot;/home/site/deployments/tools&quot; --basic --sitePath &quot;/tmp/zipdeploy/extracted&quot;" date="2024-11-28T04:44:10.779" /><!-- duration: 4ms -->
+              </step><!-- duration: 154ms -->
+              <step title="Executing external process" date="2024-11-28T04:44:11.025" type="process" path="starter.sh" arguments="&quot;/home/site/deployments/tools/deploy.sh&quot;" /><!-- duration: 65270ms -->
+              <step title="Triggering recycle (preview mode disabled)." date="2024-11-28T04:45:16.545" /><!-- duration: 4ms -->
+              <step title="Modified file to trigger a restart of the app container." date="2024-11-28T04:45:16.578" /><!-- duration: 4ms -->
+              <step title="Skip function trigger and logicapp sync because function is not enabled." date="2024-11-28T04:45:16.587" /><!-- duration: 4ms -->
+            </step><!-- duration: 66790ms -->
+          </step><!-- duration: 66972ms -->
+          <step title="Cleaning up temp files" date="2024-11-28T04:45:17.335" /><!-- duration: 6ms -->
+          <step title="Cleaning up temp files" date="2024-11-28T04:45:17.345" /><!-- duration: 506ms -->
+          <step title="Reloading status file with latest updates" date="2024-11-28T04:45:17.880" >
+            <step title="WebHooksManager.PublishEventAsync: PostDeployment" date="2024-11-28T04:45:17.886" /><!-- duration: 35ms -->
+          </step><!-- duration: 47ms -->
+          <step title="Cleaning up temporary deployment - fetch deployment was successful" date="2024-11-28T04:45:17.934" /><!-- duration: 4ms -->
+        </step><!-- duration: 67896ms -->
+      </step><!-- duration: 70041ms -->

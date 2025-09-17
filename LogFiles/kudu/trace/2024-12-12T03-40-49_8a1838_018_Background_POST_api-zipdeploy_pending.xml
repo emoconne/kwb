@@ -1,0 +1,22 @@
+<step title="BackgroundTrace" date="2024-12-12T03:40:49.204" instance="8a1838" url="/api/zipdeploy" method="POST" >
+  <step title="Creating temporary deployment - FetchDeploymentManager" date="2024-12-12T03:40:49.280" /><!-- duration: 4ms -->
+  <step title="Creating temporary deployment" date="2024-12-12T03:40:49.288" /><!-- duration: 79ms -->
+  <step title="Before sending BuildRequestReceived status to /api/updatedeploystatus" date="2024-12-12T03:40:49.371" /><!-- duration: 4ms -->
+  <step title="Performing fetch based deployment" date="2024-12-12T03:40:49.496" >
+    <step title="Cleaning up temp folders from previous zip deployments and extracting pushed zip file /tmp/zipdeploy/24396b92-32a6-4ee6-a4cb-c15d37cfb0a8.zip (7.45 MB) to /tmp/zipdeploy/extracted" date="2024-12-12T03:40:50.626" >
+      <step title="ChmodRecursive Process exited with total time taken in ms: 427" date="2024-12-12T03:40:52.618" /><!-- duration: 8ms -->
+    </step><!-- duration: 2005ms -->
+    <step title="Deployment timer started" date="2024-12-12T03:40:54.640" >
+      <step title="DeploymentManager.Deploy(id:c13d0be6-9435-4dd9-a2d9-bf4c02beba99)" date="2024-12-12T03:40:54.648" >
+        <step title="Collecting changeset information" date="2024-12-12T03:40:54.664" /><!-- duration: 75ms -->
+        <step title="Updating submodules" date="2024-12-12T03:40:54.749" /><!-- duration: 1171ms -->
+        <step title="Determining deployment builder" date="2024-12-12T03:40:56.106" >
+          <step title="Builder is BasicBuilder" date="2024-12-12T03:40:56.119" /><!-- duration: 4ms -->
+        </step><!-- duration: 21ms -->
+        <step title="PreDeployment: context.CleanOutputPath False" date="2024-12-12T03:40:56.258" >
+          <step title="PreDeployment: context.OutputPath /home/site/wwwroot" date="2024-12-12T03:40:56.350" >
+            <step title="Building" date="2024-12-12T03:40:56.453" >
+              <step title="Generating deployment script" date="2024-12-12T03:40:56.560" >
+                <step title="Using cached version of the deployment script for command: -y --no-dot-deployment -r &quot;/tmp/zipdeploy/extracted&quot; -o &quot;/home/site/deployments/tools&quot; --basic --sitePath &quot;/tmp/zipdeploy/extracted&quot;" date="2024-12-12T03:40:56.660" /><!-- duration: 4ms -->
+              </step><!-- duration: 124ms -->
+              <step title="Executing external process" date="2024-12-12T03:40:56.820" type="process" path="starter.sh" arguments="&quot;/home/site/deployments/tools/deploy.sh&quot;" 

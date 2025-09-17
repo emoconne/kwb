@@ -1,0 +1,67 @@
+2025-02-10T01:50:04.7944726Z,Updating submodules.,e8e07d0e-ef6d-4614-af83-0c34cc7ee76d,0
+2025-02-10T01:50:05.9314153Z,Preparing deployment for commit id 'dbb787ca-0'.,51152cb5-0911-4940-9fe9-f549d076ad4b,0
+2025-02-10T01:50:06.1586510Z,PreDeployment: context.CleanOutputPath False,535fac6b-1892-4170-b950-080c16b3630e,0
+2025-02-10T01:50:06.2431653Z,PreDeployment: context.OutputPath /home/site/wwwroot,9f6e3b19-5d35-44e1-b072-08f4143bd9d4,0
+2025-02-10T01:50:06.3283007Z,Generating deployment script.,a487901c-8533-4ce2-a043-f4d1f258e6cf,0
+	2025-02-10T01:50:06.3738566Z,Using cached version of deployment script (command: 'azure -y --no-dot-deployment -r "/tmp/zipdeploy/extracted" -o "/home/site/deployments/tools" --basic --sitePath "/tmp/zipdeploy/extracted"').,,0
+2025-02-10T01:50:06.4571328Z,Running deployment command...,4b9f66fa-3348-4140-8da0-c0d70b85bf0f,0
+	2025-02-10T01:50:06.4651101Z,Command: "/home/site/deployments/tools/deploy.sh",,0
+	2025-02-10T01:50:06.5364033Z,Handling Basic Web Site deployment.,,0
+	2025-02-10T01:50:06.7730327Z,Kudu sync from: '/tmp/zipdeploy/extracted' to: '/home/site/wwwroot',,0
+	2025-02-10T01:50:06.8073093Z,Copying file: 'package.json',,0
+	2025-02-10T01:50:06.8299211Z,Copying file: 'server.js',,0
+	2025-02-10T01:50:06.8676856Z,Copying file: '.next/BUILD_ID',,0
+	2025-02-10T01:50:06.8826085Z,Copying file: '.next/app-build-manifest.json',,0
+	2025-02-10T01:50:06.8913347Z,Copying file: '.next/app-path-routes-manifest.json',,0
+	2025-02-10T01:50:06.9039450Z,Copying file: '.next/build-manifest.json',,0
+	2025-02-10T01:50:06.9339454Z,Copying file: '.next/package.json',,0
+	2025-02-10T01:50:06.9645748Z,Copying file: '.next/prerender-manifest.js',,0
+	2025-02-10T01:50:06.9727709Z,Copying file: '.next/prerender-manifest.json',,0
+	2025-02-10T01:50:06.9841154Z,Copying file: '.next/react-loadable-manifest.json',,0
+	2025-02-10T01:50:06.9932864Z,Copying file: '.next/required-server-files.json',,0
+	2025-02-10T01:50:07.0007530Z,Copying file: '.next/routes-manifest.json',,0
+	2025-02-10T01:50:07.0498945Z,Copying file: '.next/server/app-paths-manifest.json',,0
+	2025-02-10T01:50:07.0588563Z,Copying file: '.next/server/edge-runtime-webpack.js',,0
+	2025-02-10T01:50:07.0729043Z,Copying file: '.next/server/font-manifest.json',,0
+	2025-02-10T01:50:07.1048812Z,Copying file: '.next/server/middleware-build-manifest.js',,0
+	2025-02-10T01:50:07.1128537Z,Copying file: '.next/server/middleware-manifest.json',,0
+	2025-02-10T01:50:07.1317465Z,Copying file: '.next/server/middleware-react-loadable-manifest.js',,0
+	2025-02-10T01:50:07.1410669Z,Copying file: '.next/server/middleware.js',,0
+	2025-02-10T01:50:07.1553055Z,Copying file: '.next/server/next-font-manifest.js',,0
+	2025-02-10T01:50:07.1852218Z,Copying file: '.next/server/next-font-manifest.json',,0
+	2025-02-10T01:50:07.2072988Z,Copying file: '.next/server/pages-manifest.json',,0
+	2025-02-10T01:50:07.2188111Z,Copying file: '.next/server/server-reference-manifest.js',,0
+	2025-02-10T01:50:07.2270973Z,Copying file: '.next/server/server-reference-manifest.json',,0
+	2025-02-10T01:50:07.2387827Z,Copying file: '.next/server/webpack-runtime.js',,0
+	2025-02-10T01:50:07.2702197Z,Copying file: '.next/server/app/_not-found.js',,0
+	2025-02-10T01:50:07.2874345Z,Copying file: '.next/server/app/_not-found.js.nft.json',,0
+	2025-02-10T01:50:07.3026405Z,Copying file: '.next/server/app/_not-found.prefetch.rsc',,0
+	2025-02-10T01:50:07.3126363Z,Copying file: '.next/server/app/_not-found_client-reference-manifest.js',,0
+	2025-02-10T01:50:07.3423184Z,Copying file: '.next/server/app/change-log.prefetch.rsc',,0
+	2025-02-10T01:50:07.3552932Z,Copying file: '.next/server/app/chat.prefetch.rsc',,0
+	2025-02-10T01:50:07.3695197Z,Copying file: '.next/server/app/favicon.ico.body',,0
+	2025-02-10T01:50:07.3792464Z,Copying file: '.next/server/app/favicon.ico.meta',,0
+	2025-02-10T01:50:07.3942700Z,Copying file: '.next/server/app/index.prefetch.rsc',,0
+	2025-02-10T01:50:07.4005042Z,Copying file: '.next/server/app/page.js',,0
+	2025-02-10T01:50:07.4526277Z,Copying file: '.next/server/app/page.js.nft.json',,0
+	2025-02-10T01:50:07.4689147Z,Copying file: '.next/server/app/page_client-reference-manifest.js',,0
+	2025-02-10T01:50:07.4797119Z,Copying file: '.next/server/app/reporting.prefetch.rsc',,0
+	2025-02-10T01:50:07.4868365Z,Copying file: '.next/server/app/unauthorized.prefetch.rsc',,0
+	2025-02-10T01:50:07.5180201Z,Copying file: '.next/server/app/api/auth/[...nextauth]/route.js',,0
+	2025-02-10T01:50:07.5406412Z,Copying file: '.next/server/app/api/auth/[...nextauth]/route.js.nft.json',,0
+	2025-02-10T01:50:07.5852293Z,Copying file: '.next/server/app/api/chat/route.js',,0
+	2025-02-10T01:50:07.6027704Z,Copying file: '.next/server/app/api/chat/route.js.nft.json',,0
+	2025-02-10T01:50:07.6495222Z,Copying file: '.next/server/app/change-log/page.js',,0
+	2025-02-10T01:50:07.6757009Z,Copying file: '.next/server/app/change-log/page.js.nft.json',,0
+	2025-02-10T01:50:07.6824012Z,Copying file: '.next/server/app/change-log/page_client-reference-manifest.js',,0
+	2025-02-10T01:50:07.7065330Z,Copying file: '.next/server/app/chat/page.js',,0
+	2025-02-10T01:50:07.7267183Z,Copying file: '.next/server/app/chat/page.js.nft.json',,0
+	2025-02-10T01:50:07.7340705Z,Copying file: '.next/server/app/chat/page_client-reference-manifest.js',,0
+	2025-02-10T01:50:07.7671716Z,Omitting next output lines...,,0
+	2025-02-10T01:50:27.7836766Z,Processed 1032 files...,,0
+	2025-02-10T01:50:47.8268362Z,Processed 1827 files...,,0
+	2025-02-10T01:51:07.8705800Z,Processed 2615 files...,,0
+	2025-02-10T01:51:09.5261035Z,Finished successfully.,,0
+2025-02-10T01:51:09.6196990Z,Running post deployment command(s)...,6144e34a-7811-4931-862d-c2261b281ff7,0
+2025-02-10T01:51:09.6905985Z,Triggering recycle (preview mode disabled).,073f9a6e-d93f-4e0f-be2f-6aaedbe767b4,0
+2025-02-10T01:51:09.8098685Z,Deployment successful. deployer = GITHUB_ZIP_DEPLOY deploymentPath = ZipDeploy. Extract zip.,e63f2b36-1bb6-4924-8129-73fa02b37793,0

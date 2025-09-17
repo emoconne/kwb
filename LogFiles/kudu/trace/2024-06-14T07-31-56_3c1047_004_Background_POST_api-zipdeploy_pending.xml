@@ -1,0 +1,23 @@
+<step title="BackgroundTrace" date="2024-06-14T07:31:56.852" instance="3c1047" url="/api/zipdeploy" method="POST" >
+  <step title="Creating temporary deployment - FetchDeploymentManager" date="2024-06-14T07:31:56.909" /><!-- duration: 3ms -->
+  <step title="Creating temporary deployment" date="2024-06-14T07:31:56.916" /><!-- duration: 60ms -->
+  <step title="Before sending BuildRequestReceived status to /api/updatedeploystatus" date="2024-06-14T07:31:56.981" /><!-- duration: 3ms -->
+  <step title="Performing fetch based deployment" date="2024-06-14T07:31:57.036" >
+    <step title="Cleaning up temp folders from previous zip deployments and extracting pushed zip file /tmp/zipdeploy/1446830c-e98b-414c-adca-738d22cedfd0.zip (7.22 MB) to /tmp/zipdeploy/extracted" date="2024-06-14T07:31:58.199" >
+      <step title="ChmodRecursive Process exited with total time taken in ms: 291" date="2024-06-14T07:32:00.597" /><!-- duration: 8ms -->
+    </step><!-- duration: 2409ms -->
+    <step title="Deployment timer started" date="2024-06-14T07:32:02.619" >
+      <step title="DeploymentManager.Deploy(id:d30b0beb-5971-4f5b-b8cf-68ea8ca127cf)" date="2024-06-14T07:32:02.627" >
+        <step title="Collecting changeset information" date="2024-06-14T07:32:02.643" /><!-- duration: 165ms -->
+        <step title="Updating submodules" date="2024-06-14T07:32:02.826" /><!-- duration: 1139ms -->
+        <step title="Determining deployment builder" date="2024-06-14T07:32:04.467" >
+          <step title="Builder is BasicBuilder" date="2024-06-14T07:32:04.482" /><!-- duration: 4ms -->
+        </step><!-- duration: 22ms -->
+        <step title="PreDeployment: context.CleanOutputPath False" date="2024-06-14T07:32:04.553" >
+          <step title="PreDeployment: context.OutputPath /home/site/wwwroot" date="2024-06-14T07:32:04.662" >
+            <step title="Building" date="2024-06-14T07:32:04.764" >
+              <step title="Generating deployment script" date="2024-06-14T07:32:04.845" >
+                <step title="Executing external process" date="2024-06-14T07:32:04.939" type="process" path="starter.sh" arguments="&quot;/opt/Kudu/node_modules/.bin/kuduscript&quot; -y --no-dot-deployment -r &quot;/tmp/zipdeploy/extracted&quot; -o &quot;/home/site/deployments/tools&quot; --basic --sitePath &quot;/tmp/zipdeploy/extracted&quot;" /><!-- duration: 443ms -->
+                <step title="Saved cached version of the deployment script for command -y --no-dot-deployment -r &quot;/tmp/zipdeploy/extracted&quot; -o &quot;/home/site/deployments/tools&quot; --basic --sitePath &quot;/tmp/zipdeploy/extracted&quot;" date="2024-06-14T07:32:05.426" /><!-- duration: 3ms -->
+              </step><!-- duration: 588ms -->
+              <step title="Executing external process" date="2024-06-14T07:32:05.582" type="process" path="starter.sh" arguments="&quot;/home/site/deployments/tools/deploy.sh&quot;" 

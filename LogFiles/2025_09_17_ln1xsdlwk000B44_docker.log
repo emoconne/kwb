@@ -1,0 +1,895 @@
+2025-09-17T10:17:29.0584182Z Container start method called.
+2025-09-17T10:17:29.0587391Z Establishing network.
+2025-09-17T10:17:29.0590835Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T10:17:32.8984241Z Container is starting.
+2025-09-17T10:17:32.8985589Z Establishing user namespace if not established already.
+2025-09-17T10:17:32.8986711Z Establishing network if not established already.
+2025-09-17T10:17:32.8987830Z Mounting volumes.
+2025-09-17T10:17:32.9035003Z Nested mountpoint 
+2025-09-17T10:17:32.9085899Z Nested mountpoint volatile/logs
+2025-09-17T10:17:32.9229038Z Nested mountpoint 
+2025-09-17T10:17:32.9357418Z Nested mountpoint 
+2025-09-17T10:17:32.9363558Z Nested mountpoint 
+2025-09-17T10:17:32.9369587Z Nested mountpoint 
+2025-09-17T10:17:32.9683604Z Nested mountpoint 
+2025-09-17T10:17:32.9792674Z Nested mountpoint 
+2025-09-17T10:17:33.0010312Z Nested mountpoint 
+2025-09-17T10:17:33.0054836Z Nested mountpoint 
+2025-09-17T10:17:33.3035180Z Creating container.
+2025-09-17T10:17:33.3043899Z Creating pipes for streaming container io.
+2025-09-17T10:17:33.3047572Z Creating stdout named pipe at /podr/container/pipe/6539632b52a5_kashiwabaragpt/stdout_bf0344f250a043119745adf4ad837fc3.
+2025-09-17T10:17:33.3059768Z Successfully created stdout named pipe at: /podr/container/pipe/6539632b52a5_kashiwabaragpt/stdout_bf0344f250a043119745adf4ad837fc3.
+2025-09-17T10:17:33.3061075Z Opening named pipe /podr/container/pipe/6539632b52a5_kashiwabaragpt/stdout_bf0344f250a043119745adf4ad837fc3 for reading in non-blocking mode.
+2025-09-17T10:17:33.3070648Z Successfully opened named pipe: /podr/container/pipe/6539632b52a5_kashiwabaragpt/stdout_bf0344f250a043119745adf4ad837fc3.
+2025-09-17T10:17:33.3074543Z Successfully removed non-blocking flag from /podr/container/pipe/6539632b52a5_kashiwabaragpt/stdout_bf0344f250a043119745adf4ad837fc3.
+2025-09-17T10:17:33.3086239Z Creating stderr named pipe at /podr/container/pipe/6539632b52a5_kashiwabaragpt/stderr_23654b66699b41e8ab0cbf12fdf194a7.
+2025-09-17T10:17:33.3099852Z Successfully created stderr named pipe at: /podr/container/pipe/6539632b52a5_kashiwabaragpt/stderr_23654b66699b41e8ab0cbf12fdf194a7.
+2025-09-17T10:17:33.3101868Z Opening named pipe /podr/container/pipe/6539632b52a5_kashiwabaragpt/stderr_23654b66699b41e8ab0cbf12fdf194a7 for reading in non-blocking mode.
+2025-09-17T10:17:33.3103502Z Successfully opened named pipe: /podr/container/pipe/6539632b52a5_kashiwabaragpt/stderr_23654b66699b41e8ab0cbf12fdf194a7.
+2025-09-17T10:17:33.3113135Z Successfully removed non-blocking flag from /podr/container/pipe/6539632b52a5_kashiwabaragpt/stderr_23654b66699b41e8ab0cbf12fdf194a7.
+2025-09-17T10:17:33.3119871Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T10:17:33.4722384Z Starting container: 6539632b52a5_kashiwabaragpt.
+2025-09-17T10:17:33.4863401Z Starting watchers and probes.
+2025-09-17T10:17:33.4875350Z Starting metrics collection.
+2025-09-17T10:17:33.4923992Z Container is running.
+2025-09-17T10:17:33.5157481Z Container start method finished after 4457 ms.
+2025-09-17T10:17:38.7769281Z Site startup probe succeeded after 5.2602444 seconds.
+2025-09-17T10:17:38.8382774Z Site is running with deployment version: f03d81f1-1ba4-4567-ba1a-fad22b3cda3d
+2025-09-17T10:17:38.8384987Z Site started.
+2025-09-17T10:17:38.8387818Z Site is running with patch version: 18.20.8
+2025-09-17T10:17:58.8494056Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T10:17:58.8536817Z Stop and delete container. Retry count = 0
+2025-09-17T10:17:58.8538198Z Stopping container: 1932f459ec26_kashiwabaragpt.
+2025-09-17T10:18:03.9159476Z Deleting container: 1932f459ec26_kashiwabaragpt. Retry count = 0
+2025-09-17T10:18:04.0343351Z Container spec TerminationMessagePolicy  path 
+2025-09-17T10:18:04.0345159Z Container is terminated. Total time elapsed: 5184 ms.
+2025-09-17T10:18:04.0466778Z Site: kashiwabaragpt stopped.
+2025-09-17T10:18:47.7833921Z Container start method called.
+2025-09-17T10:18:47.7835382Z Establishing network.
+2025-09-17T10:18:47.7836820Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T10:18:50.2524657Z Container is starting.
+2025-09-17T10:18:50.2550593Z Establishing user namespace if not established already.
+2025-09-17T10:18:50.2555875Z Establishing network if not established already.
+2025-09-17T10:18:50.2562481Z Mounting volumes.
+2025-09-17T10:18:50.2564479Z Nested mountpoint 
+2025-09-17T10:18:50.2912109Z Nested mountpoint volatile/logs
+2025-09-17T10:18:50.3062043Z Nested mountpoint 
+2025-09-17T10:18:50.3075449Z Nested mountpoint 
+2025-09-17T10:18:50.3080852Z Nested mountpoint 
+2025-09-17T10:18:50.3086260Z Nested mountpoint 
+2025-09-17T10:18:50.3466883Z Nested mountpoint 
+2025-09-17T10:18:50.3564900Z Nested mountpoint 
+2025-09-17T10:18:50.4269513Z Nested mountpoint 
+2025-09-17T10:18:50.4379034Z Nested mountpoint 
+2025-09-17T10:18:50.7038964Z Creating container.
+2025-09-17T10:18:50.7041069Z Creating pipes for streaming container io.
+2025-09-17T10:18:50.7044640Z Creating stdout named pipe at /podr/container/pipe/a350a9184b1b_kashiwabaragpt/stdout_3bcadc84fb0a479b84530c2d89a7056f.
+2025-09-17T10:18:50.7074835Z Successfully created stdout named pipe at: /podr/container/pipe/a350a9184b1b_kashiwabaragpt/stdout_3bcadc84fb0a479b84530c2d89a7056f.
+2025-09-17T10:18:50.7094679Z Opening named pipe /podr/container/pipe/a350a9184b1b_kashiwabaragpt/stdout_3bcadc84fb0a479b84530c2d89a7056f for reading in non-blocking mode.
+2025-09-17T10:18:50.7121272Z Successfully opened named pipe: /podr/container/pipe/a350a9184b1b_kashiwabaragpt/stdout_3bcadc84fb0a479b84530c2d89a7056f.
+2025-09-17T10:18:50.7125575Z Successfully removed non-blocking flag from /podr/container/pipe/a350a9184b1b_kashiwabaragpt/stdout_3bcadc84fb0a479b84530c2d89a7056f.
+2025-09-17T10:18:50.7135777Z Creating stderr named pipe at /podr/container/pipe/a350a9184b1b_kashiwabaragpt/stderr_de7e96593c63495eaef0f215156ba2d3.
+2025-09-17T10:18:50.7156567Z Successfully created stderr named pipe at: /podr/container/pipe/a350a9184b1b_kashiwabaragpt/stderr_de7e96593c63495eaef0f215156ba2d3.
+2025-09-17T10:18:50.7163292Z Opening named pipe /podr/container/pipe/a350a9184b1b_kashiwabaragpt/stderr_de7e96593c63495eaef0f215156ba2d3 for reading in non-blocking mode.
+2025-09-17T10:18:50.7185834Z Successfully opened named pipe: /podr/container/pipe/a350a9184b1b_kashiwabaragpt/stderr_de7e96593c63495eaef0f215156ba2d3.
+2025-09-17T10:18:50.7188714Z Successfully removed non-blocking flag from /podr/container/pipe/a350a9184b1b_kashiwabaragpt/stderr_de7e96593c63495eaef0f215156ba2d3.
+2025-09-17T10:18:50.7191429Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T10:18:50.9379397Z Starting container: a350a9184b1b_kashiwabaragpt.
+2025-09-17T10:18:50.9675605Z Starting watchers and probes.
+2025-09-17T10:18:50.9678799Z Starting metrics collection.
+2025-09-17T10:18:50.9721161Z Container is running.
+2025-09-17T10:18:51.0231483Z Container start method finished after 3239 ms.
+2025-09-17T10:18:57.2581728Z Site startup probe succeeded after 6.2208849 seconds.
+2025-09-17T10:18:57.3215530Z Site is running with deployment version: f03d81f1-1ba4-4567-ba1a-fad22b3cda3d
+2025-09-17T10:18:57.3218076Z Site started.
+2025-09-17T10:18:57.3231475Z Site is running with patch version: 18.20.8
+2025-09-17T10:19:17.3306515Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T10:19:17.3322104Z Stop and delete container. Retry count = 0
+2025-09-17T10:19:17.3323880Z Stopping container: 6539632b52a5_kashiwabaragpt.
+2025-09-17T10:19:22.3695897Z Deleting container: 6539632b52a5_kashiwabaragpt. Retry count = 0
+2025-09-17T10:19:22.4894489Z Container spec TerminationMessagePolicy  path 
+2025-09-17T10:19:22.4896217Z Container is terminated. Total time elapsed: 5158 ms.
+2025-09-17T10:19:22.4942342Z Site: kashiwabaragpt stopped.
+2025-09-17T10:25:44.1856678Z Container start method called.
+2025-09-17T10:25:44.1891367Z Establishing network.
+2025-09-17T10:25:44.1904523Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T10:25:46.6761684Z Container is starting.
+2025-09-17T10:25:46.6763221Z Establishing user namespace if not established already.
+2025-09-17T10:25:46.6764836Z Establishing network if not established already.
+2025-09-17T10:25:46.6767546Z Mounting volumes.
+2025-09-17T10:25:46.6776313Z Nested mountpoint 
+2025-09-17T10:25:46.6876702Z Nested mountpoint volatile/logs
+2025-09-17T10:25:46.6929338Z Nested mountpoint 
+2025-09-17T10:25:46.6957421Z Nested mountpoint 
+2025-09-17T10:25:46.6963585Z Nested mountpoint 
+2025-09-17T10:25:46.6968858Z Nested mountpoint 
+2025-09-17T10:25:46.7287175Z Nested mountpoint 
+2025-09-17T10:25:46.7398495Z Nested mountpoint 
+2025-09-17T10:25:46.8115188Z Nested mountpoint 
+2025-09-17T10:25:46.8272903Z Nested mountpoint 
+2025-09-17T10:25:47.0433556Z Creating container.
+2025-09-17T10:25:47.0435905Z Creating pipes for streaming container io.
+2025-09-17T10:25:47.0438189Z Creating stdout named pipe at /podr/container/pipe/049f0ce0a59c_kashiwabaragpt/stdout_f0b000de4b324de3b3e256ad1ddcee86.
+2025-09-17T10:25:47.0441304Z Successfully created stdout named pipe at: /podr/container/pipe/049f0ce0a59c_kashiwabaragpt/stdout_f0b000de4b324de3b3e256ad1ddcee86.
+2025-09-17T10:25:47.0446122Z Opening named pipe /podr/container/pipe/049f0ce0a59c_kashiwabaragpt/stdout_f0b000de4b324de3b3e256ad1ddcee86 for reading in non-blocking mode.
+2025-09-17T10:25:47.0450045Z Successfully opened named pipe: /podr/container/pipe/049f0ce0a59c_kashiwabaragpt/stdout_f0b000de4b324de3b3e256ad1ddcee86.
+2025-09-17T10:25:47.0453398Z Successfully removed non-blocking flag from /podr/container/pipe/049f0ce0a59c_kashiwabaragpt/stdout_f0b000de4b324de3b3e256ad1ddcee86.
+2025-09-17T10:25:47.0456864Z Creating stderr named pipe at /podr/container/pipe/049f0ce0a59c_kashiwabaragpt/stderr_5ff9bcb2f54b4324b42a2dc58e3c8e6c.
+2025-09-17T10:25:47.0461322Z Successfully created stderr named pipe at: /podr/container/pipe/049f0ce0a59c_kashiwabaragpt/stderr_5ff9bcb2f54b4324b42a2dc58e3c8e6c.
+2025-09-17T10:25:47.0464914Z Opening named pipe /podr/container/pipe/049f0ce0a59c_kashiwabaragpt/stderr_5ff9bcb2f54b4324b42a2dc58e3c8e6c for reading in non-blocking mode.
+2025-09-17T10:25:47.0485336Z Successfully opened named pipe: /podr/container/pipe/049f0ce0a59c_kashiwabaragpt/stderr_5ff9bcb2f54b4324b42a2dc58e3c8e6c.
+2025-09-17T10:25:47.0489182Z Successfully removed non-blocking flag from /podr/container/pipe/049f0ce0a59c_kashiwabaragpt/stderr_5ff9bcb2f54b4324b42a2dc58e3c8e6c.
+2025-09-17T10:25:47.0493219Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T10:25:47.2331872Z Starting container: 049f0ce0a59c_kashiwabaragpt.
+2025-09-17T10:25:47.2602132Z Starting watchers and probes.
+2025-09-17T10:25:47.2607765Z Starting metrics collection.
+2025-09-17T10:25:47.2611857Z Container is running.
+2025-09-17T10:25:47.4821653Z Container start method finished after 3296 ms.
+2025-09-17T10:25:52.6744866Z Site startup probe succeeded after 5.191743 seconds.
+2025-09-17T10:25:52.7348207Z Site is running with deployment version: f03d81f1-1ba4-4567-ba1a-fad22b3cda3d
+2025-09-17T10:25:52.7350895Z Site started.
+2025-09-17T10:25:52.7353891Z Site is running with patch version: 18.20.8
+2025-09-17T10:26:12.7403558Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T10:26:12.7423241Z Stop and delete container. Retry count = 0
+2025-09-17T10:26:12.7424758Z Stopping container: a350a9184b1b_kashiwabaragpt.
+2025-09-17T10:26:18.6889658Z Deleting container: a350a9184b1b_kashiwabaragpt. Retry count = 0
+2025-09-17T10:26:18.8090706Z Container spec TerminationMessagePolicy  path 
+2025-09-17T10:26:18.8092319Z Container is terminated. Total time elapsed: 6068 ms.
+2025-09-17T10:26:18.8139268Z Site: kashiwabaragpt stopped.
+2025-09-17T10:30:17.4702374Z Container start method called.
+2025-09-17T10:30:17.4703779Z Establishing network.
+2025-09-17T10:30:17.4705009Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T10:30:21.2222294Z Container is starting.
+2025-09-17T10:30:21.2223849Z Establishing user namespace if not established already.
+2025-09-17T10:30:21.2225200Z Establishing network if not established already.
+2025-09-17T10:30:21.2226481Z Mounting volumes.
+2025-09-17T10:30:21.2228387Z Nested mountpoint 
+2025-09-17T10:30:21.2273873Z Nested mountpoint volatile/logs
+2025-09-17T10:30:21.2297102Z Nested mountpoint 
+2025-09-17T10:30:21.2393885Z Nested mountpoint 
+2025-09-17T10:30:21.2399513Z Nested mountpoint 
+2025-09-17T10:30:21.2404988Z Nested mountpoint 
+2025-09-17T10:30:21.2708825Z Nested mountpoint 
+2025-09-17T10:30:21.2839097Z Nested mountpoint 
+2025-09-17T10:30:21.3033495Z Nested mountpoint 
+2025-09-17T10:30:21.3183115Z Nested mountpoint 
+2025-09-17T10:30:21.6059321Z Creating container.
+2025-09-17T10:30:21.6060867Z Creating pipes for streaming container io.
+2025-09-17T10:30:21.6062167Z Creating stdout named pipe at /podr/container/pipe/b9608e25cbd3_kashiwabaragpt/stdout_9b01f181988549a5b2116d3c956ea68a.
+2025-09-17T10:30:21.6064365Z Successfully created stdout named pipe at: /podr/container/pipe/b9608e25cbd3_kashiwabaragpt/stdout_9b01f181988549a5b2116d3c956ea68a.
+2025-09-17T10:30:21.6065522Z Opening named pipe /podr/container/pipe/b9608e25cbd3_kashiwabaragpt/stdout_9b01f181988549a5b2116d3c956ea68a for reading in non-blocking mode.
+2025-09-17T10:30:21.6066864Z Successfully opened named pipe: /podr/container/pipe/b9608e25cbd3_kashiwabaragpt/stdout_9b01f181988549a5b2116d3c956ea68a.
+2025-09-17T10:30:21.6068057Z Successfully removed non-blocking flag from /podr/container/pipe/b9608e25cbd3_kashiwabaragpt/stdout_9b01f181988549a5b2116d3c956ea68a.
+2025-09-17T10:30:21.6100461Z Creating stderr named pipe at /podr/container/pipe/b9608e25cbd3_kashiwabaragpt/stderr_df9889fd9efb4145b6f1359288ed369a.
+2025-09-17T10:30:21.6123028Z Successfully created stderr named pipe at: /podr/container/pipe/b9608e25cbd3_kashiwabaragpt/stderr_df9889fd9efb4145b6f1359288ed369a.
+2025-09-17T10:30:21.6135396Z Opening named pipe /podr/container/pipe/b9608e25cbd3_kashiwabaragpt/stderr_df9889fd9efb4145b6f1359288ed369a for reading in non-blocking mode.
+2025-09-17T10:30:21.6142892Z Successfully opened named pipe: /podr/container/pipe/b9608e25cbd3_kashiwabaragpt/stderr_df9889fd9efb4145b6f1359288ed369a.
+2025-09-17T10:30:21.6158883Z Successfully removed non-blocking flag from /podr/container/pipe/b9608e25cbd3_kashiwabaragpt/stderr_df9889fd9efb4145b6f1359288ed369a.
+2025-09-17T10:30:21.6172190Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T10:30:21.8819624Z Starting container: b9608e25cbd3_kashiwabaragpt.
+2025-09-17T10:30:21.9047679Z Starting watchers and probes.
+2025-09-17T10:30:21.9081288Z Starting metrics collection.
+2025-09-17T10:30:21.9082702Z Container is running.
+2025-09-17T10:30:23.7618104Z Container start method finished after 6291 ms.
+2025-09-17T10:30:26.9622350Z Site startup probe succeeded after 3.1985589 seconds.
+2025-09-17T10:30:27.0317137Z Site is running with deployment version: f03d81f1-1ba4-4567-ba1a-fad22b3cda3d
+2025-09-17T10:30:27.0319504Z Site started.
+2025-09-17T10:30:27.0322477Z Site is running with patch version: 18.20.8
+2025-09-17T10:30:47.0424477Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T10:30:47.0454221Z Stop and delete container. Retry count = 0
+2025-09-17T10:30:47.0455554Z Stopping container: 049f0ce0a59c_kashiwabaragpt.
+2025-09-17T10:30:52.0840924Z Deleting container: 049f0ce0a59c_kashiwabaragpt. Retry count = 0
+2025-09-17T10:30:52.3169239Z Container spec TerminationMessagePolicy  path 
+2025-09-17T10:30:52.3179755Z Container is terminated. Total time elapsed: 5274 ms.
+2025-09-17T10:30:52.3227985Z Site: kashiwabaragpt stopped.
+2025-09-17T10:31:28.2821124Z Container start method called.
+2025-09-17T10:31:28.2822941Z Establishing network.
+2025-09-17T10:31:28.2824170Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T10:31:30.7208586Z Container pull image interrupted. Revert by terminate.
+2025-09-17T10:31:30.7210360Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T10:31:30.7211908Z Container spec TerminationMessagePolicy  path 
+2025-09-17T10:31:30.7213396Z Container is terminated. Total time elapsed: 0 ms.
+2025-09-17T10:31:30.7214712Z Site container: kashiwabaragpt terminated during site startup.
+2025-09-17T10:31:30.7551425Z Site container: kashiwabaragpt terminated. Stopping the entire site.
+2025-09-17T10:31:30.7583935Z Site: kashiwabaragpt stopped.
+2025-09-17T10:31:50.7723540Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T10:31:50.7763108Z Stop and delete container. Retry count = 0
+2025-09-17T10:31:50.7773331Z Stopping container: b9608e25cbd3_kashiwabaragpt.
+2025-09-17T10:31:55.8062236Z Deleting container: b9608e25cbd3_kashiwabaragpt. Retry count = 0
+2025-09-17T10:31:55.9529639Z Container spec TerminationMessagePolicy  path 
+2025-09-17T10:31:55.9532519Z Container is terminated. Total time elapsed: 5180 ms.
+2025-09-17T10:31:55.9572081Z Site: kashiwabaragpt stopped.
+2025-09-17T10:32:17.3298914Z Container start method called.
+2025-09-17T10:32:17.3300333Z Establishing network.
+2025-09-17T10:32:17.3301580Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T10:32:21.1119503Z Container is starting.
+2025-09-17T10:32:21.1121757Z Establishing user namespace if not established already.
+2025-09-17T10:32:21.1123723Z Establishing network if not established already.
+2025-09-17T10:32:21.1125583Z Mounting volumes.
+2025-09-17T10:32:21.1127783Z Nested mountpoint 
+2025-09-17T10:32:21.1232898Z Nested mountpoint volatile/logs
+2025-09-17T10:32:21.1262367Z Nested mountpoint 
+2025-09-17T10:32:21.1321928Z Nested mountpoint 
+2025-09-17T10:32:21.1328212Z Nested mountpoint 
+2025-09-17T10:32:21.1510981Z Nested mountpoint 
+2025-09-17T10:32:21.1784948Z Nested mountpoint 
+2025-09-17T10:32:21.1992707Z Nested mountpoint 
+2025-09-17T10:32:21.2062456Z Nested mountpoint 
+2025-09-17T10:32:21.2224569Z Nested mountpoint 
+2025-09-17T10:32:21.3197071Z Creating container.
+2025-09-17T10:32:21.3198484Z Creating pipes for streaming container io.
+2025-09-17T10:32:21.3199919Z Creating stdout named pipe at /podr/container/pipe/36a99517bd2b_kashiwabaragpt/stdout_be0d02423c7f424fbda14cdda480d99a.
+2025-09-17T10:32:21.3202222Z Successfully created stdout named pipe at: /podr/container/pipe/36a99517bd2b_kashiwabaragpt/stdout_be0d02423c7f424fbda14cdda480d99a.
+2025-09-17T10:32:21.3204316Z Opening named pipe /podr/container/pipe/36a99517bd2b_kashiwabaragpt/stdout_be0d02423c7f424fbda14cdda480d99a for reading in non-blocking mode.
+2025-09-17T10:32:21.3205934Z Successfully opened named pipe: /podr/container/pipe/36a99517bd2b_kashiwabaragpt/stdout_be0d02423c7f424fbda14cdda480d99a.
+2025-09-17T10:32:21.3207448Z Successfully removed non-blocking flag from /podr/container/pipe/36a99517bd2b_kashiwabaragpt/stdout_be0d02423c7f424fbda14cdda480d99a.
+2025-09-17T10:32:21.3208728Z Creating stderr named pipe at /podr/container/pipe/36a99517bd2b_kashiwabaragpt/stderr_9532fa8421f24921a403a3aff070df59.
+2025-09-17T10:32:21.3210520Z Successfully created stderr named pipe at: /podr/container/pipe/36a99517bd2b_kashiwabaragpt/stderr_9532fa8421f24921a403a3aff070df59.
+2025-09-17T10:32:21.3211790Z Opening named pipe /podr/container/pipe/36a99517bd2b_kashiwabaragpt/stderr_9532fa8421f24921a403a3aff070df59 for reading in non-blocking mode.
+2025-09-17T10:32:21.3213287Z Successfully opened named pipe: /podr/container/pipe/36a99517bd2b_kashiwabaragpt/stderr_9532fa8421f24921a403a3aff070df59.
+2025-09-17T10:32:21.3214478Z Successfully removed non-blocking flag from /podr/container/pipe/36a99517bd2b_kashiwabaragpt/stderr_9532fa8421f24921a403a3aff070df59.
+2025-09-17T10:32:21.3217123Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T10:32:21.4716979Z Starting container: 36a99517bd2b_kashiwabaragpt.
+2025-09-17T10:32:21.4857051Z Starting watchers and probes.
+2025-09-17T10:32:21.4861625Z Starting metrics collection.
+2025-09-17T10:32:21.4866981Z Container is running.
+2025-09-17T10:32:22.3084817Z Container start method finished after 4978 ms.
+2025-09-17T10:32:26.9793023Z Site startup probe succeeded after 4.669752 seconds.
+2025-09-17T10:32:27.0437130Z Site is running with deployment version: f03d81f1-1ba4-4567-ba1a-fad22b3cda3d
+2025-09-17T10:32:27.0439063Z Site started.
+2025-09-17T10:32:27.0456169Z Site is running with patch version: 18.20.8
+2025-09-17T10:36:12.7317461Z Container start method called.
+2025-09-17T10:36:12.7319628Z Establishing network.
+2025-09-17T10:36:12.7321526Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T10:36:14.9689408Z Container is starting.
+2025-09-17T10:36:14.9692557Z Establishing user namespace if not established already.
+2025-09-17T10:36:14.9693966Z Establishing network if not established already.
+2025-09-17T10:36:14.9696460Z Mounting volumes.
+2025-09-17T10:36:14.9698176Z Nested mountpoint 
+2025-09-17T10:36:14.9760152Z Nested mountpoint volatile/logs
+2025-09-17T10:36:14.9995384Z Nested mountpoint 
+2025-09-17T10:36:15.0013530Z Nested mountpoint 
+2025-09-17T10:36:15.0052188Z Nested mountpoint 
+2025-09-17T10:36:15.0101392Z Nested mountpoint 
+2025-09-17T10:36:15.0444255Z Nested mountpoint 
+2025-09-17T10:36:15.0450950Z Nested mountpoint 
+2025-09-17T10:36:15.0712853Z Nested mountpoint 
+2025-09-17T10:36:15.0826855Z Nested mountpoint 
+2025-09-17T10:36:15.2029801Z Creating container.
+2025-09-17T10:36:15.2032419Z Creating pipes for streaming container io.
+2025-09-17T10:36:15.2034514Z Creating stdout named pipe at /podr/container/pipe/ab7774b4b9f1_kashiwabaragpt/stdout_c2a4bba14fae426d89a2122ed2336383.
+2025-09-17T10:36:15.2037426Z Successfully created stdout named pipe at: /podr/container/pipe/ab7774b4b9f1_kashiwabaragpt/stdout_c2a4bba14fae426d89a2122ed2336383.
+2025-09-17T10:36:15.2039292Z Opening named pipe /podr/container/pipe/ab7774b4b9f1_kashiwabaragpt/stdout_c2a4bba14fae426d89a2122ed2336383 for reading in non-blocking mode.
+2025-09-17T10:36:15.2041327Z Successfully opened named pipe: /podr/container/pipe/ab7774b4b9f1_kashiwabaragpt/stdout_c2a4bba14fae426d89a2122ed2336383.
+2025-09-17T10:36:15.2043984Z Successfully removed non-blocking flag from /podr/container/pipe/ab7774b4b9f1_kashiwabaragpt/stdout_c2a4bba14fae426d89a2122ed2336383.
+2025-09-17T10:36:15.2045940Z Creating stderr named pipe at /podr/container/pipe/ab7774b4b9f1_kashiwabaragpt/stderr_ebdfa8f0aa1c4bfd8c5c821475864d3f.
+2025-09-17T10:36:15.2048369Z Successfully created stderr named pipe at: /podr/container/pipe/ab7774b4b9f1_kashiwabaragpt/stderr_ebdfa8f0aa1c4bfd8c5c821475864d3f.
+2025-09-17T10:36:15.2050574Z Opening named pipe /podr/container/pipe/ab7774b4b9f1_kashiwabaragpt/stderr_ebdfa8f0aa1c4bfd8c5c821475864d3f for reading in non-blocking mode.
+2025-09-17T10:36:15.2052526Z Successfully opened named pipe: /podr/container/pipe/ab7774b4b9f1_kashiwabaragpt/stderr_ebdfa8f0aa1c4bfd8c5c821475864d3f.
+2025-09-17T10:36:15.2054365Z Successfully removed non-blocking flag from /podr/container/pipe/ab7774b4b9f1_kashiwabaragpt/stderr_ebdfa8f0aa1c4bfd8c5c821475864d3f.
+2025-09-17T10:36:15.2057562Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T10:36:15.3535667Z Starting container: ab7774b4b9f1_kashiwabaragpt.
+2025-09-17T10:36:15.3700549Z Starting watchers and probes.
+2025-09-17T10:36:15.3725237Z Starting metrics collection.
+2025-09-17T10:36:15.3739430Z Container is running.
+2025-09-17T10:36:15.4422596Z Container start method finished after 2710 ms.
+2025-09-17T10:36:20.6443819Z Site startup probe succeeded after 5.199278 seconds.
+2025-09-17T10:36:20.7150602Z Site is running with deployment version: f03d81f1-1ba4-4567-ba1a-fad22b3cda3d
+2025-09-17T10:36:20.7158362Z Site started.
+2025-09-17T10:36:20.7161792Z Site is running with patch version: 18.20.8
+2025-09-17T10:36:40.7222547Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T10:36:40.7240152Z Stop and delete container. Retry count = 0
+2025-09-17T10:36:40.7241549Z Stopping container: 36a99517bd2b_kashiwabaragpt.
+2025-09-17T10:36:45.7769724Z Deleting container: 36a99517bd2b_kashiwabaragpt. Retry count = 0
+2025-09-17T10:36:45.8946202Z Container spec TerminationMessagePolicy  path 
+2025-09-17T10:36:45.8947597Z Container is terminated. Total time elapsed: 5172 ms.
+2025-09-17T10:36:45.9009289Z Site: kashiwabaragpt stopped.
+2025-09-17T10:41:24.5905548Z Site: kashiwabaragpt stopped.
+2025-09-17T10:41:44.8033247Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T10:41:44.8072317Z Stop and delete container. Retry count = 0
+2025-09-17T10:41:44.8073646Z Stopping container: ab7774b4b9f1_kashiwabaragpt.
+2025-09-17T10:41:49.8579657Z Deleting container: ab7774b4b9f1_kashiwabaragpt. Retry count = 0
+2025-09-17T10:41:49.9702759Z Container spec TerminationMessagePolicy  path 
+2025-09-17T10:41:49.9704797Z Container is terminated. Total time elapsed: 5166 ms.
+2025-09-17T10:41:49.9743803Z Site: kashiwabaragpt stopped.
+2025-09-17T10:42:11.6281695Z Container start method called.
+2025-09-17T10:42:11.6288378Z Establishing network.
+2025-09-17T10:42:11.6289976Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T10:42:13.9079673Z Container is starting.
+2025-09-17T10:42:13.9090876Z Establishing user namespace if not established already.
+2025-09-17T10:42:13.9099131Z Establishing network if not established already.
+2025-09-17T10:42:13.9104865Z Mounting volumes.
+2025-09-17T10:42:13.9110593Z Nested mountpoint 
+2025-09-17T10:42:13.9154234Z Nested mountpoint volatile/logs
+2025-09-17T10:42:13.9220245Z Nested mountpoint 
+2025-09-17T10:42:13.9226953Z Nested mountpoint 
+2025-09-17T10:42:13.9233296Z Nested mountpoint 
+2025-09-17T10:42:13.9238655Z Nested mountpoint 
+2025-09-17T10:42:13.9583607Z Nested mountpoint 
+2025-09-17T10:42:13.9610410Z Nested mountpoint 
+2025-09-17T10:42:13.9823658Z Nested mountpoint 
+2025-09-17T10:42:13.9929090Z Nested mountpoint 
+2025-09-17T10:42:14.1080766Z Creating container.
+2025-09-17T10:42:14.1082171Z Creating pipes for streaming container io.
+2025-09-17T10:42:14.1083313Z Creating stdout named pipe at /podr/container/pipe/f5aebb7c8200_kashiwabaragpt/stdout_bf7b17452aab4f8d8d7f38ad1b84909d.
+2025-09-17T10:42:14.1085671Z Successfully created stdout named pipe at: /podr/container/pipe/f5aebb7c8200_kashiwabaragpt/stdout_bf7b17452aab4f8d8d7f38ad1b84909d.
+2025-09-17T10:42:14.1087113Z Opening named pipe /podr/container/pipe/f5aebb7c8200_kashiwabaragpt/stdout_bf7b17452aab4f8d8d7f38ad1b84909d for reading in non-blocking mode.
+2025-09-17T10:42:14.1088431Z Successfully opened named pipe: /podr/container/pipe/f5aebb7c8200_kashiwabaragpt/stdout_bf7b17452aab4f8d8d7f38ad1b84909d.
+2025-09-17T10:42:14.1089610Z Successfully removed non-blocking flag from /podr/container/pipe/f5aebb7c8200_kashiwabaragpt/stdout_bf7b17452aab4f8d8d7f38ad1b84909d.
+2025-09-17T10:42:14.1090882Z Creating stderr named pipe at /podr/container/pipe/f5aebb7c8200_kashiwabaragpt/stderr_fd4e95fafcd5426caf3d8e00acab9f05.
+2025-09-17T10:42:14.1093057Z Successfully created stderr named pipe at: /podr/container/pipe/f5aebb7c8200_kashiwabaragpt/stderr_fd4e95fafcd5426caf3d8e00acab9f05.
+2025-09-17T10:42:14.1094529Z Opening named pipe /podr/container/pipe/f5aebb7c8200_kashiwabaragpt/stderr_fd4e95fafcd5426caf3d8e00acab9f05 for reading in non-blocking mode.
+2025-09-17T10:42:14.1095978Z Successfully opened named pipe: /podr/container/pipe/f5aebb7c8200_kashiwabaragpt/stderr_fd4e95fafcd5426caf3d8e00acab9f05.
+2025-09-17T10:42:14.1097061Z Successfully removed non-blocking flag from /podr/container/pipe/f5aebb7c8200_kashiwabaragpt/stderr_fd4e95fafcd5426caf3d8e00acab9f05.
+2025-09-17T10:42:14.1098107Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T10:42:14.2446523Z Starting container: f5aebb7c8200_kashiwabaragpt.
+2025-09-17T10:42:14.2631013Z Starting watchers and probes.
+2025-09-17T10:42:14.2634105Z Starting metrics collection.
+2025-09-17T10:42:14.2635734Z Container is running.
+2025-09-17T10:42:14.9666223Z Container start method finished after 3338 ms.
+2025-09-17T10:42:19.1572952Z Site startup probe succeeded after 4.1898502 seconds.
+2025-09-17T10:42:19.2145038Z Site is running with deployment version: f03d81f1-1ba4-4567-ba1a-fad22b3cda3d
+2025-09-17T10:42:19.2147259Z Site started.
+2025-09-17T10:42:19.2187146Z Site is running with patch version: 18.20.8
+2025-09-17T11:24:55.6771535Z Site: kashiwabaragpt stopped.
+2025-09-17T11:25:15.9569694Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T11:25:15.9599757Z Stop and delete container. Retry count = 0
+2025-09-17T11:25:15.9603557Z Stopping container: f5aebb7c8200_kashiwabaragpt.
+2025-09-17T11:25:20.9909414Z Deleting container: f5aebb7c8200_kashiwabaragpt. Retry count = 0
+2025-09-17T11:25:21.1033453Z Container spec TerminationMessagePolicy  path 
+2025-09-17T11:25:21.1035620Z Container is terminated. Total time elapsed: 5146 ms.
+2025-09-17T11:25:21.1075250Z Site: kashiwabaragpt stopped.
+2025-09-17T11:25:26.5455354Z Container start method called.
+2025-09-17T11:25:26.5496256Z Establishing network.
+2025-09-17T11:25:26.5497841Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T11:25:28.9723870Z Container is starting.
+2025-09-17T11:25:28.9725212Z Establishing user namespace if not established already.
+2025-09-17T11:25:28.9726484Z Establishing network if not established already.
+2025-09-17T11:25:28.9727647Z Mounting volumes.
+2025-09-17T11:25:28.9729305Z Nested mountpoint 
+2025-09-17T11:25:28.9781528Z Nested mountpoint volatile/logs
+2025-09-17T11:25:28.9795734Z Nested mountpoint 
+2025-09-17T11:25:28.9815559Z Nested mountpoint 
+2025-09-17T11:25:28.9821638Z Nested mountpoint 
+2025-09-17T11:25:28.9827370Z Nested mountpoint 
+2025-09-17T11:25:29.0450087Z Nested mountpoint 
+2025-09-17T11:25:29.0479279Z Nested mountpoint 
+2025-09-17T11:25:29.0515444Z Nested mountpoint 
+2025-09-17T11:25:29.0659625Z Nested mountpoint 
+2025-09-17T11:25:29.1867019Z Creating container.
+2025-09-17T11:25:29.1870203Z Creating pipes for streaming container io.
+2025-09-17T11:25:29.1875137Z Creating stdout named pipe at /podr/container/pipe/89c3fec589fc_kashiwabaragpt/stdout_c152689e69364320b44fbc99117f607b.
+2025-09-17T11:25:29.1882349Z Successfully created stdout named pipe at: /podr/container/pipe/89c3fec589fc_kashiwabaragpt/stdout_c152689e69364320b44fbc99117f607b.
+2025-09-17T11:25:29.1888903Z Opening named pipe /podr/container/pipe/89c3fec589fc_kashiwabaragpt/stdout_c152689e69364320b44fbc99117f607b for reading in non-blocking mode.
+2025-09-17T11:25:29.1896558Z Successfully opened named pipe: /podr/container/pipe/89c3fec589fc_kashiwabaragpt/stdout_c152689e69364320b44fbc99117f607b.
+2025-09-17T11:25:29.1913988Z Successfully removed non-blocking flag from /podr/container/pipe/89c3fec589fc_kashiwabaragpt/stdout_c152689e69364320b44fbc99117f607b.
+2025-09-17T11:25:29.1915709Z Creating stderr named pipe at /podr/container/pipe/89c3fec589fc_kashiwabaragpt/stderr_1a6851a4d38441d1816ebe1d8f50a3c9.
+2025-09-17T11:25:29.1917504Z Successfully created stderr named pipe at: /podr/container/pipe/89c3fec589fc_kashiwabaragpt/stderr_1a6851a4d38441d1816ebe1d8f50a3c9.
+2025-09-17T11:25:29.1918699Z Opening named pipe /podr/container/pipe/89c3fec589fc_kashiwabaragpt/stderr_1a6851a4d38441d1816ebe1d8f50a3c9 for reading in non-blocking mode.
+2025-09-17T11:25:29.1920230Z Successfully opened named pipe: /podr/container/pipe/89c3fec589fc_kashiwabaragpt/stderr_1a6851a4d38441d1816ebe1d8f50a3c9.
+2025-09-17T11:25:29.1921444Z Successfully removed non-blocking flag from /podr/container/pipe/89c3fec589fc_kashiwabaragpt/stderr_1a6851a4d38441d1816ebe1d8f50a3c9.
+2025-09-17T11:25:29.1922629Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T11:25:29.3238869Z Starting container: 89c3fec589fc_kashiwabaragpt.
+2025-09-17T11:25:29.3428501Z Starting watchers and probes.
+2025-09-17T11:25:29.3449286Z Starting metrics collection.
+2025-09-17T11:25:29.3457057Z Container is running.
+2025-09-17T11:25:29.3738624Z Container start method finished after 2823 ms.
+2025-09-17T11:25:34.5658584Z Site startup probe succeeded after 5.1907913 seconds.
+2025-09-17T11:25:34.6371078Z Site is running with deployment version: f03d81f1-1ba4-4567-ba1a-fad22b3cda3d
+2025-09-17T11:25:34.6373552Z Site started.
+2025-09-17T11:25:34.6402486Z Site is running with patch version: 18.20.8
+2025-09-17T11:27:08.2483331Z Container start method called.
+2025-09-17T11:27:08.2485099Z Establishing network.
+2025-09-17T11:27:08.2486401Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T11:27:12.2452859Z Container is starting.
+2025-09-17T11:27:12.2456954Z Establishing user namespace if not established already.
+2025-09-17T11:27:12.2458493Z Establishing network if not established already.
+2025-09-17T11:27:12.2459766Z Mounting volumes.
+2025-09-17T11:27:12.2466406Z Nested mountpoint 
+2025-09-17T11:27:12.2509304Z Nested mountpoint volatile/logs
+2025-09-17T11:27:12.2599000Z Nested mountpoint 
+2025-09-17T11:27:12.2604776Z Nested mountpoint 
+2025-09-17T11:27:12.2609875Z Nested mountpoint 
+2025-09-17T11:27:12.2614795Z Nested mountpoint 
+2025-09-17T11:27:12.2957294Z Nested mountpoint 
+2025-09-17T11:27:12.2963588Z Nested mountpoint 
+2025-09-17T11:27:12.3014189Z Nested mountpoint 
+2025-09-17T11:27:12.3354478Z Nested mountpoint 
+2025-09-17T11:27:12.5500790Z Creating container.
+2025-09-17T11:27:12.5534405Z Creating pipes for streaming container io.
+2025-09-17T11:27:12.5537351Z Creating stdout named pipe at /podr/container/pipe/cf9175f40e4b_kashiwabaragpt/stdout_4279dbb9cedf49a0a42893621e8a8935.
+2025-09-17T11:27:12.5539449Z Successfully created stdout named pipe at: /podr/container/pipe/cf9175f40e4b_kashiwabaragpt/stdout_4279dbb9cedf49a0a42893621e8a8935.
+2025-09-17T11:27:12.5540457Z Opening named pipe /podr/container/pipe/cf9175f40e4b_kashiwabaragpt/stdout_4279dbb9cedf49a0a42893621e8a8935 for reading in non-blocking mode.
+2025-09-17T11:27:12.5541532Z Successfully opened named pipe: /podr/container/pipe/cf9175f40e4b_kashiwabaragpt/stdout_4279dbb9cedf49a0a42893621e8a8935.
+2025-09-17T11:27:12.5542495Z Successfully removed non-blocking flag from /podr/container/pipe/cf9175f40e4b_kashiwabaragpt/stdout_4279dbb9cedf49a0a42893621e8a8935.
+2025-09-17T11:27:12.5543536Z Creating stderr named pipe at /podr/container/pipe/cf9175f40e4b_kashiwabaragpt/stderr_4e37719aa1b24ec195cda320a16dc1cc.
+2025-09-17T11:27:12.5545054Z Successfully created stderr named pipe at: /podr/container/pipe/cf9175f40e4b_kashiwabaragpt/stderr_4e37719aa1b24ec195cda320a16dc1cc.
+2025-09-17T11:27:12.5545976Z Opening named pipe /podr/container/pipe/cf9175f40e4b_kashiwabaragpt/stderr_4e37719aa1b24ec195cda320a16dc1cc for reading in non-blocking mode.
+2025-09-17T11:27:12.5547198Z Successfully opened named pipe: /podr/container/pipe/cf9175f40e4b_kashiwabaragpt/stderr_4e37719aa1b24ec195cda320a16dc1cc.
+2025-09-17T11:27:12.5548167Z Successfully removed non-blocking flag from /podr/container/pipe/cf9175f40e4b_kashiwabaragpt/stderr_4e37719aa1b24ec195cda320a16dc1cc.
+2025-09-17T11:27:12.5571011Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T11:27:12.7152842Z Starting container: cf9175f40e4b_kashiwabaragpt.
+2025-09-17T11:27:12.7318243Z Starting watchers and probes.
+2025-09-17T11:27:12.7343230Z Starting metrics collection.
+2025-09-17T11:27:12.7373569Z Container is running.
+2025-09-17T11:27:12.7781056Z Container start method finished after 4526 ms.
+2025-09-17T11:27:19.0758963Z Site startup probe succeeded after 6.2964774 seconds.
+2025-09-17T11:27:19.1376246Z Site is running with deployment version: f03d81f1-1ba4-4567-ba1a-fad22b3cda3d
+2025-09-17T11:27:19.1378586Z Site started.
+2025-09-17T11:27:19.1395911Z Site is running with patch version: 18.20.8
+2025-09-17T11:27:39.1463422Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T11:27:39.1478596Z Stop and delete container. Retry count = 0
+2025-09-17T11:27:39.1480033Z Stopping container: 89c3fec589fc_kashiwabaragpt.
+2025-09-17T11:27:44.1922891Z Deleting container: 89c3fec589fc_kashiwabaragpt. Retry count = 0
+2025-09-17T11:27:44.3102528Z Container spec TerminationMessagePolicy  path 
+2025-09-17T11:27:44.3104575Z Container is terminated. Total time elapsed: 5163 ms.
+2025-09-17T11:27:44.3139907Z Site: kashiwabaragpt stopped.
+2025-09-17T11:30:00.9184699Z Container start method called.
+2025-09-17T11:30:00.9193451Z Establishing network.
+2025-09-17T11:30:00.9194601Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T11:30:03.6320313Z Container is starting.
+2025-09-17T11:30:03.6322322Z Establishing user namespace if not established already.
+2025-09-17T11:30:03.6324272Z Establishing network if not established already.
+2025-09-17T11:30:03.6330099Z Mounting volumes.
+2025-09-17T11:30:03.6336846Z Nested mountpoint 
+2025-09-17T11:30:03.6370042Z Nested mountpoint volatile/logs
+2025-09-17T11:30:03.6432934Z Nested mountpoint 
+2025-09-17T11:30:03.6441637Z Nested mountpoint 
+2025-09-17T11:30:03.6447321Z Nested mountpoint 
+2025-09-17T11:30:03.6561237Z Nested mountpoint 
+2025-09-17T11:30:03.6701856Z Nested mountpoint 
+2025-09-17T11:30:03.6728818Z Nested mountpoint 
+2025-09-17T11:30:03.6882878Z Nested mountpoint 
+2025-09-17T11:30:03.6931194Z Nested mountpoint 
+2025-09-17T11:30:03.9403896Z Creating container.
+2025-09-17T11:30:03.9421546Z Creating pipes for streaming container io.
+2025-09-17T11:30:03.9427738Z Creating stdout named pipe at /podr/container/pipe/6035b036c4a9_kashiwabaragpt/stdout_c7daf5db08ce43d3a0199ab54ba356f2.
+2025-09-17T11:30:03.9434880Z Successfully created stdout named pipe at: /podr/container/pipe/6035b036c4a9_kashiwabaragpt/stdout_c7daf5db08ce43d3a0199ab54ba356f2.
+2025-09-17T11:30:03.9443410Z Opening named pipe /podr/container/pipe/6035b036c4a9_kashiwabaragpt/stdout_c7daf5db08ce43d3a0199ab54ba356f2 for reading in non-blocking mode.
+2025-09-17T11:30:03.9448848Z Successfully opened named pipe: /podr/container/pipe/6035b036c4a9_kashiwabaragpt/stdout_c7daf5db08ce43d3a0199ab54ba356f2.
+2025-09-17T11:30:03.9450922Z Successfully removed non-blocking flag from /podr/container/pipe/6035b036c4a9_kashiwabaragpt/stdout_c7daf5db08ce43d3a0199ab54ba356f2.
+2025-09-17T11:30:03.9452838Z Creating stderr named pipe at /podr/container/pipe/6035b036c4a9_kashiwabaragpt/stderr_b21482f1d0eb438caa90c0dd873a74cc.
+2025-09-17T11:30:03.9458972Z Successfully created stderr named pipe at: /podr/container/pipe/6035b036c4a9_kashiwabaragpt/stderr_b21482f1d0eb438caa90c0dd873a74cc.
+2025-09-17T11:30:03.9462497Z Opening named pipe /podr/container/pipe/6035b036c4a9_kashiwabaragpt/stderr_b21482f1d0eb438caa90c0dd873a74cc for reading in non-blocking mode.
+2025-09-17T11:30:03.9468434Z Successfully opened named pipe: /podr/container/pipe/6035b036c4a9_kashiwabaragpt/stderr_b21482f1d0eb438caa90c0dd873a74cc.
+2025-09-17T11:30:03.9472530Z Successfully removed non-blocking flag from /podr/container/pipe/6035b036c4a9_kashiwabaragpt/stderr_b21482f1d0eb438caa90c0dd873a74cc.
+2025-09-17T11:30:03.9478066Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T11:30:04.0761776Z Starting container: 6035b036c4a9_kashiwabaragpt.
+2025-09-17T11:30:04.0944064Z Starting watchers and probes.
+2025-09-17T11:30:04.0954717Z Starting metrics collection.
+2025-09-17T11:30:04.0962797Z Container is running.
+2025-09-17T11:30:05.6514364Z Container start method finished after 4731 ms.
+2025-09-17T11:30:08.9281707Z Site startup probe succeeded after 3.2724112 seconds.
+2025-09-17T11:30:08.9744489Z Site is running with deployment version: f03d81f1-1ba4-4567-ba1a-fad22b3cda3d
+2025-09-17T11:30:08.9754752Z Site started.
+2025-09-17T11:30:08.9760355Z Site is running with patch version: 18.20.8
+2025-09-17T11:30:28.9833203Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T11:30:28.9866235Z Stop and delete container. Retry count = 0
+2025-09-17T11:30:28.9876648Z Stopping container: cf9175f40e4b_kashiwabaragpt.
+2025-09-17T11:30:34.0263389Z Deleting container: cf9175f40e4b_kashiwabaragpt. Retry count = 0
+2025-09-17T11:30:34.2067951Z Container spec TerminationMessagePolicy  path 
+2025-09-17T11:30:34.2073601Z Container is terminated. Total time elapsed: 5223 ms.
+2025-09-17T11:30:34.2099323Z Site: kashiwabaragpt stopped.
+2025-09-17T11:31:43.1607932Z Container start method called.
+2025-09-17T11:31:43.1609301Z Establishing network.
+2025-09-17T11:31:43.1610418Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T11:31:45.3513804Z Container is starting.
+2025-09-17T11:31:45.3515109Z Establishing user namespace if not established already.
+2025-09-17T11:31:45.3527243Z Establishing network if not established already.
+2025-09-17T11:31:45.3529911Z Mounting volumes.
+2025-09-17T11:31:45.3531960Z Nested mountpoint 
+2025-09-17T11:31:45.3570001Z Nested mountpoint volatile/logs
+2025-09-17T11:31:45.3666512Z Nested mountpoint 
+2025-09-17T11:31:45.3673082Z Nested mountpoint 
+2025-09-17T11:31:45.3875206Z Nested mountpoint 
+2025-09-17T11:31:45.3968671Z Nested mountpoint 
+2025-09-17T11:31:45.4090546Z Nested mountpoint 
+2025-09-17T11:31:45.4183032Z Nested mountpoint 
+2025-09-17T11:31:45.4321223Z Nested mountpoint 
+2025-09-17T11:31:45.4344193Z Nested mountpoint 
+2025-09-17T11:31:45.5961603Z Creating container.
+2025-09-17T11:31:45.5977415Z Creating pipes for streaming container io.
+2025-09-17T11:31:45.5986855Z Creating stdout named pipe at /podr/container/pipe/121b212c7781_kashiwabaragpt/stdout_85cf3eb617fe479aa42b4716715d1f4f.
+2025-09-17T11:31:45.5991940Z Successfully created stdout named pipe at: /podr/container/pipe/121b212c7781_kashiwabaragpt/stdout_85cf3eb617fe479aa42b4716715d1f4f.
+2025-09-17T11:31:45.5994903Z Opening named pipe /podr/container/pipe/121b212c7781_kashiwabaragpt/stdout_85cf3eb617fe479aa42b4716715d1f4f for reading in non-blocking mode.
+2025-09-17T11:31:45.5997018Z Successfully opened named pipe: /podr/container/pipe/121b212c7781_kashiwabaragpt/stdout_85cf3eb617fe479aa42b4716715d1f4f.
+2025-09-17T11:31:45.5998923Z Successfully removed non-blocking flag from /podr/container/pipe/121b212c7781_kashiwabaragpt/stdout_85cf3eb617fe479aa42b4716715d1f4f.
+2025-09-17T11:31:45.6000958Z Creating stderr named pipe at /podr/container/pipe/121b212c7781_kashiwabaragpt/stderr_351f90857abd40c1a8f7f3577427c3b8.
+2025-09-17T11:31:45.6004091Z Successfully created stderr named pipe at: /podr/container/pipe/121b212c7781_kashiwabaragpt/stderr_351f90857abd40c1a8f7f3577427c3b8.
+2025-09-17T11:31:45.6009317Z Opening named pipe /podr/container/pipe/121b212c7781_kashiwabaragpt/stderr_351f90857abd40c1a8f7f3577427c3b8 for reading in non-blocking mode.
+2025-09-17T11:31:45.6017928Z Successfully opened named pipe: /podr/container/pipe/121b212c7781_kashiwabaragpt/stderr_351f90857abd40c1a8f7f3577427c3b8.
+2025-09-17T11:31:45.6021697Z Successfully removed non-blocking flag from /podr/container/pipe/121b212c7781_kashiwabaragpt/stderr_351f90857abd40c1a8f7f3577427c3b8.
+2025-09-17T11:31:45.6023185Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T11:31:45.7549961Z Starting container: 121b212c7781_kashiwabaragpt.
+2025-09-17T11:31:45.7703842Z Starting watchers and probes.
+2025-09-17T11:31:45.7706130Z Starting metrics collection.
+2025-09-17T11:31:45.7745112Z Container is running.
+2025-09-17T11:31:45.8095897Z Container start method finished after 2648 ms.
+2025-09-17T11:31:47.2711532Z Site startup probe failed after 1.4604813 seconds.
+2025-09-17T11:31:47.2923186Z Failed to start site. Revert by stopping site.
+2025-09-17T11:31:47.2933703Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T11:31:47.2972006Z Stop and delete container. Retry count = 0
+2025-09-17T11:31:47.2975640Z Stopping container: 121b212c7781_kashiwabaragpt.
+2025-09-17T11:31:52.3433810Z Deleting container: 121b212c7781_kashiwabaragpt. Retry count = 0
+2025-09-17T11:31:52.4908902Z Container spec TerminationMessagePolicy  path 
+2025-09-17T11:31:52.4911380Z Container is terminated. Total time elapsed: 5197 ms.
+2025-09-17T11:31:52.4915000Z Site container: kashiwabaragpt terminated during site startup.
+2025-09-17T11:31:52.4917808Z Site: kashiwabaragpt stopped.
+2025-09-17T11:32:12.8652088Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T11:32:12.8671343Z Stop and delete container. Retry count = 0
+2025-09-17T11:32:12.8680867Z Stopping container: 6035b036c4a9_kashiwabaragpt.
+2025-09-17T11:32:17.9054925Z Deleting container: 6035b036c4a9_kashiwabaragpt. Retry count = 0
+2025-09-17T11:32:18.0264104Z Container spec TerminationMessagePolicy  path 
+2025-09-17T11:32:18.0265644Z Container is terminated. Total time elapsed: 5161 ms.
+2025-09-17T11:32:18.0310768Z Site: kashiwabaragpt stopped.
+2025-09-17T11:32:41.4861981Z Container start method called.
+2025-09-17T11:32:41.4864085Z Establishing network.
+2025-09-17T11:32:41.4874876Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T11:32:44.7936307Z Container is starting.
+2025-09-17T11:32:44.7937629Z Establishing user namespace if not established already.
+2025-09-17T11:32:44.7938732Z Establishing network if not established already.
+2025-09-17T11:32:44.7939932Z Mounting volumes.
+2025-09-17T11:32:44.7941415Z Nested mountpoint 
+2025-09-17T11:32:44.8113341Z Nested mountpoint volatile/logs
+2025-09-17T11:32:44.8176141Z Nested mountpoint 
+2025-09-17T11:32:44.8276875Z Nested mountpoint 
+2025-09-17T11:32:44.8282932Z Nested mountpoint 
+2025-09-17T11:32:44.8288018Z Nested mountpoint 
+2025-09-17T11:32:44.8682797Z Nested mountpoint 
+2025-09-17T11:32:44.8733344Z Nested mountpoint 
+2025-09-17T11:32:44.8835994Z Nested mountpoint 
+2025-09-17T11:32:44.8963801Z Nested mountpoint 
+2025-09-17T11:32:45.0695556Z Creating container.
+2025-09-17T11:32:45.0707806Z Creating pipes for streaming container io.
+2025-09-17T11:32:45.0715610Z Creating stdout named pipe at /podr/container/pipe/47c58972d7ff_kashiwabaragpt/stdout_a7d6524b45274e53b1810aeb21503c1e.
+2025-09-17T11:32:45.0724369Z Successfully created stdout named pipe at: /podr/container/pipe/47c58972d7ff_kashiwabaragpt/stdout_a7d6524b45274e53b1810aeb21503c1e.
+2025-09-17T11:32:45.0729409Z Opening named pipe /podr/container/pipe/47c58972d7ff_kashiwabaragpt/stdout_a7d6524b45274e53b1810aeb21503c1e for reading in non-blocking mode.
+2025-09-17T11:32:45.0734336Z Successfully opened named pipe: /podr/container/pipe/47c58972d7ff_kashiwabaragpt/stdout_a7d6524b45274e53b1810aeb21503c1e.
+2025-09-17T11:32:45.0736733Z Successfully removed non-blocking flag from /podr/container/pipe/47c58972d7ff_kashiwabaragpt/stdout_a7d6524b45274e53b1810aeb21503c1e.
+2025-09-17T11:32:45.0743429Z Creating stderr named pipe at /podr/container/pipe/47c58972d7ff_kashiwabaragpt/stderr_e2073def95624cef86d5471301cf6dc9.
+2025-09-17T11:32:45.0746920Z Successfully created stderr named pipe at: /podr/container/pipe/47c58972d7ff_kashiwabaragpt/stderr_e2073def95624cef86d5471301cf6dc9.
+2025-09-17T11:32:45.0755932Z Opening named pipe /podr/container/pipe/47c58972d7ff_kashiwabaragpt/stderr_e2073def95624cef86d5471301cf6dc9 for reading in non-blocking mode.
+2025-09-17T11:32:45.0757603Z Successfully opened named pipe: /podr/container/pipe/47c58972d7ff_kashiwabaragpt/stderr_e2073def95624cef86d5471301cf6dc9.
+2025-09-17T11:32:45.0759065Z Successfully removed non-blocking flag from /podr/container/pipe/47c58972d7ff_kashiwabaragpt/stderr_e2073def95624cef86d5471301cf6dc9.
+2025-09-17T11:32:45.0761369Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T11:32:45.2012276Z Starting container: 47c58972d7ff_kashiwabaragpt.
+2025-09-17T11:32:45.2177380Z Starting watchers and probes.
+2025-09-17T11:32:45.2182731Z Starting metrics collection.
+2025-09-17T11:32:45.2212876Z Container is running.
+2025-09-17T11:32:46.2489163Z Container start method finished after 4762 ms.
+2025-09-17T11:32:50.8836030Z Site startup probe succeeded after 4.6334098 seconds.
+2025-09-17T11:32:50.9487448Z Site is running with deployment version: f03d81f1-1ba4-4567-ba1a-fad22b3cda3d
+2025-09-17T11:32:50.9492092Z Site started.
+2025-09-17T11:32:50.9541747Z Site is running with patch version: 18.20.8
+2025-09-17T11:33:09.7277466Z Container start method called.
+2025-09-17T11:33:09.7280098Z Establishing network.
+2025-09-17T11:33:09.7322337Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T11:33:11.9127156Z Container is starting.
+2025-09-17T11:33:11.9128391Z Establishing user namespace if not established already.
+2025-09-17T11:33:11.9129597Z Establishing network if not established already.
+2025-09-17T11:33:11.9131363Z Mounting volumes.
+2025-09-17T11:33:11.9133070Z Nested mountpoint 
+2025-09-17T11:33:11.9161680Z Nested mountpoint volatile/logs
+2025-09-17T11:33:11.9336169Z Nested mountpoint 
+2025-09-17T11:33:11.9343245Z Nested mountpoint 
+2025-09-17T11:33:11.9349004Z Nested mountpoint 
+2025-09-17T11:33:11.9422387Z Nested mountpoint 
+2025-09-17T11:33:11.9801627Z Nested mountpoint 
+2025-09-17T11:33:11.9807366Z Nested mountpoint 
+2025-09-17T11:33:12.0192904Z Nested mountpoint 
+2025-09-17T11:33:12.0315227Z Nested mountpoint 
+2025-09-17T11:33:12.1597723Z Creating container.
+2025-09-17T11:33:12.1599615Z Creating pipes for streaming container io.
+2025-09-17T11:33:12.1601462Z Creating stdout named pipe at /podr/container/pipe/cfc1ce316124_kashiwabaragpt/stdout_a5c6659642f840409808327f4573a2bb.
+2025-09-17T11:33:12.1608611Z Successfully created stdout named pipe at: /podr/container/pipe/cfc1ce316124_kashiwabaragpt/stdout_a5c6659642f840409808327f4573a2bb.
+2025-09-17T11:33:12.1613891Z Opening named pipe /podr/container/pipe/cfc1ce316124_kashiwabaragpt/stdout_a5c6659642f840409808327f4573a2bb for reading in non-blocking mode.
+2025-09-17T11:33:12.1615413Z Successfully opened named pipe: /podr/container/pipe/cfc1ce316124_kashiwabaragpt/stdout_a5c6659642f840409808327f4573a2bb.
+2025-09-17T11:33:12.1627099Z Successfully removed non-blocking flag from /podr/container/pipe/cfc1ce316124_kashiwabaragpt/stdout_a5c6659642f840409808327f4573a2bb.
+2025-09-17T11:33:12.1631327Z Creating stderr named pipe at /podr/container/pipe/cfc1ce316124_kashiwabaragpt/stderr_38acea0bd772404aae9005df90d4a5da.
+2025-09-17T11:33:12.1638408Z Successfully created stderr named pipe at: /podr/container/pipe/cfc1ce316124_kashiwabaragpt/stderr_38acea0bd772404aae9005df90d4a5da.
+2025-09-17T11:33:12.1640869Z Opening named pipe /podr/container/pipe/cfc1ce316124_kashiwabaragpt/stderr_38acea0bd772404aae9005df90d4a5da for reading in non-blocking mode.
+2025-09-17T11:33:12.1647208Z Successfully opened named pipe: /podr/container/pipe/cfc1ce316124_kashiwabaragpt/stderr_38acea0bd772404aae9005df90d4a5da.
+2025-09-17T11:33:12.1649355Z Successfully removed non-blocking flag from /podr/container/pipe/cfc1ce316124_kashiwabaragpt/stderr_38acea0bd772404aae9005df90d4a5da.
+2025-09-17T11:33:12.1650781Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T11:33:12.3570942Z Starting container: cfc1ce316124_kashiwabaragpt.
+2025-09-17T11:33:12.3807441Z Starting watchers and probes.
+2025-09-17T11:33:12.3818015Z Starting metrics collection.
+2025-09-17T11:33:12.3820099Z Container is running.
+2025-09-17T11:33:12.4369521Z Container start method finished after 2707 ms.
+2025-09-17T11:33:17.6311664Z Site startup probe succeeded after 5.1890645 seconds.
+2025-09-17T11:33:17.6930151Z Site is running with deployment version: f03d81f1-1ba4-4567-ba1a-fad22b3cda3d
+2025-09-17T11:33:17.6932141Z Site started.
+2025-09-17T11:33:17.6940060Z Site is running with patch version: 18.20.8
+2025-09-17T11:33:37.6967441Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T11:33:37.6989775Z Stop and delete container. Retry count = 0
+2025-09-17T11:33:37.6991269Z Stopping container: 47c58972d7ff_kashiwabaragpt.
+2025-09-17T11:33:42.7284910Z Deleting container: 47c58972d7ff_kashiwabaragpt. Retry count = 0
+2025-09-17T11:33:42.8455393Z Container spec TerminationMessagePolicy  path 
+2025-09-17T11:33:42.8457527Z Container is terminated. Total time elapsed: 5148 ms.
+2025-09-17T11:33:42.8494500Z Site: kashiwabaragpt stopped.
+2025-09-17T11:36:22.0459749Z Container start method called.
+2025-09-17T11:36:22.0463107Z Establishing network.
+2025-09-17T11:36:22.0464293Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T11:36:25.1303346Z Container is starting.
+2025-09-17T11:36:25.1304813Z Establishing user namespace if not established already.
+2025-09-17T11:36:25.1305993Z Establishing network if not established already.
+2025-09-17T11:36:25.1307125Z Mounting volumes.
+2025-09-17T11:36:25.1308959Z Nested mountpoint 
+2025-09-17T11:36:25.1342099Z Nested mountpoint volatile/logs
+2025-09-17T11:36:25.1475799Z Nested mountpoint 
+2025-09-17T11:36:25.1654987Z Nested mountpoint 
+2025-09-17T11:36:25.1663168Z Nested mountpoint 
+2025-09-17T11:36:25.1668474Z Nested mountpoint 
+2025-09-17T11:36:25.2098838Z Nested mountpoint 
+2025-09-17T11:36:25.2175553Z Nested mountpoint 
+2025-09-17T11:36:25.2335235Z Nested mountpoint 
+2025-09-17T11:36:25.2421870Z Nested mountpoint 
+2025-09-17T11:36:25.3845793Z Creating container.
+2025-09-17T11:36:25.3847159Z Creating pipes for streaming container io.
+2025-09-17T11:36:25.3848465Z Creating stdout named pipe at /podr/container/pipe/38d363d2f175_kashiwabaragpt/stdout_2ddd0c68b39a4310945549a172a301d2.
+2025-09-17T11:36:25.3850658Z Successfully created stdout named pipe at: /podr/container/pipe/38d363d2f175_kashiwabaragpt/stdout_2ddd0c68b39a4310945549a172a301d2.
+2025-09-17T11:36:25.3851903Z Opening named pipe /podr/container/pipe/38d363d2f175_kashiwabaragpt/stdout_2ddd0c68b39a4310945549a172a301d2 for reading in non-blocking mode.
+2025-09-17T11:36:25.3853598Z Successfully opened named pipe: /podr/container/pipe/38d363d2f175_kashiwabaragpt/stdout_2ddd0c68b39a4310945549a172a301d2.
+2025-09-17T11:36:25.3855001Z Successfully removed non-blocking flag from /podr/container/pipe/38d363d2f175_kashiwabaragpt/stdout_2ddd0c68b39a4310945549a172a301d2.
+2025-09-17T11:36:25.3856458Z Creating stderr named pipe at /podr/container/pipe/38d363d2f175_kashiwabaragpt/stderr_3cf752323ed24d8db70c6126dc6b61a0.
+2025-09-17T11:36:25.3858110Z Successfully created stderr named pipe at: /podr/container/pipe/38d363d2f175_kashiwabaragpt/stderr_3cf752323ed24d8db70c6126dc6b61a0.
+2025-09-17T11:36:25.3859147Z Opening named pipe /podr/container/pipe/38d363d2f175_kashiwabaragpt/stderr_3cf752323ed24d8db70c6126dc6b61a0 for reading in non-blocking mode.
+2025-09-17T11:36:25.3860508Z Successfully opened named pipe: /podr/container/pipe/38d363d2f175_kashiwabaragpt/stderr_3cf752323ed24d8db70c6126dc6b61a0.
+2025-09-17T11:36:25.3861794Z Successfully removed non-blocking flag from /podr/container/pipe/38d363d2f175_kashiwabaragpt/stderr_3cf752323ed24d8db70c6126dc6b61a0.
+2025-09-17T11:36:25.3863804Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T11:36:25.5481787Z Starting container: 38d363d2f175_kashiwabaragpt.
+2025-09-17T11:36:25.5612879Z Starting watchers and probes.
+2025-09-17T11:36:25.5615194Z Starting metrics collection.
+2025-09-17T11:36:25.5616584Z Container is running.
+2025-09-17T11:36:25.5967220Z Container start method finished after 3549 ms.
+2025-09-17T11:36:30.7947617Z Site startup probe succeeded after 5.1957817 seconds.
+2025-09-17T11:36:33.8683089Z Site is running with deployment version: f03d81f1-1ba4-4567-ba1a-fad22b3cda3d
+2025-09-17T11:36:33.8685262Z Site started.
+2025-09-17T11:36:33.8688124Z Site is running with patch version: 18.20.8
+2025-09-17T11:36:53.8880367Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T11:36:53.8906249Z Stop and delete container. Retry count = 0
+2025-09-17T11:36:53.8910730Z Stopping container: cfc1ce316124_kashiwabaragpt.
+2025-09-17T11:36:58.9223806Z Deleting container: cfc1ce316124_kashiwabaragpt. Retry count = 0
+2025-09-17T11:36:59.0460573Z Container spec TerminationMessagePolicy  path 
+2025-09-17T11:36:59.0462921Z Container is terminated. Total time elapsed: 5158 ms.
+2025-09-17T11:36:59.0514802Z Site: kashiwabaragpt stopped.
+2025-09-17T11:38:07.2539128Z Container start method called.
+2025-09-17T11:38:07.2540540Z Establishing network.
+2025-09-17T11:38:07.2541743Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T11:38:10.6346421Z Container pull image interrupted. Revert by terminate.
+2025-09-17T11:38:10.6348630Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T11:38:10.6351786Z Container spec TerminationMessagePolicy  path 
+2025-09-17T11:38:10.6353832Z Container is terminated. Total time elapsed: 0 ms.
+2025-09-17T11:38:10.6355560Z Site container: kashiwabaragpt terminated during site startup.
+2025-09-17T11:38:10.6522629Z Site container: kashiwabaragpt terminated. Stopping the entire site.
+2025-09-17T11:38:10.6535341Z Site: kashiwabaragpt stopped.
+2025-09-17T11:38:30.6641944Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T11:38:30.6689979Z Stop and delete container. Retry count = 0
+2025-09-17T11:38:30.6691470Z Stopping container: 38d363d2f175_kashiwabaragpt.
+2025-09-17T11:38:35.7031799Z Deleting container: 38d363d2f175_kashiwabaragpt. Retry count = 0
+2025-09-17T11:38:35.8179162Z Container spec TerminationMessagePolicy  path 
+2025-09-17T11:38:35.8181280Z Container is terminated. Total time elapsed: 5153 ms.
+2025-09-17T11:38:35.8217392Z Site: kashiwabaragpt stopped.
+2025-09-17T11:39:01.5588908Z Container start method called.
+2025-09-17T11:39:01.5598061Z Establishing network.
+2025-09-17T11:39:01.5602867Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T11:39:04.4591871Z Container is starting.
+2025-09-17T11:39:04.4593078Z Establishing user namespace if not established already.
+2025-09-17T11:39:04.4594362Z Establishing network if not established already.
+2025-09-17T11:39:04.4595505Z Mounting volumes.
+2025-09-17T11:39:04.4596968Z Nested mountpoint 
+2025-09-17T11:39:04.4624624Z Nested mountpoint volatile/logs
+2025-09-17T11:39:04.4758346Z Nested mountpoint 
+2025-09-17T11:39:04.4764129Z Nested mountpoint 
+2025-09-17T11:39:04.4769146Z Nested mountpoint 
+2025-09-17T11:39:04.4774203Z Nested mountpoint 
+2025-09-17T11:39:04.4884908Z Nested mountpoint 
+2025-09-17T11:39:04.4953360Z Nested mountpoint 
+2025-09-17T11:39:04.5045397Z Nested mountpoint 
+2025-09-17T11:39:04.5132168Z Nested mountpoint 
+2025-09-17T11:39:04.6731403Z Creating container.
+2025-09-17T11:39:04.6735161Z Creating pipes for streaming container io.
+2025-09-17T11:39:04.6740124Z Creating stdout named pipe at /podr/container/pipe/5c21049ebc9e_kashiwabaragpt/stdout_c85672745f08465ab66abd1418792475.
+2025-09-17T11:39:04.6754488Z Successfully created stdout named pipe at: /podr/container/pipe/5c21049ebc9e_kashiwabaragpt/stdout_c85672745f08465ab66abd1418792475.
+2025-09-17T11:39:04.6756460Z Opening named pipe /podr/container/pipe/5c21049ebc9e_kashiwabaragpt/stdout_c85672745f08465ab66abd1418792475 for reading in non-blocking mode.
+2025-09-17T11:39:04.6761470Z Successfully opened named pipe: /podr/container/pipe/5c21049ebc9e_kashiwabaragpt/stdout_c85672745f08465ab66abd1418792475.
+2025-09-17T11:39:04.6763039Z Successfully removed non-blocking flag from /podr/container/pipe/5c21049ebc9e_kashiwabaragpt/stdout_c85672745f08465ab66abd1418792475.
+2025-09-17T11:39:04.6764225Z Creating stderr named pipe at /podr/container/pipe/5c21049ebc9e_kashiwabaragpt/stderr_ef429e47075f4fd98ced1180febb9977.
+2025-09-17T11:39:04.6765815Z Successfully created stderr named pipe at: /podr/container/pipe/5c21049ebc9e_kashiwabaragpt/stderr_ef429e47075f4fd98ced1180febb9977.
+2025-09-17T11:39:04.6766904Z Opening named pipe /podr/container/pipe/5c21049ebc9e_kashiwabaragpt/stderr_ef429e47075f4fd98ced1180febb9977 for reading in non-blocking mode.
+2025-09-17T11:39:04.6768212Z Successfully opened named pipe: /podr/container/pipe/5c21049ebc9e_kashiwabaragpt/stderr_ef429e47075f4fd98ced1180febb9977.
+2025-09-17T11:39:04.6769206Z Successfully removed non-blocking flag from /podr/container/pipe/5c21049ebc9e_kashiwabaragpt/stderr_ef429e47075f4fd98ced1180febb9977.
+2025-09-17T11:39:04.6770246Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T11:39:04.8095155Z Starting container: 5c21049ebc9e_kashiwabaragpt.
+2025-09-17T11:39:04.8289889Z Starting watchers and probes.
+2025-09-17T11:39:04.8307514Z Starting metrics collection.
+2025-09-17T11:39:04.8310563Z Container is running.
+2025-09-17T11:39:06.8168583Z Container start method finished after 5257 ms.
+2025-09-17T11:39:10.0010270Z Site startup probe succeeded after 3.1831298 seconds.
+2025-09-17T11:39:10.0547695Z Site is running with deployment version: f03d81f1-1ba4-4567-ba1a-fad22b3cda3d
+2025-09-17T11:39:10.0555238Z Site started.
+2025-09-17T11:39:10.0604330Z Site is running with patch version: 18.20.8
+2025-09-17T11:52:49.9028152Z Container start method called.
+2025-09-17T11:52:49.9032890Z Establishing network.
+2025-09-17T11:52:49.9035052Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T11:52:56.9672699Z Container is starting.
+2025-09-17T11:52:56.9679493Z Establishing user namespace if not established already.
+2025-09-17T11:52:56.9687796Z Establishing network if not established already.
+2025-09-17T11:52:56.9696660Z Mounting volumes.
+2025-09-17T11:52:56.9704957Z Nested mountpoint 
+2025-09-17T11:52:56.9754607Z Nested mountpoint volatile/logs
+2025-09-17T11:52:56.9918707Z Nested mountpoint 
+2025-09-17T11:52:57.0041269Z Nested mountpoint 
+2025-09-17T11:52:57.0085725Z Nested mountpoint 
+2025-09-17T11:52:57.0351805Z Nested mountpoint 
+2025-09-17T11:52:57.0557037Z Nested mountpoint 
+2025-09-17T11:52:57.0752417Z Nested mountpoint 
+2025-09-17T11:52:57.0991165Z Nested mountpoint 
+2025-09-17T11:52:57.1391561Z Nested mountpoint 
+2025-09-17T11:52:57.2506667Z Creating container.
+2025-09-17T11:52:57.2508362Z Creating pipes for streaming container io.
+2025-09-17T11:52:57.2512728Z Creating stdout named pipe at /podr/container/pipe/5688c7ad13e2_kashiwabaragpt/stdout_3aa25552e320487b9e122d05e883576b.
+2025-09-17T11:52:57.2514931Z Successfully created stdout named pipe at: /podr/container/pipe/5688c7ad13e2_kashiwabaragpt/stdout_3aa25552e320487b9e122d05e883576b.
+2025-09-17T11:52:57.2515989Z Opening named pipe /podr/container/pipe/5688c7ad13e2_kashiwabaragpt/stdout_3aa25552e320487b9e122d05e883576b for reading in non-blocking mode.
+2025-09-17T11:52:57.2517353Z Successfully opened named pipe: /podr/container/pipe/5688c7ad13e2_kashiwabaragpt/stdout_3aa25552e320487b9e122d05e883576b.
+2025-09-17T11:52:57.2518642Z Successfully removed non-blocking flag from /podr/container/pipe/5688c7ad13e2_kashiwabaragpt/stdout_3aa25552e320487b9e122d05e883576b.
+2025-09-17T11:52:57.2519856Z Creating stderr named pipe at /podr/container/pipe/5688c7ad13e2_kashiwabaragpt/stderr_d2070637fed74daf8ccc3c66444a32bb.
+2025-09-17T11:52:57.2525337Z Successfully created stderr named pipe at: /podr/container/pipe/5688c7ad13e2_kashiwabaragpt/stderr_d2070637fed74daf8ccc3c66444a32bb.
+2025-09-17T11:52:57.2526699Z Opening named pipe /podr/container/pipe/5688c7ad13e2_kashiwabaragpt/stderr_d2070637fed74daf8ccc3c66444a32bb for reading in non-blocking mode.
+2025-09-17T11:52:57.2528138Z Successfully opened named pipe: /podr/container/pipe/5688c7ad13e2_kashiwabaragpt/stderr_d2070637fed74daf8ccc3c66444a32bb.
+2025-09-17T11:52:57.2529222Z Successfully removed non-blocking flag from /podr/container/pipe/5688c7ad13e2_kashiwabaragpt/stderr_d2070637fed74daf8ccc3c66444a32bb.
+2025-09-17T11:52:57.2530524Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T11:52:57.4661792Z Starting container: 5688c7ad13e2_kashiwabaragpt.
+2025-09-17T11:52:57.4802763Z Starting watchers and probes.
+2025-09-17T11:52:57.4804946Z Starting metrics collection.
+2025-09-17T11:52:57.4806967Z Container is running.
+2025-09-17T11:52:58.1231780Z Container start method finished after 8220 ms.
+2025-09-17T11:53:02.3907991Z Site startup probe succeeded after 4.266963 seconds.
+2025-09-17T11:53:02.4658147Z Site is running with deployment version: f03d81f1-1ba4-4567-ba1a-fad22b3cda3d
+2025-09-17T11:53:02.4664919Z Site started.
+2025-09-17T11:53:02.4668405Z Site is running with patch version: 18.20.8
+2025-09-17T11:53:22.4744380Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T11:53:22.4758812Z Stop and delete container. Retry count = 0
+2025-09-17T11:53:22.4759828Z Stopping container: 5c21049ebc9e_kashiwabaragpt.
+2025-09-17T11:53:27.5167186Z Deleting container: 5c21049ebc9e_kashiwabaragpt. Retry count = 0
+2025-09-17T11:53:27.6356392Z Container spec TerminationMessagePolicy  path 
+2025-09-17T11:53:27.6358349Z Container is terminated. Total time elapsed: 5161 ms.
+2025-09-17T11:53:27.6423477Z Site: kashiwabaragpt stopped.
+2025-09-17T11:53:30.9215833Z Container start method called.
+2025-09-17T11:53:30.9217264Z Establishing network.
+2025-09-17T11:53:30.9218564Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T11:53:34.9954850Z Container is starting.
+2025-09-17T11:53:34.9955968Z Establishing user namespace if not established already.
+2025-09-17T11:53:34.9957313Z Establishing network if not established already.
+2025-09-17T11:53:34.9958512Z Mounting volumes.
+2025-09-17T11:53:34.9960113Z Nested mountpoint 
+2025-09-17T11:53:34.9981775Z Nested mountpoint volatile/logs
+2025-09-17T11:53:35.0101530Z Nested mountpoint 
+2025-09-17T11:53:35.0147507Z Nested mountpoint 
+2025-09-17T11:53:35.0163118Z Nested mountpoint 
+2025-09-17T11:53:35.0168207Z Nested mountpoint 
+2025-09-17T11:53:35.0301432Z Nested mountpoint 
+2025-09-17T11:53:35.0336182Z Nested mountpoint 
+2025-09-17T11:53:35.0404095Z Nested mountpoint 
+2025-09-17T11:53:35.0485832Z Nested mountpoint 
+2025-09-17T11:53:35.2727768Z Creating container.
+2025-09-17T11:53:35.2729196Z Creating pipes for streaming container io.
+2025-09-17T11:53:35.2730456Z Creating stdout named pipe at /podr/container/pipe/b1cff159cebc_kashiwabaragpt/stdout_372b79bbdd9e40b0aff4df7195510014.
+2025-09-17T11:53:35.2732802Z Successfully created stdout named pipe at: /podr/container/pipe/b1cff159cebc_kashiwabaragpt/stdout_372b79bbdd9e40b0aff4df7195510014.
+2025-09-17T11:53:35.2733971Z Opening named pipe /podr/container/pipe/b1cff159cebc_kashiwabaragpt/stdout_372b79bbdd9e40b0aff4df7195510014 for reading in non-blocking mode.
+2025-09-17T11:53:35.2735502Z Successfully opened named pipe: /podr/container/pipe/b1cff159cebc_kashiwabaragpt/stdout_372b79bbdd9e40b0aff4df7195510014.
+2025-09-17T11:53:35.2736715Z Successfully removed non-blocking flag from /podr/container/pipe/b1cff159cebc_kashiwabaragpt/stdout_372b79bbdd9e40b0aff4df7195510014.
+2025-09-17T11:53:35.2737991Z Creating stderr named pipe at /podr/container/pipe/b1cff159cebc_kashiwabaragpt/stderr_70b6755a0d0f44c7ad2c9b9ef88bb2ae.
+2025-09-17T11:53:35.2739698Z Successfully created stderr named pipe at: /podr/container/pipe/b1cff159cebc_kashiwabaragpt/stderr_70b6755a0d0f44c7ad2c9b9ef88bb2ae.
+2025-09-17T11:53:35.2740898Z Opening named pipe /podr/container/pipe/b1cff159cebc_kashiwabaragpt/stderr_70b6755a0d0f44c7ad2c9b9ef88bb2ae for reading in non-blocking mode.
+2025-09-17T11:53:35.2742246Z Successfully opened named pipe: /podr/container/pipe/b1cff159cebc_kashiwabaragpt/stderr_70b6755a0d0f44c7ad2c9b9ef88bb2ae.
+2025-09-17T11:53:35.2743336Z Successfully removed non-blocking flag from /podr/container/pipe/b1cff159cebc_kashiwabaragpt/stderr_70b6755a0d0f44c7ad2c9b9ef88bb2ae.
+2025-09-17T11:53:35.2744436Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T11:53:35.4042706Z Starting container: b1cff159cebc_kashiwabaragpt.
+2025-09-17T11:53:35.4188221Z Starting watchers and probes.
+2025-09-17T11:53:35.4191533Z Starting metrics collection.
+2025-09-17T11:53:35.4192941Z Container is running.
+2025-09-17T11:53:35.8441064Z Container start method finished after 4921 ms.
+2025-09-17T11:53:41.0442256Z Site startup probe succeeded after 5.1965829 seconds.
+2025-09-17T11:53:41.1080384Z Site is running with deployment version: f03d81f1-1ba4-4567-ba1a-fad22b3cda3d
+2025-09-17T11:53:41.1082214Z Site started.
+2025-09-17T11:53:41.1084812Z Site is running with patch version: 18.20.8
+2025-09-17T11:54:01.1170427Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T11:54:01.1183383Z Stop and delete container. Retry count = 0
+2025-09-17T11:54:01.1184386Z Stopping container: 5688c7ad13e2_kashiwabaragpt.
+2025-09-17T11:54:06.1600948Z Deleting container: 5688c7ad13e2_kashiwabaragpt. Retry count = 0
+2025-09-17T11:54:06.2772214Z Container spec TerminationMessagePolicy  path 
+2025-09-17T11:54:06.2774228Z Container is terminated. Total time elapsed: 5160 ms.
+2025-09-17T11:54:06.2811999Z Site: kashiwabaragpt stopped.
+2025-09-17T12:46:54.6826572Z Container start method called.
+2025-09-17T12:46:54.6827826Z Establishing network.
+2025-09-17T12:46:54.6829037Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T12:46:56.8774438Z Container is starting.
+2025-09-17T12:46:56.8775815Z Establishing user namespace if not established already.
+2025-09-17T12:46:56.8777018Z Establishing network if not established already.
+2025-09-17T12:46:56.8778214Z Mounting volumes.
+2025-09-17T12:46:56.8779890Z Nested mountpoint 
+2025-09-17T12:46:56.8813791Z Nested mountpoint volatile/logs
+2025-09-17T12:46:56.8955626Z Nested mountpoint 
+2025-09-17T12:46:56.8960600Z Nested mountpoint 
+2025-09-17T12:46:56.8964563Z Nested mountpoint 
+2025-09-17T12:46:56.8968498Z Nested mountpoint 
+2025-09-17T12:46:56.9076905Z Nested mountpoint 
+2025-09-17T12:46:56.9083300Z Nested mountpoint 
+2025-09-17T12:46:56.9221609Z Nested mountpoint 
+2025-09-17T12:46:56.9388669Z Nested mountpoint 
+2025-09-17T12:46:57.1069038Z Creating container.
+2025-09-17T12:46:57.1070802Z Creating pipes for streaming container io.
+2025-09-17T12:46:57.1071975Z Creating stdout named pipe at /podr/container/pipe/a0c29b2cf1d9_kashiwabaragpt/stdout_4564833d0176410c9ff34af222f64a3a.
+2025-09-17T12:46:57.1075116Z Successfully created stdout named pipe at: /podr/container/pipe/a0c29b2cf1d9_kashiwabaragpt/stdout_4564833d0176410c9ff34af222f64a3a.
+2025-09-17T12:46:57.1076442Z Opening named pipe /podr/container/pipe/a0c29b2cf1d9_kashiwabaragpt/stdout_4564833d0176410c9ff34af222f64a3a for reading in non-blocking mode.
+2025-09-17T12:46:57.1077886Z Successfully opened named pipe: /podr/container/pipe/a0c29b2cf1d9_kashiwabaragpt/stdout_4564833d0176410c9ff34af222f64a3a.
+2025-09-17T12:46:57.1079215Z Successfully removed non-blocking flag from /podr/container/pipe/a0c29b2cf1d9_kashiwabaragpt/stdout_4564833d0176410c9ff34af222f64a3a.
+2025-09-17T12:46:57.1085535Z Creating stderr named pipe at /podr/container/pipe/a0c29b2cf1d9_kashiwabaragpt/stderr_f985b90ae3504ca0a5a5077d1d2f9393.
+2025-09-17T12:46:57.1087398Z Successfully created stderr named pipe at: /podr/container/pipe/a0c29b2cf1d9_kashiwabaragpt/stderr_f985b90ae3504ca0a5a5077d1d2f9393.
+2025-09-17T12:46:57.1088783Z Opening named pipe /podr/container/pipe/a0c29b2cf1d9_kashiwabaragpt/stderr_f985b90ae3504ca0a5a5077d1d2f9393 for reading in non-blocking mode.
+2025-09-17T12:46:57.1090321Z Successfully opened named pipe: /podr/container/pipe/a0c29b2cf1d9_kashiwabaragpt/stderr_f985b90ae3504ca0a5a5077d1d2f9393.
+2025-09-17T12:46:57.1091730Z Successfully removed non-blocking flag from /podr/container/pipe/a0c29b2cf1d9_kashiwabaragpt/stderr_f985b90ae3504ca0a5a5077d1d2f9393.
+2025-09-17T12:46:57.1093128Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T12:46:57.2450781Z Starting container: a0c29b2cf1d9_kashiwabaragpt.
+2025-09-17T12:46:57.2606275Z Starting watchers and probes.
+2025-09-17T12:46:57.2610997Z Starting metrics collection.
+2025-09-17T12:46:57.2625806Z Container is running.
+2025-09-17T12:46:57.2847051Z Container start method finished after 2601 ms.
+2025-09-17T12:47:02.4785379Z Site startup probe succeeded after 5.1889925 seconds.
+2025-09-17T12:47:02.5341517Z Site is running with deployment version: 152235c1-610d-445d-8bd4-8c360807395a
+2025-09-17T12:47:02.5343769Z Site started.
+2025-09-17T12:47:02.5346838Z Site is running with patch version: 18.20.8
+2025-09-17T12:47:23.4560880Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T12:47:23.4575697Z Stop and delete container. Retry count = 0
+2025-09-17T12:47:23.4577209Z Stopping container: b1cff159cebc_kashiwabaragpt.
+2025-09-17T12:47:28.9838214Z Deleting container: b1cff159cebc_kashiwabaragpt. Retry count = 0
+2025-09-17T12:47:29.1349584Z Container spec TerminationMessagePolicy  path 
+2025-09-17T12:47:29.1351684Z Container is terminated. Total time elapsed: 5678 ms.
+2025-09-17T12:47:29.1383034Z Site: kashiwabaragpt stopped.
+2025-09-17T12:49:58.8097075Z Container start method called.
+2025-09-17T12:49:58.8098458Z Establishing network.
+2025-09-17T12:49:58.8099611Z Pulling image: appsvc/node:18-lts_20250724.2.tuxprod.
+2025-09-17T12:50:02.1714305Z Container is starting.
+2025-09-17T12:50:02.1715487Z Establishing user namespace if not established already.
+2025-09-17T12:50:02.1716435Z Establishing network if not established already.
+2025-09-17T12:50:02.1717509Z Mounting volumes.
+2025-09-17T12:50:02.1718797Z Nested mountpoint 
+2025-09-17T12:50:02.1747355Z Nested mountpoint volatile/logs
+2025-09-17T12:50:02.1894887Z Nested mountpoint 
+2025-09-17T12:50:02.1908682Z Nested mountpoint 
+2025-09-17T12:50:02.1925267Z Nested mountpoint 
+2025-09-17T12:50:02.1939308Z Nested mountpoint 
+2025-09-17T12:50:02.1996283Z Nested mountpoint 
+2025-09-17T12:50:02.2007437Z Nested mountpoint 
+2025-09-17T12:50:02.2240106Z Nested mountpoint 
+2025-09-17T12:50:02.2263648Z Nested mountpoint 
+2025-09-17T12:50:03.2189673Z Creating container.
+2025-09-17T12:50:03.2191398Z Creating pipes for streaming container io.
+2025-09-17T12:50:03.2192581Z Creating stdout named pipe at /podr/container/pipe/b06c1c428a54_kashiwabaragpt/stdout_42c2725f2dec4b848d255423dfaad545.
+2025-09-17T12:50:03.2241401Z Successfully created stdout named pipe at: /podr/container/pipe/b06c1c428a54_kashiwabaragpt/stdout_42c2725f2dec4b848d255423dfaad545.
+2025-09-17T12:50:03.2242750Z Opening named pipe /podr/container/pipe/b06c1c428a54_kashiwabaragpt/stdout_42c2725f2dec4b848d255423dfaad545 for reading in non-blocking mode.
+2025-09-17T12:50:03.2244300Z Successfully opened named pipe: /podr/container/pipe/b06c1c428a54_kashiwabaragpt/stdout_42c2725f2dec4b848d255423dfaad545.
+2025-09-17T12:50:03.2245672Z Successfully removed non-blocking flag from /podr/container/pipe/b06c1c428a54_kashiwabaragpt/stdout_42c2725f2dec4b848d255423dfaad545.
+2025-09-17T12:50:03.2247028Z Creating stderr named pipe at /podr/container/pipe/b06c1c428a54_kashiwabaragpt/stderr_89af18b0b6ea442a8735c67aef20457f.
+2025-09-17T12:50:03.2248920Z Successfully created stderr named pipe at: /podr/container/pipe/b06c1c428a54_kashiwabaragpt/stderr_89af18b0b6ea442a8735c67aef20457f.
+2025-09-17T12:50:03.2250091Z Opening named pipe /podr/container/pipe/b06c1c428a54_kashiwabaragpt/stderr_89af18b0b6ea442a8735c67aef20457f for reading in non-blocking mode.
+2025-09-17T12:50:03.2251538Z Successfully opened named pipe: /podr/container/pipe/b06c1c428a54_kashiwabaragpt/stderr_89af18b0b6ea442a8735c67aef20457f.
+2025-09-17T12:50:03.2252881Z Successfully removed non-blocking flag from /podr/container/pipe/b06c1c428a54_kashiwabaragpt/stderr_89af18b0b6ea442a8735c67aef20457f.
+2025-09-17T12:50:03.2254146Z Creating container with image: appsvc/node:18-lts_20250724.2.tuxprod from registry: mcr.microsoft.com and fully qualified image name: mcr.microsoft.com/appsvc/node:18-lts_20250724.2.tuxprod
+2025-09-17T12:50:03.3853545Z Starting container: b06c1c428a54_kashiwabaragpt.
+2025-09-17T12:50:03.3998054Z Starting watchers and probes.
+2025-09-17T12:50:03.4009765Z Starting metrics collection.
+2025-09-17T12:50:03.4020332Z Container is running.
+2025-09-17T12:50:04.0120281Z Container start method finished after 5201 ms.
+2025-09-17T12:50:08.2046315Z Site startup probe succeeded after 4.1840218 seconds.
+2025-09-17T12:50:08.2594986Z Site is running with deployment version: 152235c1-610d-445d-8bd4-8c360807395a
+2025-09-17T12:50:08.2599319Z Site started.
+2025-09-17T12:50:08.2630043Z Site is running with patch version: 18.20.8
+2025-09-17T12:50:28.2657160Z Container is terminating. Grace period: 5 seconds.
+2025-09-17T12:50:28.2682092Z Stop and delete container. Retry count = 0
+2025-09-17T12:50:28.2683314Z Stopping container: a0c29b2cf1d9_kashiwabaragpt.
+2025-09-17T12:50:33.3162296Z Deleting container: a0c29b2cf1d9_kashiwabaragpt. Retry count = 0
+2025-09-17T12:50:33.4359124Z Container spec TerminationMessagePolicy  path 
+2025-09-17T12:50:33.4360909Z Container is terminated. Total time elapsed: 5170 ms.
+2025-09-17T12:50:33.4387870Z Site: kashiwabaragpt stopped.

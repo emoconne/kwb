@@ -1,0 +1,12 @@
+<step title="Incoming Request" date="2024-12-12T05:48:18.136" instance="8a1838" url="/api/deployments/latest?deployer=GITHUB_ZIP_DEPLOY&amp;time=2024-12-12_05-47-39Z" method="GET" type="request" pid="93,1,23" Host="kashiwabaragpt.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_9e0cbb54f05b7aae9545d9238362714469bea7624dedc6520f1f890ef7d4588e" Authorization="Bea..." Content-Type="application/json; charset=utf-8" Cookie="ARRAffinity=8a1838995f790a3ddb0d6c9a1c240936b4c4b52e18bfa748290afc2caac3c809;Path=/;HttpOnly;Secure;Domain=kashiwabaragpt.scm.azurewebsites.net; ARRAffinitySameSite=8a1838995f790a3ddb0d6c9a1c240936b4c4b52e18bfa748290afc2caac3c809;Path=/;HttpOnly;SameSite=None;Secure;Domain=kashiwabaragpt.scm.azurewebsites.net" Content-Length="0" X-ARR-LOG-ID="dbfb4d77-7959-48d7-9a6c-97d075c51f9b" CLIENT-IP="20.172.24.210:54288" X-SITE-DEPLOYMENT-ID="kashiwabaragpt" WAS-DEFAULT-HOSTNAME="kashiwabaragpt.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/deployments/latest?deployer=GITHUB_ZIP_DEPLOY&amp;time=2024-12-12_05-47-39Z" X-Client-IP="20.172.24.210" X-Client-Port="54288" >
+  <step title="Cleanup Xml Logs" date="2024-12-12T05:48:18.156" >
+    <step title="Cleanup Infos" date="2024-12-12T05:48:18.199" totalFiles="473" totalCleanup="313" /><!-- duration: 8ms -->
+  </step><!-- duration: 58ms -->
+  <step title="DeploymentService.GetResult" date="2024-12-12T05:48:18.226" >
+    <step title="DeploymentService.GetLatestDeployment" date="2024-12-12T05:48:18.233" >
+      <step title="DeploymentManager.GetResults" date="2024-12-12T05:48:18.243" /><!-- duration: 662ms -->
+      <step title="Deployment 106f2816-5361-4035-80a6-00adf5d7218b is Building" date="2024-12-12T05:48:18.923" /><!-- duration: 7ms -->
+    </step><!-- duration: 701ms -->
+  </step><!-- duration: 713ms -->
+  <step title="Outgoing response" date="2024-12-12T05:48:18.944" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 4ms -->
+</step><!-- duration: 816ms -->

@@ -34,22 +34,34 @@ export class BingSearchResult {
     try {
       const { DefaultAzureCredential } = await import("@azure/identity");
       
-      // App Service環境でのManaged Identity設定
-      const credentialOptions = {
-        // App Service環境でのManaged Identityを優先
-        managedIdentityClientId: process.env.AZURE_CLIENT_ID || undefined,
-        // デバッグ情報を有効化
-        loggingOptions: {
-          enableLogging: true,
-          logLevel: 'info'
-        }
-      };
+      let credentialOptions;
+      
+      if (process.env.WEBSITE_SITE_NAME) {
+        // App Service環境：System Assigned Managed Identityを使用
+        console.log('App Service environment: Using System Assigned Managed Identity');
+        credentialOptions = {
+          // ClientIdを指定しない（System Assigned Managed Identityを使用）
+          loggingOptions: {
+            enableLogging: true,
+            logLevel: 'info'
+          }
+        };
+      } else {
+        // ローカル環境：Azure CLI認証を使用
+        console.log('Local environment: Using Azure CLI authentication');
+        credentialOptions = {
+          loggingOptions: {
+            enableLogging: true,
+            logLevel: 'info'
+          }
+        };
+      }
       
       const credential = new DefaultAzureCredential(credentialOptions);
       console.log('DefaultAzureCredential created successfully with options:', credentialOptions);
       
-      // 認証トークンの取得を試行
-      const token = await credential.getToken("https://cognitiveservices.azure.com/.default");
+      // 認証トークンの取得を試行（Azure AI Foundry用のスコープを使用）
+      const token = await credential.getToken("https://ml.azure.com/.default");
       console.log('Authentication successful, token obtained, expires:', token?.expiresOnTimestamp);
     } catch (authError) {
       console.error('Authentication failed:', authError);
@@ -192,7 +204,7 @@ export class BingSearchResult {
   private async executeAzureAISearch(projectEndpoint: string, agentId: string, searchText: string, threadId?: string) {
     // Azure AI Projects SDKの動的インポート
     const { AIProjectClient } = await import("@azure/ai-projects");
-    const { DefaultAzureCredential, AzureKeyCredential } = await import("@azure/identity");
+    const { DefaultAzureCredential } = await import("@azure/identity");
 
     console.log('Attempting to authenticate with Azure AI Foundry...');
     console.log('Environment check:', {
@@ -201,42 +213,38 @@ export class BingSearchResult {
       hasClientId: !!process.env.AZURE_CLIENT_ID
     });
     
-    let project;
+    // Azure AI FoundryはEntra ID認証のみサポート（APIキー認証は不可）
+    console.log('Using DefaultAzureCredential with Entra authentication (Azure AI Foundry requires Entra ID only)...');
     
-    // APIキーが利用可能な場合はAPIキー認証を優先
-    if (process.env.AZURE_AI_FOUNDRY_API_KEY) {
-      console.log('Using API Key authentication...');
-      console.log('API Key (first 10 chars):', process.env.AZURE_AI_FOUNDRY_API_KEY.substring(0, 10) + '...');
-      
-      try {
-        const keyCredential = new AzureKeyCredential(process.env.AZURE_AI_FOUNDRY_API_KEY);
-        project = new AIProjectClient(projectEndpoint, keyCredential);
-        console.log('AIProjectClient created successfully with API key');
-      } catch (clientError) {
-        console.error('Failed to create AIProjectClient with API key:', clientError);
-        throw new Error(`AIProjectClient作成に失敗: ${clientError instanceof Error ? clientError.message : '不明なエラー'}`);
-      }
-    } else {
-      // フォールバックとしてManaged Identity認証
-      console.log('Using DefaultAzureCredential with Entra authentication...');
-      
-      // App Service環境でのManaged Identity設定
-      const credentialOptions = {
-        managedIdentityClientId: process.env.AZURE_CLIENT_ID || undefined,
+    let credentialOptions;
+    
+    if (process.env.WEBSITE_SITE_NAME) {
+      // App Service環境：System Assigned Managed Identityを使用
+      console.log('App Service environment detected, using System Assigned Managed Identity');
+      credentialOptions = {
+        // System Assigned Managed Identityを使用（ClientIdは指定しない）
         loggingOptions: {
           enableLogging: true,
           logLevel: 'info'
         },
         retryOptions: {
-          maxRetries: 5,
-          retryDelayInMs: 800
-        },
-        allowInsecureConnection: true
+          maxRetries: 3,
+          retryDelayInMs: 1000
+        }
       };
-      
-      const credential = new DefaultAzureCredential(credentialOptions);
-      project = new AIProjectClient(projectEndpoint, credential);
+    } else {
+      // ローカル環境：Azure CLI認証を使用
+      console.log('Local environment detected, using Azure CLI authentication');
+      credentialOptions = {
+        loggingOptions: {
+          enableLogging: true,
+          logLevel: 'info'
+        }
+      };
     }
+    
+    const credential = new DefaultAzureCredential(credentialOptions);
+    const project = new AIProjectClient(projectEndpoint, credential);
     
     // エージェントを取得
     try {

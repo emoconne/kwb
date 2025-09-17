@@ -1,0 +1,17 @@
+<step title="Incoming Request" date="2025-01-05T23:53:36.834" instance="8a1838" url="/api/zipdeploy?isAsync=true&amp;deployer=GITHUB_ZIP_DEPLOY&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%22162ec44bd55e7ef8ad9557dd6456f9e84eda1779%22%2C%22repoName%22%3A%22chatgptkwb%2Fprivategpt%22%2C%22actor%22%3A%22chatgptkwb%22%2C%22slotName%22%3A%22production%22%2C%22commitMessage%22%3A%22name%22%7D" method="POST" type="request" pid="93,1,21" Host="kashiwabaragpt.scm.azurewebsites.net" User-Agent="GITHUBACTIONS_DeployWebAppToAzure_9e0cbb54f05b7aae9545d9238362714469bea7624dedc6520f1f890ef7d4588e" Authorization="Bea..." Content-Type="application/octet-stream" Cookie="ARRAffinity=8a1838995f790a3ddb0d6c9a1c240936b4c4b52e18bfa748290afc2caac3c809;Path=/;HttpOnly;Secure;Domain=kashiwabaragpt.scm.azurewebsites.net; ARRAffinitySameSite=8a1838995f790a3ddb0d6c9a1c240936b4c4b52e18bfa748290afc2caac3c809;Path=/;HttpOnly;SameSite=None;Secure;Domain=kashiwabaragpt.scm.azurewebsites.net" Transfer-Encoding="chunked" X-ARR-LOG-ID="9b96ac6c-41c5-4c89-900e-0c3e8043fdb5" CLIENT-IP="13.83.123.190:15424" X-SITE-DEPLOYMENT-ID="kashiwabaragpt" WAS-DEFAULT-HOSTNAME="kashiwabaragpt.scm.azurewebsites.net" X-Forwarded-Proto="https" X-AppService-Proto="https" X-Forwarded-TlsVersion="1.3" X-WAWS-Unencoded-URL="/api/zipdeploy?isAsync=true&amp;deployer=GITHUB_ZIP_DEPLOY&amp;message=%7B%22type%22%3A%22deployment%22%2C%22sha%22%3A%22162ec44bd55e7ef8ad9557dd6456f9e84eda1779%22%2C%22repoName%22%3A%22chatgptkwb%2Fprivategpt%22%2C%22actor%22%3A%22chatgptkwb%22%2C%22slotName%22%3A%22production%22%2C%22commitMessage%22%3A%22name%22%7D" X-Client-IP="13.83.123.190" X-Client-Port="15424" >
+  <step title="ZipPushDeploy" date="2025-01-05T23:53:36.867" >
+    <step title="ZipDeploy. Extract zip." date="2025-01-05T23:53:36.879" /><!-- duration: 4ms -->
+    <step title="None repository commit" date="2025-01-05T23:53:36.893" >
+      <step title="Commit id: bc7d6f4a-1322-4983-8e0d-ca5a6287a431" date="2025-01-05T23:53:36.900" Message="N/A" AuthorName="N/A" AuthorEmail="N/A" /><!-- duration: 9ms -->
+    </step><!-- duration: 20ms -->
+    <step title="Starting PushDeployAsync" date="2025-01-05T23:53:36.917" /><!-- duration: 4ms -->
+    <step title="Writing artifact to /tmp/zipdeploy/3ae16bfa-bcc2-4533-80d5-c4ac87405753.zip" date="2025-01-05T23:53:36.941" >
+      <step title="Writing request body to artifacts at /tmp/zipdeploy/3ae16bfa-bcc2-4533-80d5-c4ac87405753.zip" date="2025-01-05T23:53:36.946" /><!-- duration: 4ms -->
+    </step><!-- duration: 829ms -->
+    <step title="Start deployment in the background" date="2025-01-05T23:53:37.809" >
+      <step title="Acquiring Deployment Lock" date="2025-01-05T23:53:37.825" /><!-- duration: 9ms -->
+      <step title="Acquired Deployment Lock" date="2025-01-05T23:53:37.872" /><!-- duration: 6ms -->
+    </step><!-- duration: 188ms -->
+  </step><!-- duration: 1137ms -->
+  <step title="Outgoing response" date="2025-01-05T23:53:38.012" type="response" statusCode="202" statusText="Accepted" /><!-- duration: 5ms -->
+</step><!-- duration: 1187ms -->
