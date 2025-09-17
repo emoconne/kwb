@@ -402,6 +402,36 @@ const fetcher = async (url: string, init?: RequestInit) => {
   }
 };
 
+// インデックスの存在確認
+const checkIndexExists = async (): Promise<boolean> => {
+  try {
+    console.log('=== checkIndexExists START ===');
+    
+    const endpoint = process.env.AZURE_SEARCH_ENDPOINT;
+    const indexName = process.env.AZURE_SEARCH_INDEX_NAME;
+    const apiVersion = process.env.AZURE_SEARCH_API_VERSION;
+    
+    if (!endpoint || !indexName || !apiVersion) {
+      console.log('Missing environment variables for index check');
+      return false;
+    }
+    
+    const url = `${endpoint}/indexes/${indexName}?api-version=${apiVersion}`;
+    console.log('Checking index existence at:', url);
+    
+    const response = await fetcher(url, {
+      method: "GET"
+    });
+    
+    console.log('Index exists:', !!response);
+    return true;
+    
+  } catch (error) {
+    console.log('Index check failed (likely does not exist):', error instanceof Error ? error.message : error);
+    return false;
+  }
+};
+
 export const ensureIndexIsCreated = async (): Promise<void> => {
   try {
     console.log('=== ensureIndexIsCreated START ===');
@@ -423,22 +453,31 @@ export const ensureIndexIsCreated = async (): Promise<void> => {
       throw new Error('AI Search environment variables are not properly configured');
     }
 
-    // 埋め込みモデルの次元数を事前に確認
-    console.log('Checking embedding model dimensions...');
-    const dimensions = await getEmbeddingDimensions();
-    console.log(`Detected embedding dimensions: ${dimensions}`);
-
-    // 強制的にインデックスを再作成（ベクトル次元の問題を解決するため）
-    console.log('Force recreating index to ensure correct dimensions...');
-    await deleteCogSearchIndex();
-    await createCogSearchIndex();
-    console.log('Index recreated successfully with correct dimensions');
+    // まずインデックスの存在確認
+    console.log('Checking if index already exists...');
+    const indexExists = await checkIndexExists();
     
-  } catch (e) {
-    console.log('Error occurred during index recreation, creating new index...');
-    console.log('Error details:', e);
+    if (indexExists) {
+      console.log('Index already exists, skipping creation');
+      return;
+    }
+
+    // インデックスが存在しない場合のみ作成
+    console.log('Index does not exist, creating new index...');
     await createCogSearchIndex();
     console.log('Index created successfully');
+    
+  } catch (e) {
+    console.log('Error occurred during index check/creation:', e);
+    // エラーが発生した場合でも、インデックス作成を試行
+    try {
+      console.log('Attempting to create index after error...');
+      await createCogSearchIndex();
+      console.log('Index created successfully after error recovery');
+    } catch (createError) {
+      console.error('Failed to create index even after error recovery:', createError);
+      throw createError;
+    }
   }
 };
 
@@ -473,6 +512,49 @@ const createCogSearchIndex = async (): Promise<void> => {
       endpoint: process.env.AZURE_SEARCH_ENDPOINT,
       indexName: process.env.AZURE_SEARCH_INDEX_NAME,
       apiVersion: process.env.AZURE_SEARCH_API_VERSION,
+      error: error instanceof Error ? {
+        name: error.name,
+        message: error.message,
+        stack: error.stack
+      } : error
+    });
+    throw error;
+  }
+};
+
+// 強制的にインデックスを再作成（データが失われることに注意）
+export const forceRecreateIndex = async (): Promise<void> => {
+  try {
+    console.log('=== forceRecreateIndex START ===');
+    console.log('WARNING: This will delete all existing data in the index!');
+    
+    // 環境変数の確認
+    const endpoint = process.env.AZURE_SEARCH_ENDPOINT;
+    const key = process.env.AZURE_SEARCH_API_KEY || process.env.AZURE_SEARCH_KEY;
+    const indexName = process.env.AZURE_SEARCH_INDEX_NAME;
+    const apiVersion = process.env.AZURE_SEARCH_API_VERSION;
+    
+    if (!endpoint || !key || !indexName || !apiVersion) {
+      throw new Error('AI Search environment variables are not properly configured');
+    }
+
+    // インデックスの存在確認
+    const indexExists = await checkIndexExists();
+    
+    if (indexExists) {
+      console.log('Deleting existing index...');
+      await deleteCogSearchIndex();
+      console.log('Existing index deleted');
+    }
+
+    // 新しいインデックスを作成
+    console.log('Creating new index...');
+    await createCogSearchIndex();
+    console.log('New index created successfully');
+    
+  } catch (error) {
+    console.error('=== forceRecreateIndex ERROR ===');
+    console.error('Error details:', {
       error: error instanceof Error ? {
         name: error.name,
         message: error.message,

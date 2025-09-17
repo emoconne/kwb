@@ -15452,3 +15452,1692 @@ MUA',
 2025-09-17T12:52:33.7096475Z     value: [ [Object], [Object], [Object], [Object], [Object], [Object] ]
 2025-09-17T12:52:33.7096502Z   }
 2025-09-17T12:52:33.7096528Z }
+2025-09-17T12:56:47.7371683Z    _____                               
+2025-09-17T12:56:47.7380525Z   /  _  \ __________ _________   ____  
+2025-09-17T12:56:47.7380620Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2025-09-17T12:56:47.7380661Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2025-09-17T12:56:47.7380711Z \____|__  /_____ \____/ |__|    \___  >
+2025-09-17T12:56:47.7380751Z         \/      \/                  \/ 
+2025-09-17T12:56:47.7380783Z A P P   S E R V I C E   O N   L I N U X
+2025-09-17T12:56:47.7380812Z 
+2025-09-17T12:56:47.7380845Z Documentation: http://aka.ms/webapp-linux
+2025-09-17T12:56:47.7380888Z NodeJS quickstart: https://aka.ms/node-qs
+2025-09-17T12:56:47.7380927Z NodeJS Version : v18.20.8
+2025-09-17T12:56:47.7380975Z Note: Any data outside '/home' is not persisted
+2025-09-17T12:56:47.7381014Z 
+2025-09-17T12:56:47.7381047Z Starting OpenBSD Secure Shell server: sshd.
+2025-09-17T12:56:47.7381080Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2025-09-17T12:56:47.7381111Z Updating certificates in /etc/ssl/certs...
+2025-09-17T12:56:49.3795089Z 4 added, 0 removed; done.
+2025-09-17T12:56:49.3795531Z Running hooks in /etc/ca-certificates/update.d...
+2025-09-17T12:56:49.3821154Z done.
+2025-09-17T12:56:49.3876912Z CA certificates copied and updated successfully.
+2025-09-17T12:56:49.4334184Z Starting periodic command scheduler: cron.
+2025-09-17T12:56:49.4406425Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2025-09-17T12:56:49.4483400Z Could not find operation ID in manifest. Generating an operation id...
+2025-09-17T12:56:49.4483671Z Build Operation ID: 2692168b-2fcf-4d50-b3d3-756a9e9972c9
+2025-09-17T12:56:49.8882350Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2025-09-17T12:56:49.9950074Z Writing output script to '/opt/startup/startup.sh'
+2025-09-17T12:56:50.1036139Z Running #!/bin/sh
+2025-09-17T12:56:50.1036951Z 
+2025-09-17T12:56:50.1037018Z # Enter the source directory to make sure the script runs where the user expects
+2025-09-17T12:56:50.1037139Z cd "/home/site/wwwroot"
+2025-09-17T12:56:50.1037181Z 
+2025-09-17T12:56:50.1037219Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2025-09-17T12:56:50.1037259Z if [ -z "$PORT" ]; then
+2025-09-17T12:56:50.1037297Z 		export PORT=8080
+2025-09-17T12:56:50.1037334Z fi
+2025-09-17T12:56:50.1037368Z 
+2025-09-17T12:56:50.1037403Z echo Found tar.gz based node_modules.
+2025-09-17T12:56:50.1037460Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2025-09-17T12:56:50.1037498Z echo "Removing existing modules directory from root..."
+2025-09-17T12:56:50.1037538Z rm -fr /node_modules
+2025-09-17T12:56:50.1037574Z mkdir -p /node_modules
+2025-09-17T12:56:50.1037634Z echo Extracting modules...
+2025-09-17T12:56:50.1037672Z $extractionCommand
+2025-09-17T12:56:50.1037734Z export NODE_PATH="/node_modules":$NODE_PATH
+2025-09-17T12:56:50.1037772Z export PATH=/node_modules/.bin:$PATH
+2025-09-17T12:56:50.1037810Z if [ -d node_modules ]; then
+2025-09-17T12:56:50.1037849Z     mv -f node_modules _del_node_modules || true
+2025-09-17T12:56:50.1037899Z fi
+2025-09-17T12:56:50.1037935Z 
+2025-09-17T12:56:50.1037971Z if [ -d /node_modules ]; then
+2025-09-17T12:56:50.1038007Z     ln -sfn /node_modules ./node_modules 
+2025-09-17T12:56:50.1038045Z fi
+2025-09-17T12:56:50.1038078Z 
+2025-09-17T12:56:50.1038113Z echo "Done."
+2025-09-17T12:56:50.1059915Z PATH="$PATH:/home/site/wwwroot" node server.js
+2025-09-17T12:56:50.1088907Z Found tar.gz based node_modules.
+2025-09-17T12:56:50.1097565Z Removing existing modules directory from root...
+2025-09-17T12:56:50.1175763Z Extracting modules...
+2025-09-17T12:56:50.6625026Z Done.
+2025-09-17T12:56:51.4244665Z   ▲ Next.js 14.2.32
+2025-09-17T12:56:51.4247754Z   - Local:        http://7487da3f927b:8080
+2025-09-17T12:56:51.4247973Z   - Network:      http://169.254.129.5:8080
+2025-09-17T12:56:51.4249320Z 
+2025-09-17T12:56:51.4251420Z  ✓ Starting...
+2025-09-17T12:56:51.5726942Z  ✓ Ready in 158ms
+2025-09-17T12:57:45.7227211Z    _____                               
+2025-09-17T12:57:45.7228492Z   /  _  \ __________ _________   ____  
+2025-09-17T12:57:45.7228559Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2025-09-17T12:57:45.7228596Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2025-09-17T12:57:45.7228631Z \____|__  /_____ \____/ |__|    \___  >
+2025-09-17T12:57:45.7228669Z         \/      \/                  \/ 
+2025-09-17T12:57:45.7241826Z A P P   S E R V I C E   O N   L I N U X
+2025-09-17T12:57:45.7241869Z 
+2025-09-17T12:57:45.7241904Z Documentation: http://aka.ms/webapp-linux
+2025-09-17T12:57:45.7241942Z NodeJS quickstart: https://aka.ms/node-qs
+2025-09-17T12:57:45.7241973Z NodeJS Version : v18.20.8
+2025-09-17T12:57:45.7242003Z Note: Any data outside '/home' is not persisted
+2025-09-17T12:57:45.7242032Z 
+2025-09-17T12:57:46.0204452Z Starting OpenBSD Secure Shell server: sshd.
+2025-09-17T12:57:46.0244600Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2025-09-17T12:57:46.0350447Z Updating certificates in /etc/ssl/certs...
+2025-09-17T12:57:47.9891971Z 4 added, 0 removed; done.
+2025-09-17T12:57:47.9894751Z Running hooks in /etc/ca-certificates/update.d...
+2025-09-17T12:57:47.9915410Z done.
+2025-09-17T12:57:47.9963290Z CA certificates copied and updated successfully.
+2025-09-17T12:57:48.0414583Z Starting periodic command scheduler: cron.
+2025-09-17T12:57:48.0517251Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2025-09-17T12:57:48.0585631Z Could not find operation ID in manifest. Generating an operation id...
+2025-09-17T12:57:48.0591515Z Build Operation ID: efe28c1f-3f75-4f66-822d-374c2c2681c1
+2025-09-17T12:57:48.5056335Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2025-09-17T12:57:48.6112531Z Writing output script to '/opt/startup/startup.sh'
+2025-09-17T12:57:48.7202819Z Running #!/bin/sh
+2025-09-17T12:57:48.7203436Z 
+2025-09-17T12:57:48.7203502Z # Enter the source directory to make sure the script runs where the user expects
+2025-09-17T12:57:48.7203562Z cd "/home/site/wwwroot"
+2025-09-17T12:57:48.7203663Z 
+2025-09-17T12:57:48.7203708Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2025-09-17T12:57:48.7203746Z if [ -z "$PORT" ]; then
+2025-09-17T12:57:48.7203784Z 		export PORT=8080
+2025-09-17T12:57:48.7203820Z fi
+2025-09-17T12:57:48.7203853Z 
+2025-09-17T12:57:48.7203890Z echo Found tar.gz based node_modules.
+2025-09-17T12:57:48.7203944Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2025-09-17T12:57:48.7203983Z echo "Removing existing modules directory from root..."
+2025-09-17T12:57:48.7204019Z rm -fr /node_modules
+2025-09-17T12:57:48.7204058Z mkdir -p /node_modules
+2025-09-17T12:57:48.7204095Z echo Extracting modules...
+2025-09-17T12:57:48.7204132Z $extractionCommand
+2025-09-17T12:57:48.7204191Z export NODE_PATH="/node_modules":$NODE_PATH
+2025-09-17T12:57:48.7204245Z export PATH=/node_modules/.bin:$PATH
+2025-09-17T12:57:48.7204284Z if [ -d node_modules ]; then
+2025-09-17T12:57:48.7204322Z     mv -f node_modules _del_node_modules || true
+2025-09-17T12:57:48.7204358Z fi
+2025-09-17T12:57:48.7204388Z 
+2025-09-17T12:57:48.7204420Z if [ -d /node_modules ]; then
+2025-09-17T12:57:48.7204457Z     ln -sfn /node_modules ./node_modules 
+2025-09-17T12:57:48.7204507Z fi
+2025-09-17T12:57:48.7204540Z 
+2025-09-17T12:57:48.7204573Z echo "Done."
+2025-09-17T12:57:48.7216555Z PATH="$PATH:/home/site/wwwroot" node server.js
+2025-09-17T12:57:48.7262256Z Found tar.gz based node_modules.
+2025-09-17T12:57:48.7271289Z Removing existing modules directory from root...
+2025-09-17T12:57:48.7373977Z Extracting modules...
+2025-09-17T12:57:49.2696659Z Done.
+2025-09-17T12:57:49.9639906Z   ▲ Next.js 14.2.32
+2025-09-17T12:57:49.9644316Z   - Local:        http://6ebb9a0fd556:8080
+2025-09-17T12:57:49.9644460Z   - Network:      http://169.254.129.2:8080
+2025-09-17T12:57:49.9644777Z 
+2025-09-17T12:57:49.9647415Z  ✓ Starting...
+2025-09-17T12:57:50.1190048Z  ✓ Ready in 165ms
+2025-09-17T13:04:24.3150799Z === DEBUG: /api/chat POST called ===
+2025-09-17T13:04:24.3241185Z Request body: {
+2025-09-17T13:04:24.3241324Z   chatType: 'web',
+2025-09-17T13:04:24.3241353Z   id: 'v6LtELjT0qRva2bjG5QPz5I9l8fxM4q8EyTM',
+2025-09-17T13:04:24.3241377Z   messagesCount: 3,
+2025-09-17T13:04:24.3241405Z   lastMessage: 'カシワバラコーポレーションの本社所在地'
+2025-09-17T13:04:24.3241426Z }
+2025-09-17T13:04:24.3261960Z === DEBUG: chatAPIEntry called ===
+2025-09-17T13:04:24.3277429Z ChatType: web
+2025-09-17T13:04:24.3346814Z User message: カシワバラコーポレーションの本社所在地
+2025-09-17T13:04:24.3699236Z Messages count: 3
+2025-09-17T13:04:24.3699416Z ChatThreadId: v6LtELjT0qRva2bjG5QPz5I9l8fxM4q8EyTM
+2025-09-17T13:04:24.3699449Z Routing to ChatAPIWeb
+2025-09-17T13:04:24.4022480Z OpenAIInstance baseURL: https://kashiwabaragpt3.openai.azure.com/openai/deployments/gpt-4.1
+2025-09-17T13:04:24.4331116Z Creating new thread for web search conversation
+2025-09-17T13:04:24.4354814Z Current thread ID: null
+2025-09-17T13:04:24.4370086Z Debug - Environment variables:
+2025-09-17T13:04:24.4377568Z AZURE_AI_FOUNDRY_ENDPOINT: SET
+2025-09-17T13:04:24.4380008Z AZURE_AI_FOUNDRY_AGENT_ID: SET
+2025-09-17T13:04:24.4382853Z AZURE_AI_FOUNDRY_API_KEY: SET
+2025-09-17T13:04:24.4401507Z Debug - Azure AI Project configuration:
+2025-09-17T13:04:24.4403280Z Project Endpoint: https://kashiwabara-foundry-resource.services.ai.azure.com/api/projects/kashiwabara-foundry
+2025-09-17T13:04:24.4405192Z Agent ID: asst_gjP1ym4Jg1K81tuWiFJ0gSjW
+2025-09-17T13:04:24.4407319Z Search Text: カシワバラコーポレーションの本社所在地
+2025-09-17T13:04:24.4409089Z Using Azure CLI authentication
+2025-09-17T13:04:24.5465934Z DefaultAzureCredential created successfully with options: {
+2025-09-17T13:04:24.5466387Z   managedIdentityClientId: undefined,
+2025-09-17T13:04:24.5466494Z   loggingOptions: { enableLogging: true, logLevel: 'info' },
+2025-09-17T13:04:24.5466526Z   retryOptions: { maxRetries: 5, retryDelayInMs: 800 },
+2025-09-17T13:04:24.5466554Z   allowInsecureConnection: true
+2025-09-17T13:04:24.5466581Z }
+2025-09-17T13:04:26.8054920Z Authentication successful, token obtained, expires: 1758200663000
+2025-09-17T13:04:26.8480838Z Attempting to authenticate with Azure AI Foundry...
+2025-09-17T13:04:26.8482273Z Environment check: { isAppService: true, hasApiKey: true, hasClientId: false }
+2025-09-17T13:04:26.8482340Z Using API Key authentication...
+2025-09-17T13:04:26.8482896Z API Key (first 10 chars): BoSmOYQyOU...
+2025-09-17T13:04:26.8495449Z Failed to create AIProjectClient with API key: TypeError: c is not a constructor
+2025-09-17T13:04:26.8495536Z     at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:4092)
+2025-09-17T13:04:26.8495568Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-09-17T13:04:26.8495596Z     at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1754)
+2025-09-17T13:04:26.8495625Z     at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1339)
+2025-09-17T13:04:26.8495654Z     at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2275)
+2025-09-17T13:04:26.8495681Z     at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2817)
+2025-09-17T13:04:26.8495710Z     at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411
+2025-09-17T13:04:26.8495738Z     at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)
+2025-09-17T13:04:26.8495768Z     at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)
+2025-09-17T13:04:26.8495815Z     at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)
+2025-09-17T13:04:26.8497862Z Azure AI Project error: Error: AIProjectClient作成に失敗: c is not a constructor
+2025-09-17T13:04:26.8497945Z     at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:4295)
+2025-09-17T13:04:26.8497977Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-09-17T13:04:26.8498008Z     at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1754)
+2025-09-17T13:04:26.8498036Z     at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1339)
+2025-09-17T13:04:26.8498063Z     at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2275)
+2025-09-17T13:04:26.8498088Z     at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2817)
+2025-09-17T13:04:26.8498112Z     at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411
+2025-09-17T13:04:26.8498157Z     at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)
+2025-09-17T13:04:26.8498185Z     at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)
+2025-09-17T13:04:26.8498210Z     at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)
+2025-09-17T13:04:26.8504428Z Error details: {
+2025-09-17T13:04:26.8504509Z   name: 'Error',
+2025-09-17T13:04:26.8504545Z   message: 'AIProjectClient作成に失敗: c is not a constructor',
+2025-09-17T13:04:26.8504577Z   stack: 'Error: AIProjectClient作成に失敗: c is not a constructor\n' +
+2025-09-17T13:04:26.8504607Z     '    at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:4295)\n' +
+2025-09-17T13:04:26.8504637Z     '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+2025-09-17T13:04:26.8504709Z     '    at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1754)\n' +
+2025-09-17T13:04:26.8505051Z Azure AI Foundry search failed, trying fallback search...
+2025-09-17T13:04:26.8504739Z     '    at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1339)\n' +
+2025-09-17T13:04:26.8505219Z     '    at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2275)\n' +
+2025-09-17T13:04:26.8505251Z     '    at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2817)\n' +
+2025-09-17T13:04:26.8505281Z     '    at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411\n' +
+2025-09-17T13:04:26.8505312Z     '    at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)\n' +
+2025-09-17T13:04:26.8505340Z     '    at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)\n' +
+2025-09-17T13:04:26.8505368Z     '    at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)'
+2025-09-17T13:04:26.8505393Z }
+2025-09-17T13:04:26.8506413Z Executing fallback search for: カシワバラコーポレーションの本社所在地
+2025-09-17T13:04:27.4966368Z Search completed: {
+2025-09-17T13:04:27.4966611Z   searchResultsCount: 1,
+2025-09-17T13:04:27.4966649Z   assistantResponseLength: 0,
+2025-09-17T13:04:27.4966678Z   searchResponseKeys: [ 'webPages' ],
+2025-09-17T13:04:27.4966703Z   threadId: undefined
+2025-09-17T13:04:27.4966729Z }
+2025-09-17T13:04:27.4974755Z Search results processed: {
+2025-09-17T13:04:27.4975020Z   webPagesCount: 1,
+2025-09-17T13:04:27.4975128Z   searchResultsCount: 1,
+2025-09-17T13:04:27.4975157Z   snippetLength: 60,
+2025-09-17T13:04:27.4975184Z   bingResultLength: 65
+2025-09-17T13:04:27.4975207Z }
+2025-09-17T13:04:27.5087306Z No Assistant response available, returning error
+2025-09-17T13:04:27.5091362Z Debug info: {
+2025-09-17T13:04:27.5091460Z   assistantResponse: '',
+2025-09-17T13:04:27.5091492Z   assistantResponseLength: 0,
+2025-09-17T13:04:27.5091520Z   searchResult: { webPages: { value: [Array] } },
+2025-09-17T13:04:27.5091546Z   searchResultKeys: [ 'webPages' ]
+2025-09-17T13:04:27.5091570Z }
+2025-09-17T13:04:31.8556665Z    _____                               
+2025-09-17T13:04:31.8558030Z   /  _  \ __________ _________   ____  
+2025-09-17T13:04:31.8558099Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2025-09-17T13:04:31.8558136Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2025-09-17T13:04:31.8558171Z \____|__  /_____ \____/ |__|    \___  >
+2025-09-17T13:04:31.8558212Z         \/      \/                  \/ 
+2025-09-17T13:04:31.8558273Z A P P   S E R V I C E   O N   L I N U X
+2025-09-17T13:04:31.8558308Z 
+2025-09-17T13:04:31.8558350Z Documentation: http://aka.ms/webapp-linux
+2025-09-17T13:04:31.8558391Z NodeJS quickstart: https://aka.ms/node-qs
+2025-09-17T13:04:31.8558428Z NodeJS Version : v18.20.8
+2025-09-17T13:04:31.8558461Z Note: Any data outside '/home' is not persisted
+2025-09-17T13:04:31.8558503Z 
+2025-09-17T13:04:32.7842957Z Starting OpenBSD Secure Shell server: sshd.
+2025-09-17T13:04:32.7843112Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2025-09-17T13:04:32.7843153Z Updating certificates in /etc/ssl/certs...
+2025-09-17T13:04:34.1028632Z 4 added, 0 removed; done.
+2025-09-17T13:04:34.1031979Z Running hooks in /etc/ca-certificates/update.d...
+2025-09-17T13:04:34.1052507Z done.
+2025-09-17T13:04:34.1118315Z CA certificates copied and updated successfully.
+2025-09-17T13:04:34.1513747Z Starting periodic command scheduler: cron.
+2025-09-17T13:04:34.1588578Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2025-09-17T13:04:34.1630874Z Could not find operation ID in manifest. Generating an operation id...
+2025-09-17T13:04:34.1641120Z Build Operation ID: 943d81f7-e7f0-484a-aaee-8850dec7e6c6
+2025-09-17T13:04:34.6045764Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2025-09-17T13:04:34.7124700Z Writing output script to '/opt/startup/startup.sh'
+2025-09-17T13:04:34.8212669Z Running #!/bin/sh
+2025-09-17T13:04:34.8213562Z 
+2025-09-17T13:04:34.8213624Z # Enter the source directory to make sure the script runs where the user expects
+2025-09-17T13:04:34.8213679Z cd "/home/site/wwwroot"
+2025-09-17T13:04:34.8213712Z 
+2025-09-17T13:04:34.8213798Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2025-09-17T13:04:34.8213832Z if [ -z "$PORT" ]; then
+2025-09-17T13:04:34.8213863Z 		export PORT=8080
+2025-09-17T13:04:34.8213894Z fi
+2025-09-17T13:04:34.8213924Z 
+2025-09-17T13:04:34.8213956Z echo Found tar.gz based node_modules.
+2025-09-17T13:04:34.8213990Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2025-09-17T13:04:34.8214033Z echo "Removing existing modules directory from root..."
+2025-09-17T13:04:34.8214066Z rm -fr /node_modules
+2025-09-17T13:04:34.8214097Z mkdir -p /node_modules
+2025-09-17T13:04:34.8214127Z echo Extracting modules...
+2025-09-17T13:04:34.8214159Z $extractionCommand
+2025-09-17T13:04:34.8214216Z export NODE_PATH="/node_modules":$NODE_PATH
+2025-09-17T13:04:34.8214270Z export PATH=/node_modules/.bin:$PATH
+2025-09-17T13:04:34.8214308Z if [ -d node_modules ]; then
+2025-09-17T13:04:34.8214344Z     mv -f node_modules _del_node_modules || true
+2025-09-17T13:04:34.8214378Z fi
+2025-09-17T13:04:34.8214407Z 
+2025-09-17T13:04:34.8214438Z if [ -d /node_modules ]; then
+2025-09-17T13:04:34.8214473Z     ln -sfn /node_modules ./node_modules 
+2025-09-17T13:04:34.8214517Z fi
+2025-09-17T13:04:34.8214550Z 
+2025-09-17T13:04:34.8214577Z echo "Done."
+2025-09-17T13:04:34.8228508Z PATH="$PATH:/home/site/wwwroot" node server.js
+2025-09-17T13:04:34.8263630Z Found tar.gz based node_modules.
+2025-09-17T13:04:34.8268640Z Removing existing modules directory from root...
+2025-09-17T13:04:34.8330882Z Extracting modules...
+2025-09-17T13:04:35.3636797Z Done.
+2025-09-17T13:04:36.0871699Z   ▲ Next.js 14.2.32
+2025-09-17T13:04:36.0873543Z   - Local:        http://a4bdd558e494:8080
+2025-09-17T13:04:36.0874076Z   - Network:      http://169.254.129.5:8080
+2025-09-17T13:04:36.0875719Z 
+2025-09-17T13:04:36.0877812Z  ✓ Starting...
+2025-09-17T13:04:36.2541298Z  ✓ Ready in 176ms
+2025-09-17T13:05:37.4286206Z === App Service Debug API ===
+2025-09-17T13:05:37.4344661Z Authentication status: { isAuthenticated: false, isAdmin: false }
+2025-09-17T13:05:37.4366227Z Environment variables status: {
+2025-09-17T13:05:37.4366436Z   AZURE_AI_FOUNDRY_ENDPOINT: 'SET',
+2025-09-17T13:05:37.4366472Z   AZURE_AI_FOUNDRY_API_KEY: 'SET',
+2025-09-17T13:05:37.4366499Z   AZURE_AI_FOUNDRY_AGENT_ID: 'SET',
+2025-09-17T13:05:37.4366525Z   AZURE_OPENAI_ENDPOINT: 'NOT SET',
+2025-09-17T13:05:37.4366550Z   AZURE_OPENAI_API_KEY: 'NOT SET',
+2025-09-17T13:05:37.4366573Z   AZURE_OPENAI_API_DEPLOYMENT_NAME: 'SET',
+2025-09-17T13:05:37.4366595Z   AZURE_SPEECH_REGION: 'NOT SET',
+2025-09-17T13:05:37.4366619Z   AZURE_SPEECH_KEY: 'NOT SET',
+2025-09-17T13:05:37.4366673Z   AZURE_SPEECH_ENDPOINT: 'NOT SET',
+2025-09-17T13:05:37.4366698Z   AZURE_COSMOSDB_URI: 'SET',
+2025-09-17T13:05:37.4366722Z   AZURE_COSMOSDB_KEY: 'SET',
+2025-09-17T13:05:37.4366746Z   AZURE_COSMOSDB_DB_NAME: 'SET'
+2025-09-17T13:05:37.4366769Z }
+2025-09-17T13:05:38.5744475Z Managed Identity is working
+2025-09-17T13:05:38.5753726Z System info: {
+2025-09-17T13:05:38.5753824Z   nodeVersion: 'v18.20.8',
+2025-09-17T13:05:38.5753860Z   platform: 'linux',
+2025-09-17T13:05:38.5753888Z   arch: 'x64',
+2025-09-17T13:05:38.5753913Z   uptime: 63.203118256,
+2025-09-17T13:05:38.5753967Z   memoryUsage: {
+2025-09-17T13:05:38.5753995Z     rss: 87474176,
+2025-09-17T13:05:38.5754019Z     heapTotal: 33538048,
+2025-09-17T13:05:38.5754044Z     heapUsed: 30964768,
+2025-09-17T13:05:38.5754070Z     external: 8326672,
+2025-09-17T13:05:38.5754093Z     arrayBuffers: 108463
+2025-09-17T13:05:38.5754117Z   },
+2025-09-17T13:05:38.5754144Z   environment: 'production',
+2025-09-17T13:05:38.5754171Z   isAppService: true,
+2025-09-17T13:05:38.5754196Z   websiteSiteName: 'kashiwabaragpt',
+2025-09-17T13:05:38.5754222Z   websiteResourceGroup: 'chatgpt'
+2025-09-17T13:05:38.5754246Z }
+2025-09-17T13:05:39.0340976Z === Bing Search Debug API ===
+2025-09-17T13:05:39.0359591Z Azure AI Foundry environment variables: {
+2025-09-17T13:05:39.0359833Z   hasFoundryEndpoint: true,
+2025-09-17T13:05:39.0359864Z   hasAgentId: true,
+2025-09-17T13:05:39.0359887Z   hasApiKey: true,
+2025-09-17T13:05:39.0359916Z   foundryEndpoint: 'https://kashiwabara-foundry-resource.services.ai.azure.com/api/projects/kashiwabara-foundry',
+2025-09-17T13:05:39.0359943Z   agentId: 'asst_gjP1ym4Jg1K81tuWiFJ0gSjW'
+2025-09-17T13:05:39.0359965Z }
+2025-09-17T13:05:39.0368054Z Testing Bing search with query: Microsoft
+2025-09-17T13:05:39.0370718Z Debug - Environment variables:
+2025-09-17T13:05:39.0370807Z AZURE_AI_FOUNDRY_ENDPOINT: SET
+2025-09-17T13:05:39.0373231Z AZURE_AI_FOUNDRY_AGENT_ID: SET
+2025-09-17T13:05:39.0373316Z AZURE_AI_FOUNDRY_API_KEY: SET
+2025-09-17T13:05:39.0373346Z Debug - Azure AI Project configuration:
+2025-09-17T13:05:39.0375947Z Project Endpoint: https://kashiwabara-foundry-resource.services.ai.azure.com/api/projects/kashiwabara-foundry
+2025-09-17T13:05:39.0376033Z Agent ID: asst_gjP1ym4Jg1K81tuWiFJ0gSjW
+2025-09-17T13:05:39.0376062Z Search Text: Microsoft
+2025-09-17T13:05:39.0376092Z Using Azure CLI authentication
+2025-09-17T13:05:39.0395470Z DefaultAzureCredential created successfully with options: {
+2025-09-17T13:05:39.0395642Z   managedIdentityClientId: undefined,
+2025-09-17T13:05:39.0395673Z   loggingOptions: { enableLogging: true, logLevel: 'info' },
+2025-09-17T13:05:39.0395699Z   retryOptions: { maxRetries: 5, retryDelayInMs: 800 },
+2025-09-17T13:05:39.0395724Z   allowInsecureConnection: true
+2025-09-17T13:05:39.0395748Z }
+2025-09-17T13:05:39.0413055Z Authentication successful, token obtained, expires: 1758200736000
+2025-09-17T13:05:39.0883943Z Attempting to authenticate with Azure AI Foundry...
+2025-09-17T13:05:39.0894724Z Environment check: { isAppService: true, hasApiKey: true, hasClientId: false }
+2025-09-17T13:05:39.0894889Z Using API Key authentication...
+2025-09-17T13:05:39.0894917Z API Key (first 10 chars): BoSmOYQyOU...
+2025-09-17T13:05:39.0903972Z Failed to create AIProjectClient with API key: TypeError: c is not a constructor
+2025-09-17T13:05:39.0904076Z     at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:4092)
+2025-09-17T13:05:39.0904112Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-09-17T13:05:39.0904140Z     at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1754)
+2025-09-17T13:05:39.0904170Z     at async p (/home/site/wwwroot/.next/server/app/api/test/bing-search-debug/route.js:1:2316)
+2025-09-17T13:05:39.0904197Z     at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411
+2025-09-17T13:05:39.0904227Z     at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)
+2025-09-17T13:05:39.0904257Z     at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)
+2025-09-17T13:05:39.0904288Z     at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)
+2025-09-17T13:05:39.0904319Z     at async cacheEntry.responseCache.get.routeKind (/node_modules/next/dist/server/base-server.js:1588:28)
+2025-09-17T13:05:39.0904370Z     at async NextNodeServer.renderToResponseWithComponentsImpl (/node_modules/next/dist/server/base-server.js:1496:28)
+2025-09-17T13:05:39.0912729Z Azure AI Project error: Error: AIProjectClient作成に失敗: c is not a constructor
+2025-09-17T13:05:39.0912810Z     at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:4295)
+2025-09-17T13:05:39.0912840Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-09-17T13:05:39.0912866Z     at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1754)
+2025-09-17T13:05:39.0912893Z     at async p (/home/site/wwwroot/.next/server/app/api/test/bing-search-debug/route.js:1:2316)
+2025-09-17T13:05:39.0912920Z     at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411
+2025-09-17T13:05:39.0912946Z     at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)
+2025-09-17T13:05:39.0912972Z     at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)
+2025-09-17T13:05:39.0913010Z     at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)
+2025-09-17T13:05:39.0913037Z     at async cacheEntry.responseCache.get.routeKind (/node_modules/next/dist/server/base-server.js:1588:28)
+2025-09-17T13:05:39.0913065Z     at async NextNodeServer.renderToResponseWithComponentsImpl (/node_modules/next/dist/server/base-server.js:1496:28)
+2025-09-17T13:05:39.0918349Z Error details: {
+2025-09-17T13:05:39.0918710Z Azure AI Foundry search failed, trying fallback search...
+2025-09-17T13:05:39.0918763Z Executing fallback search for: Microsoft
+2025-09-17T13:05:39.0918900Z   name: 'Error',
+2025-09-17T13:05:39.0918936Z   message: 'AIProjectClient作成に失敗: c is not a constructor',
+2025-09-17T13:05:39.0918970Z   stack: 'Error: AIProjectClient作成に失敗: c is not a constructor\n' +
+2025-09-17T13:05:39.0919000Z     '    at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:4295)\n' +
+2025-09-17T13:05:39.0919030Z     '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+2025-09-17T13:05:39.0919059Z     '    at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1754)\n' +
+2025-09-17T13:05:39.0919106Z     '    at async p (/home/site/wwwroot/.next/server/app/api/test/bing-search-debug/route.js:1:2316)\n' +
+2025-09-17T13:05:39.0919136Z     '    at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411\n' +
+2025-09-17T13:05:39.0919167Z     '    at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)\n' +
+2025-09-17T13:05:39.0919197Z     '    at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)\n' +
+2025-09-17T13:05:39.0919226Z     '    at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)\n' +
+2025-09-17T13:05:39.0919255Z     '    at async cacheEntry.responseCache.get.routeKind (/node_modules/next/dist/server/base-server.js:1588:28)\n' +
+2025-09-17T13:05:39.0919288Z     '    at async NextNodeServer.renderToResponseWithComponentsImpl (/node_modules/next/dist/server/base-server.js:1496:28)'
+2025-09-17T13:05:39.0919330Z }
+2025-09-17T13:05:39.5764821Z Search result: {
+2025-09-17T13:05:39.5765351Z   webPages: {
+2025-09-17T13:05:39.5765386Z     value: [ [Object], [Object], [Object], [Object], [Object], [Object] ]
+2025-09-17T13:05:39.5765408Z   }
+2025-09-17T13:05:39.5765431Z }
+2025-09-17T13:07:24.2124708Z    _____                               
+2025-09-17T13:07:24.2126048Z   /  _  \ __________ _________   ____  
+2025-09-17T13:07:24.2126115Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2025-09-17T13:07:24.2126152Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2025-09-17T13:07:24.2126204Z \____|__  /_____ \____/ |__|    \___  >
+2025-09-17T13:07:24.2126243Z         \/      \/                  \/ 
+2025-09-17T13:07:24.2126277Z A P P   S E R V I C E   O N   L I N U X
+2025-09-17T13:07:24.2126307Z 
+2025-09-17T13:07:24.2126340Z Documentation: http://aka.ms/webapp-linux
+2025-09-17T13:07:24.2126376Z NodeJS quickstart: https://aka.ms/node-qs
+2025-09-17T13:07:24.2126411Z NodeJS Version : v18.20.8
+2025-09-17T13:07:24.2126454Z Note: Any data outside '/home' is not persisted
+2025-09-17T13:07:24.2132654Z 
+2025-09-17T13:07:24.6914534Z Starting OpenBSD Secure Shell server: sshd.
+2025-09-17T13:07:24.6954574Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2025-09-17T13:07:24.7060604Z Updating certificates in /etc/ssl/certs...
+2025-09-17T13:07:26.6862146Z 4 added, 0 removed; done.
+2025-09-17T13:07:26.6863479Z Running hooks in /etc/ca-certificates/update.d...
+2025-09-17T13:07:26.6881646Z done.
+2025-09-17T13:07:26.6939774Z CA certificates copied and updated successfully.
+2025-09-17T13:07:26.7323107Z Starting periodic command scheduler: cron.
+2025-09-17T13:07:26.7400592Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2025-09-17T13:07:26.7453956Z Could not find operation ID in manifest. Generating an operation id...
+2025-09-17T13:07:26.7454243Z Build Operation ID: 8732b067-fdb8-4742-969e-26fb28d35e53
+2025-09-17T13:07:27.1861496Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2025-09-17T13:07:27.2919730Z Writing output script to '/opt/startup/startup.sh'
+2025-09-17T13:07:27.4017712Z Running #!/bin/sh
+2025-09-17T13:07:27.4018383Z 
+2025-09-17T13:07:27.4018489Z # Enter the source directory to make sure the script runs where the user expects
+2025-09-17T13:07:27.4018546Z cd "/home/site/wwwroot"
+2025-09-17T13:07:27.4018579Z 
+2025-09-17T13:07:27.4018612Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2025-09-17T13:07:27.4018645Z if [ -z "$PORT" ]; then
+2025-09-17T13:07:27.4018679Z 		export PORT=8080
+2025-09-17T13:07:27.4018710Z fi
+2025-09-17T13:07:27.4018752Z 
+2025-09-17T13:07:27.4018789Z echo Found tar.gz based node_modules.
+2025-09-17T13:07:27.4018827Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2025-09-17T13:07:27.4018882Z echo "Removing existing modules directory from root..."
+2025-09-17T13:07:27.4018917Z rm -fr /node_modules
+2025-09-17T13:07:27.4018950Z mkdir -p /node_modules
+2025-09-17T13:07:27.4018984Z echo Extracting modules...
+2025-09-17T13:07:27.4019035Z $extractionCommand
+2025-09-17T13:07:27.4019089Z export NODE_PATH="/node_modules":$NODE_PATH
+2025-09-17T13:07:27.4019127Z export PATH=/node_modules/.bin:$PATH
+2025-09-17T13:07:27.4019161Z if [ -d node_modules ]; then
+2025-09-17T13:07:27.4019194Z     mv -f node_modules _del_node_modules || true
+2025-09-17T13:07:27.4019227Z fi
+2025-09-17T13:07:27.4019257Z 
+2025-09-17T13:07:27.4019302Z if [ -d /node_modules ]; then
+2025-09-17T13:07:27.4019337Z     ln -sfn /node_modules ./node_modules 
+2025-09-17T13:07:27.4019373Z fi
+2025-09-17T13:07:27.4019407Z 
+2025-09-17T13:07:27.4019442Z echo "Done."
+2025-09-17T13:07:27.4041161Z PATH="$PATH:/home/site/wwwroot" node server.js
+2025-09-17T13:07:27.4064748Z Found tar.gz based node_modules.
+2025-09-17T13:07:27.4077794Z Removing existing modules directory from root...
+2025-09-17T13:07:27.4162026Z Extracting modules...
+2025-09-17T13:07:27.9751472Z Done.
+2025-09-17T13:07:28.8629790Z   ▲ Next.js 14.2.32
+2025-09-17T13:07:28.8644713Z   - Local:        http://2ce31a3e7d37:8080
+2025-09-17T13:07:28.8651800Z   - Network:      http://169.254.129.6:8080
+2025-09-17T13:07:28.8661034Z 
+2025-09-17T13:07:28.8666462Z  ✓ Starting...
+2025-09-17T13:07:29.1204622Z  ✓ Ready in 275ms
+2025-09-17T13:07:46.2991227Z === App Service Debug API ===
+2025-09-17T13:07:46.3021689Z Authentication status: { isAuthenticated: false, isAdmin: false }
+2025-09-17T13:07:46.3030458Z Environment variables status: {
+2025-09-17T13:07:46.3030551Z   AZURE_AI_FOUNDRY_ENDPOINT: 'SET',
+2025-09-17T13:07:46.3030583Z   AZURE_AI_FOUNDRY_API_KEY: 'SET',
+2025-09-17T13:07:46.3030608Z   AZURE_AI_FOUNDRY_AGENT_ID: 'SET',
+2025-09-17T13:07:46.3030633Z   AZURE_OPENAI_ENDPOINT: 'NOT SET',
+2025-09-17T13:07:46.3030660Z   AZURE_OPENAI_API_KEY: 'NOT SET',
+2025-09-17T13:07:46.3030688Z   AZURE_OPENAI_API_DEPLOYMENT_NAME: 'SET',
+2025-09-17T13:07:46.3030713Z   AZURE_SPEECH_REGION: 'NOT SET',
+2025-09-17T13:07:46.3031595Z   AZURE_SPEECH_KEY: 'NOT SET',
+2025-09-17T13:07:46.3031652Z   AZURE_SPEECH_ENDPOINT: 'NOT SET',
+2025-09-17T13:07:46.3031679Z   AZURE_COSMOSDB_URI: 'SET',
+2025-09-17T13:07:46.3031706Z   AZURE_COSMOSDB_KEY: 'SET',
+2025-09-17T13:07:46.3031733Z   AZURE_COSMOSDB_DB_NAME: 'SET'
+2025-09-17T13:07:46.3031757Z }
+2025-09-17T13:07:47.4233581Z Managed Identity is working
+2025-09-17T13:07:47.4241171Z System info: {
+2025-09-17T13:07:47.4241464Z   nodeVersion: 'v18.20.8',
+2025-09-17T13:07:47.4241502Z   platform: 'linux',
+2025-09-17T13:07:47.4241528Z   arch: 'x64',
+2025-09-17T13:07:47.4241553Z   uptime: 19.429857767,
+2025-09-17T13:07:47.4241603Z   memoryUsage: {
+2025-09-17T13:07:47.4241628Z     rss: 88494080,
+2025-09-17T13:07:47.4241656Z     heapTotal: 36945920,
+2025-09-17T13:07:47.4241682Z     heapUsed: 32112000,
+2025-09-17T13:07:47.4241708Z     external: 8311260,
+2025-09-17T13:07:47.4241735Z     arrayBuffers: 93091
+2025-09-17T13:07:47.4241759Z   },
+2025-09-17T13:07:47.4241784Z   environment: 'production',
+2025-09-17T13:07:47.4241811Z   isAppService: true,
+2025-09-17T13:07:47.4241838Z   websiteSiteName: 'kashiwabaragpt',
+2025-09-17T13:07:47.4241865Z   websiteResourceGroup: 'chatgpt'
+2025-09-17T13:07:47.4241891Z }
+2025-09-17T13:09:01.2416512Z === DEBUG: /api/chat POST called ===
+2025-09-17T13:09:01.2416990Z Request body: {
+2025-09-17T13:09:01.2417029Z   chatType: 'web',
+2025-09-17T13:09:01.2417052Z   id: 'v6LtELjT0qRva2bjG5QPz5I9l8fxM4q8EyTM',
+2025-09-17T13:09:01.2417073Z   messagesCount: 3,
+2025-09-17T13:09:01.2417100Z   lastMessage: 'カシワバラコーポレーションの本社所在地'
+2025-09-17T13:09:01.2417120Z }
+2025-09-17T13:09:01.2417142Z === DEBUG: chatAPIEntry called ===
+2025-09-17T13:09:01.2417163Z ChatType: web
+2025-09-17T13:09:01.2417189Z User message: カシワバラコーポレーションの本社所在地
+2025-09-17T13:09:01.2417211Z Messages count: 3
+2025-09-17T13:09:01.2417234Z ChatThreadId: v6LtELjT0qRva2bjG5QPz5I9l8fxM4q8EyTM
+2025-09-17T13:09:01.2417284Z Routing to ChatAPIWeb
+2025-09-17T13:09:01.3742066Z OpenAIInstance baseURL: https://kashiwabaragpt3.openai.azure.com/openai/deployments/gpt-4.1
+2025-09-17T13:09:01.3772993Z Creating new thread for web search conversation
+2025-09-17T13:09:01.3774000Z Current thread ID: null
+2025-09-17T13:09:01.3776754Z Debug - Environment variables:
+2025-09-17T13:09:01.3778062Z AZURE_AI_FOUNDRY_ENDPOINT: SET
+2025-09-17T13:09:01.3778141Z AZURE_AI_FOUNDRY_AGENT_ID: SET
+2025-09-17T13:09:01.3778174Z AZURE_AI_FOUNDRY_API_KEY: SET
+2025-09-17T13:09:01.3778860Z Debug - Azure AI Project configuration:
+2025-09-17T13:09:01.3780024Z Project Endpoint: https://kashiwabara-foundry-resource.services.ai.azure.com/api/projects/kashiwabara-foundry
+2025-09-17T13:09:01.3780093Z Agent ID: asst_gjP1ym4Jg1K81tuWiFJ0gSjW
+2025-09-17T13:09:01.3780130Z Search Text: カシワバラコーポレーションの本社所在地
+2025-09-17T13:09:01.3781244Z Using Azure CLI authentication
+2025-09-17T13:09:01.3802258Z DefaultAzureCredential created successfully with options: {
+2025-09-17T13:09:01.3802437Z   managedIdentityClientId: undefined,
+2025-09-17T13:09:01.3802473Z   loggingOptions: { enableLogging: true, logLevel: 'info' },
+2025-09-17T13:09:01.3802503Z   retryOptions: { maxRetries: 5, retryDelayInMs: 800 },
+2025-09-17T13:09:01.3802530Z   allowInsecureConnection: true
+2025-09-17T13:09:01.3802557Z }
+2025-09-17T13:09:01.3818153Z Authentication successful, token obtained, expires: 1758200865000
+2025-09-17T13:09:01.4274583Z Attempting to authenticate with Azure AI Foundry...
+2025-09-17T13:09:01.4278707Z Environment check: { isAppService: true, hasApiKey: true, hasClientId: false }
+2025-09-17T13:09:01.4278808Z Using API Key authentication...
+2025-09-17T13:09:01.4278843Z API Key (first 10 chars): BoSmOYQyOU...
+2025-09-17T13:09:01.4296195Z Failed to create AIProjectClient with API key: TypeError: c is not a constructor
+2025-09-17T13:09:01.4296301Z     at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:4092)
+2025-09-17T13:09:01.4296332Z     at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1754)
+2025-09-17T13:09:01.4296359Z     at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1339)
+2025-09-17T13:09:01.4296386Z     at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2275)
+2025-09-17T13:09:01.4296413Z     at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2817)
+2025-09-17T13:09:01.4296442Z     at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411
+2025-09-17T13:09:01.4296469Z     at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)
+2025-09-17T13:09:01.4296495Z     at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)
+2025-09-17T13:09:01.4296520Z     at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)
+2025-09-17T13:09:01.4296558Z     at async cacheEntry.responseCache.get.routeKind (/node_modules/next/dist/server/base-server.js:1588:28)
+2025-09-17T13:09:01.4302969Z Azure AI Project error: Error: AIProjectClient作成に失敗: c is not a constructor
+2025-09-17T13:09:01.4303062Z     at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:4295)
+2025-09-17T13:09:01.4303096Z     at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1754)
+2025-09-17T13:09:01.4303124Z     at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1339)
+2025-09-17T13:09:01.4303151Z     at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2275)
+2025-09-17T13:09:01.4303178Z     at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2817)
+2025-09-17T13:09:01.4303205Z     at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411
+2025-09-17T13:09:01.4303257Z     at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)
+2025-09-17T13:09:01.4303307Z     at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)
+2025-09-17T13:09:01.4303337Z     at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)
+2025-09-17T13:09:01.4303367Z     at async cacheEntry.responseCache.get.routeKind (/node_modules/next/dist/server/base-server.js:1588:28)
+2025-09-17T13:09:01.4308873Z Error details: {
+2025-09-17T13:09:01.4308950Z   name: 'Error',
+2025-09-17T13:09:01.4308986Z   message: 'AIProjectClient作成に失敗: c is not a constructor',
+2025-09-17T13:09:01.4309019Z   stack: 'Error: AIProjectClient作成に失敗: c is not a constructor\n' +
+2025-09-17T13:09:01.4309047Z     '    at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:4295)\n' +
+2025-09-17T13:09:01.4309349Z     '    at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1754)\n' +
+2025-09-17T13:09:01.4309453Z     '    at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1339)\n' +
+2025-09-17T13:09:01.4309502Z     '    at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2275)\n' +
+2025-09-17T13:09:01.4309529Z     '    at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2817)\n' +
+2025-09-17T13:09:01.4309556Z     '    at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411\n' +
+2025-09-17T13:09:01.4309583Z     '    at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)\n' +
+2025-09-17T13:09:01.4309611Z     '    at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)\n' +
+2025-09-17T13:09:01.4309639Z     '    at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)\n' +
+2025-09-17T13:09:01.4309668Z     '    at async cacheEntry.responseCache.get.routeKind (/node_modules/next/dist/server/base-server.js:1588:28)'
+2025-09-17T13:09:01.4309691Z }
+2025-09-17T13:09:01.4315437Z Azure AI Foundry search failed, trying fallback search...
+2025-09-17T13:09:01.4316105Z Executing fallback search for: カシワバラコーポレーションの本社所在地
+2025-09-17T13:09:02.1122099Z Search completed: {
+2025-09-17T13:09:02.1122592Z   searchResultsCount: 1,
+2025-09-17T13:09:02.1122629Z   assistantResponseLength: 0,
+2025-09-17T13:09:02.1122654Z   searchResponseKeys: [ 'webPages' ],
+2025-09-17T13:09:02.1122679Z   threadId: undefined
+2025-09-17T13:09:02.1122701Z }
+2025-09-17T13:09:02.1125710Z Search results processed: {
+2025-09-17T13:09:02.1125786Z   webPagesCount: 1,
+2025-09-17T13:09:02.1125812Z   searchResultsCount: 1,
+2025-09-17T13:09:02.1125841Z   snippetLength: 60,
+2025-09-17T13:09:02.1125862Z   bingResultLength: 65
+2025-09-17T13:09:02.1125881Z }
+2025-09-17T13:09:02.1263366Z No Assistant response available, returning error
+2025-09-17T13:09:02.1272131Z Debug info: {
+2025-09-17T13:09:02.1272342Z   assistantResponse: '',
+2025-09-17T13:09:02.1272373Z   assistantResponseLength: 0,
+2025-09-17T13:09:02.1272398Z   searchResult: { webPages: { value: [Array] } },
+2025-09-17T13:09:02.1272423Z   searchResultKeys: [ 'webPages' ]
+2025-09-17T13:09:02.1272447Z }
+2025-09-17T13:09:24.3735745Z === DEBUG: /api/chat POST called ===
+2025-09-17T13:09:24.3755752Z Request body: {
+2025-09-17T13:09:24.3756406Z   chatType: 'web',
+2025-09-17T13:09:24.3756450Z   id: 'v6LtELjT0qRva2bjG5QPz5I9l8fxM4q8EyTM',
+2025-09-17T13:09:24.3756479Z   messagesCount: 3,
+2025-09-17T13:09:24.3756514Z   lastMessage: 'カシワバラコーポレーションの本社所在地'
+2025-09-17T13:09:24.3756540Z }
+2025-09-17T13:09:24.3756845Z === DEBUG: chatAPIEntry called ===
+2025-09-17T13:09:24.3756892Z ChatType: web
+2025-09-17T13:09:24.3756925Z User message: カシワバラコーポレーションの本社所在地
+2025-09-17T13:09:24.3757537Z Messages count: 3
+2025-09-17T13:09:24.3757621Z ChatThreadId: v6LtELjT0qRva2bjG5QPz5I9l8fxM4q8EyTM
+2025-09-17T13:09:24.3757651Z Routing to ChatAPIWeb
+2025-09-17T13:09:24.3931863Z OpenAIInstance baseURL: https://kashiwabaragpt3.openai.azure.com/openai/deployments/gpt-4.1
+2025-09-17T13:09:24.3947018Z Current thread ID: null
+2025-09-17T13:09:24.3948774Z Debug - Environment variables:
+2025-09-17T13:09:24.3948846Z AZURE_AI_FOUNDRY_ENDPOINT: SET
+2025-09-17T13:09:24.3948879Z AZURE_AI_FOUNDRY_AGENT_ID: SET
+2025-09-17T13:09:24.3948909Z AZURE_AI_FOUNDRY_API_KEY: SET
+2025-09-17T13:09:24.3949694Z Debug - Azure AI Project configuration:
+2025-09-17T13:09:24.3949780Z Project Endpoint: https://kashiwabara-foundry-resource.services.ai.azure.com/api/projects/kashiwabara-foundry
+2025-09-17T13:09:24.3951130Z Agent ID: asst_gjP1ym4Jg1K81tuWiFJ0gSjW
+2025-09-17T13:09:24.3952606Z Search Text: カシワバラコーポレーションの本社所在地
+2025-09-17T13:09:24.3952679Z Using Azure CLI authentication
+2025-09-17T13:09:24.3972868Z DefaultAzureCredential created successfully with options: {
+2025-09-17T13:09:24.3973047Z   managedIdentityClientId: undefined,
+2025-09-17T13:09:24.3973083Z   loggingOptions: { enableLogging: true, logLevel: 'info' },
+2025-09-17T13:09:24.3973111Z   retryOptions: { maxRetries: 5, retryDelayInMs: 800 },
+2025-09-17T13:09:24.3973137Z   allowInsecureConnection: true
+2025-09-17T13:09:24.3973166Z }
+2025-09-17T13:09:24.3984452Z Authentication successful, token obtained, expires: 1758200865000
+2025-09-17T13:09:24.4027476Z Failed to create AIProjectClient with API key: TypeError: c is not a constructor
+2025-09-17T13:09:24.4027722Z     at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:4092)
+2025-09-17T13:09:24.4027757Z     at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1754)
+2025-09-17T13:09:24.4027787Z     at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1339)
+2025-09-17T13:09:24.4027812Z     at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2275)
+2025-09-17T13:09:24.4027839Z     at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2817)
+2025-09-17T13:09:24.4027865Z     at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411
+2025-09-17T13:09:24.4027890Z     at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)
+2025-09-17T13:09:24.4027918Z     at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)
+2025-09-17T13:09:24.4027918Z Attempting to authenticate with Azure AI Foundry...
+2025-09-17T13:09:24.4027943Z     at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)
+2025-09-17T13:09:24.4027966Z Environment check: { isAppService: true, hasApiKey: true, hasClientId: false }
+2025-09-17T13:09:24.4027981Z     at async cacheEntry.responseCache.get.routeKind (/node_modules/next/dist/server/base-server.js:1588:28)
+2025-09-17T13:09:24.4027993Z Using API Key authentication...
+2025-09-17T13:09:24.4028012Z Azure AI Project error: Error: AIProjectClient作成に失敗: c is not a constructor
+2025-09-17T13:09:24.4028018Z API Key (first 10 chars): BoSmOYQyOU...
+2025-09-17T13:09:24.4028039Z     at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:4295)
+2025-09-17T13:09:24.4028041Z Azure AI Foundry search failed, trying fallback search...
+2025-09-17T13:09:24.4028066Z     at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1754)
+2025-09-17T13:09:24.4028069Z Executing fallback search for: カシワバラコーポレーションの本社所在地
+2025-09-17T13:09:24.4028091Z     at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1339)
+2025-09-17T13:09:24.4028118Z     at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2275)
+2025-09-17T13:09:24.4028145Z     at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2817)
+2025-09-17T13:09:24.4028173Z     at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411
+2025-09-17T13:09:24.4028201Z     at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)
+2025-09-17T13:09:24.4028229Z     at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)
+2025-09-17T13:09:24.4028271Z     at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)
+2025-09-17T13:09:24.4028304Z     at async cacheEntry.responseCache.get.routeKind (/node_modules/next/dist/server/base-server.js:1588:28)
+2025-09-17T13:09:24.4028330Z Error details: {
+2025-09-17T13:09:24.4028352Z   name: 'Error',
+2025-09-17T13:09:24.4028380Z   message: 'AIProjectClient作成に失敗: c is not a constructor',
+2025-09-17T13:09:24.4028408Z   stack: 'Error: AIProjectClient作成に失敗: c is not a constructor\n' +
+2025-09-17T13:09:24.4028435Z     '    at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:4295)\n' +
+2025-09-17T13:09:24.4028480Z     '    at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1754)\n' +
+2025-09-17T13:09:24.4028511Z     '    at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1339)\n' +
+2025-09-17T13:09:24.4028548Z     '    at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2275)\n' +
+2025-09-17T13:09:24.4028577Z     '    at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2817)\n' +
+2025-09-17T13:09:24.4028606Z     '    at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411\n' +
+2025-09-17T13:09:24.4028632Z     '    at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)\n' +
+2025-09-17T13:09:24.4028660Z     '    at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)\n' +
+2025-09-17T13:09:24.4028687Z     '    at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)\n' +
+2025-09-17T13:09:24.4028715Z     '    at async cacheEntry.responseCache.get.routeKind (/node_modules/next/dist/server/base-server.js:1588:28)'
+2025-09-17T13:09:24.4028738Z }
+2025-09-17T13:09:24.7718713Z Search completed: {
+2025-09-17T13:09:24.7719555Z   searchResultsCount: 1,
+2025-09-17T13:09:24.7719603Z   assistantResponseLength: 0,
+2025-09-17T13:09:24.7719697Z   searchResponseKeys: [ 'webPages' ],
+2025-09-17T13:09:24.7719725Z   threadId: undefined
+2025-09-17T13:09:24.7719750Z }
+2025-09-17T13:09:24.7720943Z Search results processed: {
+2025-09-17T13:09:24.7720997Z   webPagesCount: 1,
+2025-09-17T13:09:24.7721020Z   searchResultsCount: 1,
+2025-09-17T13:09:24.7721044Z   snippetLength: 60,
+2025-09-17T13:09:24.7721065Z   bingResultLength: 65
+2025-09-17T13:09:24.7721087Z }
+2025-09-17T13:09:24.7821885Z No Assistant response available, returning error
+2025-09-17T13:09:24.7823509Z Debug info: {
+2025-09-17T13:09:24.7823587Z   assistantResponse: '',
+2025-09-17T13:09:24.7823619Z   assistantResponseLength: 0,
+2025-09-17T13:09:24.7823647Z   searchResult: { webPages: { value: [Array] } },
+2025-09-17T13:09:24.7823672Z   searchResultKeys: [ 'webPages' ]
+2025-09-17T13:09:24.7823698Z }
+2025-09-17T13:10:37.1711913Z    _____                               
+2025-09-17T13:10:37.1713034Z   /  _  \ __________ _________   ____  
+2025-09-17T13:10:37.1713095Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2025-09-17T13:10:37.1713129Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2025-09-17T13:10:37.1713165Z \____|__  /_____ \____/ |__|    \___  >
+2025-09-17T13:10:37.1713202Z         \/      \/                  \/ 
+2025-09-17T13:10:37.1713233Z A P P   S E R V I C E   O N   L I N U X
+2025-09-17T13:10:37.1713275Z 
+2025-09-17T13:10:37.1713313Z Documentation: http://aka.ms/webapp-linux
+2025-09-17T13:10:37.1713355Z NodeJS quickstart: https://aka.ms/node-qs
+2025-09-17T13:10:37.1713394Z NodeJS Version : v18.20.8
+2025-09-17T13:10:37.1713435Z Note: Any data outside '/home' is not persisted
+2025-09-17T13:10:37.1713466Z 
+2025-09-17T13:10:37.5533822Z Starting OpenBSD Secure Shell server: sshd.
+2025-09-17T13:10:37.5574241Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2025-09-17T13:10:37.5686702Z Updating certificates in /etc/ssl/certs...
+2025-09-17T13:10:39.4944644Z 4 added, 0 removed; done.
+2025-09-17T13:10:39.4951712Z Running hooks in /etc/ca-certificates/update.d...
+2025-09-17T13:10:39.4974428Z done.
+2025-09-17T13:10:39.5035902Z CA certificates copied and updated successfully.
+2025-09-17T13:10:39.5413403Z Starting periodic command scheduler: cron.
+2025-09-17T13:10:39.5499419Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2025-09-17T13:10:39.5522964Z Could not find operation ID in manifest. Generating an operation id...
+2025-09-17T13:10:39.5532493Z Build Operation ID: f58518ba-cae7-4e5d-b5ac-052e3e61a83f
+2025-09-17T13:10:40.0026009Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2025-09-17T13:10:40.1077944Z Writing output script to '/opt/startup/startup.sh'
+2025-09-17T13:10:40.2176968Z Running #!/bin/sh
+2025-09-17T13:10:40.2177553Z 
+2025-09-17T13:10:40.2177606Z # Enter the source directory to make sure the script runs where the user expects
+2025-09-17T13:10:40.2177657Z cd "/home/site/wwwroot"
+2025-09-17T13:10:40.2177689Z 
+2025-09-17T13:10:40.2177779Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2025-09-17T13:10:40.2177815Z if [ -z "$PORT" ]; then
+2025-09-17T13:10:40.2177849Z 		export PORT=8080
+2025-09-17T13:10:40.2177879Z fi
+2025-09-17T13:10:40.2177910Z 
+2025-09-17T13:10:40.2177941Z echo Found tar.gz based node_modules.
+2025-09-17T13:10:40.2177976Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2025-09-17T13:10:40.2178026Z echo "Removing existing modules directory from root..."
+2025-09-17T13:10:40.2178058Z rm -fr /node_modules
+2025-09-17T13:10:40.2178089Z mkdir -p /node_modules
+2025-09-17T13:10:40.2178122Z echo Extracting modules...
+2025-09-17T13:10:40.2178155Z $extractionCommand
+2025-09-17T13:10:40.2178211Z export NODE_PATH="/node_modules":$NODE_PATH
+2025-09-17T13:10:40.2178258Z export PATH=/node_modules/.bin:$PATH
+2025-09-17T13:10:40.2178293Z if [ -d node_modules ]; then
+2025-09-17T13:10:40.2178327Z     mv -f node_modules _del_node_modules || true
+2025-09-17T13:10:40.2178359Z fi
+2025-09-17T13:10:40.2178392Z 
+2025-09-17T13:10:40.2178425Z if [ -d /node_modules ]; then
+2025-09-17T13:10:40.2178460Z     ln -sfn /node_modules ./node_modules 
+2025-09-17T13:10:40.2178492Z fi
+2025-09-17T13:10:40.2178534Z 
+2025-09-17T13:10:40.2178567Z echo "Done."
+2025-09-17T13:10:40.2220206Z PATH="$PATH:/home/site/wwwroot" node server.js
+2025-09-17T13:10:40.2238367Z Found tar.gz based node_modules.
+2025-09-17T13:10:40.2243251Z Removing existing modules directory from root...
+2025-09-17T13:10:40.2326166Z Extracting modules...
+2025-09-17T13:10:40.7400731Z Done.
+2025-09-17T13:10:41.4467306Z   ▲ Next.js 14.2.32
+2025-09-17T13:10:41.4470819Z   - Local:        http://322a477a5e2e:8080
+2025-09-17T13:10:41.4470954Z   - Network:      http://169.254.129.4:8080
+2025-09-17T13:10:41.4474802Z 
+2025-09-17T13:10:41.4474930Z  ✓ Starting...
+2025-09-17T13:10:41.6235338Z  ✓ Ready in 187ms
+2025-09-17T13:12:47.3170251Z === DEBUG: /api/chat POST called ===
+2025-09-17T13:12:47.3200298Z Request body: {
+2025-09-17T13:12:47.3200481Z   chatType: 'web',
+2025-09-17T13:12:47.3200516Z   id: 'v6LtELjT0qRva2bjG5QPz5I9l8fxM4q8EyTM',
+2025-09-17T13:12:47.3200542Z   messagesCount: 3,
+2025-09-17T13:12:47.3200576Z   lastMessage: 'カシワバラコーポレーションの本社所在地'
+2025-09-17T13:12:47.3200602Z }
+2025-09-17T13:12:47.3205169Z === DEBUG: chatAPIEntry called ===
+2025-09-17T13:12:47.3205256Z ChatType: web
+2025-09-17T13:12:47.3205290Z User message: カシワバラコーポレーションの本社所在地
+2025-09-17T13:12:47.3206122Z Messages count: 3
+2025-09-17T13:12:47.3206208Z ChatThreadId: v6LtELjT0qRva2bjG5QPz5I9l8fxM4q8EyTM
+2025-09-17T13:12:47.3208956Z Routing to ChatAPIWeb
+2025-09-17T13:12:47.4043144Z OpenAIInstance baseURL: https://kashiwabaragpt3.openai.azure.com/openai/deployments/gpt-4.1
+2025-09-17T13:12:47.4074792Z Creating new thread for web search conversation
+2025-09-17T13:12:47.4075639Z Current thread ID: null
+2025-09-17T13:12:47.4081623Z Debug - Environment variables:
+2025-09-17T13:12:47.4081726Z AZURE_AI_FOUNDRY_ENDPOINT: SET
+2025-09-17T13:12:47.4081760Z AZURE_AI_FOUNDRY_AGENT_ID: SET
+2025-09-17T13:12:47.4081787Z AZURE_AI_FOUNDRY_API_KEY: SET
+2025-09-17T13:12:47.4081850Z Debug - Azure AI Project configuration:
+2025-09-17T13:12:47.4085182Z Project Endpoint: https://kashiwabara-foundry-resource.services.ai.azure.com/api/projects/kashiwabara-foundry
+2025-09-17T13:12:47.4085290Z Agent ID: asst_gjP1ym4Jg1K81tuWiFJ0gSjW
+2025-09-17T13:12:47.4085324Z Search Text: カシワバラコーポレーションの本社所在地
+2025-09-17T13:12:47.4085350Z Using Azure CLI authentication
+2025-09-17T13:12:47.4369650Z App Service environment: Using System Assigned Managed Identity
+2025-09-17T13:12:47.4425148Z DefaultAzureCredential created successfully with options: {
+2025-09-17T13:12:47.4425438Z   loggingOptions: { enableLogging: true, logLevel: 'info' },
+2025-09-17T13:12:47.4425482Z   retryOptions: { maxRetries: 5, retryDelayInMs: 800 },
+2025-09-17T13:12:47.4427142Z   allowInsecureConnection: true
+2025-09-17T13:12:47.4427241Z }
+2025-09-17T13:12:48.6263168Z Authentication successful, token obtained, expires: 1758201165000
+2025-09-17T13:12:48.6716077Z Attempting to authenticate with Azure AI Foundry...
+2025-09-17T13:12:48.6719346Z Environment check: { isAppService: true, hasApiKey: true, hasClientId: false }
+2025-09-17T13:12:48.6719435Z Using DefaultAzureCredential with Entra authentication (Azure AI Foundry requires Entra ID only)...
+2025-09-17T13:12:48.6719473Z App Service environment detected, using System Assigned Managed Identity
+2025-09-17T13:12:50.9576819Z Retrieved agent: bing-agent
+2025-09-17T13:12:51.7770839Z Created new thread, ID: thread_CxBCdcqjhRk9jUMhm4LZF8lY
+2025-09-17T13:12:52.2531555Z Azure AI Project error: ReferenceError: agent is not defined
+2025-09-17T13:12:52.2531957Z     at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:5165)
+2025-09-17T13:12:52.2531990Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-09-17T13:12:52.2532017Z     at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1863)
+2025-09-17T13:12:52.2532044Z     at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1339)
+2025-09-17T13:12:52.2532071Z     at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2275)
+2025-09-17T13:12:52.2532095Z     at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2817)
+2025-09-17T13:12:52.2532121Z     at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411
+2025-09-17T13:12:52.2532148Z     at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)
+2025-09-17T13:12:52.2532176Z     at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)
+2025-09-17T13:12:52.2532232Z     at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)
+2025-09-17T13:12:52.9705816Z Created message, ID: msg_zdFFbCJJGFNDzhhO07aEbrUI
+2025-09-17T13:12:52.9705986Z Azure AI Foundry search failed, trying fallback search...
+2025-09-17T13:12:52.9706014Z Executing fallback search for: カシワバラコーポレーションの本社所在地
+2025-09-17T13:12:52.9706031Z Search completed: {
+2025-09-17T13:12:52.9706047Z   searchResultsCount: 1,
+2025-09-17T13:12:52.9706064Z   assistantResponseLength: 0,
+2025-09-17T13:12:52.9706081Z   searchResponseKeys: [ 'webPages' ],
+2025-09-17T13:12:52.9706097Z   threadId: undefined
+2025-09-17T13:12:52.9706113Z }
+2025-09-17T13:12:52.9706130Z Search results processed: {
+2025-09-17T13:12:52.9706153Z   webPagesCount: 1,
+2025-09-17T13:12:52.9706170Z   searchResultsCount: 1,
+2025-09-17T13:12:52.9706186Z   snippetLength: 60,
+2025-09-17T13:12:52.9706201Z   bingResultLength: 65
+2025-09-17T13:12:52.9706216Z }
+2025-09-17T13:12:52.9706233Z No Assistant response available, returning error
+2025-09-17T13:12:52.9706248Z Debug info: {
+2025-09-17T13:12:52.9706263Z   assistantResponse: '',
+2025-09-17T13:12:52.9706279Z   assistantResponseLength: 0,
+2025-09-17T13:12:52.9706295Z   searchResult: { webPages: { value: [Array] } },
+2025-09-17T13:12:52.9706311Z   searchResultKeys: [ 'webPages' ]
+2025-09-17T13:12:52.9706326Z }
+2025-09-17T13:12:53.9687162Z Error details: {
+2025-09-17T13:12:53.9687394Z   name: 'ReferenceError',
+2025-09-17T13:12:53.9687425Z   message: 'agent is not defined',
+2025-09-17T13:12:53.9687448Z   stack: 'ReferenceError: agent is not defined\n' +
+2025-09-17T13:12:53.9687474Z     '    at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:5165)\n' +
+2025-09-17T13:12:53.9687499Z     '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+2025-09-17T13:12:53.9687522Z     '    at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1863)\n' +
+2025-09-17T13:12:53.9687546Z     '    at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1339)\n' +
+2025-09-17T13:12:53.9687569Z     '    at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2275)\n' +
+2025-09-17T13:12:53.9687592Z     '    at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2817)\n' +
+2025-09-17T13:12:53.9687661Z     '    at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411\n' +
+2025-09-17T13:12:53.9687711Z     '    at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)\n' +
+2025-09-17T13:12:53.9687737Z     '    at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)\n' +
+2025-09-17T13:12:53.9687761Z     '    at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)'
+2025-09-17T13:12:53.9687780Z }
+2025-09-17T13:14:50.0312110Z    _____                               
+2025-09-17T13:14:50.0313061Z   /  _  \ __________ _________   ____  
+2025-09-17T13:14:50.0313132Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2025-09-17T13:14:50.0313167Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2025-09-17T13:14:50.0313199Z \____|__  /_____ \____/ |__|    \___  >
+2025-09-17T13:14:50.0313234Z         \/      \/                  \/ 
+2025-09-17T13:14:50.0313265Z A P P   S E R V I C E   O N   L I N U X
+2025-09-17T13:14:50.0313294Z 
+2025-09-17T13:14:50.0313330Z Documentation: http://aka.ms/webapp-linux
+2025-09-17T13:14:50.0313378Z NodeJS quickstart: https://aka.ms/node-qs
+2025-09-17T13:14:50.0313412Z NodeJS Version : v18.20.8
+2025-09-17T13:14:50.0313446Z Note: Any data outside '/home' is not persisted
+2025-09-17T13:14:50.0313475Z 
+2025-09-17T13:14:50.2740450Z Starting OpenBSD Secure Shell server: sshd.
+2025-09-17T13:14:50.2779837Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2025-09-17T13:14:50.2888210Z Updating certificates in /etc/ssl/certs...
+2025-09-17T13:14:50.9863266Z === DEBUG: /api/chat POST called ===
+2025-09-17T13:14:50.9909852Z Request body: {
+2025-09-17T13:14:50.9910102Z   chatType: 'web',
+2025-09-17T13:14:50.9910135Z   id: '3OXFO7c4VJw2vzBG9o8BDBqfkC5y5KqDFulr',
+2025-09-17T13:14:50.9910159Z   messagesCount: 2,
+2025-09-17T13:14:50.9910188Z   lastMessage: 'カシワバラコーポレーションの本社所在地'
+2025-09-17T13:14:50.9910212Z }
+2025-09-17T13:14:50.9910236Z === DEBUG: chatAPIEntry called ===
+2025-09-17T13:14:50.9910259Z ChatType: web
+2025-09-17T13:14:50.9910288Z User message: カシワバラコーポレーションの本社所在地
+2025-09-17T13:14:50.9910310Z Messages count: 2
+2025-09-17T13:14:50.9910334Z ChatThreadId: 3OXFO7c4VJw2vzBG9o8BDBqfkC5y5KqDFulr
+2025-09-17T13:14:50.9910402Z Routing to ChatAPIWeb
+2025-09-17T13:14:51.0104237Z OpenAIInstance baseURL: https://kashiwabaragpt3.openai.azure.com/openai/deployments/gpt-4.1
+2025-09-17T13:14:51.0147641Z Creating new thread for web search conversation
+2025-09-17T13:14:51.0150376Z Current thread ID: null
+2025-09-17T13:14:51.0151722Z Debug - Environment variables:
+2025-09-17T13:14:51.0155106Z AZURE_AI_FOUNDRY_ENDPOINT: SET
+2025-09-17T13:14:51.0155184Z AZURE_AI_FOUNDRY_AGENT_ID: SET
+2025-09-17T13:14:51.0155219Z AZURE_AI_FOUNDRY_API_KEY: SET
+2025-09-17T13:14:51.0155254Z Debug - Azure AI Project configuration:
+2025-09-17T13:14:51.0155306Z Project Endpoint: https://kashiwabara-foundry-resource.services.ai.azure.com/api/projects/kashiwabara-foundry
+2025-09-17T13:14:51.0155336Z Agent ID: asst_gjP1ym4Jg1K81tuWiFJ0gSjW
+2025-09-17T13:14:51.0155368Z Search Text: カシワバラコーポレーションの本社所在地
+2025-09-17T13:14:51.0155394Z Using Azure CLI authentication
+2025-09-17T13:14:51.0171095Z App Service environment: Using System Assigned Managed Identity
+2025-09-17T13:14:51.0268636Z DefaultAzureCredential created successfully with options: {
+2025-09-17T13:14:51.0268860Z   loggingOptions: { enableLogging: true, logLevel: 'info' },
+2025-09-17T13:14:51.0268896Z   retryOptions: { maxRetries: 5, retryDelayInMs: 800 },
+2025-09-17T13:14:51.0268920Z   allowInsecureConnection: true
+2025-09-17T13:14:51.0268943Z }
+2025-09-17T13:14:51.0297010Z Authentication successful, token obtained, expires: 1758201165000
+2025-09-17T13:14:51.0303455Z Attempting to authenticate with Azure AI Foundry...
+2025-09-17T13:14:51.0307970Z Environment check: { isAppService: true, hasApiKey: true, hasClientId: false }
+2025-09-17T13:14:51.0309765Z Using DefaultAzureCredential with Entra authentication (Azure AI Foundry requires Entra ID only)...
+2025-09-17T13:14:51.0313860Z App Service environment detected, using System Assigned Managed Identity
+2025-09-17T13:14:52.0012042Z Retrieved agent: bing-agent
+2025-09-17T13:14:52.0012234Z Created new thread, ID: thread_cXB9PQcqjvnnJHZOTYK0Iwgx
+2025-09-17T13:14:52.2765318Z Created message, ID: msg_X01UE6PSskxnUBXtsAdvmPaK
+2025-09-17T13:14:52.2770384Z Azure AI Project error: ReferenceError: agent is not defined
+2025-09-17T13:14:52.2770483Z     at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:5165)
+2025-09-17T13:14:52.2770517Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-09-17T13:14:52.2770542Z     at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1863)
+2025-09-17T13:14:52.2770570Z     at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1339)
+2025-09-17T13:14:52.2770597Z     at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2275)
+2025-09-17T13:14:52.2770622Z     at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2817)
+2025-09-17T13:14:52.2770648Z     at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411
+2025-09-17T13:14:52.2770674Z     at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)
+2025-09-17T13:14:52.2770699Z     at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)
+2025-09-17T13:14:52.2770740Z     at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)
+2025-09-17T13:14:52.2788984Z Error details: {
+2025-09-17T13:14:52.2789487Z   name: 'ReferenceError',
+2025-09-17T13:14:52.2789530Z   message: 'agent is not defined',
+2025-09-17T13:14:52.2789558Z   stack: 'ReferenceError: agent is not defined\n' +
+2025-09-17T13:14:52.2789585Z     '    at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:5165)\n' +
+2025-09-17T13:14:52.2789614Z     '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+2025-09-17T13:14:52.2789640Z     '    at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1863)\n' +
+2025-09-17T13:14:52.2789668Z     '    at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1339)\n' +
+2025-09-17T13:14:52.2789701Z     '    at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2275)\n' +
+2025-09-17T13:14:52.2789763Z     '    at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:2817)\n' +
+2025-09-17T13:14:52.2789791Z     '    at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411\n' +
+2025-09-17T13:14:52.2789818Z     '    at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)\n' +
+2025-09-17T13:14:52.2789848Z     '    at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)\n' +
+2025-09-17T13:14:52.2789875Z     '    at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)'
+2025-09-17T13:14:52.2789899Z }
+2025-09-17T13:14:52.2791234Z Azure AI Foundry search failed, trying fallback search...
+2025-09-17T13:14:52.2812486Z Executing fallback search for: カシワバラコーポレーションの本社所在地
+2025-09-17T13:14:52.6431639Z Search completed: {
+2025-09-17T13:14:52.6431878Z   searchResultsCount: 1,
+2025-09-17T13:14:52.6431980Z   assistantResponseLength: 0,
+2025-09-17T13:14:52.6432011Z   searchResponseKeys: [ 'webPages' ],
+2025-09-17T13:14:52.6432038Z   threadId: undefined
+2025-09-17T13:14:52.6432064Z }
+2025-09-17T13:14:52.6432092Z Search results processed: {
+2025-09-17T13:14:52.6432118Z   webPagesCount: 1,
+2025-09-17T13:14:52.6432146Z   searchResultsCount: 1,
+2025-09-17T13:14:52.6432173Z   snippetLength: 60,
+2025-09-17T13:14:52.6432201Z   bingResultLength: 65
+2025-09-17T13:14:52.6432227Z }
+2025-09-17T13:14:52.6567027Z No Assistant response available, returning error
+2025-09-17T13:14:52.6570682Z Debug info: {
+2025-09-17T13:14:52.6570762Z   assistantResponse: '',
+2025-09-17T13:14:52.6570795Z   assistantResponseLength: 0,
+2025-09-17T13:14:52.6570823Z   searchResult: { webPages: { value: [Array] } },
+2025-09-17T13:14:52.6570847Z   searchResultKeys: [ 'webPages' ]
+2025-09-17T13:14:52.6570870Z }
+2025-09-17T13:14:52.2739696Z 4 added, 0 removed; done.
+2025-09-17T13:14:52.2740166Z Running hooks in /etc/ca-certificates/update.d...
+2025-09-17T13:14:52.2772985Z done.
+2025-09-17T13:14:52.2843663Z CA certificates copied and updated successfully.
+2025-09-17T13:14:52.3203289Z Starting periodic command scheduler: cron.
+2025-09-17T13:14:52.3273402Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2025-09-17T13:14:52.3290560Z Could not find operation ID in manifest. Generating an operation id...
+2025-09-17T13:14:52.3291985Z Build Operation ID: 439168f1-9c36-476e-bd05-6ff81fd5ed89
+2025-09-17T13:14:52.7761897Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2025-09-17T13:14:52.8814276Z Writing output script to '/opt/startup/startup.sh'
+2025-09-17T13:14:52.9960474Z Running #!/bin/sh
+2025-09-17T13:14:52.9973931Z 
+2025-09-17T13:14:52.9974061Z # Enter the source directory to make sure the script runs where the user expects
+2025-09-17T13:14:52.9974123Z cd "/home/site/wwwroot"
+2025-09-17T13:14:52.9974161Z 
+2025-09-17T13:14:52.9974193Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2025-09-17T13:14:52.9974429Z if [ -z "$PORT" ]; then
+2025-09-17T13:14:52.9974487Z 		export PORT=8080
+2025-09-17T13:14:52.9974522Z fi
+2025-09-17T13:14:52.9974553Z 
+2025-09-17T13:14:52.9974586Z echo Found tar.gz based node_modules.
+2025-09-17T13:14:52.9974624Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2025-09-17T13:14:52.9974675Z echo "Removing existing modules directory from root..."
+2025-09-17T13:14:52.9974709Z rm -fr /node_modules
+2025-09-17T13:14:52.9974745Z mkdir -p /node_modules
+2025-09-17T13:14:52.9974778Z echo Extracting modules...
+2025-09-17T13:14:52.9974809Z $extractionCommand
+2025-09-17T13:14:52.9974842Z export NODE_PATH="/node_modules":$NODE_PATH
+2025-09-17T13:14:52.9974879Z export PATH=/node_modules/.bin:$PATH
+2025-09-17T13:14:52.9974924Z if [ -d node_modules ]; then
+2025-09-17T13:14:52.9974959Z     mv -f node_modules _del_node_modules || true
+2025-09-17T13:14:52.9974992Z fi
+2025-09-17T13:14:52.9975032Z 
+2025-09-17T13:14:52.9975071Z if [ -d /node_modules ]; then
+2025-09-17T13:14:52.9975111Z     ln -sfn /node_modules ./node_modules 
+2025-09-17T13:14:52.9975144Z fi
+2025-09-17T13:14:52.9975177Z 
+2025-09-17T13:14:52.9975210Z echo "Done."
+2025-09-17T13:14:52.9975508Z PATH="$PATH:/home/site/wwwroot" node server.js
+2025-09-17T13:14:52.9993494Z Found tar.gz based node_modules.
+2025-09-17T13:14:52.9993612Z Removing existing modules directory from root...
+2025-09-17T13:14:53.0064820Z Extracting modules...
+2025-09-17T13:14:53.5654129Z Done.
+2025-09-17T13:14:54.2255127Z   ▲ Next.js 14.2.32
+2025-09-17T13:14:54.2257110Z   - Local:        http://bd8698b6f3d4:8080
+2025-09-17T13:14:54.2257853Z   - Network:      http://169.254.129.2:8080
+2025-09-17T13:14:54.2259230Z 
+2025-09-17T13:14:54.2261438Z  ✓ Starting...
+2025-09-17T13:14:54.4512605Z  ✓ Ready in 235ms
+2025-09-17T13:15:29.3501980Z    _____                               
+2025-09-17T13:15:29.3503052Z   /  _  \ __________ _________   ____  
+2025-09-17T13:15:29.3503115Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2025-09-17T13:15:29.3503150Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2025-09-17T13:15:29.3503183Z \____|__  /_____ \____/ |__|    \___  >
+2025-09-17T13:15:29.3503221Z         \/      \/                  \/ 
+2025-09-17T13:15:29.3503268Z A P P   S E R V I C E   O N   L I N U X
+2025-09-17T13:15:29.3503299Z 
+2025-09-17T13:15:29.3503337Z Documentation: http://aka.ms/webapp-linux
+2025-09-17T13:15:29.3503375Z NodeJS quickstart: https://aka.ms/node-qs
+2025-09-17T13:15:29.3503410Z NodeJS Version : v18.20.8
+2025-09-17T13:15:29.3503445Z Note: Any data outside '/home' is not persisted
+2025-09-17T13:15:29.3503477Z 
+2025-09-17T13:15:29.5839665Z Starting OpenBSD Secure Shell server: sshd.
+2025-09-17T13:15:29.5883675Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2025-09-17T13:15:29.6002788Z Updating certificates in /etc/ssl/certs...
+2025-09-17T13:15:31.5832435Z 4 added, 0 removed; done.
+2025-09-17T13:15:32.6742932Z Running hooks in /etc/ca-certificates/update.d...
+2025-09-17T13:15:32.6743146Z done.
+2025-09-17T13:15:32.6743190Z CA certificates copied and updated successfully.
+2025-09-17T13:15:32.6743228Z Starting periodic command scheduler: cron.
+2025-09-17T13:15:32.6743291Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2025-09-17T13:15:32.6743329Z Could not find operation ID in manifest. Generating an operation id...
+2025-09-17T13:15:32.6743366Z Build Operation ID: e961a451-7c65-4d85-84f8-9b33e36b9540
+2025-09-17T13:15:32.6743400Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2025-09-17T13:15:32.6743435Z Writing output script to '/opt/startup/startup.sh'
+2025-09-17T13:15:32.6743468Z Running #!/bin/sh
+2025-09-17T13:15:32.6743504Z 
+2025-09-17T13:15:32.6743538Z # Enter the source directory to make sure the script runs where the user expects
+2025-09-17T13:15:32.6743572Z cd "/home/site/wwwroot"
+2025-09-17T13:15:32.6743600Z 
+2025-09-17T13:15:32.6743631Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2025-09-17T13:15:32.6743665Z if [ -z "$PORT" ]; then
+2025-09-17T13:15:32.6743697Z 		export PORT=8080
+2025-09-17T13:15:32.6743752Z fi
+2025-09-17T13:15:32.6743784Z 
+2025-09-17T13:15:32.6743817Z echo Found tar.gz based node_modules.
+2025-09-17T13:15:32.6743851Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2025-09-17T13:15:32.6743884Z echo "Removing existing modules directory from root..."
+2025-09-17T13:15:32.6743914Z rm -fr /node_modules
+2025-09-17T13:15:32.6743946Z mkdir -p /node_modules
+2025-09-17T13:15:32.6743990Z echo Extracting modules...
+2025-09-17T13:15:32.6744022Z $extractionCommand
+2025-09-17T13:15:32.6744054Z export NODE_PATH="/node_modules":$NODE_PATH
+2025-09-17T13:15:32.6744089Z export PATH=/node_modules/.bin:$PATH
+2025-09-17T13:15:32.6744122Z if [ -d node_modules ]; then
+2025-09-17T13:15:32.6744155Z     mv -f node_modules _del_node_modules || true
+2025-09-17T13:15:32.6744186Z fi
+2025-09-17T13:15:32.6744224Z 
+2025-09-17T13:15:32.6744268Z if [ -d /node_modules ]; then
+2025-09-17T13:15:32.6744305Z     ln -sfn /node_modules ./node_modules 
+2025-09-17T13:15:32.6744336Z fi
+2025-09-17T13:15:32.6744365Z 
+2025-09-17T13:15:32.6744403Z echo "Done."
+2025-09-17T13:15:32.6744438Z PATH="$PATH:/home/site/wwwroot" node server.js
+2025-09-17T13:15:32.6744473Z Found tar.gz based node_modules.
+2025-09-17T13:15:32.6744508Z Removing existing modules directory from root...
+2025-09-17T13:15:32.6744537Z Extracting modules...
+2025-09-17T13:15:32.8739715Z Done.
+2025-09-17T13:15:33.6949671Z   ▲ Next.js 14.2.32
+2025-09-17T13:15:33.7040134Z   - Local:        http://ab174ac313e7:8080
+2025-09-17T13:15:33.7040331Z   - Network:      http://169.254.129.4:8080
+2025-09-17T13:15:33.7040371Z 
+2025-09-17T13:15:33.7040410Z  ✓ Starting...
+2025-09-17T13:15:33.8887887Z  ✓ Ready in 212ms
+2025-09-17T13:16:59.8308531Z    _____                               
+2025-09-17T13:16:59.8310838Z   /  _  \ __________ _________   ____  
+2025-09-17T13:16:59.8310922Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2025-09-17T13:16:59.8310962Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2025-09-17T13:16:59.8310997Z \____|__  /_____ \____/ |__|    \___  >
+2025-09-17T13:16:59.8311036Z         \/      \/                  \/ 
+2025-09-17T13:16:59.8311091Z A P P   S E R V I C E   O N   L I N U X
+2025-09-17T13:16:59.8311127Z 
+2025-09-17T13:16:59.8311164Z Documentation: http://aka.ms/webapp-linux
+2025-09-17T13:16:59.8311202Z NodeJS quickstart: https://aka.ms/node-qs
+2025-09-17T13:16:59.8311238Z NodeJS Version : v18.20.8
+2025-09-17T13:16:59.8311271Z Note: Any data outside '/home' is not persisted
+2025-09-17T13:16:59.8311313Z 
+2025-09-17T13:17:00.0867208Z Starting OpenBSD Secure Shell server: sshd.
+2025-09-17T13:17:00.1016814Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2025-09-17T13:17:00.1161599Z Updating certificates in /etc/ssl/certs...
+2025-09-17T13:17:02.3233489Z 4 added, 0 removed; done.
+2025-09-17T13:17:02.3237628Z Running hooks in /etc/ca-certificates/update.d...
+2025-09-17T13:17:02.3288180Z done.
+2025-09-17T13:17:02.3391048Z CA certificates copied and updated successfully.
+2025-09-17T13:17:02.3857837Z Starting periodic command scheduler: cron.
+2025-09-17T13:17:02.4003757Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2025-09-17T13:17:02.4023661Z Could not find operation ID in manifest. Generating an operation id...
+2025-09-17T13:17:02.4033724Z Build Operation ID: a958c823-ff68-46f5-9820-a0a2cdef530c
+2025-09-17T13:17:02.8510507Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2025-09-17T13:17:02.9534633Z Writing output script to '/opt/startup/startup.sh'
+2025-09-17T13:17:03.0609852Z Running #!/bin/sh
+2025-09-17T13:17:03.0610387Z 
+2025-09-17T13:17:03.0610440Z # Enter the source directory to make sure the script runs where the user expects
+2025-09-17T13:17:03.0610498Z cd "/home/site/wwwroot"
+2025-09-17T13:17:03.0610672Z 
+2025-09-17T13:17:03.0610713Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2025-09-17T13:17:03.0610752Z if [ -z "$PORT" ]; then
+2025-09-17T13:17:03.0610791Z 		export PORT=8080
+2025-09-17T13:17:03.0610824Z fi
+2025-09-17T13:17:03.0610858Z 
+2025-09-17T13:17:03.0610896Z echo Found tar.gz based node_modules.
+2025-09-17T13:17:03.0610949Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2025-09-17T13:17:03.0610992Z echo "Removing existing modules directory from root..."
+2025-09-17T13:17:03.0611033Z rm -fr /node_modules
+2025-09-17T13:17:03.0611074Z mkdir -p /node_modules
+2025-09-17T13:17:03.0611108Z echo Extracting modules...
+2025-09-17T13:17:03.0611149Z $extractionCommand
+2025-09-17T13:17:03.0611220Z export NODE_PATH="/node_modules":$NODE_PATH
+2025-09-17T13:17:03.0611256Z export PATH=/node_modules/.bin:$PATH
+2025-09-17T13:17:03.0611290Z if [ -d node_modules ]; then
+2025-09-17T13:17:03.0611331Z     mv -f node_modules _del_node_modules || true
+2025-09-17T13:17:03.0611368Z fi
+2025-09-17T13:17:03.0611403Z 
+2025-09-17T13:17:03.0611434Z if [ -d /node_modules ]; then
+2025-09-17T13:17:03.0611484Z     ln -sfn /node_modules ./node_modules 
+2025-09-17T13:17:03.0611520Z fi
+2025-09-17T13:17:03.0611551Z 
+2025-09-17T13:17:03.0611586Z echo "Done."
+2025-09-17T13:17:03.0625038Z PATH="$PATH:/home/site/wwwroot" node server.js
+2025-09-17T13:17:03.0635417Z Found tar.gz based node_modules.
+2025-09-17T13:17:03.0636209Z Removing existing modules directory from root...
+2025-09-17T13:17:03.0685823Z Extracting modules...
+2025-09-17T13:17:03.6020769Z Done.
+2025-09-17T13:17:04.4050521Z   ▲ Next.js 14.2.32
+2025-09-17T13:17:04.4056568Z   - Local:        http://e77521023a9d:8080
+2025-09-17T13:17:04.4056753Z   - Network:      http://169.254.129.7:8080
+2025-09-17T13:17:04.4062388Z 
+2025-09-17T13:17:04.4062557Z  ✓ Starting...
+2025-09-17T13:17:04.5697214Z  ✓ Ready in 174ms
+2025-09-17T13:20:03.0218996Z    _____                               
+2025-09-17T13:20:03.0220013Z   /  _  \ __________ _________   ____  
+2025-09-17T13:20:03.0220080Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2025-09-17T13:20:03.0220130Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2025-09-17T13:20:03.0220161Z \____|__  /_____ \____/ |__|    \___  >
+2025-09-17T13:20:03.0220205Z         \/      \/                  \/ 
+2025-09-17T13:20:03.0220234Z A P P   S E R V I C E   O N   L I N U X
+2025-09-17T13:20:03.0220262Z 
+2025-09-17T13:20:03.0220294Z Documentation: http://aka.ms/webapp-linux
+2025-09-17T13:20:03.0220337Z NodeJS quickstart: https://aka.ms/node-qs
+2025-09-17T13:20:03.0220367Z NodeJS Version : v18.20.8
+2025-09-17T13:20:03.0220398Z Note: Any data outside '/home' is not persisted
+2025-09-17T13:20:03.0220425Z 
+2025-09-17T13:20:03.2997640Z Starting OpenBSD Secure Shell server: sshd.
+2025-09-17T13:20:03.3035201Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2025-09-17T13:20:03.3157535Z Updating certificates in /etc/ssl/certs...
+2025-09-17T13:20:05.1935275Z 4 added, 0 removed; done.
+2025-09-17T13:20:05.1936564Z Running hooks in /etc/ca-certificates/update.d...
+2025-09-17T13:20:05.1965430Z done.
+2025-09-17T13:20:05.2036901Z CA certificates copied and updated successfully.
+2025-09-17T13:20:05.2427167Z Starting periodic command scheduler: cron.
+2025-09-17T13:20:05.2530228Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2025-09-17T13:20:05.2554327Z Could not find operation ID in manifest. Generating an operation id...
+2025-09-17T13:20:05.2562785Z Build Operation ID: 47ddb0a4-f080-4a20-95fb-88156095acba
+2025-09-17T13:20:05.7007493Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2025-09-17T13:20:05.8089378Z Writing output script to '/opt/startup/startup.sh'
+2025-09-17T13:20:05.9181179Z Running #!/bin/sh
+2025-09-17T13:20:05.9181691Z 
+2025-09-17T13:20:05.9181749Z # Enter the source directory to make sure the script runs where the user expects
+2025-09-17T13:20:05.9181810Z cd "/home/site/wwwroot"
+2025-09-17T13:20:05.9181847Z 
+2025-09-17T13:20:05.9181884Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2025-09-17T13:20:05.9181988Z if [ -z "$PORT" ]; then
+2025-09-17T13:20:05.9182030Z 		export PORT=8080
+2025-09-17T13:20:05.9182066Z fi
+2025-09-17T13:20:05.9182096Z 
+2025-09-17T13:20:05.9182130Z echo Found tar.gz based node_modules.
+2025-09-17T13:20:05.9182172Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2025-09-17T13:20:05.9182212Z echo "Removing existing modules directory from root..."
+2025-09-17T13:20:05.9182264Z rm -fr /node_modules
+2025-09-17T13:20:05.9182301Z mkdir -p /node_modules
+2025-09-17T13:20:05.9182338Z echo Extracting modules...
+2025-09-17T13:20:05.9182373Z $extractionCommand
+2025-09-17T13:20:05.9182431Z export NODE_PATH="/node_modules":$NODE_PATH
+2025-09-17T13:20:05.9182471Z export PATH=/node_modules/.bin:$PATH
+2025-09-17T13:20:05.9182508Z if [ -d node_modules ]; then
+2025-09-17T13:20:05.9182553Z     mv -f node_modules _del_node_modules || true
+2025-09-17T13:20:05.9182586Z fi
+2025-09-17T13:20:05.9182616Z 
+2025-09-17T13:20:05.9182653Z if [ -d /node_modules ]; then
+2025-09-17T13:20:05.9182690Z     ln -sfn /node_modules ./node_modules 
+2025-09-17T13:20:05.9182725Z fi
+2025-09-17T13:20:05.9182756Z 
+2025-09-17T13:20:05.9182803Z echo "Done."
+2025-09-17T13:20:05.9200259Z PATH="$PATH:/home/site/wwwroot" node server.js
+2025-09-17T13:20:05.9232450Z Found tar.gz based node_modules.
+2025-09-17T13:20:05.9232649Z Removing existing modules directory from root...
+2025-09-17T13:20:05.9344630Z Extracting modules...
+2025-09-17T13:20:06.4472148Z Done.
+2025-09-17T13:20:07.1717171Z   ▲ Next.js 14.2.32
+2025-09-17T13:20:07.1721562Z   - Local:        http://e0f0697f3caf:8080
+2025-09-17T13:20:07.1729147Z   - Network:      http://169.254.129.3:8080
+2025-09-17T13:20:07.1729268Z 
+2025-09-17T13:20:07.1729318Z  ✓ Starting...
+2025-09-17T13:20:07.3416113Z  ✓ Ready in 182ms
+2025-09-17T13:23:28.1188784Z    _____                               
+2025-09-17T13:23:28.1190334Z   /  _  \ __________ _________   ____  
+2025-09-17T13:23:28.1190405Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2025-09-17T13:23:28.1190441Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2025-09-17T13:23:28.1190478Z \____|__  /_____ \____/ |__|    \___  >
+2025-09-17T13:23:28.1190515Z         \/      \/                  \/ 
+2025-09-17T13:23:28.1190565Z A P P   S E R V I C E   O N   L I N U X
+2025-09-17T13:23:28.1190595Z 
+2025-09-17T13:23:28.1190629Z Documentation: http://aka.ms/webapp-linux
+2025-09-17T13:23:28.1190664Z NodeJS quickstart: https://aka.ms/node-qs
+2025-09-17T13:23:28.1190695Z NodeJS Version : v18.20.8
+2025-09-17T13:23:28.1190728Z Note: Any data outside '/home' is not persisted
+2025-09-17T13:23:28.1190756Z 
+2025-09-17T13:23:28.3445528Z Starting OpenBSD Secure Shell server: sshd.
+2025-09-17T13:23:28.3488795Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2025-09-17T13:23:28.3594046Z Updating certificates in /etc/ssl/certs...
+2025-09-17T13:23:30.2910916Z 4 added, 0 removed; done.
+2025-09-17T13:23:30.2913894Z Running hooks in /etc/ca-certificates/update.d...
+2025-09-17T13:23:30.2935946Z done.
+2025-09-17T13:23:30.2984889Z CA certificates copied and updated successfully.
+2025-09-17T13:23:30.3361873Z Starting periodic command scheduler: cron.
+2025-09-17T13:23:30.3444262Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2025-09-17T13:23:30.3475064Z Could not find operation ID in manifest. Generating an operation id...
+2025-09-17T13:23:30.3482644Z Build Operation ID: 3bc5a180-3ae1-45b7-b4a6-84b1d9a16a62
+2025-09-17T13:23:30.8281170Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2025-09-17T13:23:30.9312873Z Writing output script to '/opt/startup/startup.sh'
+2025-09-17T13:23:31.0415002Z Running #!/bin/sh
+2025-09-17T13:23:31.0415525Z 
+2025-09-17T13:23:31.0415577Z # Enter the source directory to make sure the script runs where the user expects
+2025-09-17T13:23:31.0420693Z cd "/home/site/wwwroot"
+2025-09-17T13:23:31.0420857Z 
+2025-09-17T13:23:31.0420907Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2025-09-17T13:23:31.0420948Z if [ -z "$PORT" ]; then
+2025-09-17T13:23:31.0420981Z 		export PORT=8080
+2025-09-17T13:23:31.0421011Z fi
+2025-09-17T13:23:31.0421041Z 
+2025-09-17T13:23:31.0421073Z echo Found tar.gz based node_modules.
+2025-09-17T13:23:31.0421108Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2025-09-17T13:23:31.0421153Z echo "Removing existing modules directory from root..."
+2025-09-17T13:23:31.0421186Z rm -fr /node_modules
+2025-09-17T13:23:31.0421216Z mkdir -p /node_modules
+2025-09-17T13:23:31.0421247Z echo Extracting modules...
+2025-09-17T13:23:31.0421276Z $extractionCommand
+2025-09-17T13:23:31.0421325Z export NODE_PATH="/node_modules":$NODE_PATH
+2025-09-17T13:23:31.0421371Z export PATH=/node_modules/.bin:$PATH
+2025-09-17T13:23:31.0421407Z if [ -d node_modules ]; then
+2025-09-17T13:23:31.0421439Z     mv -f node_modules _del_node_modules || true
+2025-09-17T13:23:31.0421470Z fi
+2025-09-17T13:23:31.0421499Z 
+2025-09-17T13:23:31.0421529Z if [ -d /node_modules ]; then
+2025-09-17T13:23:31.0421561Z     ln -sfn /node_modules ./node_modules 
+2025-09-17T13:23:31.0421609Z fi
+2025-09-17T13:23:31.0421637Z 
+2025-09-17T13:23:31.0421669Z echo "Done."
+2025-09-17T13:23:31.0450829Z PATH="$PATH:/home/site/wwwroot" node server.js
+2025-09-17T13:23:31.0473413Z Found tar.gz based node_modules.
+2025-09-17T13:23:31.0473553Z Removing existing modules directory from root...
+2025-09-17T13:23:31.0813998Z Extracting modules...
+
+2025-09-17T13:23:30.7318941Z   retryOptions: { maxRetries: 5, retryDelayInMs: 800 },
+2025-09-17T13:23:30.7318975Z   allowInsecureConnection: true
+2025-09-17T13:23:30.7319001Z }
+2025-09-17T13:23:32.1560176Z Done.
+2025-09-17T13:23:32.7484242Z Authentication successful, token obtained, expires: 1758201809000
+2025-09-17T13:23:32.8451528Z Attempting to authenticate with Azure AI Foundry...
+2025-09-17T13:23:32.8461869Z Environment check: { isAppService: true, hasApiKey: true, hasClientId: false }
+2025-09-17T13:23:32.8471880Z Using DefaultAzureCredential with Entra authentication (Azure AI Foundry requires Entra ID only)...
+2025-09-17T13:23:32.8510319Z App Service environment detected, using System Assigned Managed Identity
+2025-09-17T13:23:33.2950525Z   ▲ Next.js 14.2.32
+2025-09-17T13:23:33.2951227Z   - Local:        http://43ca762d9088:8080
+2025-09-17T13:23:33.2951305Z   - Network:      http://169.254.129.6:8080
+2025-09-17T13:23:33.2951339Z 
+2025-09-17T13:23:33.2951386Z  ✓ Starting...
+2025-09-17T13:23:33.4880725Z  ✓ Ready in 210ms
+2025-09-17T13:23:35.4561880Z Retrieved agent: bing-agent
+2025-09-17T13:23:36.2017099Z Created new thread, ID: thread_ODXOCMhOiOli8dk5Jo75znIO
+2025-09-17T13:23:37.0588000Z Created message, ID: msg_tC5g1RjoLwMcSug44zKjs0E9
+2025-09-17T13:23:37.0602449Z Azure AI Project error: ReferenceError: agent is not defined
+2025-09-17T13:23:37.0602630Z     at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:5165)
+2025-09-17T13:23:37.0602661Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-09-17T13:23:37.0602688Z     at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1863)
+2025-09-17T13:23:37.0602713Z     at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1349)
+2025-09-17T13:23:37.0602739Z     at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3236)
+2025-09-17T13:23:37.0602899Z     at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3778)
+2025-09-17T13:23:37.0602937Z     at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411
+2025-09-17T13:23:37.0602965Z     at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)
+2025-09-17T13:23:37.0602993Z     at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)
+2025-09-17T13:23:37.0603034Z     at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)
+2025-09-17T13:23:37.0611206Z Error details: {
+2025-09-17T13:23:37.0611384Z   name: 'ReferenceError',
+2025-09-17T13:23:37.0611417Z   message: 'agent is not defined',
+2025-09-17T13:23:37.0611446Z   stack: 'ReferenceError: agent is not defined\n' +
+2025-09-17T13:23:37.0611475Z     '    at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:5165)\n' +
+2025-09-17T13:23:37.0611505Z     '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+2025-09-17T13:23:37.0612194Z     '    at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1863)\n' +
+2025-09-17T13:23:37.0612228Z     '    at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1349)\n' +
+2025-09-17T13:23:37.0612258Z     '    at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3236)\n' +
+2025-09-17T13:23:37.0612309Z     '    at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3778)\n' +
+2025-09-17T13:23:37.0612340Z     '    at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411\n' +
+2025-09-17T13:23:37.0612370Z     '    at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)\n' +
+2025-09-17T13:23:37.0612399Z     '    at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)\n' +
+2025-09-17T13:23:37.0612427Z     '    at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)'
+2025-09-17T13:23:37.0612452Z }
+2025-09-17T13:23:37.0617603Z Azure AI Foundry search failed, trying fallback search...
+2025-09-17T13:23:37.0617697Z Executing fallback search for: カシワバラコーポレーションの本社所在地
+2025-09-17T13:23:37.4216755Z Search completed: {
+2025-09-17T13:23:37.4217200Z   searchResultsCount: 1,
+2025-09-17T13:23:37.4217244Z   assistantResponseLength: 0,
+2025-09-17T13:23:37.4217270Z   searchResponseKeys: [ 'webPages' ],
+2025-09-17T13:23:37.4217298Z   threadId: undefined
+2025-09-17T13:23:37.4217322Z }
+2025-09-17T13:23:37.4221449Z Search results processed: {
+2025-09-17T13:23:37.4221543Z   webPagesCount: 1,
+2025-09-17T13:23:37.4221595Z   searchResultsCount: 1,
+2025-09-17T13:23:37.4226401Z   snippetLength: 60,
+2025-09-17T13:23:37.4226447Z   bingResultLength: 65
+2025-09-17T13:23:37.4226471Z }
+2025-09-17T13:23:37.4338432Z No Assistant response but search results available, generating response with OpenAI...
+2025-09-17T13:23:37.4341141Z Search results count: 1
+2025-09-17T13:23:38.7101949Z OpenAI stream started for fallback search results
+2025-09-17T13:23:43.3936199Z Fallback response generated and saved
+2025-09-17T13:24:08.8759470Z === DEBUG: /api/chat POST called ===
+2025-09-17T13:24:08.8784899Z Request body: {
+2025-09-17T13:24:08.8785077Z   chatType: 'web',
+2025-09-17T13:24:08.8785110Z   id: 'QKEqL4xYV7i8NrdGlQMI7DKCjIFoIe3c5tPx',
+2025-09-17T13:24:08.8785137Z   messagesCount: 1,
+2025-09-17T13:24:08.8785169Z   lastMessage: '国会の住所'
+2025-09-17T13:24:08.8785193Z }
+2025-09-17T13:24:08.8790065Z === DEBUG: chatAPIEntry called ===
+2025-09-17T13:24:08.8790155Z ChatType: web
+2025-09-17T13:24:08.8790193Z User message: 国会の住所
+2025-09-17T13:24:08.8790222Z Messages count: 1
+2025-09-17T13:24:08.8791666Z ChatThreadId: QKEqL4xYV7i8NrdGlQMI7DKCjIFoIe3c5tPx
+2025-09-17T13:24:08.8792560Z Routing to ChatAPIWeb
+2025-09-17T13:24:08.9053726Z OpenAIInstance baseURL: https://kashiwabaragpt3.openai.azure.com/openai/deployments/gpt-4.1
+2025-09-17T13:24:08.9083357Z Creating new thread for web search conversation
+2025-09-17T13:24:08.9087400Z Current thread ID: null
+2025-09-17T13:24:08.9090018Z Debug - Environment variables:
+2025-09-17T13:24:08.9090110Z AZURE_AI_FOUNDRY_ENDPOINT: SET
+2025-09-17T13:24:08.9090141Z AZURE_AI_FOUNDRY_AGENT_ID: SET
+2025-09-17T13:24:08.9090168Z AZURE_AI_FOUNDRY_API_KEY: SET
+2025-09-17T13:24:08.9093009Z Debug - Azure AI Project configuration:
+2025-09-17T13:24:08.9093098Z Project Endpoint: https://kashiwabara-foundry-resource.services.ai.azure.com/api/projects/kashiwabara-foundry
+2025-09-17T13:24:08.9093127Z Agent ID: asst_gjP1ym4Jg1K81tuWiFJ0gSjW
+2025-09-17T13:24:08.9093156Z Search Text: 国会の住所
+2025-09-17T13:24:08.9093181Z Using Azure CLI authentication
+2025-09-17T13:24:08.9388721Z App Service environment: Using System Assigned Managed Identity
+2025-09-17T13:24:08.9445572Z DefaultAzureCredential created successfully with options: {
+2025-09-17T13:24:08.9445777Z   loggingOptions: { enableLogging: true, logLevel: 'info' },
+2025-09-17T13:24:08.9445814Z   retryOptions: { maxRetries: 5, retryDelayInMs: 800 },
+2025-09-17T13:24:08.9445869Z   allowInsecureConnection: true
+2025-09-17T13:24:08.9445893Z }
+2025-09-17T13:24:10.1091921Z Authentication successful, token obtained, expires: 1758201847000
+2025-09-17T13:24:10.1494459Z Attempting to authenticate with Azure AI Foundry...
+2025-09-17T13:24:10.1502287Z Environment check: { isAppService: true, hasApiKey: true, hasClientId: false }
+2025-09-17T13:24:10.1507693Z Using DefaultAzureCredential with Entra authentication (Azure AI Foundry requires Entra ID only)...
+2025-09-17T13:24:10.1509594Z App Service environment detected, using System Assigned Managed Identity
+2025-09-17T13:24:11.1819282Z Retrieved agent: bing-agent
+2025-09-17T13:24:11.7351021Z Created new thread, ID: thread_BwZCMlUp6EWuo68Hnt3mVHgo
+2025-09-17T13:24:12.1154728Z Created message, ID: msg_d7KFahCudvKyKcPP87Rfxzqo
+2025-09-17T13:24:12.1168994Z Azure AI Project error: ReferenceError: agent is not defined
+2025-09-17T13:24:12.1169168Z     at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:5165)
+2025-09-17T13:24:12.1169201Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-09-17T13:24:12.1169227Z     at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1863)
+2025-09-17T13:24:12.1169251Z     at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1349)
+2025-09-17T13:24:12.1169274Z     at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3236)
+2025-09-17T13:24:12.1169299Z     at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3778)
+2025-09-17T13:24:12.1169324Z     at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411
+2025-09-17T13:24:12.1169350Z     at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)
+2025-09-17T13:24:12.1169377Z     at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)
+2025-09-17T13:24:12.1169424Z     at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)
+2025-09-17T13:24:12.1178375Z Azure AI Foundry search failed, trying fallback search...
+2025-09-17T13:24:12.1180568Z Error details: {
+2025-09-17T13:24:12.1180650Z   name: 'ReferenceError',
+2025-09-17T13:24:12.1180685Z   message: 'agent is not defined',
+2025-09-17T13:24:12.1180713Z   stack: 'ReferenceError: agent is not defined\n' +
+2025-09-17T13:24:12.1180745Z     '    at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:5165)\n' +
+2025-09-17T13:24:12.1180774Z     '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+2025-09-17T13:24:12.1180802Z     '    at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1863)\n' +
+2025-09-17T13:24:12.1180831Z     '    at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1349)\n' +
+2025-09-17T13:24:12.1180860Z     '    at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3236)\n' +
+2025-09-17T13:24:12.1181056Z     '    at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3778)\n' +
+2025-09-17T13:24:12.1181088Z     '    at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411\n' +
+2025-09-17T13:24:12.1181113Z     '    at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)\n' +
+2025-09-17T13:24:12.1181142Z     '    at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)\n' +
+2025-09-17T13:24:12.1181165Z     '    at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)'
+2025-09-17T13:24:12.1181188Z }
+2025-09-17T13:24:12.1186083Z Executing fallback search for: 国会の住所
+2025-09-17T13:24:12.4574047Z Search completed: {
+2025-09-17T13:24:12.4574441Z   searchResultsCount: 1,
+2025-09-17T13:24:12.4574489Z   assistantResponseLength: 0,
+2025-09-17T13:24:12.4574520Z   searchResponseKeys: [ 'webPages' ],
+2025-09-17T13:24:12.4574546Z   threadId: undefined
+2025-09-17T13:24:12.4574573Z }
+2025-09-17T13:24:12.4577855Z Search results processed: {
+2025-09-17T13:24:12.4577934Z   webPagesCount: 1,
+2025-09-17T13:24:12.4577960Z   searchResultsCount: 1,
+2025-09-17T13:24:12.4577987Z   snippetLength: 46,
+2025-09-17T13:24:12.4578014Z   bingResultLength: 51
+2025-09-17T13:24:12.4578040Z }
+2025-09-17T13:24:12.4674302Z No Assistant response but search results available, generating response with OpenAI...
+2025-09-17T13:24:12.4677021Z Search results count: 1
+2025-09-17T13:24:13.3023956Z OpenAI stream started for fallback search results
+2025-09-17T13:24:17.4662347Z Fallback response generated and saved
+2025-09-17T13:24:40.8327108Z === DEBUG: /api/chat POST called ===
+2025-09-17T13:24:40.8335560Z Request body: {
+2025-09-17T13:24:40.8335732Z   chatType: 'web',
+2025-09-17T13:24:40.8335769Z   id: 'sR2nIF8xkffTnbOoQjHzXwMLjigtc3yHjXaH',
+2025-09-17T13:24:40.8335798Z   messagesCount: 1,
+2025-09-17T13:24:40.8335827Z   lastMessage: '現在の日本の総理は誰'
+2025-09-17T13:24:40.8335854Z }
+2025-09-17T13:24:40.8340419Z === DEBUG: chatAPIEntry called ===
+2025-09-17T13:24:40.8340503Z ChatType: web
+2025-09-17T13:24:40.8340539Z User message: 現在の日本の総理は誰
+2025-09-17T13:24:40.8340566Z Messages count: 1
+2025-09-17T13:24:40.8340615Z ChatThreadId: sR2nIF8xkffTnbOoQjHzXwMLjigtc3yHjXaH
+2025-09-17T13:24:40.8340642Z Routing to ChatAPIWeb
+2025-09-17T13:24:40.8565012Z OpenAIInstance baseURL: https://kashiwabaragpt3.openai.azure.com/openai/deployments/gpt-4.1
+2025-09-17T13:24:40.8583643Z Creating new thread for web search conversation
+2025-09-17T13:24:40.8585641Z Current thread ID: null
+2025-09-17T13:24:40.8585729Z Debug - Environment variables:
+2025-09-17T13:24:40.8589866Z AZURE_AI_FOUNDRY_ENDPOINT: SET
+2025-09-17T13:24:40.8589953Z AZURE_AI_FOUNDRY_AGENT_ID: SET
+2025-09-17T13:24:40.8589987Z AZURE_AI_FOUNDRY_API_KEY: SET
+2025-09-17T13:24:40.8590016Z Debug - Azure AI Project configuration:
+2025-09-17T13:24:40.8590070Z Project Endpoint: https://kashiwabara-foundry-resource.services.ai.azure.com/api/projects/kashiwabara-foundry
+2025-09-17T13:24:40.8590101Z Agent ID: asst_gjP1ym4Jg1K81tuWiFJ0gSjW
+2025-09-17T13:24:40.8590136Z Search Text: 現在の日本の総理は誰
+2025-09-17T13:24:40.8594599Z Using Azure CLI authentication
+2025-09-17T13:24:40.8594697Z App Service environment: Using System Assigned Managed Identity
+2025-09-17T13:24:40.8618812Z DefaultAzureCredential created successfully with options: {
+2025-09-17T13:24:40.8618970Z   loggingOptions: { enableLogging: true, logLevel: 'info' },
+2025-09-17T13:24:40.8619005Z   retryOptions: { maxRetries: 5, retryDelayInMs: 800 },
+2025-09-17T13:24:40.8619031Z   allowInsecureConnection: true
+2025-09-17T13:24:40.8619056Z }
+2025-09-17T13:24:40.8630399Z Authentication successful, token obtained, expires: 1758201847000
+2025-09-17T13:24:40.8633780Z Attempting to authenticate with Azure AI Foundry...
+2025-09-17T13:24:40.8635875Z Environment check: { isAppService: true, hasApiKey: true, hasClientId: false }
+2025-09-17T13:24:40.8635971Z Using DefaultAzureCredential with Entra authentication (Azure AI Foundry requires Entra ID only)...
+2025-09-17T13:24:40.8636006Z App Service environment detected, using System Assigned Managed Identity
+2025-09-17T13:24:41.5799387Z Retrieved agent: bing-agent
+2025-09-17T13:24:41.9781655Z Created new thread, ID: thread_sZRL259HO2QIZGzo47ZAYrLO
+2025-09-17T13:24:42.4283469Z Created message, ID: msg_M8yeNvXWawqfjrweuTE4Xndr
+2025-09-17T13:24:42.4287166Z Azure AI Project error: ReferenceError: agent is not defined
+2025-09-17T13:24:42.4287250Z     at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:5165)
+2025-09-17T13:24:42.4287281Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-09-17T13:24:42.4287305Z     at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1863)
+2025-09-17T13:24:42.4287456Z     at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1349)
+2025-09-17T13:24:42.4287482Z     at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3236)
+2025-09-17T13:24:42.4287508Z     at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3778)
+2025-09-17T13:24:42.4287537Z     at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411
+2025-09-17T13:24:42.4287569Z     at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)
+2025-09-17T13:24:42.4287600Z     at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)
+2025-09-17T13:24:42.4287642Z     at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)
+2025-09-17T13:24:42.4292046Z Error details: {
+2025-09-17T13:24:42.4292130Z   name: 'ReferenceError',
+2025-09-17T13:24:42.4292164Z   message: 'agent is not defined',
+2025-09-17T13:24:42.4292194Z   stack: 'ReferenceError: agent is not defined\n' +
+2025-09-17T13:24:42.4292223Z     '    at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:5165)\n' +
+2025-09-17T13:24:42.4292250Z     '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+2025-09-17T13:24:42.4292278Z     '    at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1863)\n' +
+2025-09-17T13:24:42.4292304Z     '    at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1349)\n' +
+2025-09-17T13:24:42.4292331Z     '    at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3236)\n' +
+2025-09-17T13:24:42.4292384Z     '    at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3778)\n' +
+2025-09-17T13:24:42.4292413Z     '    at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411\n' +
+2025-09-17T13:24:42.4292441Z     '    at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)\n' +
+2025-09-17T13:24:42.4292469Z     '    at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)\n' +
+2025-09-17T13:24:42.4292495Z     '    at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)'
+2025-09-17T13:24:42.4292516Z }
+2025-09-17T13:24:42.4293535Z Azure AI Foundry search failed, trying fallback search...
+2025-09-17T13:24:42.4293606Z Executing fallback search for: 現在の日本の総理は誰
+2025-09-17T13:24:43.0255224Z Search completed: {
+2025-09-17T13:24:43.0255649Z   searchResultsCount: 1,
+2025-09-17T13:24:43.0255690Z   assistantResponseLength: 0,
+2025-09-17T13:24:43.0255719Z   searchResponseKeys: [ 'webPages' ],
+2025-09-17T13:24:43.0255743Z   threadId: undefined
+2025-09-17T13:24:43.0255763Z }
+2025-09-17T13:24:43.0256663Z Search results processed: {
+2025-09-17T13:24:43.0256723Z   webPagesCount: 1,
+2025-09-17T13:24:43.0256810Z   searchResultsCount: 1,
+2025-09-17T13:24:43.0257110Z   snippetLength: 51,
+2025-09-17T13:24:43.0257141Z   bingResultLength: 56
+2025-09-17T13:24:43.0257164Z }
+2025-09-17T13:24:43.0382349Z No Assistant response but search results available, generating response with OpenAI...
+2025-09-17T13:24:43.0384169Z Search results count: 1
+2025-09-17T13:24:43.9507985Z OpenAI stream started for fallback search results
+2025-09-17T13:24:48.3209213Z Fallback response generated and saved
+2025-09-17T13:25:04.6613013Z === DEBUG: /api/chat POST called ===
+2025-09-17T13:25:04.6620149Z Request body: {
+2025-09-17T13:25:04.6620600Z   chatType: 'web',
+2025-09-17T13:25:04.6620641Z   id: 'sR2nIF8xkffTnbOoQjHzXwMLjigtc3yHjXaH',
+2025-09-17T13:25:04.6620668Z   messagesCount: 3,
+2025-09-17T13:25:04.6620699Z   lastMessage: '情報ソースを教えて'
+2025-09-17T13:25:04.6620722Z }
+2025-09-17T13:25:04.6620747Z === DEBUG: chatAPIEntry called ===
+2025-09-17T13:25:04.6620875Z ChatType: web
+2025-09-17T13:25:04.6620911Z User message: 情報ソースを教えて
+2025-09-17T13:25:04.6625050Z Messages count: 3
+2025-09-17T13:25:04.6625157Z ChatThreadId: sR2nIF8xkffTnbOoQjHzXwMLjigtc3yHjXaH
+2025-09-17T13:25:04.6625188Z Routing to ChatAPIWeb
+2025-09-17T13:25:04.6759595Z OpenAIInstance baseURL: https://kashiwabaragpt3.openai.azure.com/openai/deployments/gpt-4.1
+2025-09-17T13:25:04.6776533Z Current thread ID: null
+2025-09-17T13:25:04.6777935Z Debug - Environment variables:
+2025-09-17T13:25:04.6778002Z AZURE_AI_FOUNDRY_ENDPOINT: SET
+2025-09-17T13:25:04.6778033Z AZURE_AI_FOUNDRY_AGENT_ID: SET
+2025-09-17T13:25:04.6778063Z AZURE_AI_FOUNDRY_API_KEY: SET
+2025-09-17T13:25:04.6778092Z Debug - Azure AI Project configuration:
+2025-09-17T13:25:04.6782168Z Project Endpoint: https://kashiwabara-foundry-resource.services.ai.azure.com/api/projects/kashiwabara-foundry
+2025-09-17T13:25:04.6782257Z Agent ID: asst_gjP1ym4Jg1K81tuWiFJ0gSjW
+2025-09-17T13:25:04.6782290Z Search Text: 情報ソースを教えて
+2025-09-17T13:25:04.6782318Z Using Azure CLI authentication
+2025-09-17T13:25:04.6782344Z App Service environment: Using System Assigned Managed Identity
+2025-09-17T13:25:04.6805187Z DefaultAzureCredential created successfully with options: {
+2025-09-17T13:25:04.6805359Z   loggingOptions: { enableLogging: true, logLevel: 'info' },
+2025-09-17T13:25:04.6805392Z   retryOptions: { maxRetries: 5, retryDelayInMs: 800 },
+2025-09-17T13:25:04.6805417Z   allowInsecureConnection: true
+2025-09-17T13:25:04.6805443Z }
+2025-09-17T13:25:04.6815127Z Authentication successful, token obtained, expires: 1758201847000
+2025-09-17T13:25:04.6819723Z Attempting to authenticate with Azure AI Foundry...
+2025-09-17T13:25:04.6819819Z Environment check: { isAppService: true, hasApiKey: true, hasClientId: false }
+2025-09-17T13:25:04.6819859Z Using DefaultAzureCredential with Entra authentication (Azure AI Foundry requires Entra ID only)...
+2025-09-17T13:25:04.6819890Z App Service environment detected, using System Assigned Managed Identity
+2025-09-17T13:25:05.1055837Z Retrieved agent: bing-agent
+2025-09-17T13:25:05.4788379Z Created new thread, ID: thread_eeYOQQay9H82HighCYWXmf1w
+2025-09-17T13:25:05.9339253Z Created message, ID: msg_IolyHuJN4vo8dGIIQWbJTqSr
+2025-09-17T13:25:05.9343594Z Azure AI Project error: ReferenceError: agent is not defined
+2025-09-17T13:25:05.9343689Z     at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:5165)
+2025-09-17T13:25:05.9343725Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-09-17T13:25:05.9343754Z     at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1863)
+2025-09-17T13:25:05.9343782Z     at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1349)
+2025-09-17T13:25:05.9343812Z     at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3236)
+2025-09-17T13:25:05.9343842Z     at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3778)
+2025-09-17T13:25:05.9343872Z     at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411
+2025-09-17T13:25:05.9343903Z     at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)
+2025-09-17T13:25:05.9343933Z     at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)
+2025-09-17T13:25:05.9343978Z     at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)
+2025-09-17T13:25:05.9346566Z Error details: {
+2025-09-17T13:25:05.9346648Z   name: 'ReferenceError',
+2025-09-17T13:25:05.9346680Z   message: 'agent is not defined',
+2025-09-17T13:25:05.9346711Z   stack: 'ReferenceError: agent is not defined\n' +
+2025-09-17T13:25:05.9350287Z     '    at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:5165)\n' +
+2025-09-17T13:25:05.9350331Z     '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+2025-09-17T13:25:05.9350360Z     '    at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1863)\n' +
+2025-09-17T13:25:05.9350388Z     '    at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1349)\n' +
+2025-09-17T13:25:05.9350416Z     '    at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3236)\n' +
+2025-09-17T13:25:05.9350457Z     '    at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3778)\n' +
+2025-09-17T13:25:05.9350488Z     '    at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411\n' +
+2025-09-17T13:25:05.9350514Z     '    at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)\n' +
+2025-09-17T13:25:05.9350540Z     '    at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)\n' +
+2025-09-17T13:25:05.9350567Z     '    at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)'
+2025-09-17T13:25:05.9350590Z }
+2025-09-17T13:25:05.9366837Z Azure AI Foundry search failed, trying fallback search...
+2025-09-17T13:25:05.9367663Z Executing fallback search for: 情報ソースを教えて
+2025-09-17T13:25:06.3791477Z Search completed: {
+2025-09-17T13:25:06.3791955Z   searchResultsCount: 1,
+2025-09-17T13:25:06.3791990Z   assistantResponseLength: 0,
+2025-09-17T13:25:06.3792016Z   searchResponseKeys: [ 'webPages' ],
+2025-09-17T13:25:06.3792039Z   threadId: undefined
+2025-09-17T13:25:06.3792060Z }
+2025-09-17T13:25:06.3792317Z Search results processed: {
+2025-09-17T13:25:06.3792343Z   webPagesCount: 1,
+2025-09-17T13:25:06.3792366Z   searchResultsCount: 1,
+2025-09-17T13:25:06.3792387Z   snippetLength: 50,
+2025-09-17T13:25:06.3792476Z   bingResultLength: 55
+2025-09-17T13:25:06.3792500Z }
+2025-09-17T13:25:06.3883435Z No Assistant response but search results available, generating response with OpenAI...
+2025-09-17T13:25:06.3884101Z Search results count: 1
+2025-09-17T13:25:07.3322606Z OpenAI stream started for fallback search results
+2025-09-17T13:25:13.8320787Z Fallback response generated and saved
+2025-09-17T13:25:25.6011167Z === DEBUG: /api/chat POST called ===
+2025-09-17T13:25:25.6018964Z Request body: {
+2025-09-17T13:25:25.6019061Z   chatType: 'web',
+2025-09-17T13:25:25.6019090Z   id: 'krOKWJwQnyJv16JNReD6ezMnsHhlJ9iTLo3T',
+2025-09-17T13:25:25.6019114Z   messagesCount: 1,
+2025-09-17T13:25:25.6019142Z   lastMessage: 'JBCCの本社所在地は'
+2025-09-17T13:25:25.6019168Z }
+2025-09-17T13:25:25.6019194Z === DEBUG: chatAPIEntry called ===
+2025-09-17T13:25:25.6019219Z ChatType: web
+2025-09-17T13:25:25.6019248Z User message: JBCCの本社所在地は
+2025-09-17T13:25:25.6019322Z Messages count: 1
+2025-09-17T13:25:25.6019349Z ChatThreadId: krOKWJwQnyJv16JNReD6ezMnsHhlJ9iTLo3T
+2025-09-17T13:25:25.6024114Z Routing to ChatAPIWeb
+2025-09-17T13:25:25.6384491Z OpenAIInstance baseURL: https://kashiwabaragpt3.openai.azure.com/openai/deployments/gpt-4.1
+2025-09-17T13:25:25.6408915Z Creating new thread for web search conversation
+2025-09-17T13:25:25.6413543Z Current thread ID: null
+2025-09-17T13:25:25.6413634Z Debug - Environment variables:
+2025-09-17T13:25:25.6413664Z AZURE_AI_FOUNDRY_ENDPOINT: SET
+2025-09-17T13:25:25.6413690Z AZURE_AI_FOUNDRY_AGENT_ID: SET
+2025-09-17T13:25:25.6413715Z AZURE_AI_FOUNDRY_API_KEY: SET
+2025-09-17T13:25:25.6413762Z Debug - Azure AI Project configuration:
+2025-09-17T13:25:25.6413791Z Project Endpoint: https://kashiwabara-foundry-resource.services.ai.azure.com/api/projects/kashiwabara-foundry
+2025-09-17T13:25:25.6413816Z Agent ID: asst_gjP1ym4Jg1K81tuWiFJ0gSjW
+2025-09-17T13:25:25.6413844Z Search Text: JBCCの本社所在地は
+2025-09-17T13:25:25.6413869Z Using Azure CLI authentication
+2025-09-17T13:25:25.6413896Z App Service environment: Using System Assigned Managed Identity
+2025-09-17T13:25:25.6428872Z DefaultAzureCredential created successfully with options: {
+2025-09-17T13:25:25.6428960Z   loggingOptions: { enableLogging: true, logLevel: 'info' },
+2025-09-17T13:25:25.6428998Z   retryOptions: { maxRetries: 5, retryDelayInMs: 800 },
+2025-09-17T13:25:25.6429025Z   allowInsecureConnection: true
+2025-09-17T13:25:25.6429594Z }
+2025-09-17T13:25:25.6450971Z Authentication successful, token obtained, expires: 1758201847000
+2025-09-17T13:25:25.6451067Z Attempting to authenticate with Azure AI Foundry...
+2025-09-17T13:25:25.6451102Z Environment check: { isAppService: true, hasApiKey: true, hasClientId: false }
+2025-09-17T13:25:25.6451136Z Using DefaultAzureCredential with Entra authentication (Azure AI Foundry requires Entra ID only)...
+2025-09-17T13:25:25.6451166Z App Service environment detected, using System Assigned Managed Identity
+2025-09-17T13:25:25.9829037Z Retrieved agent: bing-agent
+2025-09-17T13:25:26.3529935Z Created new thread, ID: thread_m10dRymDa1Pr4cOudRQNP4X8
+2025-09-17T13:25:26.7543382Z Created message, ID: msg_Lo36vJdSSpqpovj5I473hfxJ
+2025-09-17T13:25:26.7545696Z Azure AI Project error: ReferenceError: agent is not defined
+2025-09-17T13:25:26.7545783Z     at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:5165)
+2025-09-17T13:25:26.7545816Z     at process.processTicksAndRejections (node:internal/process/task_queues:95:5)
+2025-09-17T13:25:26.7545842Z     at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1863)
+2025-09-17T13:25:26.7545869Z     at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1349)
+2025-09-17T13:25:26.7545898Z     at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3236)
+2025-09-17T13:25:26.7545923Z     at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3778)
+2025-09-17T13:25:26.7545951Z     at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411
+2025-09-17T13:25:26.7545982Z     at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)
+2025-09-17T13:25:26.7546013Z     at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)
+2025-09-17T13:25:26.7546051Z     at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)
+2025-09-17T13:25:26.7553132Z Error details: {
+2025-09-17T13:25:26.7553228Z   name: 'ReferenceError',
+2025-09-17T13:25:26.7553258Z   message: 'agent is not defined',
+2025-09-17T13:25:26.7553284Z   stack: 'ReferenceError: agent is not defined\n' +
+2025-09-17T13:25:26.7553312Z     '    at o.executeAzureAISearch (/home/site/wwwroot/.next/server/chunks/7244.js:1:5165)\n' +
+2025-09-17T13:25:26.7553340Z     '    at process.processTicksAndRejections (node:internal/process/task_queues:95:5)\n' +
+2025-09-17T13:25:26.7553368Z     '    at async o.SearchWeb (/home/site/wwwroot/.next/server/chunks/7244.js:1:1863)\n' +
+2025-09-17T13:25:26.7553396Z     '    at async V (/home/site/wwwroot/.next/server/app/api/chat/route.js:71:1349)\n' +
+2025-09-17T13:25:26.7553423Z     '    at async X (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3236)\n' +
+2025-09-17T13:25:26.7553465Z     '    at async Q (/home/site/wwwroot/.next/server/app/api/chat/route.js:86:3778)\n' +
+2025-09-17T13:25:26.7553493Z     '    at async /node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:38411\n' +
+2025-09-17T13:25:26.7553519Z     '    at async e_.execute (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:27880)\n' +
+2025-09-17T13:25:26.7553544Z     '    at async e_.handle (/node_modules/next/dist/compiled/next-server/app-route.runtime.prod.js:6:39943)\n' +
+2025-09-17T13:25:26.7553568Z     '    at async doRender (/node_modules/next/dist/server/base-server.js:1366:42)'
+2025-09-17T13:25:26.7553587Z }
+2025-09-17T13:25:26.7559393Z Azure AI Foundry search failed, trying fallback search...
+2025-09-17T13:25:26.7559482Z Executing fallback search for: JBCCの本社所在地は
+2025-09-17T13:25:27.1026900Z Search completed: {
+2025-09-17T13:25:27.1027787Z   searchResultsCount: 1,
+2025-09-17T13:25:27.1027835Z   assistantResponseLength: 0,
+2025-09-17T13:25:27.1027863Z   searchResponseKeys: [ 'webPages' ],
+2025-09-17T13:25:27.1027890Z   threadId: undefined
+2025-09-17T13:25:27.1027916Z }
+2025-09-17T13:25:27.1032865Z Search results processed: {
+2025-09-17T13:25:27.1032952Z   webPagesCount: 1,
+2025-09-17T13:25:27.1033004Z   searchResultsCount: 1,
+2025-09-17T13:25:27.1033031Z   snippetLength: 52,
+2025-09-17T13:25:27.1033055Z   bingResultLength: 57
+2025-09-17T13:25:27.1033080Z }
+2025-09-17T13:25:27.1139975Z No Assistant response but search results available, generating response with OpenAI...
+2025-09-17T13:25:27.1141464Z Search results count: 1
+2025-09-17T13:25:28.2804982Z OpenAI stream started for fallback search results
+2025-09-17T13:25:33.1349391Z Fallback response generated and saved
+2025-09-17T13:26:30.7647518Z    _____                               
+2025-09-17T13:26:30.7648902Z   /  _  \ __________ _________   ____  
+2025-09-17T13:26:30.7648985Z  /  /_\  \\___   /  |  \_  __ \_/ __ \ 
+2025-09-17T13:26:30.7649027Z /    |    \/    /|  |  /|  | \/\  ___/ 
+2025-09-17T13:26:30.7649063Z \____|__  /_____ \____/ |__|    \___  >
+2025-09-17T13:26:30.7649107Z         \/      \/                  \/ 
+2025-09-17T13:26:30.7649240Z A P P   S E R V I C E   O N   L I N U X
+2025-09-17T13:26:30.7649281Z 
+2025-09-17T13:26:30.7649318Z Documentation: http://aka.ms/webapp-linux
+2025-09-17T13:26:30.7649359Z NodeJS quickstart: https://aka.ms/node-qs
+2025-09-17T13:26:30.7649395Z NodeJS Version : v18.20.8
+2025-09-17T13:26:30.7649429Z Note: Any data outside '/home' is not persisted
+2025-09-17T13:26:30.7649463Z 
+2025-09-17T13:26:31.1637149Z Starting OpenBSD Secure Shell server: sshd.
+2025-09-17T13:26:31.1694780Z WEBSITES_INCLUDE_CLOUD_CERTS is not set to true.
+2025-09-17T13:26:31.1936792Z Updating certificates in /etc/ssl/certs...
+2025-09-17T13:26:33.2047745Z 4 added, 0 removed; done.
+2025-09-17T13:26:33.2048849Z Running hooks in /etc/ca-certificates/update.d...
+2025-09-17T13:26:33.2074617Z done.
+2025-09-17T13:26:33.2127499Z CA certificates copied and updated successfully.
+2025-09-17T13:26:33.2552063Z Starting periodic command scheduler: cron.
+2025-09-17T13:26:33.2643654Z Found build manifest file at '/home/site/wwwroot/oryx-manifest.toml'. Deserializing it...
+2025-09-17T13:26:33.2717668Z Could not find operation ID in manifest. Generating an operation id...
+2025-09-17T13:26:33.2719477Z Build Operation ID: e810bf38-6124-4a0b-b517-b898361c0d38
+2025-09-17T13:26:33.7127558Z Environment Variables for Application Insight's IPA Codeless Configuration exists..
+2025-09-17T13:26:33.8168499Z Writing output script to '/opt/startup/startup.sh'
+2025-09-17T13:26:33.9269725Z Running #!/bin/sh
+2025-09-17T13:26:33.9270709Z 
+2025-09-17T13:26:33.9270762Z # Enter the source directory to make sure the script runs where the user expects
+2025-09-17T13:26:33.9270817Z cd "/home/site/wwwroot"
+2025-09-17T13:26:33.9271008Z 
+2025-09-17T13:26:33.9271052Z export NODE_PATH=/usr/local/lib/node_modules:$NODE_PATH
+2025-09-17T13:26:33.9271086Z if [ -z "$PORT" ]; then
+2025-09-17T13:26:33.9271120Z 		export PORT=8080
+2025-09-17T13:26:33.9271152Z fi
+2025-09-17T13:26:33.9271182Z 
+2025-09-17T13:26:33.9271215Z echo Found tar.gz based node_modules.
+2025-09-17T13:26:33.9271259Z extractionCommand="tar -xzf node_modules.tar.gz -C /node_modules"
+2025-09-17T13:26:33.9271297Z echo "Removing existing modules directory from root..."
+2025-09-17T13:26:33.9271332Z rm -fr /node_modules
+2025-09-17T13:26:33.9271554Z mkdir -p /node_modules
+2025-09-17T13:26:33.9271591Z echo Extracting modules...
+2025-09-17T13:26:33.9271624Z $extractionCommand
+2025-09-17T13:26:33.9271677Z export NODE_PATH="/node_modules":$NODE_PATH
+2025-09-17T13:26:33.9271713Z export PATH=/node_modules/.bin:$PATH
+2025-09-17T13:26:33.9271746Z if [ -d node_modules ]; then
+2025-09-17T13:26:33.9271780Z     mv -f node_modules _del_node_modules || true
+2025-09-17T13:26:33.9271934Z fi
+2025-09-17T13:26:33.9271967Z 
+2025-09-17T13:26:33.9271999Z if [ -d /node_modules ]; then
+2025-09-17T13:26:33.9272032Z     ln -sfn /node_modules ./node_modules 
+2025-09-17T13:26:33.9272064Z fi
+2025-09-17T13:26:33.9272094Z 
+2025-09-17T13:26:33.9272126Z echo "Done."
+2025-09-17T13:26:33.9272223Z PATH="$PATH:/home/site/wwwroot" node server.js
+2025-09-17T13:26:33.9272259Z Found tar.gz based node_modules.
+2025-09-17T13:26:33.9272293Z Removing existing modules directory from root...
+2025-09-17T13:26:33.9331623Z Extracting modules...

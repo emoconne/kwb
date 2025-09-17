@@ -311,7 +311,7 @@ export const ChatAPIWeb = async (props: PromptGPTProps) => {
           stream: true,
         });
 
-        const stream = OpenAIStream(completion, {
+        const stream = OpenAIStream(completion as any, {
           onStart: async () => {
             console.log('OpenAI stream started for fallback search results');
           },

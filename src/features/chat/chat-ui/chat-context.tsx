@@ -82,6 +82,13 @@ export const ChatProvider: FC<Prop> = (props) => {
   // Citation Panel state
   const [isCitationPanelOpen, setIsCitationPanelOpen] = useState(false);
   const [selectedCitation, setSelectedCitation] = useState<CitationItem | null>(null);
+  
+  // Citation Panel状態の変更を監視
+  React.useEffect(() => {
+    console.log('=== DEBUG: Citation Panel State Changed ===');
+    console.log('isCitationPanelOpen:', isCitationPanelOpen);
+    console.log('selectedCitation:', selectedCitation?.id, selectedCitation?.metadata);
+  }, [isCitationPanelOpen, selectedCitation]);
   // Web Search Debug Panel state
   const [isWebSearchDebugPanelOpen, setIsWebSearchDebugPanelOpen] = useState(false);
   const [webSearchDebugInfo, setWebSearchDebugInfo] = useState<WebSearchDebugInfo | null>(null);

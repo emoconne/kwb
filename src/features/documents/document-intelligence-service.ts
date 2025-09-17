@@ -340,3 +340,181 @@ export const processDocumentAsync = async (
     console.error('Document processing failed but continuing:', error);
   }
 };
+
+// BLOB URLからファイルを取得してDocument Intelligenceで処理（SAS URL使用）
+export const processDocumentFromBlobUrl = async (
+  blobUrl: string,
+  fileName: string,
+  containerName: string,
+  blobName: string
+): Promise<string[]> => {
+  try {
+    console.log('=== PROCESS DOCUMENT FROM BLOB URL START ===');
+    console.log('BLOB URL:', blobUrl);
+    console.log('File name:', fileName);
+    console.log('Container name:', containerName);
+    console.log('Blob name:', blobName);
+
+    // SAS URLを生成してファイルにアクセス
+    console.log('Generating SAS URL for blob access...');
+    const sasUrl = await generateSasUrl(containerName, blobName);
+    console.log('SAS URL generated successfully');
+
+    // SAS URLからファイルを取得
+    console.log('Fetching file from SAS URL...');
+    const response = await fetch(sasUrl);
+    
+    if (!response.ok) {
+      throw new Error(`Failed to fetch file from SAS URL: ${response.status} ${response.statusText}`);
+    }
+    
+    const arrayBuffer = await response.arrayBuffer();
+    console.log('File fetched successfully, size:', arrayBuffer.byteLength);
+
+    // ファイル形式のチェック
+    const supportedExtensions = ['.pdf', '.jpg', '.jpeg', '.png', '.bmp', '.tiff', '.tif', '.heic', '.heif', '.webp', '.gif'];
+    const extension = fileName.toLowerCase().substring(fileName.lastIndexOf('.'));
+    if (!supportedExtensions.includes(extension)) {
+      throw new Error(`サポートされていないファイル形式です: ${extension}`);
+    }
+
+    console.log('File format check passed:', extension);
+
+    if (arrayBuffer.byteLength >= MAX_DOCUMENT_SIZE) {
+      throw new Error(`ファイルサイズが大きすぎます。最大${MAX_DOCUMENT_SIZE / 1024 / 1024}MBまでサポートされています。`);
+    }
+
+    const client = await initDocumentIntelligence();
+
+    console.log('Starting Document Intelligence analysis...');
+    const poller = await client.beginAnalyzeDocument(
+      "prebuilt-document",
+      arrayBuffer
+    );
+    
+    console.log('Waiting for analysis to complete...');
+    const { paragraphs } = await poller.pollUntilDone();
+    console.log('Document Intelligence analysis completed');
+
+    const docs: Array<string> = [];
+
+    if (paragraphs) {
+      for (const paragraph of paragraphs) {
+        docs.push(paragraph.content);
+      }
+    }
+
+    console.log(`Extracted ${docs.length} paragraphs from document`);
+    return docs;
+
+  } catch (e) {
+    const error = e as any;
+    console.error('=== PROCESS DOCUMENT FROM BLOB URL ERROR ===');
+    console.error('Error details:', {
+      name: error.name,
+      message: error.message,
+      stack: error.stack,
+      blobUrl: blobUrl,
+      fileName: fileName
+    });
+    throw error;
+  }
+};
+
+// statusがブランクまたはerrorのドキュメントを一括処理
+export const processBlankStatusDocuments = async (): Promise<{
+  processed: number;
+  successful: number;
+  failed: number;
+  errors: Array<{ documentId: string; fileName: string; error: string; previousStatus: string }>;
+}> => {
+  try {
+    console.log('=== PROCESS BLANK OR ERROR STATUS DOCUMENTS START ===');
+    
+    // statusがブランクまたはerrorのドキュメントを取得
+    const { getDocumentsWithBlankOrErrorStatus } = await import('./cosmos-db-document-service');
+    const targetDocuments = await getDocumentsWithBlankOrErrorStatus();
+    
+    console.log('Found blank or error status documents:', targetDocuments.length);
+    
+    if (targetDocuments.length === 0) {
+      return {
+        processed: 0,
+        successful: 0,
+        failed: 0,
+        errors: []
+      };
+    }
+
+    const results = {
+      processed: targetDocuments.length,
+      successful: 0,
+      failed: 0,
+      errors: [] as Array<{ documentId: string; fileName: string; error: string; previousStatus: string }>
+    };
+
+    // 各ドキュメントを順次処理
+    for (const document of targetDocuments) {
+      try {
+        console.log(`Processing document: ${document.id} - ${document.fileName}`);
+        console.log(`Previous status: ${document.status || 'blank'}`);
+        
+        // ステータスを処理中に更新
+        await updateDocument(document.id, { status: 'processing' });
+        
+        // BLOB URLからファイルを取得してDocument Intelligenceで処理
+        const extractedTexts = await processDocumentFromBlobUrl(
+          document.blobUrl,
+          document.fileName,
+          document.containerName || 'default',
+          document.blobName
+        );
+        
+        if (extractedTexts.length === 0) {
+          throw new Error('Document Intelligenceでテキストが抽出されませんでした');
+        }
+
+        // AI Searchにインデックス化（departmentNameを使用）
+        await indexDocumentToSearch(
+          document.fileName,
+          extractedTexts,
+          document.id,
+          document.departmentName || '不明な部門'
+        );
+        
+        console.log(`Successfully processed document: ${document.id}`);
+        results.successful++;
+        
+      } catch (error) {
+        console.error(`Failed to process document: ${document.id}`, error);
+        
+        // エラー情報を記録
+        results.errors.push({
+          documentId: document.id,
+          fileName: document.fileName,
+          error: error instanceof Error ? error.message : String(error),
+          previousStatus: document.status || 'blank'
+        });
+        
+        // ステータスをエラーに更新
+        try {
+          await updateDocument(document.id, { status: 'error' });
+        } catch (updateError) {
+          console.error('Failed to update document status to error:', updateError);
+        }
+        
+        results.failed++;
+      }
+    }
+
+    console.log('=== PROCESS BLANK STATUS DOCUMENTS COMPLETED ===');
+    console.log('Results:', results);
+    
+    return results;
+
+  } catch (error) {
+    console.error('=== PROCESS BLANK STATUS DOCUMENTS ERROR ===');
+    console.error('Error details:', error);
+    throw error;
+  }
+};

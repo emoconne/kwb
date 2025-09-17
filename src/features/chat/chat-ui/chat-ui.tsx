@@ -67,6 +67,13 @@ export const ChatUI: FC<Prop> = () => {
   // 参考資料ボタンを表示するチャットタイプ
   const showCitationPanel = chatType === 'doc' || chatType === 'data';
   
+  // デバッグログ：Citation Panel表示条件の確認
+  console.log('=== DEBUG: Citation Panel Display Check ===');
+  console.log('Chat Type:', chatType);
+  console.log('Show Citation Panel:', showCitationPanel);
+  console.log('Is Citation Panel Open:', isCitationPanelOpen);
+  console.log('Selected Citation:', selectedCitation);
+  
   const handleChange = (event: React.SyntheticEvent, newValue: number) => {
     setValue(newValue);
   };

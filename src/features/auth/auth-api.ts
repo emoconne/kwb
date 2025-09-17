@@ -1,15 +1,18 @@
+
 import NextAuth, { NextAuthOptions } from "next-auth";
 import { Provider } from "next-auth/providers";
 import AzureADProvider from "next-auth/providers/azure-ad";
 import GitHubProvider from "next-auth/providers/github";
 import CredentialsProvider from "next-auth/providers/credentials";
 import { hashValue } from "./helpers";
-import { getUserProfile, getUserProfileByEmail, isUserAdmin, isUserAdminByEmail } from "@/features/settings/user-settings-service";
 
 const configureIdentityProvider = () => {
   const providers: Array<Provider> = [];
 
   const adminEmails = process.env.ADMIN_EMAIL_ADDRESS?.split(",").map(email => email.toLowerCase().trim());
+  
+  // FAQ表示設定を取得
+  const showFAQ = process.env.NEXT_PUBLIC_FAQ === 'True';
 
   if (process.env.AUTH_GITHUB_ID && process.env.AUTH_GITHUB_SECRET) {
     providers.push(
@@ -19,7 +22,8 @@ const configureIdentityProvider = () => {
         async profile(profile) {
           const newProfile = {
             ...profile,
-            isAdmin: adminEmails?.includes(profile.email.toLowerCase())
+            isAdmin: adminEmails?.includes(profile.email.toLowerCase()),
+            showFAQ: showFAQ // FAQの表示設定を追加
           }
           return newProfile;
         }
@@ -44,7 +48,8 @@ const configureIdentityProvider = () => {
             // throws error without this - unsure of the root cause (https://stackoverflow.com/questions/76244244/profile-id-is-missing-in-google-oauth-profile-response-nextauth)
             id: profile.sub,
             //isAdmin: adminEmails?.includes(profile.email.toLowerCase()) || adminEmails?.includes(profile.preferred_username.toLowerCase())
-            isAdmin: adminEmails?.includes(profile.preferred_username.toLowerCase())
+            isAdmin: adminEmails?.includes(profile.preferred_username.toLowerCase()),
+            showFAQ: showFAQ // FAQの表示設定を追加
           }
           return newProfile;
         }
@@ -52,11 +57,11 @@ const configureIdentityProvider = () => {
     );
   }
 
-  // If NEXT_PUBLIC_DEBUG is true, add a basic credential provider option as well
+  // If we're in local dev, add a basic credential provider option as well
   // (Useful when a dev doesn't have access to create app registration in their tenant)
   // This currently takes any username and makes a user with it, ignores password
   // Refer to: https://next-auth.js.org/configuration/providers/credentials
-  if (process.env.NEXT_PUBLIC_DEBUG === "true") {
+  if (process.env.NODE_ENV === "development") {
     providers.push(
       CredentialsProvider({
         name: "localdev",
@@ -75,6 +80,7 @@ const configureIdentityProvider = () => {
               name: username,
               email: email,
               isAdmin: true,
+              showFAQ: showFAQ, // FAQの表示設定を追加
               image: "",
             };
           console.log("=== DEV USER LOGGED IN:\n", JSON.stringify(user, null, 2));
@@ -86,75 +92,80 @@ const configureIdentityProvider = () => {
 
   return providers;
 };
+/*
+export const options: NextAuthOptions = {
+  secret: process.env.NEXTAUTH_SECRET,
+  providers: [...configureIdentityProvider()],
+  callbacks: {
+    async jwt({token, user, account, profile, isNewUser, session}) {
+      if (user) {
+        // ユーザー情報からトークンに値をコピー
+        if (user.isAdmin) {
+          token.isAdmin = user.isAdmin;
+        }
+        // FAQの表示設定をトークンに追加
+        token.showFAQ = user.showFAQ;
+      }
+      return token;
+    },
+    async session({session, token, user }) {
+      // トークンからセッションにユーザー情報をコピー
+      session.user.isAdmin = token.isAdmin as string;
+      // FAQの表示設定をセッションに追加
+      session.user.showFAQ = token.showFAQ as boolean;
+      return session;
+    }
+  },
+  session: {
+    strategy: "jwt",
+  },
+ 
+  cookies: {
+    sessionToken: {
+      name: `__Secure-next-auth.session-token`,
+      options: {
+        path: '/',
+        httpOnly: true,
+        sameSite: 'none',
+        secure: true,
+      },
+    },
+    callbackUrl: {
+      name: `__Secure-next-auth.callback-url`,
+      options: {
+        path: '/',
+        sameSite: 'none',
+        secure: true,
+      },
+    },
+    csrfToken: {
+      name: `__Host-next-auth.csrf-token`,
+      options: {
+        path: '/',
+        httpOnly: true,
+        sameSite: 'none',
+        secure: true,
+      },
+    },
+  },
+
+  useSecureCookies: process.env.NODE_ENV === "production",
+};
+export const handlers = NextAuth(options);
+*/
 
 export const options: NextAuthOptions = {
   secret: process.env.NEXTAUTH_SECRET,
   providers: [...configureIdentityProvider()],
   callbacks: {
     async jwt({token, user, account, profile, isNewUser, session}) {
-      // ADMIN_EMAIL_ADDRESSに登録されているメールアドレスに無条件でadmin権限を与える
-      const adminEmails = process.env.ADMIN_EMAIL_ADDRESS?.split(",").map(email => email.toLowerCase().trim());
-      const isAdminFromEmail = token.email && adminEmails?.includes(token.email.toLowerCase());
-      
       if (user?.isAdmin) {
-        token.isAdmin = user.isAdmin;
+       token.isAdmin = user.isAdmin
       }
-      
-      // ユーザーIDが設定されている場合、CosmosDBからユーザー情報を取得
-      // 一時的にコメントアウト - 繰り返し処理を停止
-      /*
-      if (token.sub) {
-        try {
-          // まずユーザーIDで検索
-          let userProfile = await getUserProfile(token.sub);
-          let isAdminFromSettings = await isUserAdmin(token.sub);
-          
-          // ユーザーIDで見つからない場合、メールアドレスで検索
-          if (!userProfile && token.email) {
-            console.log('ユーザーIDで見つからないため、メールアドレスで検索:', token.email);
-            userProfile = await getUserProfileByEmail(token.email);
-            isAdminFromSettings = await isUserAdminByEmail(token.email);
-          }
-          
-          if (userProfile) {
-            token.userType = userProfile.userType;
-            token.adminRole = userProfile.adminRole;
-            token.displayName = userProfile.displayName;
-            token.department = userProfile.department;
-            token.jobTitle = userProfile.jobTitle;
-          }
-          
-          // 管理者権限をチェック（ADMIN_EMAIL_ADDRESSを最優先、次にCosmosDBのadminRole）
-          token.isAdmin = isAdminFromEmail || user?.isAdmin || isAdminFromSettings;
-          
-          console.log('認証デバッグ:', {
-            tokenSub: token.sub,
-            tokenEmail: token.email,
-            isAdminFromEmail,
-            userProfile: userProfile ? 'found' : 'not found',
-            isAdminFromSettings,
-            finalIsAdmin: token.isAdmin
-          });
-        } catch (error) {
-          console.error('ユーザープロファイル取得エラー:', error);
-          // エラーが発生した場合はADMIN_EMAIL_ADDRESSの権限のみを使用
-          token.isAdmin = isAdminFromEmail || user?.isAdmin;
-        }
-      }
-      */
-      
-      // 一時的に基本的な管理者権限設定のみを使用
-      token.isAdmin = isAdminFromEmail || user?.isAdmin;
-      
-      return token;
+      return token
     },
-    async session({session, token, user }) {
-      session.user.isAdmin = token.isAdmin as boolean;
-      session.user.userType = token.userType as string;
-      session.user.adminRole = token.adminRole as string;
-      session.user.displayName = token.displayName as string;
-      session.user.department = token.department as string;
-      session.user.jobTitle = token.jobTitle as string;
+    async session({ session, token, user }) {
+      session.user.isAdmin = Boolean(token.isAdmin);
       return session;
     }
   },

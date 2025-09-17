@@ -84,24 +84,42 @@ export const CitationPanel: FC<CitationPanelProps> = ({
                 <CardTitle className="text-lg font-medium text-foreground">
                   {selectedCitation.metadata}
                 </CardTitle>
-                {selectedCitation.deptName && (
-                  <Badge variant="outline" className="mt-1">
-                    {selectedCitation.deptName}
-                  </Badge>
-                )}
+                <div className="flex flex-wrap gap-2 mt-2">
+                  {selectedCitation.deptName && (
+                    <Badge variant="outline">
+                      {selectedCitation.deptName}
+                    </Badge>
+                  )}
+                  {selectedCitation.score && (
+                    <Badge variant="secondary" className="text-xs">
+                      関連度: {(selectedCitation.score * 100).toFixed(1)}%
+                    </Badge>
+                  )}
+                </div>
               </CardHeader>
               <CardContent className="pt-0">
-                <div className="space-y-3">
+                <div className="space-y-4">
                   <div>
-                    <h4 className="text-sm font-medium text-foreground mb-2">概要</h4>
-                    <div className="text-sm text-muted-foreground leading-relaxed">
-                      {selectedCitation.pageContent}
+                    <h4 className="text-sm font-medium text-foreground mb-2">AI Search検索結果（Index pageContent）</h4>
+                    <div className="text-sm text-muted-foreground leading-relaxed bg-muted/50 p-3 rounded-md max-h-64 overflow-y-auto">
+                      <div className="whitespace-pre-wrap break-words">
+                        {selectedCitation.pageContent || 'コンテンツが見つかりません'}
+                      </div>
                     </div>
                   </div>
                   
+                  {selectedCitation.documentId && (
+                    <div>
+                      <h4 className="text-sm font-medium text-foreground mb-2">ドキュメント情報</h4>
+                      <div className="text-xs text-muted-foreground bg-muted/30 p-2 rounded-md font-mono">
+                        ID: {selectedCitation.documentId}
+                      </div>
+                    </div>
+                  )}
+                  
                   {selectedCitation.sasUrl && (
                     <div>
-                      <h4 className="text-sm font-medium text-foreground mb-2">参照URL</h4>
+                      <h4 className="text-sm font-medium text-foreground mb-2">アクション</h4>
                       <Button
                         variant="outline"
                         size="sm"
@@ -113,13 +131,20 @@ export const CitationPanel: FC<CitationPanelProps> = ({
                       </Button>
                     </div>
                   )}
+                  
                 </div>
               </CardContent>
             </Card>
           </div>
         ) : (
           <div className="flex items-center justify-center h-full">
-            <div className="text-muted-foreground">参考資料を選択してください</div>
+            <div className="text-center space-y-2">
+              <FileText className="h-12 w-12 text-muted-foreground mx-auto" />
+              <div className="text-muted-foreground">参考資料を選択してください</div>
+              <div className="text-xs text-muted-foreground">
+                チャット内のCitationボタンをクリックして詳細を表示
+              </div>
+            </div>
           </div>
         )}
       </div>

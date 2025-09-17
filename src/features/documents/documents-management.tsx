@@ -67,6 +67,41 @@ interface DocumentStats {
 }
 
 export const DocumentsManagement = () => {
+  // スクロールコンテナのスタイルクラス（確実にスクロールが発生する高さ）
+  const scrollContainerClasses = "h-48 max-h-48 overflow-y-auto border rounded-md";
+
+  // useEffectでスクロールバーのスタイルを動的に追加
+  useEffect(() => {
+    const styleId = 'document-scroll-styles';
+    if (!document.getElementById(styleId)) {
+      const style = document.createElement('style');
+      style.id = styleId;
+      style.textContent = `
+        .document-scroll-container::-webkit-scrollbar {
+          width: 8px;
+        }
+        .document-scroll-container::-webkit-scrollbar-track {
+          background: #f1f1f1;
+          border-radius: 4px;
+        }
+        .document-scroll-container::-webkit-scrollbar-thumb {
+          background: #c1c1c1;
+          border-radius: 4px;
+        }
+        .document-scroll-container::-webkit-scrollbar-thumb:hover {
+          background: #a8a8a8;
+        }
+      `;
+      document.head.appendChild(style);
+    }
+    
+    return () => {
+      const existingStyle = document.getElementById(styleId);
+      if (existingStyle) {
+        existingStyle.remove();
+      }
+    };
+  }, []);
   const { data: session } = useSession();
   const { showSuccess, showError } = useGlobalMessageContext();
   const [documents, setDocuments] = useState<Document[]>([]);
@@ -105,6 +140,34 @@ export const DocumentsManagement = () => {
       setIsLoading(false);
     }
   };
+
+  // statusがブランクまたはerrorのドキュメントを処理
+  const processBlankOrErrorStatusDocuments = async () => {
+    try {
+      console.log('Starting blank or error status documents processing...');
+      
+      // バックグラウンド処理を開始
+      const response = await fetch('/api/documents/process-blank-status', {
+        method: 'POST'
+      });
+      
+      if (response.ok) {
+        const data = await response.json();
+        showSuccess({
+          title: 'バックグラウンド処理開始',
+          description: 'statusがブランクまたはerrorのドキュメントの処理をバックグラウンドで開始しました。処理完了後にドキュメント一覧を更新してください。'
+        });
+        console.log('Background processing started:', data);
+      } else {
+        const errorData = await response.json();
+        showError(`処理の開始に失敗しました: ${errorData.error}`);
+      }
+    } catch (error) {
+      console.error('Error starting blank or error status processing:', error);
+      showError('バックグラウンド処理の開始中にエラーが発生しました');
+    }
+  };
+
 
   // ステータスのみを更新（軽量版）
   const updateDocumentStatuses = async () => {
@@ -670,28 +733,48 @@ export const DocumentsManagement = () => {
                   </p>
                 </div>
               ) : (
-                <Table>
-                  <TableHeader>
-                    <TableRow>
-                      <TableHead>ファイル名</TableHead>
-                      <TableHead>部門</TableHead>
-                      <TableHead>サイズ</TableHead>
-                      <TableHead>アップロード日時</TableHead>
-                      <TableHead>ステータス</TableHead>
-                      <TableHead className="text-right">操作</TableHead>
-                    </TableRow>
-                  </TableHeader>
-                  <TableBody>
-                    {filteredDocuments.map((document) => (
-                      <DocumentRow
-                        key={document.id}
-                        document={document}
-                        onDownload={handleDownloadDocument}
-                        onDelete={handleDeleteDocument}
-                      />
-                    ))}
-                  </TableBody>
-                </Table>
+                <div className="w-full">
+                  {/* テーブルヘッダー（固定） */}
+                  <div className="border rounded-t-md bg-muted/50">
+                    <Table>
+                      <TableHeader>
+                        <TableRow>
+                          <TableHead>ファイル名</TableHead>
+                          <TableHead>部門</TableHead>
+                          <TableHead>サイズ</TableHead>
+                          <TableHead>アップロード日時</TableHead>
+                          <TableHead>ステータス</TableHead>
+                          <TableHead className="text-right">操作</TableHead>
+                        </TableRow>
+                      </TableHeader>
+                    </Table>
+                  </div>
+                  
+                  {/* スクロール可能なテーブルボディ */}
+                  <div 
+                    className={`document-scroll-container ${scrollContainerClasses} border-t-0 rounded-t-none rounded-b-md`}
+                  >
+                    <Table>
+                      <TableBody>
+                        {filteredDocuments.map((document) => (
+                          <DocumentRow
+                            key={document.id}
+                            document={document}
+                            onDownload={handleDownloadDocument}
+                            onDelete={handleDeleteDocument}
+                          />
+                        ))}
+                      </TableBody>
+                    </Table>
+                  </div>
+                  
+                  {/* スクロールインジケーター */}
+                  {filteredDocuments.length > 3 && (
+                    <div className="text-xs text-muted-foreground text-center py-2 bg-muted/30 rounded-b-md">
+                      {filteredDocuments.length}件のドキュメント（スクロールして表示）
+                    </div>
+                  )}
+                </div>
               )}
             </CardContent>
           </Card>

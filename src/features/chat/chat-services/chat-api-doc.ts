@@ -2,12 +2,19 @@ import { userHashedId } from "@/features/auth/helpers";
 import { OpenAIInstance } from "@/features/common/openai";
 import { AI_NAME } from "@/features/theme/customise";
 import { OpenAIStream, StreamingTextResponse } from "ai";
-import { similaritySearchVectorWithScore } from "./azure-cog-search/azure-cog-vector-store";
+import { similaritySearchVectorWithScore, ensureIndexIsCreated, AzureCogDocumentIndex } from "./azure-cog-search/azure-cog-vector-store";
 import { initAndGuardChatSession } from "./chat-thread-service";
 import { CosmosDBChatMessageHistory } from "./cosmosdb/cosmosdb";
 import { PromptGPTProps } from "./models";
 import { getDepartment } from "@/features/documents/cosmos-db-dept-service";
 import { CitationItem } from "@/features/chat/chat-ui/citation-panel";
+
+// 検索結果の型定義
+interface DocumentSearchModel {
+  '@search.score': number;
+}
+
+type SearchResultDocument = AzureCogDocumentIndex & DocumentSearchModel;
 
 const SYSTEM_PROMPT = `あなたは ${AI_NAME} です。企業内ドキュメント検索アシスタントとして、以下の指針に従って対応します：
 
@@ -68,13 +75,30 @@ export const ChatAPIDoc = async (props: PromptGPTProps) => {
   console.log('Current user message:', lastHumanMessage.content);
   console.log('Chat thread ID:', id);
 
-  const relevantDocuments = await findRelevantDocuments(
-    lastHumanMessage.content,
-    id,
-    props.selectedDepartmentId
-  );
-
-  console.log('Relevant documents found:', relevantDocuments.length);
+  let relevantDocuments: SearchResultDocument[] = [];
+  try {
+    console.log('=== DEBUG: Starting findRelevantDocuments ===');
+    relevantDocuments = await findRelevantDocuments(
+      lastHumanMessage.content,
+      id,
+      props.selectedDepartmentId
+    );
+    console.log('Relevant documents found:', relevantDocuments.length);
+  } catch (searchError) {
+    console.error('=== ERROR: findRelevantDocuments failed ===');
+    console.error('Search error details:', {
+      error: searchError instanceof Error ? {
+        name: searchError.name,
+        message: searchError.message,
+        stack: searchError.stack
+      } : searchError,
+      query: lastHumanMessage.content,
+      chatThreadId: id,
+      selectedDepartmentId: props.selectedDepartmentId
+    });
+    // エラーが発生した場合は空の配列を返す
+    relevantDocuments = [];
+  }
   console.log('=== DEBUG: Search Results Details ===');
   relevantDocuments.forEach((doc, index) => {
     console.log(`Document ${index}:`, {
@@ -93,6 +117,53 @@ export const ChatAPIDoc = async (props: PromptGPTProps) => {
     sasUrl: relevantDocuments[0].sasUrl
   } : 'No documents found');
 
+  // 検索結果が空の場合の処理
+  if (relevantDocuments.length === 0) {
+    console.log('=== DEBUG: No relevant documents found ===');
+    console.log('=== DEBUG: Providing suggestions for no results ===');
+    
+    // より詳細な情報を含むメッセージ
+    let noResultMessage = `申し訳ございませんが、「${lastHumanMessage.content}」に関する情報は社内ドキュメントから見つかりませんでした。\n\n`;
+    
+    // 検索のヒントを追加
+    noResultMessage += `以下をお試しください：\n`;
+    noResultMessage += `• より一般的なキーワードで検索\n`;
+    noResultMessage += `• 異なる表現や同義語を使用\n`;
+    noResultMessage += `• 部門を「すべて」に変更して検索範囲を拡大\n\n`;
+    
+    // デバッグ情報（開発環境のみ）
+    if (process.env.NODE_ENV === 'development') {
+      noResultMessage += `\n[デバッグ情報]\n`;
+      noResultMessage += `• 検索クエリ: ${lastHumanMessage.content}\n`;
+      noResultMessage += `• 選択部門ID: ${props.selectedDepartmentId || 'なし'}\n`;
+      noResultMessage += `\n管理者向け詳細確認: /api/admin/check-faq-data`;
+    }
+    
+    // チャット履歴に追加
+    await chatHistory.addMessage({
+      content: lastHumanMessage.content,
+      role: "user",
+    } as any);
+
+    // 空の Citation データを保存
+    const emptyCitationData = JSON.stringify({ citations: [] });
+
+    await chatHistory.addMessage({
+      content: noResultMessage,
+      role: "assistant",
+    } as any, emptyCitationData);
+    
+    // ストリーミングレスポンスを模擬
+    const stream = new ReadableStream({
+      start(controller) {
+        controller.enqueue(new TextEncoder().encode(noResultMessage));
+        controller.close();
+      }
+    });
+
+    return new StreamingTextResponse(stream);
+  }
+
   const context = relevantDocuments
     .map((result, index) => {
       const content = result.pageContent.replace(/(\r\n|\n|\r)/gm, "");
@@ -101,7 +172,12 @@ export const ChatAPIDoc = async (props: PromptGPTProps) => {
     })
     .join("\n------\n");
 
+  console.log('=== DEBUG: Context created ===');
+  console.log('Context length:', context.length);
+  console.log('Context preview:', context.substring(0, 300) + '...');
+
   try {
+    console.log('=== DEBUG: Calling OpenAI API ===');
     const response = await openAI.chat.completions.create({
       messages: [
         {
@@ -153,12 +229,25 @@ export const ChatAPIDoc = async (props: PromptGPTProps) => {
                     role: "user",
                   } as any);
 
+                  // Citation データを JSON 形式で保存
+                  const citationData = JSON.stringify({
+                    citations: relevantDocuments.map(doc => ({
+                      id: doc.id,
+                      metadata: doc.fileName || doc.metadata || '不明なファイル',
+                      pageContent: doc.pageContent || '',
+                      sasUrl: doc.sasUrl,
+                      score: doc['@search.score'],
+                      deptName: doc.deptName,
+                      documentId: doc.chatThreadId,
+                    }))
+                  });
+
                   await chatHistory.addMessage(
                     {
                       content: processedCompletion,
                       role: "assistant",
                     } as any,
-                    context
+                    citationData
                   );
                   console.log('Messages added to chat history successfully');
                 } catch (error) {
@@ -183,82 +272,172 @@ export const ChatAPIDoc = async (props: PromptGPTProps) => {
   }
 };
 
-const findRelevantDocuments = async (query: string, chatThreadId: string, selectedDepartmentId?: string) => {
+const findRelevantDocuments = async (query: string, chatThreadId: string, selectedDepartmentId?: string): Promise<SearchResultDocument[]> => {
   console.log('=== DEBUG: findRelevantDocuments called ===');
   console.log('Query:', query);
   console.log('ChatThreadId:', chatThreadId);
   console.log('SelectedDepartmentId:', selectedDepartmentId);
   
+  // 環境変数の確認
+  console.log('=== DEBUG: Azure Search Environment Variables ===');
+  console.log('AZURE_SEARCH_ENDPOINT:', process.env.AZURE_SEARCH_ENDPOINT ? 'SET' : 'NOT_SET');
+  console.log('AZURE_SEARCH_INDEX_NAME:', process.env.AZURE_SEARCH_INDEX_NAME || 'NOT_SET');
+  console.log('AZURE_SEARCH_API_KEY:', process.env.AZURE_SEARCH_API_KEY ? 'SET' : 'NOT_SET');
+  console.log('AZURE_SEARCH_KEY:', process.env.AZURE_SEARCH_KEY ? 'SET' : 'NOT_SET');
+  console.log('AZURE_SEARCH_API_VERSION:', process.env.AZURE_SEARCH_API_VERSION || 'NOT_SET');
+  
   let filter = `chatType eq 'doc'`;
   
-  // 部門が選択されている場合は、その部門のドキュメントのみを検索
-  if (selectedDepartmentId && selectedDepartmentId.trim() !== "" && selectedDepartmentId !== "all") {
-    // 部門IDから部門名を取得
-    const department = await getDepartment(selectedDepartmentId);
-    if (department) {
-      filter += ` and deptName eq '${department.name}'`;
-      console.log('Filtering by department:', department.name);
+  try {
+    // 部門が選択されている場合は、その部門のドキュメントのみを検索
+    if (selectedDepartmentId && selectedDepartmentId.trim() !== "" && selectedDepartmentId !== "all") {
+      console.log('=== DEBUG: Getting department information ===');
+      // 部門IDから部門名を取得
+      const department = await getDepartment(selectedDepartmentId);
+      if (department) {
+        filter += ` and deptName eq '${department.name}'`;
+        console.log('Filtering by department:', department.name);
+      } else {
+        console.log('Department not found for ID:', selectedDepartmentId);
+      }
     } else {
-      console.log('Department not found for ID:', selectedDepartmentId);
+      console.log('No department selected or "all" selected, searching all departments');
     }
-  } else {
-    console.log('No department selected or "all" selected, searching all departments');
+    
+    console.log('AI Search filter:', filter);
+  } catch (deptError) {
+    console.error('=== ERROR: Department lookup failed ===');
+    console.error('Department error:', deptError);
+    console.log('Continuing with basic filter (no department filtering)');
   }
   
-  console.log('AI Search filter:', filter);
-  
-  // デバッグ用：まずフィルターなしで全ドキュメントを確認
-  console.log('=== DEBUG: Checking all documents in AI Search ===');
-  const allDocuments = await similaritySearchVectorWithScore(query, 10, {
-    filter: `chatType eq 'doc'`,
-  });
-  console.log('All documents found:', allDocuments.length);
-  allDocuments.forEach((doc, index) => {
-    console.log(`Document ${index}:`, {
-      id: doc.id,
-      chatType: doc.chatType,
-      deptName: doc.deptName,
-      metadata: doc.metadata,
-      fileName: doc.fileName, // fileNameもログ出力
-      pageContentLength: doc.pageContent?.length || 0
+  try {
+    // インデックスの存在確認と作成
+    console.log('=== DEBUG: Ensuring Azure Search index exists ===');
+    try {
+      await ensureIndexIsCreated();
+      console.log('Azure Search index verified/created successfully');
+    } catch (indexError) {
+      console.error('Failed to ensure index exists:', indexError);
+      // インデックス作成に失敗した場合でも検索を試行
+    }
+    
+    // デバッグ用：まずフィルターなしで全ドキュメントを確認
+    console.log('=== DEBUG: Checking all documents in AI Search (no filter) ===');
+    const allDocumentsNoFilter = await similaritySearchVectorWithScore(query, 10);
+    console.log('All documents (no filter) found:', allDocumentsNoFilter.length);
+    allDocumentsNoFilter.slice(0, 3).forEach((doc, index) => {
+      console.log(`Document ${index} (no filter):`, {
+        id: doc.id,
+        chatType: doc.chatType,
+        deptName: doc.deptName,
+        metadata: doc.metadata,
+        fileName: doc.fileName,
+        pageContentLength: doc.pageContent?.length || 0,
+        score: doc['@search.score']
+      });
     });
-  });
-  
-  // さらに詳細なデバッグ：chatType別の検索
-  console.log('=== DEBUG: Checking documents by chatType ===');
-  const documentTypeDocs = await similaritySearchVectorWithScore(query, 10, {
-    filter: `chatType eq 'document'`,
-  });
-  console.log('Documents with chatType "document":', documentTypeDocs.length);
-  
-  const docTypeDocs = await similaritySearchVectorWithScore(query, 10, {
-    filter: `chatType eq 'doc'`,
-  });
-  console.log('Documents with chatType "doc":', docTypeDocs.length);
-  
-  const relevantDocuments = await similaritySearchVectorWithScore(query, 10, {
-    filter: filter,
-  });
-  
-  console.log('Filtered documents found:', relevantDocuments.length);
-  console.log('=== DEBUG: Final Search Results ===');
-  relevantDocuments.forEach((doc, index) => {
-    console.log(`Final Result ${index}:`, {
-      id: doc.id,
-      metadata: doc.metadata,
-      score: doc['@search.score'],
-      chatType: doc.chatType,
-      deptName: doc.deptName
+    
+    // デバッグ用：chatType='doc'フィルターで検索
+    console.log('=== DEBUG: Checking documents with chatType=doc filter ===');
+    const allDocuments = await similaritySearchVectorWithScore(query, 10, {
+      filter: `chatType eq 'doc'`,
     });
-  });
-  return relevantDocuments;
+    console.log('Documents with chatType=doc found:', allDocuments.length);
+    allDocuments.forEach((doc, index) => {
+      console.log(`Document ${index} (chatType=doc):`, {
+        id: doc.id,
+        chatType: doc.chatType,
+        deptName: doc.deptName,
+        metadata: doc.metadata,
+        fileName: doc.fileName,
+        pageContentLength: doc.pageContent?.length || 0,
+        score: doc['@search.score']
+      });
+    });
+    
+    // さらに詳細なデバッグ：chatType別の検索
+    console.log('=== DEBUG: Checking documents by different chatTypes ===');
+    const chatTypesToCheck = ['doc', 'document', 'data', 'simple', 'web'];
+    
+    for (const chatType of chatTypesToCheck) {
+      try {
+        const typeResults = await similaritySearchVectorWithScore(query, 5, {
+          filter: `chatType eq '${chatType}'`,
+        });
+        console.log(`Documents with chatType "${chatType}":`, typeResults.length);
+        if (typeResults.length > 0) {
+          console.log(`Sample document for chatType "${chatType}":`, {
+            id: typeResults[0].id,
+            metadata: typeResults[0].metadata,
+            deptName: typeResults[0].deptName,
+            score: typeResults[0]['@search.score'],
+            pageContentPreview: typeResults[0].pageContent?.substring(0, 100) + '...'
+          });
+        }
+      } catch (error) {
+        console.log(`Error checking chatType "${chatType}":`, error);
+      }
+    }
+    
+    console.log('=== DEBUG: Performing final search ===');
+    const finalSearchResults = await similaritySearchVectorWithScore(query, 10, {
+      filter: filter,
+    });
+    
+    console.log('Filtered documents found:', finalSearchResults.length);
+    console.log('=== DEBUG: Final Search Results ===');
+    finalSearchResults.forEach((doc, index) => {
+      console.log(`Final Result ${index}:`, {
+        id: doc.id,
+        metadata: doc.metadata,
+        score: doc['@search.score'],
+        chatType: doc.chatType,
+        deptName: doc.deptName
+      });
+    });
+    return finalSearchResults;
+  } catch (searchError) {
+    console.error('=== ERROR: AI Search failed ===');
+    console.error('Search error details:', {
+      error: searchError instanceof Error ? {
+        name: searchError.name,
+        message: searchError.message,
+        stack: searchError.stack
+      } : searchError,
+      query: query,
+      filter: filter
+    });
+    
+    // インデックスが見つからない場合の特別な処理
+    if (searchError instanceof Error && searchError.message.includes('was not found')) {
+      console.log('=== DEBUG: Index not found, attempting to create it ===');
+      try {
+        await ensureIndexIsCreated();
+        console.log('Index created successfully, retrying search...');
+        
+        // インデックス作成後に再度検索を試行
+        const retryDocuments = await similaritySearchVectorWithScore(query, 10, {
+          filter: filter,
+        });
+        
+        console.log('Retry search results:', retryDocuments.length);
+        return retryDocuments;
+      } catch (retryError) {
+        console.error('Failed to create index or retry search:', retryError);
+      }
+    }
+    
+    // エラーが発生した場合は空の配列を返す
+    return [];
+  }
 };
 
 // AI Searchの結果をCitationItemに変換
-const convertToCitationItems = (documents: any[]): CitationItem[] => {
+const convertToCitationItems = (documents: SearchResultDocument[]): CitationItem[] => {
   return documents.map((doc) => ({
     id: doc.id,
-    metadata: doc.metadata || doc.fileName || '不明なファイル',
+    metadata: doc.fileName || doc.metadata || '不明なファイル',
     pageContent: doc.pageContent || '',
     sasUrl: doc.sasUrl,
     score: doc['@search.score'],

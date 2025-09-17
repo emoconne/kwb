@@ -134,7 +134,7 @@ const findRelevantDocuments = async (query: string, chatThreadId: string) => {
 const convertToCitationItems = (documents: any[]): CitationItem[] => {
   return documents.map((doc) => ({
     id: doc.id,
-    metadata: doc.metadata || doc.fileName || '不明なファイル',
+    metadata: doc.fileName || doc.metadata || '不明なファイル',
     pageContent: doc.pageContent || '',
     sasUrl: doc.sasUrl,
     score: doc['@search.score'],

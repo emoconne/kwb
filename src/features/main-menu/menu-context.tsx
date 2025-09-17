@@ -8,12 +8,12 @@ interface MenuContextProps {
 }
 
 export const MenuContext = createContext<MenuContextProps>({
-  isMenuOpen: true,
+  isMenuOpen: false,
   toggleMenu: () => {},
 });
 
 export const MenuProvider = ({ children }: { children: React.ReactNode }) => {
-  const [isMenuOpen, setIsMenuOpen] = useState(true);
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const toggleMenu = () => {
     setIsMenuOpen(!isMenuOpen);

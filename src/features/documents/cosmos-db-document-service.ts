@@ -163,4 +163,53 @@ export async function updateDocumentCategories(id: string, categories: string[])
 // ドキュメント説明を更新
 export async function updateDocumentDescription(id: string, description: string): Promise<void> {
   await updateSettingsData(id, 'document', { description });
+}
+
+// statusがブランクまたはerrorでdataTypeがdocumentのドキュメントを取得
+export async function getDocumentsWithBlankOrErrorStatus(): Promise<DocumentMetadata[]> {
+  try {
+    console.log('=== Getting documents with blank or error status ===');
+    
+    // dataTypeが"document"のすべてのドキュメントを取得
+    const settingsData = await getSettingsDataByType('document');
+    
+    const targetDocuments = settingsData
+      .filter((item: any) => 
+        item.dataType === "document" && 
+        (
+          item.data.status === "" || 
+          item.data.status === null || 
+          item.data.status === undefined ||
+          item.data.status === "error"
+        ) &&
+        item.data.isDeleted !== true
+      )
+      .map((item: any) => ({
+        id: item.id,
+        ...item.data,
+        createdAt: new Date(item.createdAt),
+        updatedAt: new Date(item.updatedAt)
+      }));
+    
+    console.log('Found documents with blank or error status:', targetDocuments.length);
+    targetDocuments.forEach((doc: DocumentMetadata, index: number) => {
+      console.log(`Document ${index}:`, {
+        id: doc.id,
+        fileName: doc.fileName,
+        departmentName: doc.departmentName,
+        blobUrl: doc.blobUrl,
+        status: doc.status || 'blank'
+      });
+    });
+    
+    return targetDocuments;
+  } catch (error) {
+    console.error('Error getting documents with blank or error status:', error);
+    throw error;
+  }
+}
+
+// 後方互換性のため、古い関数名も保持
+export async function getDocumentsWithBlankStatus(): Promise<DocumentMetadata[]> {
+  return getDocumentsWithBlankOrErrorStatus();
 } 
